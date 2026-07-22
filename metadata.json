@@ -1,0 +1,6 @@
+{
+  "name": "문체위 국정감사 6년",
+  "description": "국정감사 요구–답변–처리결과 사이의 간극을 추적하는 인터랙티브 저널리즘 에세이",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

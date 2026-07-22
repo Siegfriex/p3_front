@@ -1,0 +1,90 @@
+/* Design System Tokens for P3_CULTURE — 문체위 국정감사 6년 */
+
+:root {
+  /* Neutral Color Tokens — Paper & Ink Palette */
+  --color-ink: #0a0a0a;
+  --color-paper: #f2f0ea;
+  --color-surface: #f8f8f5;
+  --color-neutral-900: #1c1c1a;
+  --color-neutral-700: #4e4e4a;
+  --color-neutral-500: #787771;
+  --color-neutral-400: #9c9b95;
+  --color-neutral-200: #d8d5cd;
+  --color-neutral-100: #e8e6e0;
+
+  /* Behavior Family Color Tokens */
+  --color-behavior-red-deep: #8b342f;
+  --color-behavior-red-soft: #d5968e;
+  --color-behavior-red-bg: #f9edea;
+
+  --color-behavior-amber-deep: #9b6b25;
+  --color-behavior-amber-soft: #d8b273;
+  --color-behavior-amber-bg: #faf5e8;
+
+  --color-behavior-blue-deep: #2d6089;
+  --color-behavior-blue-soft: #86abc7;
+  --color-behavior-blue-bg: #eef4f8;
+
+  /* Reported Status Color Tokens */
+  --status-complete: #2d6089;
+  --status-active: #9b6b25;
+  --status-unresolved: #8b342f;
+
+  /* Fluid Typography Scale */
+  --type-display-xl: clamp(3.5rem, 7.5vw, 7.5rem);
+  --type-display-l: clamp(2.25rem, 4.5vw, 4.5rem);
+  --type-heading-1: clamp(1.75rem, 3vw, 3.25rem);
+  --type-heading-2: clamp(1.25rem, 2vw, 2.25rem);
+  --type-body-l: clamp(1.0625rem, 1.25vw, 1.25rem);
+  --type-body-m: 1rem;
+  --type-caption: 0.8125rem;
+  --type-mono: 0.78125rem;
+
+  /* Font Families */
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Noto Serif KR", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+
+  /* Spacing Tokens */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Layout Tokens */
+  --layout-max: 100rem;
+  --layout-gutter: clamp(1rem, 3vw, 3.5rem);
+  --layout-editorial: 45rem;
+
+  /* Border Radii */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-pill: 9999px;
+
+  /* Z-Index Architecture */
+  --z-base: 0;
+  --z-sticky: 20;
+  --z-navigation: 40;
+  --z-overlay: 80;
+  --z-modal: 100;
+  --z-toast: 120;
+
+  /* Motion Tokens */
+  --motion-duration-micro: 150ms;
+  --motion-duration-control: 220ms;
+  --motion-duration-drawer: 300ms;
+  --motion-duration-morph: 550ms;
+  --motion-duration-transition: 800ms;
+
+  --motion-ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-sharp: cubic-bezier(0.4, 0, 0.2, 1);
+}
