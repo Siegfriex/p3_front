@@ -1,11 +1,28 @@
 import React from 'react';
 import { useOverlay } from '../../app/providers/OverlayProvider';
+import { STORY_CHAPTERS } from '../../shared/mock/storyData';
 
 export const FooterRail: React.FC = () => {
   const { currentChapterId } = useOverlay();
 
+  const activeChapterIndex = STORY_CHAPTERS.findIndex(
+    (ch) => ch.id === currentChapterId
+  );
+  const totalChapters = STORY_CHAPTERS.length;
+  const progressPercent = activeChapterIndex >= 0
+    ? Math.min(100, Math.max(0, ((activeChapterIndex + 1) / totalChapters) * 100))
+    : 0;
+
   return (
     <footer className="fixed bottom-0 left-0 right-0 z-[var(--z-sticky)] h-11 bg-[var(--color-ink)] text-[var(--color-paper)] flex items-center justify-between px-4 sm:px-8 border-t border-[var(--color-neutral-900)] text-[10px] font-mono tracking-widest uppercase shadow-xl select-none">
+      {/* Sticky horizontal progress bar tracking current scroll position across total chapters */}
+      <div className="sticky-bottom-progress">
+        <div
+          className="sticky-bottom-progress-bar"
+          style={{ width: `${progressPercent}%` }}
+        />
+      </div>
+
       <div className="flex items-center gap-4 sm:gap-8 truncate">
         <span className="opacity-60 hidden sm:inline">PROJECT: P3_CULTURE</span>
         
@@ -35,3 +52,4 @@ export const FooterRail: React.FC = () => {
     </footer>
   );
 };
+

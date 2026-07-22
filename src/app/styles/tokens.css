@@ -31,6 +31,8 @@
   --status-unresolved: #8b342f;
 
   /* Fluid Typography Scale */
+  --type-display-hero-quote: clamp(3.5rem, 8.2vw, 8.5rem);
+  --type-display-hero-conclusion: clamp(2.25rem, 5.2vw, 5.5rem);
   --type-display-xl: clamp(3.5rem, 7.5vw, 7.5rem);
   --type-display-l: clamp(2.25rem, 4.5vw, 4.5rem);
   --type-heading-1: clamp(1.75rem, 3vw, 3.25rem);
@@ -39,6 +41,7 @@
   --type-body-m: 1rem;
   --type-caption: 0.8125rem;
   --type-mono: 0.78125rem;
+  --type-meta-micro: clamp(0.625rem, 0.7vw, 0.75rem);
 
   /* Font Families */
   --font-sans: "Pretendard Variable", Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -62,6 +65,16 @@
   --layout-max: 100rem;
   --layout-gutter: clamp(1rem, 3vw, 3.5rem);
   --layout-editorial: 45rem;
+  --layout-hero-min-height: 85vh;
+  --layout-hero-image-width: clamp(14rem, 24vw, 22rem);
+  --chapter-prologue-padding-block: clamp(2rem, 5vh, 5rem);
+
+  /* Evidence Band & Line Tokens */
+  --evidence-band-width: 16px;
+  --evidence-line-width: 2.5px;
+  --evidence-line-color: var(--color-behavior-red-deep);
+  --evidence-line-entry-duration: 550ms;
+  --evidence-line-handoff-duration: 600ms;
 
   /* Layout Column Placement Tokens — Magazine Grid Layouts */
   --layout-column-start: 4;

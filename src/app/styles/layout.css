@@ -73,8 +73,8 @@
   --editorial-grid-placement: var(--layout-column-start) / var(--layout-column-end);
 
   /* Horizontal Chapter Layout & Dimension Tokens */
-  --layout-chapter-width: min(calc(100vw - (2 * var(--layout-gutter))), var(--layout-max));
-  --layout-gap: var(--whitespace-ratio-standard, clamp(2.5rem, 5vh, 5rem));
+  --layout-chapter-width: 100vw;
+  --layout-gap: clamp(2rem, 5vw, 5rem);
 
   /* Variable Whitespace Ratio Tokens for Vertical Rhythm Control */
   --space-ratio-dense: var(--whitespace-ratio-dense, clamp(0.75rem, 1.5vh, 1.5rem));
@@ -496,13 +496,15 @@ main.horizontal-flow,
 .horizontal-scroll-stage,
 .horizontal-scroll-container,
 .horizontal-reel {
+  --layout-chapter-width: 100vw;
+  --layout-gap: clamp(2rem, 5vw, 5rem);
   display: flex;
   flex-direction: row;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  gap: var(--layout-gap, var(--stage-editorial-rhythm, var(--whitespace-ratio-standard, clamp(2.5rem, 5vh, 5rem))));
+  gap: var(--layout-gap, clamp(2rem, 5vw, 5rem));
   padding-bottom: var(--space-4);
   scrollbar-width: thin;
   scrollbar-color: var(--color-neutral-300) transparent;
@@ -521,16 +523,19 @@ main.horizontal-flow,
 .main-content-horizontal > .chapter-frame,
 .horizontal-scroll-stage > .chapter-frame,
 .horizontal-scroll-container > .chapter-frame,
+.horizontal-scroll-container .chapter-frame,
+.horizontal-chapter-flow .chapter-frame,
 .main-content.horizontal-flow > section,
 .horizontal-scroll-stage > *,
 .horizontal-scroll-container > *,
 .horizontal-reel > *,
 .horizontal-snap-item {
-  flex: 0 0 auto;
+  flex-shrink: 0;
+  flex-grow: 0;
   box-sizing: border-box;
-  width: var(--layout-chapter-width, min(calc(100vw - (2 * var(--layout-gutter))), var(--layout-max)));
-  min-width: min(85vw, 60rem);
-  max-width: 100%;
+  width: var(--layout-chapter-width, 100vw);
+  min-width: 100vw;
+  max-width: 100vw;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
@@ -591,5 +596,32 @@ main.horizontal-flow,
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Sticky Horizontal Progress Bar at Viewport Bottom for Chapter & Scroll Position Tracking */
+.sticky-bottom-progress,
+.bottom-horizontal-progress,
+.chapter-scroll-progress-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-neutral-800, rgba(0, 0, 0, 0.25));
+  z-index: calc(var(--z-sticky, 40) + 10);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sticky-bottom-progress-bar,
+.bottom-horizontal-progress-fill,
+.chapter-scroll-progress-fill {
+  height: 100%;
+  background-color: var(--color-behavior-red-deep, #8b342f);
+  width: 0%;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: width;
+  box-shadow: 0 0 8px rgba(139, 52, 47, 0.6);
 }
 

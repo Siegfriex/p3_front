@@ -2,6 +2,7 @@ import React from 'react';
 import { PageFrame } from '../../shared/ui/PageFrame';
 import { EditorialColumn } from '../../shared/ui/EditorialColumn';
 import { Badge } from '../../shared/ui/Badge';
+import { FoundationGallery } from '../../shared/ui/FoundationGallery';
 import { FileText, ShieldAlert, CheckCircle2, Info } from 'lucide-react';
 
 export const MethodPage: React.FC = () => {
@@ -63,6 +64,9 @@ export const MethodPage: React.FC = () => {
                 - 'MOCK' 표기 데이터는 추후 실데이터 어댑터 연동을 통해 전면 대체 가능합니다.
               </p>
             </section>
+
+            {/* Section 4: Foundation Gallery */}
+            <FoundationGallery />
           </div>
         </EditorialColumn>
       </PageFrame>

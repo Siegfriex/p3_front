@@ -12,6 +12,34 @@
   font-family: var(--font-mono);
 }
 
+.type-display-hero-quote {
+  font-family: var(--font-serif);
+  font-size: var(--type-display-hero-quote);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  word-break: keep-all;
+}
+
+.type-display-hero-conclusion {
+  font-family: var(--font-serif);
+  font-size: var(--type-display-hero-conclusion);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  color: var(--color-neutral-700);
+  word-break: keep-all;
+}
+
+.type-meta-micro {
+  font-family: var(--font-mono);
+  font-size: var(--type-meta-micro);
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-neutral-700);
+}
+
 .type-display-xl {
   font-family: var(--font-serif);
   font-size: var(--type-display-xl);
