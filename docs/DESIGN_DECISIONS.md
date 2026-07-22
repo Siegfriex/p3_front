@@ -18,6 +18,7 @@
 - Desktop: 12 Columns, max canvas width 100rem, editorial max text width 45rem
 - Tablet: 8 Columns
 - Mobile: 4 Columns
+- Magazine Whitespace & Column Priority: 서사적 호흡에 따라 변화하는 dynamic whitespace tokens (`--whitespace-ratio-expansive`, `wide`, `standard`, `compact`, `dense`), `.offset-left`/`.offset-right` 비대칭 여백, 12컬럼 위치를 유연하게 제어하는 `--layout-column-start`/`--layout-column-end` 토큰, 그리고 `FullBleedStage`와 `EditorialColumn` 간 레이아웃 위계와 비대칭 4~9번 컬럼 배치를 제어하는 precedence 토큰(`--stage-precedence`, `--editorial-precedence`, `--stage-grid-placement`, `--editorial-grid-placement`) 및 오버랩 유틸리티 적용
 - 공통 Layout Primitives: `PageFrame`, `ContentGrid`, `ChapterFrame`, `EditorialColumn`, `FullBleedStage`
 
 ## 4. 오버레이 & 드로어 (Single Architecture)

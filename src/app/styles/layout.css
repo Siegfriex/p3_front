@@ -1,4 +1,4 @@
-/* Grid Primitives & Global Layouts */
+/* Grid Primitives & Global Layouts — Artistic & Editorial Magazine Grid System */
 
 .page-frame {
   width: 100%;
@@ -9,33 +9,163 @@
   padding-right: var(--layout-gutter);
 }
 
+/* 12-Column Base Grid */
 .content-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: var(--space-6);
+  gap: var(--space-8);
   width: 100%;
+}
+
+/* Asymmetrical Magazine Grid (7:5, 8:4, 5:7 Ratios) */
+.content-grid-asymmetric-7-5 {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: var(--space-10);
+  width: 100%;
+  align-items: start;
+}
+
+.content-grid-asymmetric-5-7 {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-10);
+  width: 100%;
+  align-items: start;
+}
+
+.content-grid-asymmetric-8-4 {
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  gap: var(--space-12);
+  width: 100%;
+  align-items: start;
 }
 
 @media (max-width: 1024px) {
   .content-grid {
     grid-template-columns: repeat(8, 1fr);
-    gap: var(--space-4);
+    gap: var(--space-6);
+  }
+
+  .content-grid-asymmetric-7-5,
+  .content-grid-asymmetric-5-7,
+  .content-grid-asymmetric-8-4 {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 }
 
 @media (max-width: 640px) {
   .content-grid {
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-3);
+    gap: var(--space-4);
   }
 }
 
+/* Layout Precedence & Column Boundary Tokens for FullBleedStage & EditorialColumn Interaction */
+:root {
+  --stage-precedence: 1;
+  --editorial-precedence: 10;
+  --stage-grid-placement: 1 / -1;
+  --layout-column-start: 4;
+  --layout-column-end: 10; /* Columns 4 through 9 in 12-column grid */
+  --editorial-grid-placement: var(--layout-column-start) / var(--layout-column-end);
+}
+
+/* Editorial Column & Off-Center Magazine Layouts */
 .editorial-column {
+  --layout-precedence: var(--editorial-precedence);
+  --layout-column-start: 4;
+  --layout-column-end: 10; /* Default editorial column boundary: 4th through 9th columns */
+  z-index: var(--layout-precedence);
+  grid-column-start: var(--layout-column-start);
+  grid-column-end: var(--layout-column-end);
   max-width: var(--layout-editorial);
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Off-center left-aligned editorial block (70% width pushed left with wide right margin) */
+.editorial-column-left {
+  max-width: calc(var(--layout-editorial) * 1.15);
+  margin-left: 0;
+  margin-right: auto;
+  padding-right: var(--space-12);
+}
+
+/* Off-center right-aligned editorial block (pushed right with wide left margin) */
+.editorial-column-right {
+  max-width: calc(var(--layout-editorial) * 1.15);
+  margin-left: auto;
+  margin-right: 0;
+  padding-left: var(--space-12);
+}
+
+/* Asymmetrical Editorial Offset Column */
+.editorial-column-asymmetric {
+  max-width: var(--layout-editorial);
+  margin-left: 8.333%; /* 1-column offset in 12-col grid */
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  .editorial-column-left,
+  .editorial-column-right {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .editorial-column-asymmetric {
+    margin-left: 0;
+  }
+}
+
+/* Asymmetrical Editorial Offset Utilities for Magazine Whitespace Positioning */
+.offset-left {
+  margin-left: calc(-1 * clamp(1rem, 3vw, 4rem));
+  margin-right: auto;
+  max-width: calc(100% + clamp(1rem, 3vw, 4rem));
+}
+
+.offset-right {
+  margin-left: auto;
+  margin-right: calc(-1 * clamp(1rem, 3vw, 4rem));
+  max-width: calc(100% + clamp(1rem, 3vw, 4rem));
+}
+
+/* Grid Column Asymmetrical Offset Modifiers */
+.grid-offset-left {
+  grid-column-start: 1;
+  grid-column-end: 8;
+  margin-left: calc(-1 * clamp(0.5rem, 2vw, 2.5rem));
+}
+
+.grid-offset-right {
+  grid-column-start: 6;
+  grid-column-end: 13;
+  margin-right: calc(-1 * clamp(0.5rem, 2vw, 2.5rem));
+}
+
+@media (max-width: 1024px) {
+  .offset-left,
+  .offset-right {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .grid-offset-left,
+  .grid-offset-right {
+    grid-column-start: auto;
+    grid-column-end: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Chapter Stage & Frames */
 .chapter-frame {
   padding-top: var(--space-20);
   padding-bottom: var(--space-20);
@@ -51,6 +181,8 @@
 }
 
 .full-bleed-stage {
+  --layout-precedence: var(--stage-precedence);
+  z-index: var(--layout-precedence);
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
@@ -58,8 +190,244 @@
   padding-right: var(--layout-gutter);
 }
 
+/* FullBleedStage & EditorialColumn Grid Priority & Placement Rules */
+.content-grid > .full-bleed-stage {
+  grid-column: var(--stage-grid-placement, var(--grid-col-full, 1 / -1));
+  width: auto;
+  margin-left: calc(-1 * var(--layout-gutter));
+  margin-right: calc(-1 * var(--layout-gutter));
+  padding-left: var(--layout-gutter);
+  padding-right: var(--layout-gutter);
+  z-index: var(--stage-precedence);
+}
+
+/* Asymmetric Magazine Layering: Editorial Column placed over FullBleedStage (Columns 4–9) */
+.full-bleed-stage > .editorial-column,
+.content-grid > .editorial-column.editorial-over-stage {
+  grid-column: var(--editorial-grid-placement, var(--grid-col-center-editorial)); /* Columns 4–9 */
+  z-index: var(--editorial-precedence);
+  position: relative;
+}
+
+/* Flexible Grid Column Placement Controlled via --layout-column-start & --layout-column-end Tokens */
+.editorial-col-dynamic,
+.editorial-column-custom,
+.content-grid > .editorial-column {
+  grid-column-start: var(--layout-column-start, auto);
+  grid-column-end: var(--layout-column-end, auto);
+}
+
+/* Specific 12-Column Grid Column Range Placement Utilities for Magazine Layouts */
+.editorial-col-4-9,
+.editorial-column-center-focus {
+  --layout-column-start: 4;
+  --layout-column-end: 10; /* Columns 4 through 9 */
+  grid-column: var(--layout-column-start) / var(--layout-column-end);
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.editorial-col-2-8,
+.editorial-column-left-asymmetric {
+  --layout-column-start: 2;
+  --layout-column-end: 9; /* Columns 2 through 8 */
+  grid-column: var(--layout-column-start) / var(--layout-column-end);
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.editorial-col-5-11,
+.editorial-column-right-asymmetric {
+  --layout-column-start: 5;
+  --layout-column-end: 12; /* Columns 5 through 11 */
+  grid-column: var(--layout-column-start) / var(--layout-column-end);
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.editorial-col-3-10,
+.editorial-column-wide {
+  --layout-column-start: 3;
+  --layout-column-end: 11; /* Columns 3 through 10 */
+  grid-column: var(--layout-column-start) / var(--layout-column-end);
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.editorial-col-5-9,
+.editorial-column-narrow {
+  --layout-column-start: 5;
+  --layout-column-end: 10; /* Columns 5 through 9 */
+  grid-column: var(--layout-column-start) / var(--layout-column-end);
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.editorial-col-1-8 {
+  --layout-column-start: 1;
+  --layout-column-end: 9; /* Columns 1 through 8 */
+  grid-column: var(--layout-column-start) / var(--layout-column-end);
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.editorial-col-6-12 {
+  --layout-column-start: 6;
+  --layout-column-end: 13; /* Columns 6 through 12 */
+  grid-column: var(--layout-column-start) / var(--layout-column-end);
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Priority Overlap & Layering Utilities */
+.stage-priority-background {
+  grid-column: var(--grid-col-full, 1 / -1);
+  grid-row: 1;
+  z-index: var(--z-base);
+}
+
+.editorial-priority-foreground {
+  grid-row: 1;
+  z-index: calc(var(--z-base) + 2);
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .editorial-col-4-9,
+  .editorial-col-2-8,
+  .editorial-col-5-11,
+  .editorial-col-3-10,
+  .editorial-col-5-9,
+  .editorial-col-1-8,
+  .editorial-col-6-12,
+  .editorial-column-center-focus,
+  .editorial-column-left-asymmetric,
+  .editorial-column-right-asymmetric,
+  .editorial-column-wide,
+  .editorial-column-narrow {
+    grid-column: 1 / -1;
+  }
+}
+
 .sticky-stage {
   position: sticky;
   top: 5rem;
   height: calc(100vh - 6rem);
 }
+
+/* Artistic Asymmetrical Content Block Primitives */
+.asymmetric-block-left {
+  border-left: 2px solid var(--color-ink);
+  padding-left: var(--space-6);
+  margin-right: var(--space-12);
+}
+
+.asymmetric-block-right {
+  border-right: 2px solid var(--color-ink);
+  padding-right: var(--space-6);
+  margin-left: var(--space-12);
+}
+
+.magazine-marginalia {
+  font-family: var(--font-mono);
+  font-size: var(--type-caption);
+  color: var(--color-neutral-500);
+  border-top: 1px solid var(--color-neutral-300);
+  padding-top: var(--space-3);
+  margin-top: var(--space-6);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Editorial Dividers & Narrative Whitespace Ratios */
+.whitespace-ratio-expansive {
+  padding-top: var(--whitespace-ratio-expansive);
+  padding-bottom: var(--whitespace-ratio-expansive);
+}
+
+.whitespace-ratio-wide {
+  padding-top: var(--whitespace-ratio-wide);
+  padding-bottom: var(--whitespace-ratio-wide);
+}
+
+.whitespace-ratio-standard {
+  padding-top: var(--whitespace-ratio-standard);
+  padding-bottom: var(--whitespace-ratio-standard);
+}
+
+.whitespace-ratio-compact {
+  padding-top: var(--whitespace-ratio-compact);
+  padding-bottom: var(--whitespace-ratio-compact);
+}
+
+.whitespace-ratio-dense {
+  padding-top: var(--whitespace-ratio-dense);
+  padding-bottom: var(--whitespace-ratio-dense);
+}
+
+/* Narrative Stage Dynamic Whitespace Ratios */
+.story-whitespace-hero {
+  padding-top: var(--whitespace-ratio-expansive);
+  padding-bottom: var(--whitespace-ratio-wide);
+}
+
+.story-whitespace-interlude {
+  padding-top: var(--whitespace-ratio-wide);
+  padding-bottom: var(--whitespace-ratio-expansive);
+}
+
+.story-whitespace-data-cluster {
+  padding-top: var(--whitespace-ratio-compact);
+  padding-bottom: var(--whitespace-ratio-compact);
+}
+
+.story-whitespace-epilogue {
+  padding-top: var(--whitespace-ratio-wide);
+  padding-bottom: var(--whitespace-ratio-expansive);
+}
+
+/* Dynamic Gap Ratios for Magazine Block Arrangements */
+.gap-ratio-expansive {
+  gap: var(--whitespace-ratio-expansive);
+}
+
+.gap-ratio-wide {
+  gap: var(--whitespace-ratio-wide);
+}
+
+.gap-ratio-standard {
+  gap: var(--whitespace-ratio-standard);
+}
+
+.gap-ratio-compact {
+  gap: var(--whitespace-ratio-compact);
+}
+
+.gap-ratio-dense {
+  gap: var(--whitespace-ratio-dense);
+}
+
+.editorial-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-neutral-200);
+  margin-top: var(--whitespace-ratio-standard);
+  margin-bottom: var(--whitespace-ratio-standard);
+  position: relative;
+}
+
+.editorial-divider-accent {
+  width: 48px;
+  height: 2px;
+  background-color: var(--color-behavior-red-deep);
+  margin-top: var(--whitespace-ratio-compact);
+  margin-bottom: var(--whitespace-ratio-compact);
+}
+

@@ -63,6 +63,25 @@
   --layout-gutter: clamp(1rem, 3vw, 3.5rem);
   --layout-editorial: 45rem;
 
+  /* Layout Column Placement Tokens — Magazine Grid Layouts */
+  --layout-column-start: auto;
+  --layout-column-end: auto;
+  --grid-col-full: 1 / -1;
+  --grid-col-center-editorial: 4 / span 6; /* Columns 4–9 */
+  --grid-col-left-editorial: 2 / span 7;   /* Columns 2–8 */
+  --grid-col-right-editorial: 5 / span 7;  /* Columns 5–11 */
+  --grid-col-wide-editorial: 3 / span 8;   /* Columns 3–10 */
+  --grid-col-narrow-editorial: 5 / span 5; /* Columns 5–9 */
+  --grid-col-asymmetric-left: 1 / span 8;  /* Columns 1–8 */
+  --grid-col-asymmetric-right: 6 / span 7; /* Columns 6–12 */
+
+  /* Whitespace Ratio Tokens — Editorial Narrative Rhythm */
+  --whitespace-ratio-expansive: clamp(6rem, 12vh, 12rem);
+  --whitespace-ratio-wide: clamp(4rem, 8vh, 8rem);
+  --whitespace-ratio-standard: clamp(2.5rem, 5vh, 5rem);
+  --whitespace-ratio-compact: clamp(1.5rem, 3vh, 3rem);
+  --whitespace-ratio-dense: clamp(0.75rem, 1.5vh, 1.5rem);
+
   /* Border Radii */
   --radius-none: 0px;
   --radius-sm: 2px;
