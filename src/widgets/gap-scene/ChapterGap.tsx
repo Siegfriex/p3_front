@@ -4,6 +4,7 @@ import { PageFrame } from '../../shared/ui/PageFrame';
 import { ContentGrid } from '../../shared/ui/ContentGrid';
 import { Badge } from '../../shared/ui/Badge';
 import { LineSymbol } from '../../shared/ui/LineSymbol';
+import { SankeyFlowDiagram } from '../../shared/ui/SankeyFlowDiagram';
 import { MOCK_EVIDENCES } from '../../shared/mock/storyData';
 import { useOverlay } from '../../app/providers/OverlayProvider';
 import { ReportedStatus } from '../../shared/types/story';
@@ -57,6 +58,11 @@ export const ChapterGap: React.FC = () => {
             </div>
           ))}
         </ContentGrid>
+
+        {/* Interactive Sankey Horizontal Flow Diagram */}
+        <div className="mb-12">
+          <SankeyFlowDiagram />
+        </div>
 
         {/* Status Lane Filter Bar */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-neutral-200)] p-6 md:p-8">

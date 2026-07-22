@@ -64,8 +64,8 @@
   --layout-editorial: 45rem;
 
   /* Layout Column Placement Tokens — Magazine Grid Layouts */
-  --layout-column-start: auto;
-  --layout-column-end: auto;
+  --layout-column-start: 4;
+  --layout-column-end: 9;
   --grid-col-full: 1 / -1;
   --grid-col-center-editorial: 4 / span 6; /* Columns 4–9 */
   --grid-col-left-editorial: 2 / span 7;   /* Columns 2–8 */

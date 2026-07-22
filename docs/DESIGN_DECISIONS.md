@@ -18,8 +18,8 @@
 - Desktop: 12 Columns, max canvas width 100rem, editorial max text width 45rem
 - Tablet: 8 Columns
 - Mobile: 4 Columns
-- Magazine Whitespace & Column Priority: 서사적 호흡에 따라 변화하는 dynamic whitespace tokens (`--whitespace-ratio-expansive`, `wide`, `standard`, `compact`, `dense`), `.offset-left`/`.offset-right` 비대칭 여백, 12컬럼 위치를 유연하게 제어하는 `--layout-column-start`/`--layout-column-end` 토큰, 그리고 `FullBleedStage`와 `EditorialColumn` 간 레이아웃 위계와 비대칭 4~9번 컬럼 배치를 제어하는 precedence 토큰(`--stage-precedence`, `--editorial-precedence`, `--stage-grid-placement`, `--editorial-grid-placement`) 및 오버랩 유틸리티 적용
-- 공통 Layout Primitives: `PageFrame`, `ContentGrid`, `ChapterFrame`, `EditorialColumn`, `FullBleedStage`
+- Magazine Whitespace & Column Priority: 서사적 호흡에 따라 변화하는 dynamic whitespace tokens (`--whitespace-ratio-expansive`, `wide`, `standard`, `compact`, `dense`), 가변 수직 리듬 토큰(`--space-ratio-tight`, `--space-ratio-loose`, `--space-ratio-normal`, `--space-ratio-expansive`), 수평 챕터 스크롤 규격 토큰(`--layout-chapter-width`, `--layout-gap`), `.offset-left`/`.offset-right` 비대칭 여백, 12컬럼 위치를 유연하게 제어하는 `--layout-column-start`/`--layout-column-end` 토큰, 그리고 `FullBleedStage`와 `EditorialColumn` 간 수직 리듬 및 레이아웃 위계(precedence)와 비대칭 4~9번 컬럼 배치를 제어하는 토큰과 오버랩 유틸리티 적용
+- 공통 Layout Primitives & Horizontal Grid Integration: `PageFrame`, `ContentGrid`, `ChapterFrame`, `EditorialColumn`, `FullBleedStage`, `HorizontalScrollStage` (`.horizontal-reel`, `.horizontal-scroll-container`, `.main-content.horizontal-flow`, `.horizontal-chapter-flow`). 수평 네비게이션 시 `PageFrame`, `ChapterFrame`, `ContentGrid`의 랩(wrap) 방지 및 그리드 무너짐 예방 규칙 적용
 
 ## 4. 오버레이 & 드로어 (Single Architecture)
 - 앱 전체에 하나의 `OverlayProvider` 및 `DrawerRoot`를 두고, Evidence ID나 Case ID 선택 시 오버레이로 슬라이드인

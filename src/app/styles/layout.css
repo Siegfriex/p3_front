@@ -69,15 +69,27 @@
   --editorial-precedence: 10;
   --stage-grid-placement: 1 / -1;
   --layout-column-start: 4;
-  --layout-column-end: 10; /* Columns 4 through 9 in 12-column grid */
+  --layout-column-end: 9; /* Columns 4 through 9 in 12-column grid */
   --editorial-grid-placement: var(--layout-column-start) / var(--layout-column-end);
+
+  /* Horizontal Chapter Layout & Dimension Tokens */
+  --layout-chapter-width: min(calc(100vw - (2 * var(--layout-gutter))), var(--layout-max));
+  --layout-gap: var(--whitespace-ratio-standard, clamp(2.5rem, 5vh, 5rem));
+
+  /* Variable Whitespace Ratio Tokens for Vertical Rhythm Control */
+  --space-ratio-dense: var(--whitespace-ratio-dense, clamp(0.75rem, 1.5vh, 1.5rem));
+  --space-ratio-tight: var(--whitespace-ratio-compact, clamp(1.5rem, 3vh, 3rem));
+  --space-ratio-normal: var(--whitespace-ratio-standard, clamp(2.5rem, 5vh, 5rem));
+  --space-ratio-loose: var(--whitespace-ratio-wide, clamp(4rem, 8vh, 8rem));
+  --space-ratio-expansive: var(--whitespace-ratio-expansive, clamp(6rem, 12vh, 12rem));
+  --stage-editorial-rhythm: var(--space-ratio-normal);
 }
 
 /* Editorial Column & Off-Center Magazine Layouts */
 .editorial-column {
   --layout-precedence: var(--editorial-precedence);
   --layout-column-start: 4;
-  --layout-column-end: 10; /* Default editorial column boundary: 4th through 9th columns */
+  --layout-column-end: 9; /* Default editorial column boundary: 4th through 9th columns */
   z-index: var(--layout-precedence);
   grid-column-start: var(--layout-column-start);
   grid-column-end: var(--layout-column-end);
@@ -207,6 +219,49 @@
   grid-column: var(--editorial-grid-placement, var(--grid-col-center-editorial)); /* Columns 4–9 */
   z-index: var(--editorial-precedence);
   position: relative;
+}
+
+/* Vertical Rhythm Governing Rules between EditorialColumn and FullBleedStage Blocks */
+.editorial-column + .full-bleed-stage,
+.full-bleed-stage + .editorial-column,
+.full-bleed-stage + .full-bleed-stage,
+.editorial-column + .editorial-column {
+  margin-top: var(--stage-editorial-rhythm, var(--space-ratio-normal));
+}
+
+.rhythm-dense,
+.stage-rhythm-dense {
+  --stage-editorial-rhythm: var(--space-ratio-dense);
+  margin-top: var(--space-ratio-dense);
+  margin-bottom: var(--space-ratio-dense);
+}
+
+.rhythm-tight,
+.stage-rhythm-tight {
+  --stage-editorial-rhythm: var(--space-ratio-tight);
+  margin-top: var(--space-ratio-tight);
+  margin-bottom: var(--space-ratio-tight);
+}
+
+.rhythm-normal,
+.stage-rhythm-normal {
+  --stage-editorial-rhythm: var(--space-ratio-normal);
+  margin-top: var(--space-ratio-normal);
+  margin-bottom: var(--space-ratio-normal);
+}
+
+.rhythm-loose,
+.stage-rhythm-loose {
+  --stage-editorial-rhythm: var(--space-ratio-loose);
+  margin-top: var(--space-ratio-loose);
+  margin-bottom: var(--space-ratio-loose);
+}
+
+.rhythm-expansive,
+.stage-rhythm-expansive {
+  --stage-editorial-rhythm: var(--space-ratio-expansive);
+  margin-top: var(--space-ratio-expansive);
+  margin-bottom: var(--space-ratio-expansive);
 }
 
 /* Flexible Grid Column Placement Controlled via --layout-column-start & --layout-column-end Tokens */
@@ -429,5 +484,112 @@
   background-color: var(--color-behavior-red-deep);
   margin-top: var(--whitespace-ratio-compact);
   margin-bottom: var(--whitespace-ratio-compact);
+}
+
+/* Horizontal Scroll Layout Primitives, Main Content Horizontal Container & Horizontal Chapter Flow */
+.main-content.horizontal-flow,
+.main-content-horizontal,
+main.horizontal-flow,
+.horizontal-chapter-flow,
+.chapters-horizontal,
+.horizontal-grid,
+.horizontal-scroll-stage,
+.horizontal-scroll-container,
+.horizontal-reel {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: var(--layout-gap, var(--stage-editorial-rhythm, var(--whitespace-ratio-standard, clamp(2.5rem, 5vh, 5rem))));
+  padding-bottom: var(--space-4);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neutral-300) transparent;
+  width: 100%;
+}
+
+.horizontal-chapter-flow > .page-frame,
+.chapters-horizontal > .page-frame,
+.main-content.horizontal-flow > .page-frame,
+.main-content-horizontal > .page-frame,
+.horizontal-scroll-stage > .page-frame,
+.horizontal-scroll-container > .page-frame,
+.horizontal-chapter-flow > .chapter-frame,
+.chapters-horizontal > .chapter-frame,
+.main-content.horizontal-flow > .chapter-frame,
+.main-content-horizontal > .chapter-frame,
+.horizontal-scroll-stage > .chapter-frame,
+.horizontal-scroll-container > .chapter-frame,
+.main-content.horizontal-flow > section,
+.horizontal-scroll-stage > *,
+.horizontal-scroll-container > *,
+.horizontal-reel > *,
+.horizontal-snap-item {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: var(--layout-chapter-width, min(calc(100vw - (2 * var(--layout-gutter))), var(--layout-max)));
+  min-width: min(85vw, 60rem);
+  max-width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Ensure content grid and internal elements inside horizontal flex containers do not wrap or squeeze unexpectedly */
+.main-content.horizontal-flow .content-grid,
+.horizontal-chapter-flow .content-grid,
+.horizontal-scroll-container .content-grid,
+.horizontal-scroll-stage .content-grid {
+  width: 100%;
+  min-width: 0;
+}
+
+.main-content.horizontal-flow .content-grid > *,
+.horizontal-chapter-flow .content-grid > *,
+.horizontal-scroll-container .content-grid > *,
+.horizontal-scroll-stage .content-grid > * {
+  min-width: 0;
+}
+
+/* Prevent FullBleedStage from breaking horizontal container flow */
+.main-content.horizontal-flow .full-bleed-stage,
+.horizontal-chapter-flow .full-bleed-stage,
+.horizontal-scroll-container .full-bleed-stage,
+.horizontal-scroll-stage .full-bleed-stage {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Horizontal spacing and border adjustments for horizontal flow frames */
+.horizontal-chapter-flow > *,
+.chapters-horizontal > *,
+.main-content.horizontal-flow > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.horizontal-chapter-flow > .chapter-frame,
+.chapters-horizontal > .chapter-frame,
+.main-content.horizontal-flow > .chapter-frame {
+  border-bottom: none;
+  border-right: 1px solid var(--color-neutral-200);
+}
+
+.snap-align-center {
+  scroll-snap-align: center;
+}
+
+.snap-align-start {
+  scroll-snap-align: start;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
