@@ -639,8 +639,13 @@ section[data-chapter-id] {
 .atlas-state-panel[data-compact='true'] .atlas-state-actions { margin-top: 1rem; }
 
 .atlas-node-glyph {
+  pointer-events: none;
   transform-box: fill-box;
   transition: transform var(--motion-duration-micro) var(--motion-ease-editorial), opacity var(--motion-duration-control) var(--motion-ease-editorial);
+}
+
+.atlas-node-label {
+  pointer-events: none;
 }
 
 .atlas-visual-scroll {
@@ -701,7 +706,7 @@ section[data-chapter-id] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .atlas-node-glyph { transition-duration: 60ms; }
+  .atlas-node-glyph { transition-duration: 0ms; }
   .atlas-state-progress { animation: none; transform: scaleX(1); }
 }
 

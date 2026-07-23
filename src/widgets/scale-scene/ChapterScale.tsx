@@ -87,23 +87,25 @@ export const ChapterScale: React.FC = () => {
             >
               <div className="flex w-max items-center gap-1 font-mono text-xs">
                 <button
+                  type="button"
                   onClick={() => setSelectedYear('all')}
-                  className={`min-h-[var(--target-min)] px-2.5 py-1 border transition-colors ${
+                  className={`min-h-11 px-2.5 py-1 border transition-colors ${
                     selectedYear === 'all'
                       ? 'bg-[var(--color-ink)] text-[var(--color-paper)] border-[var(--color-ink)]'
-                      : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
+                      : 'border-[var(--line-strong)] hover:bg-[var(--color-neutral-100)]'
                   }`}
                 >
                   전체 (2018–2023)
                 </button>
                 {yearStats.map((item) => (
                   <button
+                    type="button"
                     key={item.year}
                     onClick={() => setSelectedYear(item.year)}
-                    className={`min-h-[var(--target-min)] px-2.5 py-1 border transition-colors ${
+                    className={`min-h-11 px-2.5 py-1 border transition-colors ${
                       selectedYear === item.year
                         ? 'bg-[var(--color-behavior-red-deep)] text-white border-[var(--color-behavior-red-deep)]'
-                        : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
+                        : 'border-[var(--line-strong)] hover:bg-[var(--color-neutral-100)]'
                     }`}
                   >
                     {item.year}년

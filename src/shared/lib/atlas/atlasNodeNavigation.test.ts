@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import type { AtlasNodeViewModel } from '@/shared/types/atlas';
-import { findNextAtlasNodeId } from './atlasNodeNavigation';
+import { findDirectionalNode, findNextAtlasNodeId } from './atlasNodeNavigation';
 
 function node(id: string, x: number, y: number): AtlasNodeViewModel {
   return {
@@ -41,13 +41,20 @@ const nodes = [
 ];
 
 describe('findNextAtlasNodeId', () => {
-  it('uses deterministic nearest spatial navigation without changing coordinates', () => {
+  it('prioritizes angular deviation, then directional distance, without changing coordinates', () => {
     const before = JSON.stringify(nodes.map(({ id, screen }) => ({ id, screen })));
     expect(findNextAtlasNodeId(nodes, 'center', 'ArrowLeft')).toBe('left');
-    expect(findNextAtlasNodeId(nodes, 'center', 'ArrowRight')).toBe('right-near');
+    expect(findNextAtlasNodeId(nodes, 'center', 'ArrowRight')).toBe('right-far');
     expect(findNextAtlasNodeId(nodes, 'center', 'ArrowUp')).toBe('up');
     expect(findNextAtlasNodeId(nodes, 'center', 'ArrowDown')).toBe('down');
     expect(JSON.stringify(nodes.map(({ id, screen }) => ({ id, screen })))).toBe(before);
+  });
+
+  it('uses canonical node ID for an exact directional tie', () => {
+    const center = node('center', 0, 0);
+    const beta = node('beta', 10, 5);
+    const alpha = node('alpha', 10, -5);
+    expect(findDirectionalNode({ current: center, candidates: [center, beta, alpha], direction: 'right' })?.id).toBe('alpha');
   });
 
   it('supports canonical Home and End and stays put without a directional candidate', () => {

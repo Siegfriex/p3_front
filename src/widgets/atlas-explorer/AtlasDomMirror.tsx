@@ -52,6 +52,7 @@ export function AtlasDomMirror({
     }
     if (event.key === 'Escape') {
       event.preventDefault();
+      event.stopPropagation();
       onClearSelection();
     }
   };
@@ -64,7 +65,7 @@ export function AtlasDomMirror({
       tabIndex={-1}
     >
       <p className="redline-meta text-[var(--ink-secondary)]">DOM MIRROR / KEYBOARD OWNER</p>
-      <h2 id="atlas-list-heading" className="mt-2 font-serif text-2xl font-bold">접근 가능한 node 목록</h2>
+      <h2 id="atlas-list-heading" className="mt-2 font-serif text-2xl font-bold" tabIndex={-1}>접근 가능한 node 목록</h2>
       <p id="atlas-list-instructions" className="mt-1 text-sm text-[var(--color-neutral-700)]">
         지도와 같은 필터 결과입니다. Tab으로 목록에 진입한 뒤 방향키로 이동하고 Enter 또는 Space로 선택합니다. Escape는 선택을 지웁니다.
       </p>

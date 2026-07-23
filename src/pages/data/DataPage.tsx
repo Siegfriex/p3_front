@@ -36,6 +36,7 @@ export const DataPage: React.FC = () => {
           </div>
 
           <button
+            type="button"
             onClick={handleCopySchema}
             className="flex min-h-11 items-center gap-2 bg-[var(--color-ink)] px-4 py-2 font-mono text-xs text-[var(--color-paper)] transition-colors hover:bg-[var(--color-neutral-700)]"
           >
@@ -68,7 +69,7 @@ export const DataPage: React.FC = () => {
                 <tr key={item.id} className="border-b border-[var(--color-neutral-200)] hover:bg-[var(--color-paper)]">
                   <td className="p-3 font-bold text-[var(--color-behavior-red-deep)]">{item.id.toUpperCase()}</td>
                   <td className="p-3">{item.auditYear}</td>
-                  <td className="p-3 font-sans font-bold max-w-xs truncate">{item.issue}</td>
+                  <td className="min-w-72 p-3 font-sans font-bold leading-relaxed">{item.issue}</td>
                   <td className="p-3 font-sans text-[var(--color-neutral-700)]">{item.targetOrg}</td>
                   <td className="p-3">
                     <Badge label={item.reportedStatusLabel} variant="status" status={item.reportedStatus} />

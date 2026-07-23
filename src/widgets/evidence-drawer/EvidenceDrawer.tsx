@@ -83,6 +83,7 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
             </div>
 
             <button
+              type="button"
               ref={closeButtonRef}
               onClick={onClose}
               className="inline-flex min-h-11 min-w-11 items-center justify-center text-[var(--color-neutral-500)] hover:text-[var(--color-ink)] hover:bg-[var(--color-neutral-200)] transition-colors"
@@ -224,6 +225,7 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
               </div>
 
               <button
+                type="button"
                 onClick={handleCopySource}
                 className="flex min-h-11 w-full items-center justify-center gap-2 bg-[var(--color-ink)] px-4 py-2.5 font-mono text-xs text-[var(--color-paper)] transition-colors hover:bg-[var(--color-neutral-700)]"
               >
@@ -240,6 +242,7 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
             Single Overlay Infrastructure
           </span>
           <button
+            type="button"
             onClick={onClose}
             className="min-h-11 px-4 py-1.5 border border-[var(--color-neutral-200)] bg-[var(--color-paper)] hover:bg-[var(--color-neutral-100)] transition-colors"
           >

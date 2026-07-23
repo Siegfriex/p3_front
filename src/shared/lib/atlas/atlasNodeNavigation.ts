@@ -1,16 +1,46 @@
 import type { AtlasNodeViewModel } from '@/shared/types/atlas';
 
 export type AtlasNavigationKey = 'ArrowLeft' | 'ArrowRight' | 'ArrowUp' | 'ArrowDown' | 'Home' | 'End';
+export type AtlasDirection = 'left' | 'right' | 'up' | 'down';
 
-function isDirectionalCandidate(
-  key: Exclude<AtlasNavigationKey, 'Home' | 'End'>,
-  deltaX: number,
-  deltaY: number,
-): boolean {
-  if (key === 'ArrowLeft') return deltaX < 0 && Math.abs(deltaX) >= Math.abs(deltaY);
-  if (key === 'ArrowRight') return deltaX > 0 && Math.abs(deltaX) >= Math.abs(deltaY);
-  if (key === 'ArrowUp') return deltaY < 0 && Math.abs(deltaY) >= Math.abs(deltaX);
-  return deltaY > 0 && Math.abs(deltaY) >= Math.abs(deltaX);
+interface FindDirectionalNodeInput {
+  current: AtlasNodeViewModel;
+  candidates: readonly AtlasNodeViewModel[];
+  direction: AtlasDirection;
+}
+
+const DIRECTION_VECTOR: Record<AtlasDirection, readonly [number, number]> = {
+  left: [-1, 0],
+  right: [1, 0],
+  up: [0, -1],
+  down: [0, 1],
+};
+
+export function findDirectionalNode({
+  current,
+  candidates,
+  direction,
+}: FindDirectionalNodeInput): AtlasNodeViewModel | null {
+  const [directionX, directionY] = DIRECTION_VECTOR[direction];
+  const ranked = candidates
+    .filter((node) => node.id !== current.id)
+    .map((node) => {
+      const deltaX = node.screen.x - current.screen.x;
+      const deltaY = node.screen.y - current.screen.y;
+      const distance = Math.hypot(deltaX, deltaY);
+      const directionalDistance = deltaX * directionX + deltaY * directionY;
+      const angularDeviation = distance === 0
+        ? Number.POSITIVE_INFINITY
+        : Math.acos(Math.min(1, Math.max(-1, directionalDistance / distance)));
+      return { node, angularDeviation, directionalDistance };
+    })
+    .filter(({ directionalDistance }) => directionalDistance > 0)
+    .sort((left, right) =>
+      left.angularDeviation - right.angularDeviation
+      || left.directionalDistance - right.directionalDistance
+      || left.node.id.localeCompare(right.node.id));
+
+  return ranked[0]?.node ?? null;
 }
 
 export function findNextAtlasNodeId(
@@ -24,16 +54,11 @@ export function findNextAtlasNodeId(
 
   const current = nodes.find((node) => node.id === currentNodeId);
   if (!current) return nodes[0].id;
-
-  const candidates = nodes
-    .filter((node) => node.id !== current.id)
-    .map((node) => {
-      const deltaX = node.screen.x - current.screen.x;
-      const deltaY = node.screen.y - current.screen.y;
-      return { node, deltaX, deltaY, distance: Math.hypot(deltaX, deltaY) };
-    })
-    .filter(({ deltaX, deltaY }) => isDirectionalCandidate(key, deltaX, deltaY))
-    .sort((left, right) => left.distance - right.distance || left.node.id.localeCompare(right.node.id));
-
-  return candidates[0]?.node.id ?? current.id;
+  const direction = ({
+    ArrowLeft: 'left',
+    ArrowRight: 'right',
+    ArrowUp: 'up',
+    ArrowDown: 'down',
+  } as const)[key];
+  return findDirectionalNode({ current, candidates: nodes, direction })?.id ?? current.id;
 }

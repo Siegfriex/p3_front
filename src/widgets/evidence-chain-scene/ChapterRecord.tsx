@@ -39,12 +39,13 @@ export const ChapterRecord: React.FC = () => {
           </span>
           {MOCK_EVIDENCES.map((ev, idx) => (
             <button
+              type="button"
               key={ev.id}
               onClick={() => setSelectedEvidenceIndex(idx)}
-              className={`px-3 py-1.5 text-xs font-mono border whitespace-nowrap transition-all ${
+              className={`min-h-11 px-3 py-1.5 text-xs font-mono border whitespace-nowrap transition-all ${
                 selectedEvidenceIndex === idx
                   ? 'bg-[var(--color-ink)] text-[var(--color-paper)] border-[var(--color-ink)] font-bold'
-                  : 'bg-[var(--color-surface)] border-[var(--color-neutral-200)] text-[var(--color-neutral-700)] hover:bg-[var(--color-neutral-100)]'
+                  : 'bg-[var(--color-surface)] border-[var(--line-strong)] text-[var(--color-neutral-700)] hover:bg-[var(--color-neutral-100)]'
               }`}
             >
               {ev.id.toUpperCase()} · {ev.issue.slice(0, 18)}...
@@ -71,8 +72,9 @@ export const ChapterRecord: React.FC = () => {
             </div>
 
             <button
+              type="button"
               onClick={() => openEvidence(activeItem.id)}
-              className="px-4 py-2 bg-[var(--color-ink)] text-[var(--color-paper)] font-mono text-xs flex items-center gap-2 hover:bg-[var(--color-neutral-700)] transition-colors"
+              className="flex min-h-11 items-center gap-2 bg-[var(--color-ink)] px-4 py-2 font-mono text-xs text-[var(--color-paper)] transition-colors hover:bg-[var(--color-neutral-700)]"
             >
               <FileSearch className="w-4 h-4" />
               <span>전체 원문 및 증거 드로어 열기</span>

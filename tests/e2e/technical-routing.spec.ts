@@ -145,8 +145,17 @@ test('mobile drawer remains usable and keeps its tab row navigable', async ({ pa
   expect(box?.x).toBeGreaterThanOrEqual(-0.01);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   await expect(page.getByRole('tablist', { name: '증거 상세 섹션' })).toBeVisible();
-  await page.getByRole('tab', { name: '출처 및 PDF' }).click();
-  await expect(page.getByRole('tab', { name: '출처 및 PDF' })).toHaveAttribute('aria-selected', 'true');
+  const firstTab = page.getByRole('tab', { name: '원문 증거' });
+  const sourceTab = page.getByRole('tab', { name: '출처 및 PDF' });
+  await firstTab.focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('tab', { name: '속기록 질의답변' })).toBeFocused();
+  await page.keyboard.press('End');
+  await expect(sourceTab).toBeFocused();
+  await expect(sourceTab).toHaveAttribute('aria-selected', 'true');
+  const closeBox = await page.getByRole('button', { name: '드로어 닫기' }).boundingBox();
+  expect(closeBox?.width).toBeGreaterThanOrEqual(44);
+  expect(closeBox?.height).toBeGreaterThanOrEqual(44);
   assertCleanRuntime();
 });
 

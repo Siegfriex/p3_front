@@ -76,41 +76,45 @@ export const ChapterGap: React.FC = () => {
 
             <div className="flex items-center gap-2 text-xs font-mono">
               <button
+                type="button"
                 onClick={() => setActiveStatusFilter('all')}
-                className={`px-3 py-1.5 border transition-all ${
+                className={`min-h-11 px-3 py-1.5 border transition-all ${
                   activeStatusFilter === 'all'
                     ? 'bg-[var(--color-ink)] text-[var(--color-paper)] border-[var(--color-ink)] font-bold'
-                    : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
+                    : 'border-[var(--line-strong)] hover:bg-[var(--color-neutral-100)]'
                 }`}
               >
                 전체 레인 보기 ({MOCK_EVIDENCES.length})
               </button>
               <button
+                type="button"
                 onClick={() => setActiveStatusFilter('complete')}
-                className={`px-3 py-1.5 border transition-all ${
+                className={`min-h-11 px-3 py-1.5 border transition-all ${
                   activeStatusFilter === 'complete'
                     ? 'bg-[var(--color-behavior-blue-deep)] text-white border-[var(--color-behavior-blue-deep)] font-bold'
-                    : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
+                    : 'border-[var(--line-strong)] hover:bg-[var(--color-neutral-100)]'
                 }`}
               >
                 추진완료 레인
               </button>
               <button
+                type="button"
                 onClick={() => setActiveStatusFilter('active')}
-                className={`px-3 py-1.5 border transition-all ${
+                className={`min-h-11 px-3 py-1.5 border transition-all ${
                   activeStatusFilter === 'active'
                     ? 'bg-[var(--color-behavior-amber-deep)] text-white border-[var(--color-behavior-amber-deep)] font-bold'
-                    : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
+                    : 'border-[var(--line-strong)] hover:bg-[var(--color-neutral-100)]'
                 }`}
               >
                 추진중 레인
               </button>
               <button
+                type="button"
                 onClick={() => setActiveStatusFilter('unresolved')}
-                className={`px-3 py-1.5 border transition-all ${
+                className={`min-h-11 px-3 py-1.5 border transition-all ${
                   activeStatusFilter === 'unresolved'
                     ? 'bg-[var(--color-behavior-red-deep)] text-white border-[var(--color-behavior-red-deep)] font-bold'
-                    : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
+                    : 'border-[var(--line-strong)] hover:bg-[var(--color-neutral-100)]'
                 }`}
               >
                 미완료/단절 레인
@@ -121,10 +125,11 @@ export const ChapterGap: React.FC = () => {
           {/* Evidence Cards List */}
           <div className="space-y-4">
             {filteredEvidences.map((ev) => (
-              <div
+              <button
+                type="button"
                 key={ev.id}
                 onClick={() => openEvidence(ev.id)}
-                className="group p-5 bg-[var(--color-paper)] border border-[var(--color-neutral-200)] hover:border-[var(--color-ink)] transition-all cursor-pointer flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+                className="group flex min-h-11 w-full cursor-pointer flex-col items-start justify-between gap-4 border border-[var(--line-strong)] bg-[var(--color-paper)] p-5 text-left transition-all hover:border-[var(--color-ink)] md:flex-row md:items-center"
               >
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
@@ -151,7 +156,7 @@ export const ChapterGap: React.FC = () => {
                   <span>원문 및 출처 보기</span>
                   <Eye className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>

@@ -24,16 +24,18 @@ export function AtlasExplorer({ bundle, query, queryIssues, fixtureProvenance, o
     () => bundle.nodes.filter((node) => (query.status === 'all' || node.status === query.status) && query.types.includes(node.answerType)),
     [bundle.nodes, query.status, query.types],
   );
+  const interactiveNodeIds = useMemo(() => new Set(filteredNodes.map((node) => node.id)), [filteredNodes]);
   const selectedNode = query.nodeId ? bundle.nodes.find((node) => node.id === query.nodeId) ?? null : null;
   const previewNode = previewNodeId ? bundle.nodes.find((node) => node.id === previewNodeId) ?? null : null;
   const invalidNode = query.nodeId !== null && selectedNode === null;
   const inspectorNode = selectedNode ?? previewNode;
+  const focusedNode = focusNodeId ? bundle.nodes.find((node) => node.id === focusNodeId) ?? null : null;
   const announce = invalidNode
     ? `존재하지 않는 node ${query.nodeId}`
     : selectedNode
       ? `${atlasNodeAccessibleName(selectedNode)} 선택됨`
-      : focusNodeId
-        ? `${atlasNodeAccessibleName(bundle.nodes.find((node) => node.id === focusNodeId) ?? filteredNodes[0])} 포커스`
+      : focusedNode
+        ? `${atlasNodeAccessibleName(focusedNode)} 포커스`
         : `${filteredNodes.length}개 node 표시`;
 
   const clearSelection = () => onQueryChange({ ...query, nodeId: null });
@@ -75,18 +77,21 @@ export function AtlasExplorer({ bundle, query, queryIssues, fixtureProvenance, o
           title="표시할 승인 node가 없습니다"
           description="manifest와 bundle은 유효하지만 공개 가능한 aggregate node가 0개입니다. 가짜 점을 대신 표시하지 않습니다."
         />
-      ) : filteredNodes.length === 0 ? (
-        <AtlasEmptyState
-          title="조건에 맞는 node가 없습니다"
-          description="선택한 처리 상태와 답변 유형의 교집합이 비어 있습니다. projection과 viewport는 유지됩니다."
-          onReset={reset}
-          testId="atlas-filter-empty-state"
-        />
       ) : (
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,2fr)_minmax(18rem,1fr)]">
-          <AtlasScene nodes={filteredNodes} selectedNodeId={query.nodeId} previewNodeId={previewNodeId} focusNodeId={focusNodeId} onSelectNode={selectNode} onPreviewNode={setPreviewNodeId} />
-          <AtlasInspector node={invalidNode ? null : inspectorNode} invalidNodeId={invalidNode ? query.nodeId : null} onClearInvalidNode={invalidNode ? clearSelection : undefined} />
-        </div>
+        <>
+          <div className="grid gap-6 xl:grid-cols-[minmax(0,2fr)_minmax(18rem,1fr)]">
+            <AtlasScene nodes={bundle.nodes} interactiveNodeIds={interactiveNodeIds} selectedNodeId={query.nodeId} previewNodeId={previewNodeId} focusNodeId={focusNodeId} onSelectNode={selectNode} onPreviewNode={setPreviewNodeId} />
+            <AtlasInspector node={invalidNode ? null : inspectorNode} invalidNodeId={invalidNode ? query.nodeId : null} onClearInvalidNode={invalidNode ? clearSelection : undefined} />
+          </div>
+          {filteredNodes.length === 0 ? (
+            <AtlasEmptyState
+              title="조건에 맞는 node가 없습니다"
+              description="선택한 처리 상태와 답변 유형의 교집합이 비어 있습니다. projection과 viewport는 유지됩니다."
+              onReset={reset}
+              testId="atlas-filter-empty-state"
+            />
+          ) : null}
+        </>
       )}
 
       {filteredNodes.length > 0 ? <AtlasDomMirror nodes={filteredNodes} selectedNodeId={query.nodeId} onSelectNode={selectNode} onClearSelection={clearSelection} onPreviewNode={setPreviewNodeId} onFocusNode={setFocusNodeId} /> : null}

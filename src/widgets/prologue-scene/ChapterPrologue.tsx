@@ -159,7 +159,7 @@ export const ChapterPrologue: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => openEvidence('ev-101')}
-                  className="px-5 py-2.5 bg-[var(--color-ink)] text-[var(--color-paper)] font-mono text-xs flex items-center gap-2 hover:bg-[var(--color-neutral-700)] transition-all shadow-sm focus:ring-2 focus:ring-[var(--color-behavior-red-deep)] focus:outline-none cursor-pointer"
+                  className="flex min-h-11 items-center gap-2 bg-[var(--color-ink)] px-5 py-2.5 font-mono text-xs text-[var(--color-paper)] shadow-sm transition-all hover:bg-[var(--color-neutral-700)] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-[var(--color-focus)] cursor-pointer"
                   aria-label="첫 증거 원문 ev-101 확인하기"
                 >
                   <span>첫 증거 원문 확인하기 (ev-101)</span>
@@ -178,7 +178,7 @@ export const ChapterPrologue: React.FC = () => {
             <button
               type="button"
               onClick={handleScrollToScale}
-              className="group flex flex-col items-center gap-1.5 text-xs font-mono text-[var(--color-neutral-500)] hover:text-[var(--color-ink)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-behavior-red-deep)] p-2 cursor-pointer"
+              className="group flex min-h-11 flex-col items-center gap-1.5 p-2 font-mono text-xs text-[var(--color-neutral-500)] transition-colors hover:text-[var(--color-ink)] focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-[var(--color-focus)] cursor-pointer"
               aria-label="다음 챕터 스케일로 스크롤하여 이동"
             >
               <span>스크롤하여 6년간의 증거 선을 추적하십시오</span>

@@ -59,7 +59,7 @@ export const ChapterRemains: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
             <Link
               to="/method"
-              className="px-5 py-2.5 bg-[var(--color-ink)] text-[var(--color-paper)] font-mono text-xs flex items-center gap-2 hover:bg-[var(--color-neutral-700)] transition-colors shadow-sm"
+              className="flex min-h-11 items-center gap-2 bg-[var(--color-ink)] px-5 py-2.5 font-mono text-xs text-[var(--color-paper)] shadow-sm transition-colors hover:bg-[var(--color-neutral-700)]"
             >
               <FileText className="w-4 h-4" />
               <span>분석 방법론 & 출처 계약 (Method)</span>
@@ -67,15 +67,16 @@ export const ChapterRemains: React.FC = () => {
 
             <Link
               to="/data"
-              className="px-5 py-2.5 border border-[var(--color-neutral-200)] bg-[var(--color-paper)] text-[var(--color-ink)] font-mono text-xs flex items-center gap-2 hover:bg-[var(--color-neutral-100)] transition-colors"
+              className="flex min-h-11 items-center gap-2 border border-[var(--line-strong)] bg-[var(--color-paper)] px-5 py-2.5 font-mono text-xs text-[var(--color-ink)] transition-colors hover:bg-[var(--color-neutral-100)]"
             >
               <Database className="w-4 h-4" />
               <span>데이터 스키마 & 약관 (Data)</span>
             </Link>
 
             <button
+              type="button"
               onClick={handleCopyCitation}
-              className="px-4 py-2.5 border border-[var(--color-neutral-200)] bg-[var(--color-paper)] text-[var(--color-neutral-700)] font-mono text-xs flex items-center gap-2 hover:bg-[var(--color-neutral-100)] transition-colors"
+              className="flex min-h-11 items-center gap-2 border border-[var(--line-strong)] bg-[var(--color-paper)] px-4 py-2.5 font-mono text-xs text-[var(--color-neutral-700)] transition-colors hover:bg-[var(--color-neutral-100)]"
             >
               {copied ? <Check className="w-4 h-4 text-green-600" /> : <Share2 className="w-4 h-4" />}
               <span>{copied ? '인용구 복사됨!' : '작품 인용구 복사'}</span>

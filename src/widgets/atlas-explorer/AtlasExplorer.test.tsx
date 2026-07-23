@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import { describe, expect, it, vi } from 'vitest';
@@ -68,6 +68,17 @@ describe('AtlasExplorer accessibility contract shell', () => {
     expect(document.querySelector('#atlas-chart-summary')).toHaveTextContent('1개 aggregate node');
     expect(screen.getByRole('heading', { name: '접근 가능한 node 목록' })).toBeInTheDocument();
     expect(screen.getByTestId('atlas-live-region')).toHaveTextContent('1개 node 표시');
+    expect(screen.getAllByRole('button', { name: /^정보 부재·비직접 계열, 추진중, A1$/ })).toHaveLength(1);
+  });
+
+  it('preserves upstream radius and separates a 44px minimum hit target from the visual mark', () => {
+    const bundle = bundleFixture();
+    bundle.nodes[0] = { ...bundle.nodes[0], radiusPx: 7.25 };
+    const { container } = renderExplorer(bundle);
+    const nodeGroup = container.querySelector('[data-node-id="contract-node-001"]');
+    expect(nodeGroup).toHaveAttribute('data-source-radius', '7.25');
+    expect(nodeGroup).toHaveAttribute('data-rendered-radius', '7.25');
+    expect(nodeGroup?.querySelector('[data-atlas-hit-target="true"]')).toHaveAttribute('r', '22');
   });
 
   it('uses the DOM mirror as the single keyboard owner for Enter selection and Escape clearing', async () => {
@@ -93,9 +104,23 @@ describe('AtlasExplorer accessibility contract shell', () => {
 
     const filtered = renderExplorer(bundleFixture(), { ...queryFixture(), status: 'complete' });
     expect(screen.getByTestId('atlas-filter-empty-state')).toBeInTheDocument();
+    const filteredNode = filtered.container.querySelector('[data-node-id="contract-node-001"]');
+    expect(filteredNode).toHaveAttribute('transform', 'translate(200 180)');
+    expect(filteredNode).toHaveAttribute('data-node-state', 'filtered');
+    expect(filteredNode?.querySelector('[data-atlas-hit-target="true"]')).toBeNull();
     filtered.unmount();
 
     renderExplorer(bundleFixture(), queryFixture('contract-node-missing'));
     expect(screen.getByTestId('atlas-invalid-node-state')).toBeInTheDocument();
+  });
+
+  it('renders independent focus halo and selection ring for a focused selected node', async () => {
+    const { container } = renderExplorer(bundleFixture(), queryFixture('contract-node-001'));
+    const mirrorNode = within(container).getByRole('button', { name: /^정보 부재·비직접 계열, 추진중, A1$/ });
+    mirrorNode.focus();
+    const glyph = container.querySelector('[data-node-id="contract-node-001"] .atlas-node-glyph');
+    await waitFor(() => expect(glyph).toHaveAttribute('data-interaction-state', 'focused-selected'));
+    expect(glyph?.querySelector('[data-focus-halo="true"]')).toBeInTheDocument();
+    expect(glyph?.querySelector('[data-selection-ring="true"]')).toBeInTheDocument();
   });
 });
