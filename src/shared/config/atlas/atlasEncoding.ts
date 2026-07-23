@@ -20,8 +20,9 @@ export type NodeInteractionState =
   | 'focused'
   | 'selected'
   | 'focused-selected'
-  | 'dimmed'
-  | 'filtered';
+  | 'dimmed';
+
+export type NodeFilterState = 'matched' | 'context' | 'excluded';
 
 export type AnswerTypeMark = 'empty' | 'horizontal-bar' | 'vertical-bar' | 'center-dot' | 'diagonal-slash' | 'plus' | 'double-dot';
 
@@ -40,6 +41,12 @@ export const NODE_RADIUS_PRESENTATION_POLICY: NodeRadiusPresentationPolicy = Obj
   minVisualRadiusPx: 0,
   maxVisualRadiusPx: Number.POSITIVE_INFINITY,
   sourceRadiusPreserved: true,
+});
+
+export const ATLAS_CONFIDENCE_PRESENTATION_POLICY = Object.freeze({
+  status: 'PROVISIONAL_PENDING_APPROVED_DISTRIBUTION' as const,
+  fixtureFloor: 0.45,
+  nullOpacity: 0.72,
 });
 
 export const NODE_GLYPH_TOKENS: Readonly<Record<BehaviorFamily, NodeGlyphToken>> = Object.freeze({
@@ -97,7 +104,9 @@ export function createAtlasEncoding(
   status: AtlasNodeStatus,
   confidence: number | null,
 ): AtlasEncodingViewModel {
-  const opacity = confidence === null ? 0.72 : Math.min(1, Math.max(0.45, confidence));
+  const opacity = confidence === null
+    ? ATLAS_CONFIDENCE_PRESENTATION_POLICY.nullOpacity
+    : Math.min(1, Math.max(ATLAS_CONFIDENCE_PRESENTATION_POLICY.fixtureFloor, confidence));
   return {
     ...FAMILY_ENCODING[family],
     strokeToken: STATUS_STROKE[status],
@@ -120,10 +129,19 @@ export function getRequiredProjectionPadding(maxSourceRadiusPx: number): number 
   return getPresentedNodeRadius(maxSourceRadiusPx) + ATLAS_FOCUS_HALO_OFFSET_PX + 8;
 }
 
+export function getRequiredProjectionPaddingForRadii(sourceRadiiPx: readonly number[]): number {
+  if (sourceRadiiPx.length === 0) throw new Error('Full aggregate node radius set is required');
+  const maxSourceRadiusPx = sourceRadiiPx.reduce(
+    (maximum, radius) => Math.max(maximum, getPresentedNodeRadius(radius)),
+    0,
+  );
+  return getRequiredProjectionPadding(maxSourceRadiusPx);
+}
+
 interface NodeOpacityInput {
   baseOpacity: number;
   interactionState: NodeInteractionState;
-  isFiltered: boolean;
+  filterState: NodeFilterState;
   isSelected: boolean;
   isFocused: boolean;
 }
@@ -131,13 +149,14 @@ interface NodeOpacityInput {
 export function getNodeDisplayOpacity({
   baseOpacity,
   interactionState,
-  isFiltered,
+  filterState,
   isSelected,
   isFocused,
 }: NodeOpacityInput): number {
-  const semanticOpacity = Math.min(1, Math.max(0.45, baseOpacity));
+  const semanticOpacity = Math.min(1, Math.max(ATLAS_CONFIDENCE_PRESENTATION_POLICY.fixtureFloor, baseOpacity));
+  if (filterState === 'excluded') return 0;
+  if (filterState === 'context') return Math.min(0.4, Math.max(0.24, semanticOpacity));
   if (isSelected || isFocused) return Math.max(0.88, semanticOpacity);
-  if (isFiltered || interactionState === 'filtered') return 0.14;
   if (interactionState === 'hovered') return Math.max(0.82, semanticOpacity);
   if (interactionState === 'dimmed') return Math.min(0.4, Math.max(0.24, semanticOpacity));
   return semanticOpacity;
@@ -148,7 +167,7 @@ interface ResolveNodeInteractionStateInput {
   isFocused: boolean;
   isSelected: boolean;
   isDimmed: boolean;
-  isFiltered: boolean;
+  filterState: NodeFilterState;
 }
 
 export function resolveNodeInteractionState({
@@ -156,13 +175,13 @@ export function resolveNodeInteractionState({
   isFocused,
   isSelected,
   isDimmed,
-  isFiltered,
+  filterState,
 }: ResolveNodeInteractionStateInput): NodeInteractionState {
+  if (filterState !== 'matched') return 'dimmed';
   if (isFocused && isSelected) return 'focused-selected';
   if (isFocused) return 'focused';
   if (isSelected) return 'selected';
   if (isHovered) return 'hovered';
-  if (isFiltered) return 'filtered';
   if (isDimmed) return 'dimmed';
   return 'default';
 }

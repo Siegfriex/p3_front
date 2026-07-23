@@ -1,0 +1,21 @@
+item,finding,state,severity,evidence
+component path,src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,CONFIRMED,P3,source
+data path,src/shared/mock/storyData.ts ATLAS_NODES,CONFIRMED,P0,source
+grain,one hard-coded node per A1-A8 behavior label rather than approved status-topic-behavior aggregate,CONFIRMED,P0,8 records
+node count,8,CONFIRMED,P3,DOM and source
+coordinate generation,hard-coded x/y in storyData.ts,CONFIRMED,P0,lines 131-260
+filter coordinate invariance,filter only changes opacity and never coordinates,CONFIRMED,P3,component filter logic
+radius,node.radius divided by five; source radius not normalized_mass contract,CONTRADICTED,P1,SVG r expression
+opacity,filter and hover opacity rather than confidence,CONTRADICTED,P1,style opacity
+stroke,white stroke rather than status/uncertainty,CONTRADICTED,P1,circle stroke
+behavior encoding,color-only red amber blue circles; no shape contract,CONTRADICTED,P1,SVG marks
+axis semantics,Detail Level and Receptiveness arbitrary axes plus physical distance copy,CONTRADICTED,P0,screenshot and component copy
+URL state,local React state; reload complete to all,CONTRADICTED,P1,browser flow
+Full Explorer CTA,absent,CONTRADICTED,P1,0 Atlas links/buttons
+keyboard nodes,0 focusable node groups,CONTRADICTED,P0,DOM measurement
+SVG accessible name,no title desc role or aria label,CONTRADICTED,P1,DOM measurement
+DOM mirror,absent,CONTRADICTED,P1,DOM measurement
+touch targets,smallest mark 24.55px at 375 and 32.4px at larger viewports,CONTRADICTED,P1,DOM measurement
+evidence linkage,mock IDs open mock route-driven drawer,PARTIALLY_CONFIRMED,P0,ev-101 etc
+mock disclosure,only below-fold Deterministic Atlas Fixture text; not explicit MOCK at entry,PARTIALLY_CONFIRMED,P0,screenshot
+Story Full contract sharing,separate legacy story type and data path,CONTRADICTED,P1,imports

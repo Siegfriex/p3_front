@@ -1,0 +1,16 @@
+token_group,token,before,after,reason,status
+color,paper.canvas,#F2F0EA,#F3F2EE,reference paper field,CONFIRMED
+color,paper.surface,#F8F8F5,#FCFBF7,flat record surface,CONFIRMED
+color,ink.primary,#0A0A0A,#111111,editorial ink,CONFIRMED
+color,signal.red,implicit,#F01B2D,large annotation and selected ring,CONFIRMED
+color,signal.red.dark,#8B342F,#A40F1F,small text and focus contrast,CONFIRMED
+color,archive.ochre,#815617,#8A6F32,contract/archive distinction,CONFIRMED
+color,inverse.surface,implicit,#0B0B0B,error and verification surface,CONFIRMED
+layout,master-grid,12 columns,4/8/12/16 columns,responsive shared grid,CONFIRMED
+layout,outer-margin,clamp 16–56px,16/24/48/72px,viewport-specific contract,CONFIRMED
+type,display,serif 56–120px,sans 64–132px line-height .88,large signal grammar,CONFIRMED
+type,page-h1,36–72px,44–76px line-height .98,editorial hierarchy,CONFIRMED
+radius,desktop-panel,up to 8px,0–2px,flat public record surface,CONFIRMED
+radius,mobile-sheet,8px,16px top corners only,bottom-sheet anatomy,CONFIRMED
+motion,easing,cubic-bezier(.16 1 .3 1),cubic-bezier(.22 1 .36 1),restrained editorial motion,CONFIRMED
+focus,focus-ring,#8B342F 2px,#A40F1F 2px + 3px offset,WCAG-visible focus,CONFIRMED

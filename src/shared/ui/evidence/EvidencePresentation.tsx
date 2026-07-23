@@ -1,12 +1,60 @@
 import type { ReactNode } from 'react';
 
-export function EvidenceHeader({ recordId, title, context }: { recordId: string; title: string; context: string }) {
+interface EvidenceHeaderProps {
+  recordId: string;
+  title: string;
+  context: string;
+  headingLevel?: 'h1' | 'h2';
+}
+
+export function EvidenceHeader({ recordId, title, context, headingLevel = 'h2' }: EvidenceHeaderProps) {
+  const Heading = headingLevel;
   return (
     <header className="border-b-2 border-[var(--ink-primary)] pb-6">
-      <p className="redline-meta text-[var(--signal-red-dark)]">EVIDENCE TRACE / {recordId}</p>
-      <h2 className="mt-4 max-w-3xl font-serif text-4xl font-bold leading-[1.02] tracking-[-0.03em]">{title}</h2>
+      <p className="redline-meta text-[var(--signal-red-dark)]">EVIDENCE TRACE / <span>{recordId}</span></p>
+      <Heading className="mt-4 max-w-3xl font-serif text-4xl font-bold leading-[1.02] tracking-[-0.03em]">{title}</Heading>
       <p className="mt-4 font-mono text-xs text-[var(--ink-tertiary)]">{context}</p>
     </header>
+  );
+}
+
+export function EvidenceFixtureNotice() {
+  return (
+    <p className="evidence-fixture-notice" role="status">
+      MOCK PREVIEW / DEVELOPMENT ONLY / 승인된 EvidenceRepository 결과가 아님
+    </p>
+  );
+}
+
+interface EvidenceUnavailableStateProps {
+  evidenceId: string;
+  description?: string;
+  actions?: ReactNode;
+  compact?: boolean;
+  headingLevel?: 'h1' | 'h2';
+}
+
+export function EvidenceUnavailableState({
+  evidenceId,
+  description = '승인된 EvidenceRepository에 이 기록의 공개 상세가 연결되지 않았습니다. mock excerpt나 임시 PDF를 대신 표시하지 않습니다.',
+  actions,
+  compact = false,
+  headingLevel = 'h2',
+}: EvidenceUnavailableStateProps) {
+  const Heading = headingLevel;
+  return (
+    <section
+      className="evidence-unavailable-panel"
+      data-compact={compact ? 'true' : undefined}
+      data-testid="evidence-data-unavailable"
+      role="status"
+    >
+      <p className="redline-meta text-[var(--signal-red-dark)]">EVIDENCE STATUS / UNAVAILABLE</p>
+      <p className="evidence-unavailable-id">{evidenceId}</p>
+      <Heading>승인된 증거 상세가 아직 없습니다</Heading>
+      <p>{description}</p>
+      {actions ? <div className="atlas-state-actions">{actions}</div> : null}
+    </section>
   );
 }
 

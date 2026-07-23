@@ -5,5 +5,7 @@ export {
   AtlasErrorState,
   AtlasInvalidNodeState,
   AtlasLoadingState,
+  AtlasProjectionMismatch,
+  AtlasStaleRelease,
 } from './AtlasDataStates';
 export { AtlasProjectionNote } from './AtlasProjectionNote';

@@ -1,0 +1,19 @@
+check,scope,method,result,state,severity,evidence
+Axe critical serious,desktop key routes,automated,0 blocking,CONFIRMED,P3,existing E2E and 1440/1920 capture
+scrollable region focusable,Story 375 and 768,automated,serious violation .hide-scrollbar,CONTRADICTED,P1,Axe raw JSON
+scrollable region focusable,Data 375,automated,serious violation .overflow-x-auto,CONTRADICTED,P1,Axe raw JSON
+Story SVG name,/#answers,manual DOM,no title desc role or aria label,CONTRADICTED,P1,raw DOM
+Story node keyboard,/#answers,manual DOM,0 focusable nodes,CONTRADICTED,P0,raw DOM
+Story DOM mirror,/#answers,manual DOM,absent,CONTRADICTED,P1,raw DOM
+Story live announcement,/#answers,manual DOM,absent,CONTRADICTED,P1,raw DOM
+Story color independent encoding,/#answers,manual,color circles plus text labels but no shape/status stroke,PARTIALLY_CONFIRMED,P1,screenshot
+Story effective target,/#answers,DOM geometry,minimum diameter 24.55 to 32.40px,CONTRADICTED,P1,raw DOM
+Drawer focus trap,detail overlay,E2E,passes,CONFIRMED,P2,technical-routing test
+Drawer inert and scroll lock,detail overlay,E2E and DOM,passes,CONFIRMED,P2,root inert aria-hidden and overflow
+Drawer focus return,button openers,E2E,passes,CONFIRMED,P2,technical-routing test
+Drawer focus return,Story SVG node,manual flow,returns to BODY because opener not focusable,CONTRADICTED,P1,raw DOM
+Reduced motion,global,CSS plus E2E,override present and route test passes,CONFIRMED,P3,reset.css
+Atlas fixture Axe,/atlas CONTRACT_FIXTURE,isolated E2E,0 critical/serious,CONFIRMED,P2,isolated test 1 pass
+Atlas fixture keyboard URL,/atlas CONTRACT_FIXTURE,isolated E2E,node operation begins but later test selector ambiguity fails,PARTIALLY_CONFIRMED,P1,fixture run
+200 percent zoom,all,manual,not executed,NOT_VERIFIABLE,P2,none
+screen reader reading order,Story and Atlas,manual,not executed with a screen reader,NOT_VERIFIABLE,P2,DOM only

@@ -6,6 +6,7 @@ import {
   getNodeHitRadius,
   getPresentedNodeRadius,
   resolveNodeInteractionState,
+  type NodeFilterState,
 } from '@/shared/config/atlas/atlasEncoding';
 import { resolvePointerNode } from '@/shared/lib/atlas/atlasNodeHitTesting';
 import type { AtlasNodeViewModel } from '@/shared/types/atlas';
@@ -14,7 +15,7 @@ import { AtlasStageFrame } from './AtlasStageFrame';
 
 interface AtlasSceneProps {
   nodes: readonly AtlasNodeViewModel[];
-  interactiveNodeIds: ReadonlySet<string>;
+  nodeFilterStates: ReadonlyMap<string, NodeFilterState>;
   selectedNodeId: string | null;
   previewNodeId: string | null;
   focusNodeId: string | null;
@@ -38,9 +39,12 @@ function toSvgPoint(event: SvgPointerCoordinates) {
   return point.matrixTransform(matrix.inverse());
 }
 
-export function AtlasScene({ nodes, interactiveNodeIds, selectedNodeId, previewNodeId, focusNodeId, onSelectNode, onPreviewNode }: AtlasSceneProps) {
-  const interactiveNodes = nodes.filter((node) => interactiveNodeIds.has(node.id));
-  const summary = `${nodes.length}개 aggregate node 중 ${interactiveNodes.length}개가 현재 필터에 해당합니다. 위치는 주제 투영 좌표, 모양은 답변행태, 크기는 upstream radiusPx를 나타냅니다.`;
+export function AtlasScene({ nodes, nodeFilterStates, selectedNodeId, previewNodeId, focusNodeId, onSelectNode, onPreviewNode }: AtlasSceneProps) {
+  const renderedNodes = nodes.filter((node) => nodeFilterStates.get(node.id) !== 'excluded');
+  const interactiveNodes = renderedNodes.filter((node) => (nodeFilterStates.get(node.id) ?? 'matched') === 'matched');
+  const contextCount = renderedNodes.length - interactiveNodes.length;
+  const excludedCount = nodes.length - renderedNodes.length;
+  const summary = `${nodes.length}개 aggregate node 중 ${interactiveNodes.length}개가 현재 필터에 해당하고 ${contextCount}개는 비상호작용 context, ${excludedCount}개는 제외 상태입니다. 위치는 주제 투영 좌표, 모양은 답변행태, 크기는 upstream radiusPx를 나타냅니다.`;
   const gridXs = [0.25, 0.5, 0.75].map((ratio) => ATLAS_PLOT_RECT.x + ATLAS_PLOT_RECT.width * ratio);
   const gridYs = [0.25, 0.5, 0.75].map((ratio) => ATLAS_PLOT_RECT.y + ATLAS_PLOT_RECT.height * ratio);
 
@@ -81,8 +85,9 @@ export function AtlasScene({ nodes, interactiveNodeIds, selectedNodeId, previewN
           {gridXs.map((x) => <line key={`x-${x}`} x1={x} x2={x} y1={ATLAS_PLOT_RECT.y} y2={ATLAS_PLOT_RECT.y + ATLAS_PLOT_RECT.height} />)}
           {gridYs.map((y) => <line key={`y-${y}`} x1={ATLAS_PLOT_RECT.x} x2={ATLAS_PLOT_RECT.x + ATLAS_PLOT_RECT.width} y1={y} y2={y} />)}
         </g>
-        {nodes.map((node) => {
-          const interactive = interactiveNodeIds.has(node.id);
+        {renderedNodes.map((node) => {
+          const filterState = nodeFilterStates.get(node.id) ?? 'matched';
+          const interactive = filterState === 'matched';
           const selected = node.id === selectedNodeId;
           const previewed = node.id === previewNodeId;
           const focused = node.id === focusNodeId;
@@ -92,13 +97,13 @@ export function AtlasScene({ nodes, interactiveNodeIds, selectedNodeId, previewN
             isFocused: focused,
             isSelected: selected,
             isDimmed: dimmed,
-            isFiltered: !interactive,
+            filterState,
           });
           const radius = getPresentedNodeRadius(node.radiusPx);
           const opacity = getNodeDisplayOpacity({
             baseOpacity: node.encoding.opacity,
             interactionState: state,
-            isFiltered: !interactive,
+            filterState,
             isSelected: selected,
             isFocused: focused,
           });

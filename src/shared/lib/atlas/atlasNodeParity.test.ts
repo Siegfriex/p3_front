@@ -26,14 +26,29 @@ function node(id: string, screenX: number): AtlasNodeViewModel {
   };
 }
 
+const selectionContract = {
+  explorerReleaseId: 'release-1',
+  storyReleaseId: 'release-1',
+  explorerProjectionId: 'contract-projection',
+  storyProjectionId: 'contract-projection',
+};
+
 describe('Story and Explorer node parity', () => {
   it('selects only an approved deterministic ID list and preserves node identity', () => {
     const explorerNodes = [node('n1', 40), node('n2', 80)];
-    const storyNodes = selectStoryAtlasNodes(explorerNodes, ['n2', 'n1']);
+    const storyNodes = selectStoryAtlasNodes(explorerNodes, ['n2', 'n1'], selectionContract);
     expect(storyNodes.map(({ id }) => id)).toEqual(['n2', 'n1']);
     expect(storyNodes[0]).toBe(explorerNodes[1]);
-    expect(() => selectStoryAtlasNodes(explorerNodes, [])).toThrow(/Approved Story preview node IDs/);
-    expect(() => selectStoryAtlasNodes(explorerNodes, ['missing'])).toThrow(/missing/);
+    expect(() => selectStoryAtlasNodes(explorerNodes, [], selectionContract)).toThrow(/Approved Story preview node IDs/);
+    expect(() => selectStoryAtlasNodes(explorerNodes, ['missing'], selectionContract)).toThrow(/missing/);
+    expect(() => selectStoryAtlasNodes(explorerNodes, ['n1', 'n1'], selectionContract)).toThrow(/unique/);
+  });
+
+  it('fails closed on release or projection mismatch', () => {
+    const explorerNodes = [node('n1', 40)];
+    expect(() => selectStoryAtlasNodes(explorerNodes, ['n1'], { ...selectionContract, storyReleaseId: 'release-2' })).toThrow(/release IDs/);
+    expect(() => selectStoryAtlasNodes(explorerNodes, ['n1'], { ...selectionContract, storyProjectionId: 'projection-2' })).toThrow(/projection IDs/);
+    expect(() => selectStoryAtlasNodes([{ ...explorerNodes[0], projectionId: 'wrong' }], ['n1'], selectionContract)).toThrow(/node projection mismatch/);
   });
 
   it('requires semantic equality while allowing viewport screen coordinates to differ', () => {

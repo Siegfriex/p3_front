@@ -8,6 +8,8 @@ import {
   AtlasErrorState,
   AtlasInvalidNodeState,
   AtlasLoadingState,
+  AtlasProjectionMismatch,
+  AtlasStaleRelease,
 } from './AtlasDataStates';
 
 describe('Atlas shared data-state presentation components', () => {
@@ -37,6 +39,14 @@ describe('Atlas shared data-state presentation components', () => {
     const mismatch = render(<AtlasContractMismatch description="버전 불일치" />);
     expect(screen.getByTestId('atlas-contract-mismatch')).toHaveAttribute('role', 'alert');
     mismatch.unmount();
+
+    const projectionMismatch = render(<AtlasProjectionMismatch description="좌표계 불일치" projectionId="projection-old" />);
+    expect(screen.getByTestId('atlas-projection-mismatch')).toHaveTextContent('projection-old');
+    projectionMismatch.unmount();
+
+    const staleRelease = render(<AtlasStaleRelease description="새 release 확인 필요" releaseId="release-old" />);
+    expect(screen.getByTestId('atlas-stale-release')).toHaveAttribute('role', 'status');
+    staleRelease.unmount();
 
     const clear = vi.fn();
     render(<AtlasInvalidNodeState nodeId="missing-node" onClear={clear} />);

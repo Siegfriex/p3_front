@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 
 import { ANSWER_TYPES, type AtlasQueryState, type AtlasViewModelBundle } from '@/shared/types/atlas';
+import type { NodeFilterState } from '@/shared/config/atlas/atlasEncoding';
 import { atlasNodeAccessibleName } from '@/shared/lib/atlas/atlasAccessibility';
 import { AtlasEmptyState, AtlasProjectionNote } from '@/shared/ui/atlas';
 import { AtlasControls } from './AtlasControls';
@@ -24,7 +25,11 @@ export function AtlasExplorer({ bundle, query, queryIssues, fixtureProvenance, o
     () => bundle.nodes.filter((node) => (query.status === 'all' || node.status === query.status) && query.types.includes(node.answerType)),
     [bundle.nodes, query.status, query.types],
   );
-  const interactiveNodeIds = useMemo(() => new Set(filteredNodes.map((node) => node.id)), [filteredNodes]);
+  const matchedNodeIds = useMemo(() => new Set(filteredNodes.map((node) => node.id)), [filteredNodes]);
+  const nodeFilterStates = useMemo(
+    () => new Map(bundle.nodes.map((node): [string, NodeFilterState] => [node.id, matchedNodeIds.has(node.id) ? 'matched' : 'excluded'])),
+    [bundle.nodes, matchedNodeIds],
+  );
   const selectedNode = query.nodeId ? bundle.nodes.find((node) => node.id === query.nodeId) ?? null : null;
   const previewNode = previewNodeId ? bundle.nodes.find((node) => node.id === previewNodeId) ?? null : null;
   const invalidNode = query.nodeId !== null && selectedNode === null;
@@ -80,7 +85,7 @@ export function AtlasExplorer({ bundle, query, queryIssues, fixtureProvenance, o
       ) : (
         <>
           <div className="grid gap-6 xl:grid-cols-[minmax(0,2fr)_minmax(18rem,1fr)]">
-            <AtlasScene nodes={bundle.nodes} interactiveNodeIds={interactiveNodeIds} selectedNodeId={query.nodeId} previewNodeId={previewNodeId} focusNodeId={focusNodeId} onSelectNode={selectNode} onPreviewNode={setPreviewNodeId} />
+            <AtlasScene nodes={bundle.nodes} nodeFilterStates={nodeFilterStates} selectedNodeId={query.nodeId} previewNodeId={previewNodeId} focusNodeId={focusNodeId} onSelectNode={selectNode} onPreviewNode={setPreviewNodeId} />
             <AtlasInspector node={invalidNode ? null : inspectorNode} invalidNodeId={invalidNode ? query.nodeId : null} onClearInvalidNode={invalidNode ? clearSelection : undefined} />
           </div>
           {filteredNodes.length === 0 ? (

@@ -1,8 +1,10 @@
-import { useRef, useState, type KeyboardEvent } from 'react';
+import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
+import { Link } from 'react-router';
 import { MOCK_EVIDENCES, EDITORIAL_CASES } from '@/shared/mock/storyData';
 import type { DetailKind } from '@/shared/types/routing';
 import { Badge } from '@/shared/ui/Badge';
 import { LineSymbol } from '@/shared/ui/LineSymbol';
+import { EvidenceFixtureNotice, EvidenceUnavailableState } from '@/shared/ui/evidence';
 import { Drawer } from '@/shared/ui/overlay/Drawer';
 import { X, AlertTriangle, Copy, Check } from 'lucide-react';
 
@@ -28,24 +30,23 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
   const [copied, setCopied] = useState(false);
   const activeEvidenceId = kind === 'evidence' ? itemId : null;
   const activeCaseId = kind === 'case' ? itemId : null;
-
-  // Resolve active item
-  let activeEvidence = MOCK_EVIDENCES.find((ev) => ev.id === activeEvidenceId);
   const activeCase = EDITORIAL_CASES.find((c) => c.id === activeCaseId);
+  const requestedEvidenceId = activeEvidenceId ?? activeCase?.evidenceId;
+  const activeEvidence = import.meta.env.DEV
+    ? MOCK_EVIDENCES.find((evidence) => evidence.id === requestedEvidenceId)
+    : undefined;
 
-  if (!activeEvidence && activeCase) {
-    activeEvidence = MOCK_EVIDENCES.find((ev) => ev.id === activeCase.evidenceId) || MOCK_EVIDENCES[0];
-  }
-
-  if (!activeEvidence) {
-    activeEvidence = MOCK_EVIDENCES[0];
-  }
+  useEffect(() => {
+    if (!copied) return;
+    const timeout = window.setTimeout(() => setCopied(false), 2000);
+    return () => window.clearTimeout(timeout);
+  }, [copied]);
 
   const handleCopySource = () => {
+    if (!activeEvidence) return;
     const citation = `[증거 ${activeEvidence?.id.toUpperCase()}] ${activeEvidence?.issue} (${activeEvidence?.sourceLabel}, ${activeEvidence?.sourcePage})`;
-    navigator.clipboard.writeText(citation);
+    void navigator.clipboard.writeText(citation);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
   };
 
   const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, tabId: EvidenceTabId) => {
@@ -62,6 +63,51 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
     tabRefs.current.get(nextTab)?.focus();
   };
 
+  if (!activeEvidence) {
+    return (
+      <Drawer
+        open
+        onClose={onClose}
+        titleId="drawer-title"
+        descriptionId="drawer-description"
+        initialFocusRef={closeButtonRef}
+      >
+        <div className="evidence-drawer-shell">
+          <header className="evidence-drawer-header">
+            <div>
+              <p className="redline-meta text-[var(--signal-red-dark)]">EVIDENCE TRACE / UNAVAILABLE</p>
+              <h2 id="drawer-title" className="mt-3 font-serif text-3xl font-bold">증거 상세를 표시할 수 없습니다</h2>
+              <p id="drawer-description" className="mt-3 text-sm leading-relaxed text-[var(--ink-secondary)]">
+                선택한 node는 유지됩니다. 승인된 EvidenceRepository 상세가 연결되기 전에는 mock excerpt를 대신 표시하지 않습니다.
+              </p>
+            </div>
+            <button
+              type="button"
+              ref={closeButtonRef}
+              onClick={onClose}
+              className="inline-flex min-h-11 min-w-11 items-center justify-center"
+              aria-label="드로어 닫기"
+            >
+              <X className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </header>
+          <div className="evidence-drawer-body">
+            <EvidenceUnavailableState
+              evidenceId={requestedEvidenceId ?? itemId}
+              compact
+              actions={(
+                <>
+                  <Link className="atlas-action-primary" to="/data">데이터 상태 확인</Link>
+                  <button type="button" className="atlas-action-secondary" onClick={onClose}>Atlas로 돌아가기</button>
+                </>
+              )}
+            />
+          </div>
+        </div>
+      </Drawer>
+    );
+  }
+
   return (
     <Drawer
       open
@@ -70,9 +116,10 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
       descriptionId="drawer-description"
       initialFocusRef={closeButtonRef}
     >
-      <div className="h-full bg-[var(--color-paper)] flex flex-col justify-between overflow-hidden">
+      <div className="evidence-drawer-shell">
         {/* Drawer Header */}
-        <div className="p-6 border-b border-[var(--color-neutral-200)] bg-[var(--color-surface)]">
+        <div className="evidence-drawer-header-block">
+          <EvidenceFixtureNotice />
           <div className="flex items-center justify-between gap-4 mb-3">
             <div className="flex items-center gap-2">
               <span className="type-mono font-bold text-xs text-[var(--color-behavior-red-deep)] px-2 py-0.5 bg-[var(--color-behavior-red-bg)]">
@@ -89,7 +136,7 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
               className="inline-flex min-h-11 min-w-11 items-center justify-center text-[var(--color-neutral-500)] hover:text-[var(--color-ink)] hover:bg-[var(--color-neutral-200)] transition-colors"
               aria-label="드로어 닫기"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
 
@@ -133,7 +180,7 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
         {/* Drawer Body */}
         <div
           id="drawer-tabpanel"
-          className="flex-1 overflow-y-auto p-6 space-y-6"
+          className="evidence-drawer-body space-y-6"
           role="tabpanel"
           aria-labelledby={`drawer-tab-${activeTab}`}
           tabIndex={0}
@@ -229,7 +276,7 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
                 onClick={handleCopySource}
                 className="flex min-h-11 w-full items-center justify-center gap-2 bg-[var(--color-ink)] px-4 py-2.5 font-mono text-xs text-[var(--color-paper)] transition-colors hover:bg-[var(--color-neutral-700)]"
               >
-                {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+                {copied ? <Check className="w-4 h-4" aria-hidden="true" /> : <Copy className="w-4 h-4" aria-hidden="true" />}
                 <span>{copied ? '출처 인용문 복사됨' : '출처 인용문 복사하기'}</span>
               </button>
             </div>

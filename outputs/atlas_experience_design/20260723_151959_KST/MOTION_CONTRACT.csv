@@ -1,0 +1,7 @@
+interaction,duration,easing,properties,reduced_motion,status
+CTA hover,150ms,"cubic-bezier(.22 1 .36 1)","background color + translateX <=4px","transform removed; <=60ms",CONFIRMED
+node hover,150ms,"cubic-bezier(.22 1 .36 1)","scale <=1.06; coordinate unchanged","<=60ms",CONFIRMED
+filter,220ms,"cubic-bezier(.22 1 .36 1)","opacity/stroke only","duration removed globally",CONTRACT_ONLY
+loading progress,1400ms alternate,"cubic-bezier(.22 1 .36 1)","red rule scaleX","static full rule",CONFIRMED
+drawer,300ms,"cubic-bezier(.22 1 .36 1)","translate <=24px + opacity","animation none",PRESERVED
+forbidden,NONE,NONE,"node drift/bounce/orbit/particle/camera",NONE,CONFIRMED_ABSENT

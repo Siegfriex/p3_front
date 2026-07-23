@@ -1,0 +1,9 @@
+filter_state,interaction_state,rendered,interactive,visual,url_write
+matched,default,yes,yes,base encoding,no
+matched,hovered,yes,yes,temporary emphasis and label,no
+matched,focused,yes,DOM owner,independent halo and label,no
+matched,selected,yes,yes,red outer ring,canonical selection action
+matched,focused-selected,yes,DOM owner,halo plus ring,selection only
+matched,dimmed,yes,no,low emphasis,no
+context,dimmed,yes,no,low emphasis,no
+excluded,none,no,no,none,no

@@ -1,0 +1,83 @@
+{
+  "status": "AGENT_3_HANDOFF_READY",
+  "repository": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "HEAD": "4c053ed583d718464a867fccb0b205458dde8273",
+  "upstream": "origin/agent/frontend-routing-atlas-foundation-20260723",
+  "upstream_HEAD": "4c053ed583d718464a867fccb0b205458dde8273",
+  "source_snapshot_sha256": "ed9a8653e13cae265388ee64b25ef90cd050018c4c033fe68317e4d3226626ba",
+  "source_snapshot_algorithm": "LC_ALL=C sort owner_files.path; sha256sum each file; SHA-256 the newline-terminated manifest",
+  "final_worktree_snapshot_sha256": "f239e93ceb226cc848bb672d3ed66c9ec8a1c84b4612fa04e58cda77c3187e24",
+  "package_sha256": {
+    "package.json": "759e163c17f6662241843e9a4036bafe06e2efb30b9e2210a9343277f78e4b23",
+    "package-lock.json": "fb7789623b1fd97398a9c21db57176fa9d7d741c860cac659f3f6dc3d57c8252"
+  },
+  "owner_files": [
+    { "path": "src/shared/config/atlas/atlasEncoding.ts", "sha256": "d60003bca62918abdc4d1bbf41e0034321cc0bafc12eabfadae4457ba901d576" },
+    { "path": "src/shared/config/atlas/atlasEncoding.test.ts", "sha256": "ddeec269843bf6fdca5a47538c63075da23748a1db259dfdddf153a46bfa9864" },
+    { "path": "src/shared/lib/atlas/scaleProjection.ts", "sha256": "fe339f420c31fb7f59e52d90f308ed95fc8ddda530feb9e85e2f404024c151ef" },
+    { "path": "src/shared/lib/atlas/scaleProjection.test.ts", "sha256": "1bd51be9be0f47203f8ab6f1094b1a7d501f6252727ba0e2b73f890349821015" },
+    { "path": "src/shared/lib/atlas/atlasNodeNavigation.ts", "sha256": "ee02d930df530e90773ccf4ab5bd0654fabb9ea0a98d7f7a3d348af071f5fca3" },
+    { "path": "src/shared/lib/atlas/atlasNodeNavigation.test.ts", "sha256": "626675829161183596fb39923aa1fec82299a3cf5ab6437d9cf900af3d749adc" },
+    { "path": "src/shared/lib/atlas/atlasNodeHitTesting.ts", "sha256": "ddc95d7ded77c8ee6c8b2243b657d72c8097ed9088fdac11c89c2756acb24674" },
+    { "path": "src/shared/lib/atlas/atlasNodeHitTesting.test.ts", "sha256": "c8398b82d1e9925733bd087109327b3b412bb2eaa2bbdc988944d34b0ba61523" },
+    { "path": "src/shared/lib/atlas/atlasNodeParity.ts", "sha256": "040177a997e7c0e820ab6d851d7d9afc084b1e6ac418bcd645bd837b9bbf7a3e" },
+    { "path": "src/shared/lib/atlas/atlasNodeParity.test.ts", "sha256": "b2f8f152db24e78c7895d177759fa1bcddbd77e089172ca857c615f869079870" },
+    { "path": "src/widgets/atlas-explorer/AtlasNodeGlyph.tsx", "sha256": "59b4c424ec2103a11e1cb85d3a3d7baeea9e73bc824c8f2499911f14f9c8084e" },
+    { "path": "src/widgets/atlas-explorer/AtlasScene.tsx", "sha256": "56276f0217b98d68444f91ced87bf45422a1cde5df6405e3f3d9c4e01a25bd88" },
+    { "path": "src/widgets/atlas-explorer/AtlasDomMirror.tsx", "sha256": "b670122dd5cd24a83a34febdf4ccc124e7c61f86f671f41f821c75ee75b8602e" },
+    { "path": "src/widgets/atlas-explorer/AtlasExplorer.tsx", "sha256": "bde00b6c408f8df9b511c8e4e25be12212d6decdab0f09bee657f6f4cb55bffe" },
+    { "path": "src/widgets/atlas-explorer/AtlasExplorer.test.tsx", "sha256": "253dabbd5a5e38f307db054cd94e2b52cbbdb71c13f6704361c82bcb201e25be" },
+    { "path": "tests/e2e/atlas-contract-shell.spec.ts", "sha256": "62b84fec4234d88d284ebb101e8938f556c85140c18d54ece87c92fbcc001387" }
+  ],
+  "protected_contracts": [
+    "D-017 padded isotropic mapping with immutable projection domain",
+    "D-018 half-plane then angular deviation then directional distance then canonical ID",
+    "D-019 source radius preservation and minimum 44px deterministic hit target",
+    "D-020 matched/context/excluded filter semantics; Full Explorer excludes unmatched",
+    "D-021 confidence mapping is provisional and separate from interaction dimming",
+    "behavior-family shape, A1-A8 mark, and status stroke grammar",
+    "independent selected ring and focus halo",
+    "DOM mirror is the sole keyboard owner",
+    "no frontend force, jitter, aggregation, centroid, collision displacement, or proximity edges",
+    "Story subset requires approved manifest-backed IDs and release/projection parity"
+  ],
+  "qa_commands": [
+    "npm run typecheck",
+    "npm run lint",
+    "npm test",
+    "npm run build",
+    "isolated production Playwright atlas-contract-shell",
+    "isolated CONTRACT_FIXTURE Playwright atlas-contract-shell",
+    "raw transport JSX, forbidden layout, reverse import, and undefined CSS variable scans",
+    "agent-browser production /atlas inspection"
+  ],
+  "qa_results": [
+    { "gate": "typecheck", "result": "PASS" },
+    { "gate": "eslint", "result": "PASS_ZERO_WARNINGS" },
+    { "gate": "vitest", "result": "PASS_14_FILES_39_TESTS" },
+    { "gate": "production_build", "result": "PASS" },
+    { "gate": "production_no_manifest", "result": "PASS_2" },
+    { "gate": "contract_fixture", "result": "PASS_5" },
+    { "gate": "axe_critical_serious", "result": "0" },
+    { "gate": "page_overflow", "result": "0" },
+    { "gate": "production_visual_nodes", "result": "0" },
+    { "gate": "required_artifacts", "result": "PASS_23_OF_23" }
+  ],
+  "remaining_blockers": [
+    "approved frontend bundle absent",
+    "approved story_preview_node_ids absent",
+    "approved Evidence question/answer excerpts absent",
+    "approved maximum radius and confidence distribution absent",
+    "real-data density, accessibility, performance, and Story-Explorer parity not verifiable"
+  ],
+  "agent_4_policy": {
+    "may_change": ["page composition", "layout", "typography", "responsive presentation", "semantic-token values with state distinctions preserved"],
+    "must_not_rewrite": ["owner_files", "protected_contracts"],
+    "handoff_document": "AGENT_4_NODE_SYSTEM_HANDOFF.md"
+  },
+  "local_verdict": "SEMANTIC_NODE_SYSTEM_VERTICAL_SLICE_COMPLETE",
+  "commit_performed": false,
+  "push_performed": false,
+  "generated_at": "2026-07-23T17:50:19+09:00"
+}

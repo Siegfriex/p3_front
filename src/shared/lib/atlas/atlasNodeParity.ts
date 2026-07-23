@@ -7,10 +7,24 @@ export class StoryNodeSelectionError extends Error {
   }
 }
 
+export interface StoryNodeSelectionContract {
+  explorerReleaseId: string;
+  storyReleaseId: string;
+  explorerProjectionId: string;
+  storyProjectionId: string;
+}
+
 export function selectStoryAtlasNodes(
   explorerNodes: readonly AtlasNodeViewModel[],
   approvedStoryPreviewNodeIds: readonly string[],
+  contract: StoryNodeSelectionContract,
 ): AtlasNodeViewModel[] {
+  if (contract.storyReleaseId !== contract.explorerReleaseId) {
+    throw new StoryNodeSelectionError('Story and Full Explorer release IDs must match');
+  }
+  if (contract.storyProjectionId !== contract.explorerProjectionId) {
+    throw new StoryNodeSelectionError('Story and Full Explorer projection IDs must match');
+  }
   if (approvedStoryPreviewNodeIds.length === 0) {
     throw new StoryNodeSelectionError('Approved Story preview node IDs are required');
   }
@@ -22,6 +36,9 @@ export function selectStoryAtlasNodes(
   return approvedStoryPreviewNodeIds.map((nodeId) => {
     const node = nodesById.get(nodeId);
     if (!node) throw new StoryNodeSelectionError(`Story preview node is absent from Full Explorer: ${nodeId}`);
+    if (node.projectionId !== contract.explorerProjectionId) {
+      throw new StoryNodeSelectionError(`Story preview node projection mismatch: ${nodeId}`);
+    }
     return node;
   });
 }

@@ -1,0 +1,62 @@
+path,status,layer,purpose,risk,review_required
+.gitignore,modified,tooling,"ignore generated QA output",low,yes
+.nvmrc,new,tooling,"pin Node 20.20.1",low,yes
+package.json,modified,tooling,"metadata scripts dependencies",medium,yes
+package-lock.json,new,tooling,"official npm lockfile",medium,yes
+eslint.config.js,new,tooling,"real ESLint contract",low,yes
+vitest.config.ts,new,tooling,"unit test runner",low,yes
+playwright.config.ts,new,tooling,"E2E runner and dev server",low,yes
+tsconfig.json,modified,tooling,"alias and test types",low,yes
+vite.config.ts,modified,tooling,"matching @ alias",low,yes
+index.html,modified,entry,"overlay portal root and metadata",low,yes
+public/favicon.svg,new,asset,"eliminate favicon request failure",low,no
+src/main.tsx,modified,app,"BrowserRouter entry",high,yes
+src/App.tsx,modified,app,"providers and router composition",high,yes
+src/app/App.tsx,modified,app,"composition parity",low,yes
+src/app/providers/OverlayProvider.tsx,deleted,app,"remove monolithic route/overlay state",high,yes
+src/app/providers/AppProviders.tsx,new,app,"shared preference provider composition",medium,yes
+src/app/router/AppRouter.tsx,modified,app,"declarative routes and background location",high,yes
+src/app/router/AppShell.tsx,new,app,"header outlet footer shell",medium,yes
+src/app/router/AppScrollRestoration.tsx,new,app,"non-hash route scroll policy",medium,yes
+src/app/router/DetailPage.tsx,new,app,"direct Evidence/Case pages",high,yes
+src/app/router/EvidenceRouteOverlay.tsx,new,app,"route-modal detail state",high,yes
+src/app/router/FoundationsPage.tsx,new,app,"development-only gallery page",low,yes
+src/app/router/NotFoundPage.tsx,new,app,"wildcard 404",low,yes
+src/app/router/RouteErrorBoundary.tsx,new,app,"render failure boundary",medium,yes
+src/app/router/routeConfig.ts,new,app,"primary route metadata",low,yes
+src/shared/config/chapterNavigation.ts,new,shared,"seven chapter hash SSOT",medium,yes
+src/shared/providers/PreferencesProvider.tsx,new,shared,"presentation and motion preference",medium,yes
+src/shared/providers/preferenceContext.ts,new,shared,"context definition",low,yes
+src/shared/hooks/usePreferences.ts,new,shared,"preference consumer",low,yes
+src/shared/hooks/useDetailNavigation.ts,new,shared,"background-location detail navigation",high,yes
+src/shared/hooks/useBodyScrollLock.ts,new,shared,"modal scroll isolation",high,yes
+src/shared/hooks/useFocusTrap.ts,new,shared,"modal keyboard containment",high,yes
+src/shared/hooks/useReturnFocus.ts,new,shared,"opener focus restoration",high,yes
+src/shared/types/routing.ts,new,shared,"route state and outlet contracts",low,yes
+src/shared/ui/navigation/ChapterHashController.tsx,new,shared,"post-render hash scroll",high,yes
+src/shared/ui/overlay/OverlayPortal.tsx,new,shared,"single portal root",high,yes
+src/shared/ui/overlay/Dialog.tsx,new,shared,"modal accessibility mechanics",high,yes
+src/shared/ui/overlay/Drawer.tsx,new,shared,"desktop Drawer variant",medium,yes
+src/shared/ui/overlay/BottomSheet.tsx,new,shared,"mobile sheet variant",medium,yes
+src/shared/ui/overlay/overlay.types.ts,new,shared,"overlay prop contract",low,yes
+src/app/styles/layout.css,modified,styles,"hash offset and modal layouts",high,yes
+src/app/styles/tokens.css,modified,styles,"missing/header/contrast tokens",medium,yes
+src/pages/story/StoryPage.tsx,modified,pages,"observer and explicit hash navigation",high,yes
+src/pages/method/MethodPage.tsx,modified,pages,"remove embedded gallery",medium,yes
+src/widgets/app-shell/HeaderNav.tsx,modified,widgets,"Link/NavLink global routing",high,yes
+src/widgets/app-shell/FooterRail.tsx,modified,widgets,"seven-chapter routed state",medium,yes
+src/widgets/app-shell/ProgressTracker.tsx,modified,widgets,"explicit hash navigation",medium,yes
+src/widgets/evidence-drawer/EvidenceDrawer.tsx,modified,widgets,"route props and modal ARIA tabs",high,yes
+src/widgets/overlay-root/GlobalOverlayRoot.tsx,modified,widgets,"route-driven drawer mount",high,yes
+src/widgets/prologue-scene/ChapterPrologue.tsx,modified,widgets,"route Evidence/hash hooks only",medium,yes
+src/widgets/remains-scene/ChapterRemains.tsx,modified,widgets,"Method/Data Links",low,yes
+src/widgets/evidence-chain-scene/ChapterRecord.tsx,modified,widgets,"route Evidence hook",low,yes
+src/widgets/gap-scene/ChapterGap.tsx,modified,widgets,"route Evidence hook and type cleanup",low,yes
+src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,modified,widgets,"route Evidence hook and accessible filters",medium,yes
+src/widgets/case-sequence/ChapterCases.tsx,modified,widgets,"route Case/Evidence hooks",low,yes
+src/app/router/AppRouter.test.tsx,new,tests,"route unit coverage",low,yes
+src/app/router/routeConfig.test.ts,new,tests,"route/hash contract",low,yes
+src/shared/ui/overlay/Dialog.test.tsx,new,tests,"modal unit coverage",low,yes
+src/test/setup.ts,new,tests,"jsdom setup",low,yes
+tests/e2e/technical-routing.spec.ts,new,tests,"routing modal Axe runtime Gate",high,yes
+outputs/technical_routing_gate/20260723_133340/,new,outputs,"Gate evidence bundle",low,no

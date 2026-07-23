@@ -1,0 +1,73 @@
+P3_CULTURE FRONTEND ATLAS CONTRACT SHELL COMMAND LOG
+Audit ID: 20260723_144026_KST
+Canonical app: /home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front
+
+PREFLIGHT
+- git status --short --branch --untracked-files=all
+  Result: branch refactor/routing-technical-foundation; broad pre-existing routing/design diff plus historical/unrelated untracked outputs.
+- git rev-parse HEAD
+  Result: 6f4835292abe9bc0cbbed81469b21c25c4e95777.
+- git ls-files; git status --ignored
+  Result: tracked/untracked/ignored inventory recorded; dist and node_modules ignored; outputs remain untracked.
+- env | rg ^AUTH_COMMIT_ROUTING_FOUNDATION=
+  Result: absent at start and final check.
+- sha256sum SSOT/P3_0723_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md
+  Result: 99ee7cb16039afbebbd1373aa58e22aa89fd4ba257d26da3648e9422cf2bfb2d; exact match with lock JSON.
+- Read full SSOT, technical routing report, route map, file change map, test matrix.
+- package/lock root-map comparison; npm ls --depth=0
+  Result: lockfile v3; matching name/version; zero dependency-map differences; installed dependency tree resolved.
+
+ROUTING FOUNDATION RECHECK
+- npm run qa:foundation
+  Typecheck PASS; ESLint PASS; Vitest 7/7 PASS; build PASS.
+  First Playwright attempt could not bind localhost inside sandbox.
+- First elevated Playwright reuse used an existing port-3000 server and proved all 7 technical-routing scenarios PASS.
+- Existing port 3000 process was preserved. Later QA used isolated port 3001.
+
+IMPLEMENTATION
+- Added locked pages/widgets/shared FSD blueprint.
+- Added lazy /atlas AppRouter hunk.
+- Added strict manifest/node/topic/centroid/evidence/projection transport validation.
+- Added SHA-256 response-byte validation and projection consistency validation.
+- Added immutable coordinate scale, query parser/serializer, adapter, semantic-to-visual encoding.
+- Added aggregate-only SVG, inspector, controls, DOM mirror, live region, loading/error/unavailable/empty/invalid states.
+- Story and Scale source were not edited.
+- No package installation or package manifest mutation was performed.
+
+STATIC QA
+- npm run typecheck: PASS.
+- npm run lint: PASS, zero warnings.
+- npm run test: PASS, 9 files / 23 tests.
+- npm run build: PASS, 2150 modules.
+- Production chunks:
+  main JS 477421 raw / 146265 gzip bytes
+  Atlas lazy JS 31015 raw / 9663 gzip bytes
+  CSS 63143 raw / 11882 gzip bytes
+- FSD reverse import scan: zero.
+- shared-to-pages/widgets scan: zero.
+- raw pipeline-field scan in Atlas pages/widgets: zero.
+- undefined CSS variable scan: 108 definitions, 84 distinct uses, zero missing.
+- production Atlas chunk fixture/legacy scan: PASS.
+
+BROWSER QA
+- Initial normal Playwright run failed to start because sandbox denied 0.0.0.0:3000 with EPERM.
+- First elevated fixture attempt reused a pre-existing port-3000 server without fixture env; three fixture scenarios correctly showed DataUnavailable. This was orchestration, not product failure.
+- Moved audit server to isolated 127.0.0.1:3001; did not kill the existing server.
+- Atlas fixture + routing suite on port 3001:
+  Final result: 10 PASS, 2 no-manifest scenarios skipped by environment split.
+  Routing foundation subset: 7/7 PASS.
+  Atlas fixture subset: 3/3 PASS.
+  Axe critical/serious: 0/0.
+  Unexpected console errors: 0.
+  Unexpected application request failures: 0.
+  Manifest requests canceled by deliberate reload/history were classified as expected AbortController cancellations.
+- Production build preview on isolated 127.0.0.1:4176 without Atlas env:
+  Result: 2/2 no-manifest/query tests PASS; 3 fixture tests skipped.
+  No approved manifest request; DataUnavailable shown; query remained restorable; no fixture fallback.
+
+FINAL REPOSITORY STATE
+- Branch and HEAD unchanged.
+- Git index/cached diff empty.
+- AUTH_COMMIT_ROUTING_FOUNDATION absent.
+- No commit and no push.
+- User/unrelated historical outputs preserved and excluded from the commit plan.

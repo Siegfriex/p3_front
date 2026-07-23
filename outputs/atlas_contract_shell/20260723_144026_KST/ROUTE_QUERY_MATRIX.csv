@@ -1,0 +1,11 @@
+scenario,input,normalized_state,url_write,expected_runtime,result
+default,/atlas,"status=all; types=A1-A8; node=null; view=nodes",none,"production DataUnavailable without request",PASS
+valid status,/atlas?status=active&view=nodes,"status=active; types=A1-A8; node=null",none_on_read,"state restored on reload",PASS
+canonical type order,/atlas?types=A8,A2,A1,"types=A1,A2,A8",only_on_explicit_change,"serializer emits A1,A2,A8",PASS
+invalid status,/atlas?status=pending,"status=all; issue recorded",none_on_read,"safe normalized interpretation",PASS
+invalid types,/atlas?types=A9,"types=A1-A8; two issues recorded",none_on_read,"safe normalized interpretation",PASS
+invalid node format,/atlas?node=%3CNA%3E,"node=null; issue recorded",none_on_read,"no selection invented",PASS
+unknown valid node,/atlas?node=contract-node-missing&view=nodes,"node=contract-node-missing",none_on_read,"invalid-node state with clear action",PASS_CONTRACT_FIXTURE
+selection,/atlas?status=complete&types=A1&view=nodes,"node selected by explicit activation",push,"reload/Back/Forward restore",PASS_CONTRACT_FIXTURE
+reset,"status=active; types=A7; node set; view=nodes",default state,"remove Atlas parameters",/atlas,PASS_CONTRACT_FIXTURE
+Story preview handoff,"status=complete; types=A7,A1",canonical href,"explicit navigation only","/atlas?status=complete&types=A1,A7&view=nodes",PASS_UNIT_CONTRACT

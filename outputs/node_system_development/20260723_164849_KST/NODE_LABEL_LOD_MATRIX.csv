@@ -1,0 +1,7 @@
+state,visible,content,coordinate_effect,status
+default,no,none,none,LOCKED
+hovered,yes,A-code behavior short label answer count,label-only offset,LOCKED
+focused,yes,A-code behavior short label answer count,label-only offset,LOCKED
+selected,yes,A-code behavior short label answer count,label-only offset,LOCKED
+editorially_pinned,contract-ready,requires approved pin field,none,BLOCKED_BY_DATA
+topic_label,no,requires approved manual-label indicator,none,BLOCKED_BY_DATA

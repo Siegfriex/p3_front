@@ -1,0 +1,263 @@
+{
+  "results": [
+    {
+      "viewport": {
+        "directory": "375",
+        "width": 375,
+        "height": 812
+      },
+      "story": {
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "scrollHeight": 15761,
+        "blockingAxe": []
+      },
+      "atlas": {
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "scrollHeight": 2651,
+        "blockingAxe": []
+      },
+      "foundation": {
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "offenders": [],
+        "internalOverflow": [
+          {
+            "tag": "SPAN",
+            "className": "sr-only lg:hidden",
+            "text": "에세이",
+            "clientWidth": 1,
+            "scrollWidth": 33,
+            "overflowX": "hidden"
+          },
+          {
+            "tag": "SPAN",
+            "className": "sr-only lg:hidden",
+            "text": "방법론",
+            "clientWidth": 1,
+            "scrollWidth": 33,
+            "overflowX": "hidden"
+          },
+          {
+            "tag": "SPAN",
+            "className": "sr-only lg:hidden",
+            "text": "데이터",
+            "clientWidth": 1,
+            "scrollWidth": 33,
+            "overflowX": "hidden"
+          },
+          {
+            "tag": "SPAN",
+            "className": "sr-only lg:hidden",
+            "text": "소개",
+            "clientWidth": 1,
+            "scrollWidth": 22,
+            "overflowX": "hidden"
+          }
+        ],
+        "blockingAxe": []
+      },
+      "focusOutline": {
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "outlineColor": "rgb(164, 15, 31)"
+      }
+    },
+    {
+      "viewport": {
+        "directory": "768",
+        "width": 768,
+        "height": 1024
+      },
+      "story": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "scrollHeight": 12845,
+        "blockingAxe": []
+      },
+      "atlas": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "scrollHeight": 2398,
+        "blockingAxe": []
+      },
+      "foundation": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "offenders": [],
+        "internalOverflow": [
+          {
+            "tag": "DIV",
+            "className": "atlas-state-signal",
+            "text": "VER",
+            "clientWidth": 72,
+            "scrollWidth": 115,
+            "overflowX": "visible"
+          },
+          {
+            "tag": "DIV",
+            "className": "atlas-state-signal",
+            "text": "ERR",
+            "clientWidth": 72,
+            "scrollWidth": 114,
+            "overflowX": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "className": "sr-only lg:hidden",
+            "text": "에세이",
+            "clientWidth": 1,
+            "scrollWidth": 33,
+            "overflowX": "hidden"
+          },
+          {
+            "tag": "SPAN",
+            "className": "sr-only lg:hidden",
+            "text": "방법론",
+            "clientWidth": 1,
+            "scrollWidth": 33,
+            "overflowX": "hidden"
+          },
+          {
+            "tag": "SPAN",
+            "className": "sr-only lg:hidden",
+            "text": "데이터",
+            "clientWidth": 1,
+            "scrollWidth": 33,
+            "overflowX": "hidden"
+          },
+          {
+            "tag": "SPAN",
+            "className": "sr-only lg:hidden",
+            "text": "소개",
+            "clientWidth": 1,
+            "scrollWidth": 22,
+            "overflowX": "hidden"
+          }
+        ],
+        "blockingAxe": []
+      },
+      "focusOutline": {
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "outlineColor": "rgb(164, 15, 31)"
+      }
+    },
+    {
+      "viewport": {
+        "directory": "1440",
+        "width": 1440,
+        "height": 900
+      },
+      "story": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 11075,
+        "blockingAxe": []
+      },
+      "atlas": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 2006,
+        "blockingAxe": []
+      },
+      "foundation": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": [],
+        "internalOverflow": [
+          {
+            "tag": "DIV",
+            "className": "atlas-state-signal",
+            "text": "VER",
+            "clientWidth": 107,
+            "scrollWidth": 206,
+            "overflowX": "visible"
+          },
+          {
+            "tag": "DIV",
+            "className": "atlas-state-signal",
+            "text": "ERR",
+            "clientWidth": 107,
+            "scrollWidth": 206,
+            "overflowX": "visible"
+          },
+          {
+            "tag": "DIV",
+            "className": "atlas-state-signal",
+            "text": "00",
+            "clientWidth": 107,
+            "scrollWidth": 128,
+            "overflowX": "visible"
+          },
+          {
+            "tag": "DIV",
+            "className": "atlas-state-signal",
+            "text": "00",
+            "clientWidth": 107,
+            "scrollWidth": 128,
+            "overflowX": "visible"
+          }
+        ],
+        "blockingAxe": []
+      },
+      "focusOutline": {
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "outlineColor": "rgb(164, 15, 31)"
+      }
+    },
+    {
+      "viewport": {
+        "directory": "1920",
+        "width": 1920,
+        "height": 1080
+      },
+      "story": {
+        "clientWidth": 1920,
+        "scrollWidth": 1920,
+        "scrollHeight": 12220,
+        "blockingAxe": []
+      },
+      "atlas": {
+        "clientWidth": 1920,
+        "scrollWidth": 1920,
+        "scrollHeight": 2042,
+        "blockingAxe": []
+      },
+      "foundation": {
+        "clientWidth": 1920,
+        "scrollWidth": 1920,
+        "offenders": [],
+        "internalOverflow": [
+          {
+            "tag": "DIV",
+            "className": "atlas-state-signal",
+            "text": "VER",
+            "clientWidth": 143,
+            "scrollWidth": 229,
+            "overflowX": "visible"
+          },
+          {
+            "tag": "DIV",
+            "className": "atlas-state-signal",
+            "text": "ERR",
+            "clientWidth": 143,
+            "scrollWidth": 229,
+            "overflowX": "visible"
+          }
+        ],
+        "blockingAxe": []
+      },
+      "focusOutline": {
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "outlineColor": "rgb(164, 15, 31)"
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": []
+}

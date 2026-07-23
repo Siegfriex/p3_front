@@ -1,0 +1,38 @@
+path,git_state,area,audit_interpretation
+.gitignore,modified,repository,routing foundation worktree change
+index.html,modified,app shell,routing foundation worktree change
+package.json,modified,tooling,scripts and QA dependencies changed; lock untracked
+package-lock.json,untracked,tooling,lockfile exists and npm ls resolves
+src/app/router/AppRouter.tsx,modified,routing,lazy Atlas route added during audit
+src/app/router/AppShell.tsx,untracked,routing,shared shell
+src/app/router/AppScrollRestoration.tsx,untracked,routing,scroll restoration
+src/app/router/DetailPage.tsx,untracked,routing,mock direct Evidence and Case detail
+src/app/router/EvidenceRouteOverlay.tsx,untracked,routing,background-location overlay
+src/app/router/NotFoundPage.tsx,untracked,routing,wildcard 404
+src/app/router/FoundationsPage.tsx,untracked,development,development-only gallery
+src/pages/story/StoryPage.tsx,modified,Story,seven chapter composition
+src/pages/atlas/AtlasPage.tsx,untracked,Atlas,lazy fail-closed page added during audit
+src/pages/atlas/AtlasRouteError.tsx,untracked,Atlas,error state
+src/shared/api/atlas/loadAtlasManifest.ts,untracked,Atlas API,release selection and manifest fetch
+src/shared/api/atlas/loadAtlasBundle.ts,untracked,Atlas API,bundle fetch and projection cross-check
+src/shared/api/atlas/atlasTransportSchema.ts,untracked,Atlas schema,runtime manual schema parser
+src/shared/api/atlas/evidenceRepository.ts,untracked,Evidence,new repository not wired to DetailPage
+src/shared/lib/atlas/toAtlasViewModel.ts,untracked,Atlas adapter,transport to ViewModel
+src/shared/lib/atlas/atlasQueryState.ts,untracked,Atlas URL,canonical query parser serializer
+src/shared/lib/atlas/scaleProjection.ts,untracked,Atlas projection,immutable scaler
+src/shared/config/atlas/atlasEncoding.ts,untracked,Atlas encoding,shape fill stroke opacity dictionary
+src/shared/config/atlas/atlasWarnings.ts,untracked,Atlas content,projection and unavailable copy
+src/shared/types/atlas.ts,untracked,Atlas types,new ViewModel contract
+src/widgets/atlas-explorer/AtlasExplorer.tsx,untracked,Atlas UI,state orchestration and empty states
+src/widgets/atlas-explorer/AtlasScene.tsx,untracked,Atlas renderer,accessible aggregate SVG shell
+src/widgets/atlas-explorer/AtlasControls.tsx,untracked,Atlas UI,status and A1-A8 controls
+src/widgets/atlas-explorer/AtlasInspector.tsx,untracked,Atlas UI,selection and mock route evidence handoff risk
+src/widgets/atlas-explorer/AtlasDomMirror.tsx,untracked,Atlas accessibility,synchronized list shell
+src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,modified,Story Preview,8-node hard-coded MOCK SVG
+src/shared/mock/storyData.ts,untracked,Story data,MOCK metrics nodes evidence cases
+src/widgets/evidence-drawer/EvidenceDrawer.tsx,modified,Evidence,mock Drawer
+src/shared/ui/overlay/Dialog.tsx,untracked,accessibility,focus trap inert scroll lock
+tests/e2e/technical-routing.spec.ts,untracked,QA,7 routing tests
+tests/e2e/atlas-contract-shell.spec.ts,untracked,QA,5 Atlas tests; fixture group opt-in
+public/favicon.svg,untracked,public,only public file; no release bundle
+outputs/frontend_ux_ui_current_state_audit/20260723_142302,untracked,audit,created by this read-only audit

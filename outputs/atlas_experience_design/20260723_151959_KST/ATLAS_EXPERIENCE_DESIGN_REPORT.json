@@ -1,0 +1,51 @@
+{
+  "report": "Atlas Experience Design Development Report",
+  "direction": "REDLINE PUBLIC RECORD",
+  "run_id": "20260723_151959_KST",
+  "repository": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "branch": "refactor/routing-technical-foundation",
+  "head": "6f4835292abe9bc0cbbed81469b21c25c4e95777",
+  "overall_verdict": "PARTIAL_PASS",
+  "source_drift": "NOT_DETECTED_IN_AGENT3_BOUNDARY",
+  "data_mode": {
+    "approved_bundle": "ABSENT",
+    "production_fallback": "PROHIBITED",
+    "story": "DATA_UNAVAILABLE",
+    "atlas": "DATA_UNAVAILABLE_WITH_CONTRACT_SHELL",
+    "evidence_repository": "NOT_CONNECTED"
+  },
+  "verification": {
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "unit": { "status": "PASS", "files": 10, "tests": 25 },
+    "build": { "status": "PASS", "modules": 2162, "atlas_chunk_kb": 37.22, "atlas_gzip_kb": 11.33 },
+    "no_data_e2e": { "status": "PASS", "passed": 15, "skipped": 3 },
+    "fixture_e2e": { "status": "PASS", "passed": 3, "skipped": 2 },
+    "production_route_isolation": "PASS",
+    "viewports": [375, 768, 1440, 1920],
+    "horizontal_overflow": 0,
+    "blocking_axe": 0,
+    "console_errors": 0,
+    "page_errors": 0,
+    "unexpected_failed_requests": 0
+  },
+  "renderer": {
+    "decision": "SVG_V1_RETAIN",
+    "canvas": "DEFERRED",
+    "pixi": "DEFERRED",
+    "three_js": "DEFERRED",
+    "reason": "approved-data SVG budget failure not measured"
+  },
+  "gates": [
+    "REDLINE_PUBLIC_RECORD_DIRECTION_LOCKED",
+    "AGENT_4_DESIGN_VERTICAL_SLICE_COMPLETE",
+    "STORY_PREVIEW_FAIL_CLOSED_CONFIRMED",
+    "ATLAS_NO_DATA_EXPERIENCE_PASS",
+    "CONTRACT_FIXTURE_INTERACTION_PASS",
+    "RESPONSIVE_DESIGN_QA_PASS",
+    "ACCESSIBILITY_AUTOMATED_QA_PASS",
+    "APPROVED_DATA_VISUAL_TUNING_BLOCKED",
+    "EVIDENCE_PRODUCTION_EXPERIENCE_BLOCKED",
+    "RELEASE_CUTOVER_NOT_DECLARED"
+  ]
+}

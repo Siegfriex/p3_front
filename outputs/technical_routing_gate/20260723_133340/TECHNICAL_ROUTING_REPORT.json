@@ -1,0 +1,59 @@
+{
+  "canonicalAppRoot": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "branch": "refactor/routing-technical-foundation",
+  "baseHead": "6f4835292abe9bc0cbbed81469b21c25c4e95777",
+  "startedLocal": "2026-07-23T13:12:39+09:00",
+  "startedUtc": "2026-07-23T04:12:39Z",
+  "finalStatus": ["TECHNICAL_ROUTING_GATE_PASS", "DESIGN_REENTRY_READY"],
+  "packageLock": {
+    "path": "package-lock.json",
+    "synchronized": true,
+    "ignored": false,
+    "trackedAtEnd": false,
+    "verdict": "PACKAGE_LOCK_TRACKABLE"
+  },
+  "toolchain": {
+    "node": "20.20.1",
+    "npm": "10.8.2",
+    "react": "19.2.8",
+    "reactRouter": "7.18.1",
+    "vite": "6.4.3",
+    "typescript": "5.8.3",
+    "eslint": "10.7.0",
+    "vitest": "4.1.10",
+    "playwright": "1.61.1",
+    "axePlaywright": "4.12.1"
+  },
+  "qa": {
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "unitTestFiles": 3,
+    "unitTestsPassed": 7,
+    "build": "PASS",
+    "playwrightScenariosPassed": 7,
+    "axeCritical": 0,
+    "axeSerious": 0,
+    "consoleErrors": 0,
+    "applicationNetworkFailures": 0,
+    "undefinedCssVariables": 0,
+    "preview": "PASS"
+  },
+  "routes": [
+    "/",
+    "/method",
+    "/data",
+    "/about",
+    "/evidence/:evidenceId",
+    "/case/:caseId",
+    "/dev/foundations (development only)",
+    "*"
+  ],
+  "chapterHashes": ["prologue", "scale", "record", "gap", "answers", "cases", "remains"],
+  "scopeGuard": {
+    "chapterVisualRedesign": false,
+    "scaleRedesign": false,
+    "mockDataChanged": false,
+    "pushPerformed": false,
+    "commitPerformed": false
+  }
+}

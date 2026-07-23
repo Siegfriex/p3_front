@@ -1,0 +1,9 @@
+viewport,route,plot_width,plot_height,svg_viewbox,node_min_distance,max_overlap,largest_radius,smallest_mark_diameter,horizontal_overflow,major_finding,status
+375x812,/#answers,343,500,0 0 100 100,69.97,0,21.82,24.55,false,controls dense and node labels collide; footer consumes bottom area,PARTIALLY_CONFIRMED
+768x1024,/#answers,721.94,500,0 0 100 100,92.33,0,28.80,32.40,false,plot fixed 450px SVG and smallest marks below 44px,PARTIALLY_CONFIRMED
+1440x900,/#answers,1353.63,500,0 0 100 100,92.33,0,28.80,32.40,false,fixed chapter rail can intercept reset button point,CONTRADICTED
+1920x1080,/#answers,1488,500,0 0 100 100,92.33,0,28.80,32.40,false,large unused horizontal space and fixed-height plot,PARTIALLY_CONFIRMED
+375x812,/atlas,n/a,n/a,n/a,n/a,n/a,n/a,n/a,false,DataUnavailable copy wraps acceptably but CTA text is visually absent,CONTRADICTED
+1440x900,/atlas,n/a,n/a,n/a,n/a,n/a,n/a,n/a,false,DataUnavailable content is top-heavy with vast empty field and invisible CTA text,PARTIALLY_CONFIRMED
+375x812,evidence Drawer,n/a,n/a,n/a,n/a,n/a,n/a,n/a,false,bottom sheet fits but header and tabs are dense; close targets below 44px,PARTIALLY_CONFIRMED
+1440x900,case Drawer,n/a,n/a,n/a,n/a,n/a,n/a,n/a,false,drawer uses half viewport and leaves large empty body after short content,PARTIALLY_CONFIRMED

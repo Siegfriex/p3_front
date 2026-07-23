@@ -1,0 +1,19 @@
+area,rule,implementation,test,status
+manifest publication,"publication_ready must be boolean true",parseFrontendManifest,atlasTransportSchema.test.ts,PASS
+missing release,"no VITE_ATLAS_RELEASE_ID means no request and DataUnavailable",loadAtlasManifest,loadAtlasManifest.test.ts + production Playwright,PASS
+missing manifest,"configured 404 maps to DataUnavailable",loadAtlasManifest,loadAtlasManifest.test.ts,PASS
+string NA,"literal <NA> rejected in required and nullable string paths",stringAt/nullableStringAt,atlasTransportSchema.test.ts,PASS
+numeric dtype,"numeric strings rejected; finite number required",numberAt/integerAt,atlasTransportSchema.test.ts,PASS
+null,"nullable values accept JSON null only",nullableStringAt/nullableNumberAt/nullableProbabilityAt,atlasTransportSchema.test.ts,PASS
+behavior domain,"only semantic families; red/amber/blue rejected",parseAtlasNodes,atlasTransportSchema.test.ts,PASS
+status domain,"complete|active|unresolved only for nodes",parseAtlasNodes,compile + tests,PASS
+answer type,"A1-A8 only",parseAtlasNodes,compile + query tests,PASS
+mass,"weighted mass non-negative; normalized mass in 0..1",parseAtlasNodes,static contract,PASS
+confidence,"nullable finite probability 0..1",parseAtlasNodes,static contract,PASS
+manifest path,"relative; no protocol absolute path or parent traversal",safeRelativePathAt,static contract,PASS
+manifest file IDs,"logical names unique",parseFrontendManifest,static contract,PASS
+required bundle files,"summary/nodes/topic bins/centroids/evidence/projection/method/assets required",loadAtlasBundle,fixture Playwright,PASS
+file integrity,"response bytes SHA-256 must match manifest",loadAtlasBundle,fixture Playwright with computed hashes,PASS
+projection integrity,"node/bin/centroid projection IDs and projection hash match manifest",loadAtlasBundle,static contract,PASS
+evidence publication,"review/publish approved and public_visibility true",parseEvidenceSummaries,fixture Playwright,PASS
+component boundary,"pages/widgets contain no raw snake_case pipeline fields",import/raw-field scan,static scan,PASS

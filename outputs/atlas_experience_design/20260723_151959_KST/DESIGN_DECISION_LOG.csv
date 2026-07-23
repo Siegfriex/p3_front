@@ -1,0 +1,11 @@
+decision_id,status,decision,evidence,risk_or_followup
+DD-001,CONFIRMED,"REDLINE PUBLIC RECORD 단일 방향 채택","provided moodboard + canonical SSOT","복수 스타일 대안 생성 금지"
+DD-002,CONFIRMED,"Story production mock plot 제거 후 editorial DataUnavailable","approved bundle absent; production fallback prohibited","approved Story ViewModel 연결 전 plot 없음"
+DD-003,CONFIRMED,"v1 renderer aggregate SVG 유지","keyboard DOM mirror and contract fixture verified","approved node budget 성능은 BLOCKED"
+DD-004,CONFIRMED,"red는 selection focus annotation error에만 사용","reference grammar and accessibility","behavior family는 shape+tonal fill"
+DD-005,CONFIRMED,"A1–A8 내부 mark calibration 구현","Foundation Gallery CONTRACT_FIXTURE","실제 legend comprehension test 필요"
+DD-006,CONFIRMED,"invalid node는 stage 유지하고 inspector에서 설명","prompt contract","fixture E2E PASS"
+DD-007,CONFIRMED,"Foundation calibration은 dev-only route","production preview route test","production /dev/foundations 404"
+DD-008,BLOCKED,"실제 Evidence Detail production 적용","approved EvidenceRepository absent","Agent 3 repository/viewmodel 필요"
+DD-009,BLOCKED,"centroid topic label density pan/zoom 확정","approved bundle absent","Decision Log와 node-density measurement 필요"
+DD-010,DEFERRED,"Canvas Pixi Three.js 전환","SVG budget failure evidence absent","approved data 이후만 검토"

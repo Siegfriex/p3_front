@@ -255,11 +255,15 @@ test.describe('CONTRACT_FIXTURE route and query shell', () => {
     await page.keyboard.press('Escape');
     await expect(page).not.toHaveURL(/node=/);
 
-    await page.getByLabel('처리 상태').selectOption('complete');
+    const statusControl = page.getByLabel('처리 상태');
+    await statusControl.focus();
+    await statusControl.selectOption('complete');
+    await expect(statusControl).toBeFocused();
     await expect(firstVisual).toHaveAttribute('transform', firstTransform ?? '');
+    await expect(secondVisual).toHaveCount(0);
+    await expect(page.locator('#atlas-chart-summary')).toContainText('1개는 제외 상태');
+    await page.getByRole('button', { name: '필터 초기화' }).first().click();
     await expect(secondVisual).toHaveAttribute('transform', secondTransform ?? '');
-    await expect(secondVisual).toHaveAttribute('data-node-state', 'filtered');
-    await expect(secondVisual.locator('[data-atlas-hit-target="true"]')).toHaveCount(0);
 
     await page.setViewportSize({ width: 375, height: 812 });
     const touchTarget = firstVisual.locator('[data-atlas-hit-target="true"]');

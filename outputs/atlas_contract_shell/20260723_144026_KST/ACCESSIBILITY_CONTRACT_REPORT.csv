@@ -1,0 +1,15 @@
+criterion,shell_implementation,verification,result,claim_scope
+SVG accessible name,"role=group + title/desc via aria-labelledby",Vitest + Playwright role query,READY,CONTRACT_FIXTURE_ONLY
+chart summary,"visible summary and SVG desc",Vitest,READY,CONTRACT_FIXTURE_ONLY
+keyboard node,"focusable SVG g role=button tabIndex=0",Vitest + Playwright,READY,CONTRACT_FIXTURE_ONLY
+Enter/Space,"both keys select through explicit URL update",Vitest + Playwright Enter,READY,CONTRACT_FIXTURE_ONLY
+Escape,"clears selected node and URL parameter",Vitest + Playwright,READY,CONTRACT_FIXTURE_ONLY
+focus/hover/touch,"focus and pointer preview share callback; click selects",Vitest/manual code review,READY,CONTRACT_FIXTURE_ONLY
+DOM mirror,"filter-synchronized native button list",Vitest + Playwright,READY,CONTRACT_FIXTURE_ONLY
+live announcement,"polite atomic live region reports count/selection/invalid",Vitest + Playwright,READY,CONTRACT_FIXTURE_ONLY
+44px policy,"controls/list min-height 44px; SVG transparent hit radius 56 viewBox units",Playwright mirror bounding box >=44,READY,CONTRACT_FIXTURE_ONLY
+color independence,"semantic family maps to shape and fill; status maps stroke",static contract review,READY,CONTRACT_FIXTURE_ONLY
+focus return,"approved evidence action uses existing useDetailNavigation and Drawer foundation",existing routing E2E 7/7,COMPATIBLE,ROUTING_FOUNDATION
+reduced motion,"Atlas shell adds no animation; existing preference foundation retained",static review + existing routing Axe,READY,CONTRACT_FIXTURE_ONLY
+Axe,"critical=0; serious=0 on 375px fixture shell",Playwright Axe,READY,CONTRACT_FIXTURE_ONLY
+real data,"approved node set absent",not verifiable,NOT_CLAIMED,REAL_DATA_PENDING

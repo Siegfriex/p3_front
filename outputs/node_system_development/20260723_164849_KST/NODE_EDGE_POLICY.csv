@@ -1,0 +1,6 @@
+edge_class,default_visibility,required_data,token_layer,status
+proximity,never,not applicable,none,PROHIBITED
+approved_node_relation,conditional,relation ID source target type weight public visibility,data-neutral,DATA_BLOCKED
+approved_centroid_relation,conditional,approved centroid relation,data-neutral,DATA_BLOCKED
+approved_evidence_relation,conditional,approved evidence relation,data-neutral,DATA_BLOCKED
+editorial_annotation,conditional,approved editorial UI state,signal-red editorial,SEPARATE_LAYER

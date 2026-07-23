@@ -1,0 +1,26 @@
+path,change,layer,responsibility,production_data,status
+src/app/router/AppRouter.tsx,modified,app,"lazy /atlas route and Suspense loading shell",none,IMPLEMENTED_HUNK_ONLY
+src/pages/atlas/AtlasPage.tsx,new,page,"route composition; manifest/bundle load; loading/DataUnavailable/error dispatch",approved_manifest_only,IMPLEMENTED
+src/pages/atlas/AtlasRouteError.tsx,new,page,"explicit loader/validation route error state",none,IMPLEMENTED
+src/widgets/atlas-explorer/AtlasExplorer.tsx,new,widget,"URL-owned filter/selection orchestration; empty/invalid/live states",ViewModel_only,IMPLEMENTED
+src/widgets/atlas-explorer/AtlasScene.tsx,new,widget,"aggregate-only accessible SVG shell; shared plot/grid rectangle",ViewModel_only,IMPLEMENTED
+src/widgets/atlas-explorer/AtlasControls.tsx,new,widget,"status and A1-A8 filters with 44px controls",ViewModel_only,IMPLEMENTED
+src/widgets/atlas-explorer/AtlasInspector.tsx,new,widget,"selected/preview node inspector and approved evidence trigger",ViewModel_only,IMPLEMENTED
+src/widgets/atlas-explorer/AtlasDomMirror.tsx,new,widget,"filter-synchronized keyboard/touch DOM mirror",ViewModel_only,IMPLEMENTED
+src/shared/api/atlas/loadAtlasManifest.ts,new,shared-api,"explicit release resolution; missing manifest fail closed",approved_manifest_only,IMPLEMENTED
+src/shared/api/atlas/loadAtlasBundle.ts,new,shared-api,"required files; SHA-256; projection ID/hash consistency",approved_bundle_only,IMPLEMENTED
+src/shared/api/atlas/atlasTransportSchema.ts,new,shared-api,"strict runtime schemas; no coercion; public evidence gate",transport_only,IMPLEMENTED
+src/shared/api/atlas/evidenceRepository.ts,new,shared-api,"evidence storage abstraction",approved_evidence_only,IMPLEMENTED_SHELL
+src/shared/lib/atlas/toAtlasViewModel.ts,new,shared-lib,"raw transport to component-safe ViewModel adapter",transport_to_ViewModel,IMPLEMENTED
+src/shared/lib/atlas/atlasQueryState.ts,new,shared-lib,"canonical parser/serializer/reset/preview handoff",none,IMPLEMENTED
+src/shared/lib/atlas/scaleProjection.ts,new,shared-lib,"immutable projection-wide bounds to shared plot",none,IMPLEMENTED
+src/shared/config/atlas/atlasEncoding.ts,new,shared-config,"semantic family to shape/fill and status stroke",none,IMPLEMENTED
+src/shared/config/atlas/atlasWarnings.ts,new,shared-config,"locked projection and DataUnavailable copy",none,IMPLEMENTED
+src/shared/types/atlas.ts,new,shared-types,"transport-independent ViewModel contracts",none,IMPLEMENTED
+src/pages/atlas/AtlasPage.test.tsx,new,test,"production no-release DataUnavailable",CONTRACT_FIXTURE_ONLY,PASS
+src/widgets/atlas-explorer/AtlasExplorer.test.tsx,new,test,"SVG/DOM mirror/keyboard/empty/invalid contracts",CONTRACT_FIXTURE_ONLY,PASS
+src/shared/api/atlas/atlasTransportSchema.test.ts,new,test,"<NA>/numeric/domain/publication validation",CONTRACT_FIXTURE_ONLY,PASS
+src/shared/api/atlas/loadAtlasManifest.test.ts,new,test,"no-release and 404 fail-closed behavior",CONTRACT_FIXTURE_ONLY,PASS
+src/shared/lib/atlas/atlasQueryState.test.ts,new,test,"ordering/normalization/reset/preview URL",CONTRACT_FIXTURE_ONLY,PASS
+src/shared/lib/atlas/scaleProjection.test.ts,new,test,"immutable bounds and shared rectangle mapping",CONTRACT_FIXTURE_ONLY,PASS
+tests/e2e/atlas-contract-shell.spec.ts,new,test,"route/query/history/keyboard/Axe/no-manifest/fixture isolation",CONTRACT_FIXTURE_ONLY,PASS

@@ -1,0 +1,7 @@
+scenario,visual_radius_px,hit_radius_px,effective_diameter_px,result
+contract-node-001,18,22,44,PASS
+contract-node-002,22,22,44,PASS
+small-radius-unit,7.25,22,44,PASS
+large-radius-unit,30,30,60,PASS
+pointer_owner,NA,NA,visual glyph pointer-events none,PASS
+selection_event,NA,NA,click after pointer sequence,PASS

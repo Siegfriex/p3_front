@@ -1,0 +1,22 @@
+gate,command,environment,result,evidence
+BRANCH_MATCH,git branch --show-current,local,PASS,refactor/routing-technical-foundation
+HEAD_RECORDED,git rev-parse HEAD,local,PASS,6f4835292abe9bc0cbbed81469b21c25c4e95777
+SSOT_HASH,sha256sum + lock JSON,local,PASS,99ee7cb16039afbebbd1373aa58e22aa89fd4ba257d26da3648e9422cf2bfb2d
+PACKAGE_LOCK_CONSISTENCY,package root dependency comparison,local,PASS,zero dependency/version diffs
+ROUTING_QA_STATIC,npm typecheck/lint/test/build,pre-Atlas,PASS,typecheck/lint/7 unit/build
+TYPECHECK,npm run typecheck,final,PASS,exit 0
+ESLINT,npm run lint,final,PASS,zero warnings
+VITEST,npm run test,final,PASS,9 files 23 tests
+PRODUCTION_BUILD,npm run build,no Atlas env,PASS,2150 modules; lazy Atlas chunk
+ROUTE_LAZY_SPLIT,dist asset inspection,production,PASS,AtlasPage 31015 B raw / 9663 B gzip
+ROUTING_PLAYWRIGHT,technical-routing.spec.ts,dev port 3001,PASS,7/7
+ATLAS_FIXTURE_PLAYWRIGHT,atlas-contract-shell.spec.ts,explicit test fixture env,PASS,3/3; two no-manifest tests intentionally skipped
+PRODUCTION_NO_MANIFEST,atlas-contract-shell.spec.ts,production preview no env,PASS,2/2; fixture tests intentionally skipped
+AXE_CRITICAL_SERIOUS,Playwright Axe,375 contract fixture,PASS,0 critical / 0 serious
+CONSOLE_ERROR,Playwright collector,production no-manifest and fixture,PASS,zero unexpected errors
+REQUEST_FAILURE,Playwright collector,production no-manifest and fixture,PASS,zero unexpected failures; navigation aborts classified expected
+FSD_IMPORT_SCAN,rg app/pages/widgets/shared imports,source,PASS,zero reverse imports
+RAW_FIELD_SCAN,rg pipeline snake_case in page/widget,source,PASS,zero component raw fields
+CSS_VARIABLE_SCAN,Node CSS var scan,source,PASS,108 definitions / 84 usages / 0 missing
+PRODUCTION_FIXTURE_SCAN,rg Atlas production chunk,dist,PASS,no fixture IDs/legacy projection/storyData
+COMMIT_AUTHORIZATION,AUTH_COMMIT_ROUTING_FOUNDATION env,local,ABSENT,no commit/stage/push

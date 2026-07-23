@@ -1,0 +1,16 @@
+component,owner,input,visual_contract,production_status
+AtlasSectionHeader,Agent4,editorial props,"large signal + title + thesis + optional aside",CONNECTED
+AtlasMetadataRail,Agent4,label/value props,"hairline rail; warning and signal semantic tones",CONNECTED
+AtlasControlRail,Agent4,Atlas query callbacks,"URL-synchronized compact controls; 44px targets",CONNECTED
+AtlasStageFrame,Agent4,presentation children,"2px top rule; title rail; stable stage body",CONNECTED
+AtlasNodeGlyph,Agent4,ViewModel encoding props,"family shape; A1-A8 inner mark; status dash; red selection",CONTRACT_FIXTURE_VERIFIED
+AtlasSelectionInspector,Agent4,AtlasNodeViewModel,"red selected rule; 2x2 metrics; evidence CTA",CONTRACT_FIXTURE_VERIFIED
+AtlasDomMirror,Agent4,filtered nodes,"single keyboard owner; focus/hover synchronization",CONTRACT_FIXTURE_VERIFIED
+AtlasLiveRegion,Agent4,selection summary,"polite atomic announcement",CONTRACT_FIXTURE_VERIFIED
+AtlasDataStates,Agent4,presentation props,"six distinct flat record states; no fake nodes",CONNECTED
+EvidenceHeader,Agent4,presentation props,"record ID/title/context hierarchy",DEV_CALIBRATION_ONLY
+EvidenceStatusPair,Agent4,presentation props,"reported vs verification pair",DEV_CALIBRATION_ONLY
+EvidenceChain,Agent4,presentation props,"request-question-result-verification sequence",DEV_CALIBRATION_ONLY
+EvidenceQuote,Agent4,presentation props,"red trace rule and editorial serif quote",DEV_CALIBRATION_ONLY
+EvidenceVerificationPanel,Agent4,presentation props,"restricted inverse verification surface",DEV_CALIBRATION_ONLY
+EvidenceProvenanceRail,Agent4,presentation props,"meeting/pages/PDF/pipeline/review/publication",DEV_CALIBRATION_ONLY

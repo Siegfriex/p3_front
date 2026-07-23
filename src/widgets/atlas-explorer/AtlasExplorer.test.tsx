@@ -104,10 +104,9 @@ describe('AtlasExplorer accessibility contract shell', () => {
 
     const filtered = renderExplorer(bundleFixture(), { ...queryFixture(), status: 'complete' });
     expect(screen.getByTestId('atlas-filter-empty-state')).toBeInTheDocument();
-    const filteredNode = filtered.container.querySelector('[data-node-id="contract-node-001"]');
-    expect(filteredNode).toHaveAttribute('transform', 'translate(200 180)');
-    expect(filteredNode).toHaveAttribute('data-node-state', 'filtered');
-    expect(filteredNode?.querySelector('[data-atlas-hit-target="true"]')).toBeNull();
+    expect(filtered.container.querySelector('[data-node-id="contract-node-001"]')).toBeNull();
+    expect(filtered.container.querySelector('[data-testid="atlas-chart"] svg')).toBeInTheDocument();
+    expect(within(filtered.container).getByTestId('atlas-chart')).toHaveTextContent('1개는 제외 상태');
     filtered.unmount();
 
     renderExplorer(bundleFixture(), queryFixture('contract-node-missing'));

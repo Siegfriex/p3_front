@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   ANSWER_TYPE_MARKS,
+  ATLAS_CONFIDENCE_PRESENTATION_POLICY,
   ATLAS_MINIMUM_HIT_TARGET_PX,
   NODE_GLYPH_TOKENS,
   STATUS_STROKE_DASH,
@@ -9,6 +10,7 @@ import {
   getNodeHitRadius,
   getPresentedNodeRadius,
   getRequiredProjectionPadding,
+  getRequiredProjectionPaddingForRadii,
   resolveNodeInteractionState,
 } from './atlasEncoding';
 
@@ -26,13 +28,18 @@ describe('Atlas node semantic encoding', () => {
     expect(getNodeHitRadius(7.25) * 2).toBe(ATLAS_MINIMUM_HIT_TARGET_PX);
     expect(getNodeHitRadius(30)).toBe(30);
     expect(getRequiredProjectionPadding(22)).toBe(43);
+    expect(getRequiredProjectionPaddingForRadii([7.25, 22, 18])).toBe(43);
+    expect(() => getRequiredProjectionPaddingForRadii([])).toThrow(/Full aggregate node radius set/);
     expect(() => getPresentedNodeRadius(0)).toThrow(/positive finite/);
   });
 
   it('composes semantic opacity and interaction state without multiplying them away', () => {
-    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'dimmed', isFiltered: false, isSelected: false, isFocused: false })).toBe(0.4);
-    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'filtered', isFiltered: true, isSelected: false, isFocused: false })).toBe(0.14);
-    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'selected', isFiltered: false, isSelected: true, isFocused: false })).toBe(0.88);
-    expect(resolveNodeInteractionState({ isHovered: false, isFocused: true, isSelected: true, isDimmed: false, isFiltered: false })).toBe('focused-selected');
+    expect(ATLAS_CONFIDENCE_PRESENTATION_POLICY.status).toBe('PROVISIONAL_PENDING_APPROVED_DISTRIBUTION');
+    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'dimmed', filterState: 'matched', isSelected: false, isFocused: false })).toBe(0.4);
+    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'default', filterState: 'context', isSelected: false, isFocused: false })).toBe(0.4);
+    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'default', filterState: 'excluded', isSelected: false, isFocused: false })).toBe(0);
+    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'selected', filterState: 'matched', isSelected: true, isFocused: false })).toBe(0.88);
+    expect(resolveNodeInteractionState({ isHovered: false, isFocused: true, isSelected: true, isDimmed: false, filterState: 'matched' })).toBe('focused-selected');
+    expect(resolveNodeInteractionState({ isHovered: true, isFocused: false, isSelected: false, isDimmed: false, filterState: 'context' })).toBe('dimmed');
   });
 });

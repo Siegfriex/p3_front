@@ -1,0 +1,33 @@
+path,action,scope,agent3_boundary,status
+src/app/styles/reset.css,MODIFIED,"cascade layer repair",none,VERIFIED
+src/app/styles/tokens.css,MODIFIED,"REDLINE semantic tokens",none,VERIFIED
+src/app/styles/typography.css,MODIFIED,"display/H1/H2 calibration",none,VERIFIED
+src/app/styles/layout.css,MODIFIED,"master grid/state/stage/sheet primitives",none,VERIFIED
+src/shared/ui/atlas/AtlasDataStates.tsx,ADDED,"six props-only data states",none,VERIFIED
+src/shared/ui/atlas/AtlasProjectionNote.tsx,ADDED,"shared projection warning",none,VERIFIED
+src/shared/ui/RedlineAtlasCalibration.tsx,ADDED,"dev-only calibration surface",none,VERIFIED
+src/shared/ui/evidence/EvidencePresentation.tsx,ADDED,"static Evidence presentation contract",none,VERIFIED
+src/shared/ui/FoundationGallery.tsx,MODIFIED,"REDLINE calibration mount",none,VERIFIED
+src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,MODIFIED,"production mock removal; DataUnavailable; CTA",consumes query parser only,VERIFIED
+src/pages/atlas/AtlasPage.tsx,MODIFIED,"REDLINE intro/metadata/data-state composition",loader unchanged,VERIFIED
+src/pages/atlas/AtlasRouteError.tsx,MODIFIED,"shared error presentation",loader unchanged,VERIFIED
+src/widgets/atlas-explorer/AtlasNodeGlyph.tsx,ADDED,"family/subtype/status/interaction glyph",ViewModel consumer only,VERIFIED
+src/widgets/atlas-explorer/AtlasSectionHeader.tsx,ADDED,"editorial section header",none,VERIFIED
+src/widgets/atlas-explorer/AtlasMetadataRail.tsx,ADDED,"metadata rail",none,VERIFIED
+src/widgets/atlas-explorer/AtlasStageFrame.tsx,ADDED,"stage frame",none,VERIFIED
+src/widgets/atlas-explorer/AtlasUnavailableShell.tsx,ADDED,"no-fake-node Explorer shell",none,VERIFIED
+src/widgets/atlas-explorer/AtlasExplorer.tsx,MODIFIED,"invalid node stage retention; focus sync",ViewModel unchanged,VERIFIED
+src/widgets/atlas-explorer/AtlasScene.tsx,MODIFIED,"accessible SVG presentation + REDLINE glyph",coordinates unchanged,VERIFIED
+src/widgets/atlas-explorer/AtlasDomMirror.tsx,MODIFIED,"single keyboard owner + focus sync",ViewModel unchanged,VERIFIED
+src/widgets/atlas-explorer/AtlasControls.tsx,MODIFIED,"compact responsive controls",query contract unchanged,VERIFIED
+src/widgets/atlas-explorer/AtlasInspector.tsx,MODIFIED,"selection hierarchy and mobile sheet",Evidence hook unchanged,VERIFIED
+src/widgets/atlas-explorer/AtlasLegend.tsx,ADDED,"shape/status semantic legend",none,VERIFIED
+src/widgets/app-shell/FooterRail.tsx,MODIFIED,"remove fabricated percentages; Story scope support",none,VERIFIED
+src/widgets/app-shell/ProgressTracker.tsx,MODIFIED,"hit interception/contrast repair",none,VERIFIED
+src/app/router/AppShell.tsx,MODIFIED,"FooterRail Story-only",routing structure preserved,VERIFIED
+src/widgets/scale-scene/ChapterScale.tsx,MODIFIED,"mobile year control overflow repair",none,VERIFIED
+src/widgets/evidence-chain-scene/ChapterRecord.tsx,MODIFIED,"focusable horizontal region",none,VERIFIED
+src/shared/ui/SankeyFlowDiagram.tsx,MODIFIED,"focusable horizontal region",none,VERIFIED
+src/pages/data/DataPage.tsx,MODIFIED,"focusable table region",none,VERIFIED
+tests/e2e/atlas-experience-design.spec.ts,ADDED,"no-data design QA",none,PASS
+tests/e2e/atlas-contract-shell.spec.ts,MODIFIED,"DOM mirror and fixture QA",contract fixture only,PASS

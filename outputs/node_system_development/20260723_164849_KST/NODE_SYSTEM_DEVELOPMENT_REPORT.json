@@ -1,0 +1,52 @@
+{
+  "status": "FINAL_NODE_SYSTEM_HANDOFF",
+  "local_verdict": "SEMANTIC_NODE_SYSTEM_VERTICAL_SLICE_COMPLETE",
+  "repository": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "frozen_head": "4c053ed583d718464a867fccb0b205458dde8273",
+  "upstream_head": "4c053ed583d718464a867fccb0b205458dde8273",
+  "freeze_snapshot_sha256": "09af3fee556d7b06cf25f83dcb18f61f52444d259961e2288abd3041f996361a",
+  "freeze_match": true,
+  "decisions": {
+    "D-017": "padded isotropic projection mapping",
+    "D-018": "angular-first spatial keyboard navigation",
+    "D-019": "source radius plus minimum 44px deterministic hit target",
+    "D-020": "matched/context/excluded filter state",
+    "D-021": "provisional confidence presentation separated from interaction"
+  },
+  "production": {
+    "approved_node_count": 0,
+    "data_mode": "unavailable",
+    "mock_fallback": false,
+    "legacy_fallback": false
+  },
+  "qa": {
+    "typecheck": "PASS",
+    "eslint": "PASS_ZERO_WARNINGS",
+    "vitest": "PASS_14_FILES_39_TESTS",
+    "build": "PASS",
+    "production_playwright": "PASS_2",
+    "fixture_playwright": "PASS_5",
+    "axe_critical_serious": 0,
+    "undefined_css_variables": 0,
+    "raw_transport_jsx_access": 0,
+    "reverse_app_imports": 0
+  },
+  "contract_fixture": {
+    "node_count": 2,
+    "svg_element_count": 33,
+    "dom_navigator_count": 2,
+    "screenshot_count": 18,
+    "approved_real_data_measured": false
+  },
+  "blocked": [
+    "approved frontend bundle",
+    "approved story_preview_node_ids",
+    "approved evidence excerpts",
+    "approved radius distribution",
+    "real-data density and accessibility validation"
+  ],
+  "prohibited_gates_declared": false,
+  "commit_performed": false,
+  "push_performed": false
+}

@@ -187,6 +187,52 @@ export function AtlasContractMismatch({ description, contractVersion, onRetry }:
   );
 }
 
+interface AtlasProjectionMismatchProps {
+  description: string;
+  projectionId?: string;
+  onRetry?: () => void;
+}
+
+export function AtlasProjectionMismatch({ description, projectionId, onRetry }: AtlasProjectionMismatchProps) {
+  return (
+    <AtlasStatePanel
+      eyebrow="PROJECTION MISMATCH"
+      title="현재 좌표계와 Atlas release가 일치하지 않습니다"
+      description={description}
+      tone="contract"
+      signal="XY"
+      testId="atlas-projection-mismatch"
+      role="alert"
+      detail={projectionId ? <p className="font-mono text-xs">요청 projection: {projectionId}</p> : undefined}
+      actions={onRetry ? (
+        <button type="button" className="atlas-action-primary" onClick={onRetry}>projection 다시 확인</button>
+      ) : undefined}
+    />
+  );
+}
+
+interface AtlasStaleReleaseProps {
+  description: string;
+  releaseId?: string;
+  actions?: ReactNode;
+}
+
+export function AtlasStaleRelease({ description, releaseId, actions }: AtlasStaleReleaseProps) {
+  return (
+    <AtlasStatePanel
+      eyebrow="STALE RELEASE"
+      title="더 최신의 승인 release를 확인해야 합니다"
+      description={description}
+      tone="unavailable"
+      signal="OLD"
+      testId="atlas-stale-release"
+      role="status"
+      detail={releaseId ? <p className="font-mono text-xs">현재 release: {releaseId}</p> : undefined}
+      actions={actions}
+    />
+  );
+}
+
 interface AtlasInvalidNodeStateProps {
   nodeId: string;
   onClear: () => void;

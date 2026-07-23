@@ -1,0 +1,13 @@
+token_area,defined,usage_consistency,finding,state,severity
+color,yes,partial,semantic paper ink and behavior tokens exist but behavior colors also carry domain meaning,PARTIALLY_CONFIRMED,P1
+status color,yes,partial,status tokens exist; Story nodes use white stroke instead of status,CONTRADICTED,P1
+typography,yes,partial,role classes coexist with many arbitrary Tailwind text sizes,PARTIALLY_CONFIRMED,P3
+spacing,yes,partial,4px-derived tokens coexist with arbitrary p and gap utilities,PARTIALLY_CONFIRMED,P3
+layout,yes,partial,100rem frame and 12-column system; large desktop whitespace and fixed 500px plot,PARTIALLY_CONFIRMED,P2
+radius,yes,consistent,mostly square editorial surfaces with limited radius,CONFIRMED,P4
+z-index,yes,partial,fixed rail header footer overlay tokens exist; 1440 rail intercepted reset sample,CONTRADICTED,P2
+motion,yes,partial,reduced-motion override exists; Story hover uses animate-ping despite no semantic need,PARTIALLY_CONFIRMED,P3
+focus ring,yes,partial,global ring exists but Story SVG groups are not focusable,PARTIALLY_CONFIRMED,P1
+CSS cascade,n/a,inconsistent,unlayered reset a/button color inherit overrides Tailwind text utilities,CONTRADICTED,P1
+component consistency,partial,partial,route pages share PageFrame but mock Story and Atlas contract shell use separate visual/VM systems,PARTIALLY_CONFIRMED,P2
+CTA visibility,n/a,inconsistent,black active nav and black CTA labels disappear in screenshots,CONTRADICTED,P1
