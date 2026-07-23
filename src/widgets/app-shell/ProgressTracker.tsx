@@ -1,34 +1,35 @@
-import React from 'react';
-import { useOverlay } from '../../app/providers/OverlayProvider';
-import { STORY_CHAPTERS } from '../../shared/mock/storyData';
+import { CHAPTER_IDS } from '@/shared/config/chapterNavigation';
+import { STORY_CHAPTERS } from '@/shared/mock/storyData';
 
-export const ProgressTracker: React.FC = () => {
-  const { currentChapterId, setCurrentChapterId } = useOverlay();
+const visibleStoryChapters = STORY_CHAPTERS.filter((chapter) =>
+  CHAPTER_IDS.some((chapterId) => chapterId === chapter.id)
+);
 
-  const handleChapterClick = (id: string) => {
-    setCurrentChapterId(id);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+interface ProgressTrackerProps {
+  currentChapterId: string;
+  onChapterNavigate: (chapterId: string) => void;
+}
 
+export function ProgressTracker({ currentChapterId, onChapterNavigate }: ProgressTrackerProps) {
   return (
     <aside
-      className="hidden xl:block fixed right-6 top-1/2 -translate-y-1/2 z-[var(--z-navigation)] bg-[var(--color-paper)]/80 backdrop-blur-md border border-[var(--color-neutral-200)] p-3 rounded-sm shadow-sm transition-all"
+      className="fixed right-4 top-1/2 z-[var(--z-navigation)] hidden -translate-y-1/2 border border-[var(--color-neutral-200)] bg-[var(--color-paper)]/90 p-2 shadow-sm backdrop-blur-md transition-all 2xl:block"
       aria-label="에세이 챕터 내비게이션"
     >
-      <div className="text-[10px] font-mono text-[var(--color-neutral-500)] mb-3 px-1 uppercase tracking-wider border-b border-[var(--color-neutral-200)] pb-1">
-        Chapters
+      <div className="mb-2 border-b border-[var(--color-neutral-200)] px-1 pb-1 text-center font-mono text-[9px] uppercase tracking-wider text-[var(--color-neutral-500)]">
+        CH.
       </div>
       <div className="flex flex-col gap-1">
-        {STORY_CHAPTERS.map((ch) => {
-          const isActive = currentChapterId === ch.id;
+        {visibleStoryChapters.map((chapter) => {
+          const isActive = currentChapterId === chapter.id;
           return (
             <button
-              key={ch.id}
-              onClick={() => handleChapterClick(ch.id)}
-              className={`group flex items-center gap-3 px-2 py-1.5 text-left text-xs font-mono transition-all rounded-none ${
+              type="button"
+              key={chapter.id}
+              onClick={() => onChapterNavigate(chapter.id)}
+              aria-current={isActive ? 'location' : undefined}
+              aria-label={`${chapter.order}장 ${chapter.title}로 이동`}
+              className={`group flex min-h-11 min-w-14 items-center justify-center gap-2 px-2 py-1.5 text-left font-mono text-xs transition-all ${
                 isActive
                   ? 'text-[var(--color-ink)] font-bold bg-[var(--color-neutral-200)]/60'
                   : 'text-[var(--color-neutral-700)] hover:text-[var(--color-ink)] hover:bg-[var(--color-neutral-100)]'
@@ -41,12 +42,12 @@ export const ProgressTracker: React.FC = () => {
                     : 'bg-[var(--color-neutral-400)] group-hover:scale-110'
                 }`}
               />
-              <span className="w-5 text-[11px] text-[var(--color-neutral-500)]">0{ch.order}</span>
-              <span className="truncate max-w-[100px]">{ch.title}</span>
+              <span className="text-[11px] text-[var(--color-neutral-700)]">0{chapter.order}</span>
+              <span className="sr-only">{chapter.title}</span>
             </button>
           );
         })}
       </div>
     </aside>
   );
-};
+}

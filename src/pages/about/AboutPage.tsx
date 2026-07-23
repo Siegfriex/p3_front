@@ -2,11 +2,11 @@ import React from 'react';
 import { PageFrame } from '../../shared/ui/PageFrame';
 import { EditorialColumn } from '../../shared/ui/EditorialColumn';
 import { Badge } from '../../shared/ui/Badge';
-import { Info, Sparkles, Feather, Shield } from 'lucide-react';
+import { Feather, Shield } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
   return (
-    <main className="py-12">
+    <main id="main-content" className="py-12" tabIndex={-1}>
       <PageFrame>
         <EditorialColumn>
           <Badge label="프로젝트 소개" variant="neutral" className="mb-4" />

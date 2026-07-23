@@ -293,7 +293,12 @@ export const SankeyFlowDiagram: React.FC = () => {
       </div>
 
       {/* Main Interactive Horizontal Sankey Chart */}
-      <div className="relative w-full overflow-x-auto hide-scrollbar pb-2">
+      <div
+        className="relative w-full overflow-x-auto hide-scrollbar pb-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-behavior-red-deep)]"
+        role="region"
+        aria-label="시정요구 처리 흐름 가로 도표"
+        tabIndex={0}
+      >
         <div className="min-w-[880px] relative">
           <svg
             viewBox="0 0 880 460"

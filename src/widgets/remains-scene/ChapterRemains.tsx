@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { ChapterFrame } from '../../shared/ui/ChapterFrame';
 import { PageFrame } from '../../shared/ui/PageFrame';
 import { EditorialColumn } from '../../shared/ui/EditorialColumn';
@@ -6,11 +7,7 @@ import { LineSymbol } from '../../shared/ui/LineSymbol';
 import { Badge } from '../../shared/ui/Badge';
 import { FileText, Database, Share2, Check } from 'lucide-react';
 
-interface ChapterRemainsProps {
-  onViewChange: (view: 'story' | 'method' | 'data' | 'about') => void;
-}
-
-export const ChapterRemains: React.FC<ChapterRemainsProps> = ({ onViewChange }) => {
+export const ChapterRemains: React.FC = () => {
   const [copied, setCopied] = React.useState(false);
 
   const handleCopyCitation = () => {
@@ -60,21 +57,21 @@ export const ChapterRemains: React.FC<ChapterRemainsProps> = ({ onViewChange }) 
 
           {/* Supplemental View Triggers */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-            <button
-              onClick={() => onViewChange('method')}
+            <Link
+              to="/method"
               className="px-5 py-2.5 bg-[var(--color-ink)] text-[var(--color-paper)] font-mono text-xs flex items-center gap-2 hover:bg-[var(--color-neutral-700)] transition-colors shadow-sm"
             >
               <FileText className="w-4 h-4" />
               <span>분석 방법론 & 출처 계약 (Method)</span>
-            </button>
+            </Link>
 
-            <button
-              onClick={() => onViewChange('data')}
+            <Link
+              to="/data"
               className="px-5 py-2.5 border border-[var(--color-neutral-200)] bg-[var(--color-paper)] text-[var(--color-ink)] font-mono text-xs flex items-center gap-2 hover:bg-[var(--color-neutral-100)] transition-colors"
             >
               <Database className="w-4 h-4" />
               <span>데이터 스키마 & 약관 (Data)</span>
-            </button>
+            </Link>
 
             <button
               onClick={handleCopyCitation}

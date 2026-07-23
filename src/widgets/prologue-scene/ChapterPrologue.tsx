@@ -1,23 +1,24 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, type Variants } from 'motion/react';
+import { useNavigate } from 'react-router';
 import { ChapterFrame } from '../../shared/ui/ChapterFrame';
 import { PageFrame } from '../../shared/ui/PageFrame';
 import { EditorialImageField } from '../../shared/ui/EditorialImageField';
 import { ChevronDown, ArrowRight } from 'lucide-react';
-import { useOverlay } from '../../app/providers/OverlayProvider';
+import { useDetailNavigation } from '@/shared/hooks/useDetailNavigation';
+import { usePreferences } from '@/shared/hooks/usePreferences';
 
 export const ChapterPrologue: React.FC = () => {
-  const { isReducedMotion, openEvidence, isPresentationMode } = useOverlay();
+  const navigate = useNavigate();
+  const { openEvidence } = useDetailNavigation();
+  const { isReducedMotion, isPresentationMode } = usePreferences();
 
   const handleScrollToScale = () => {
-    const scaleEl = document.getElementById('scale');
-    if (scaleEl) {
-      scaleEl.scrollIntoView({ behavior: isReducedMotion ? 'auto' : 'smooth' });
-    }
+    navigate({ pathname: '/', hash: '#scale' });
   };
 
   // Motion variants for staggered viewport reveal
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: isReducedMotion ? 1 : 0 },
     visible: {
       opacity: 1,
@@ -28,7 +29,7 @@ export const ChapterPrologue: React.FC = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: isReducedMotion ? 1 : 0, y: isReducedMotion ? 0 : 20 },
     visible: {
       opacity: 1,
@@ -193,4 +194,3 @@ export const ChapterPrologue: React.FC = () => {
     </ChapterFrame>
   );
 };
-

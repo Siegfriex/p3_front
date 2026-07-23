@@ -4,7 +4,6 @@ import { PageFrame } from '../../shared/ui/PageFrame';
 import { ContentGrid } from '../../shared/ui/ContentGrid';
 import { Badge } from '../../shared/ui/Badge';
 import { STORY_METRICS } from '../../shared/mock/storyData';
-import { Calendar, AlertCircle, FileSpreadsheet } from 'lucide-react';
 
 export const ChapterScale: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
@@ -80,30 +79,37 @@ export const ChapterScale: React.FC = () => {
             </div>
 
             {/* Year Selector */}
-            <div className="flex items-center gap-1 font-mono text-xs">
-              <button
-                onClick={() => setSelectedYear('all')}
-                className={`px-2.5 py-1 border transition-colors ${
-                  selectedYear === 'all'
-                    ? 'bg-[var(--color-ink)] text-[var(--color-paper)] border-[var(--color-ink)]'
-                    : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
-                }`}
-              >
-                전체 (2018–2023)
-              </button>
-              {yearStats.map((item) => (
+            <div
+              className="w-full max-w-full overflow-x-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)] lg:w-auto"
+              role="region"
+              aria-label="연도별 시정요구 필터"
+              tabIndex={0}
+            >
+              <div className="flex w-max items-center gap-1 font-mono text-xs">
                 <button
-                  key={item.year}
-                  onClick={() => setSelectedYear(item.year)}
-                  className={`px-2.5 py-1 border transition-colors ${
-                    selectedYear === item.year
-                      ? 'bg-[var(--color-behavior-red-deep)] text-white border-[var(--color-behavior-red-deep)]'
+                  onClick={() => setSelectedYear('all')}
+                  className={`min-h-[var(--target-min)] px-2.5 py-1 border transition-colors ${
+                    selectedYear === 'all'
+                      ? 'bg-[var(--color-ink)] text-[var(--color-paper)] border-[var(--color-ink)]'
                       : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
                   }`}
                 >
-                  {item.year}년
+                  전체 (2018–2023)
                 </button>
-              ))}
+                {yearStats.map((item) => (
+                  <button
+                    key={item.year}
+                    onClick={() => setSelectedYear(item.year)}
+                    className={`min-h-[var(--target-min)] px-2.5 py-1 border transition-colors ${
+                      selectedYear === item.year
+                        ? 'bg-[var(--color-behavior-red-deep)] text-white border-[var(--color-behavior-red-deep)]'
+                        : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
+                    }`}
+                  >
+                    {item.year}년
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 

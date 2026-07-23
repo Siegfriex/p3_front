@@ -1,20 +1,37 @@
-import React, { useState } from 'react';
-import { useOverlay } from '../../app/providers/OverlayProvider';
-import { MOCK_EVIDENCES, EDITORIAL_CASES } from '../../shared/mock/storyData';
-import { Badge } from '../../shared/ui/Badge';
-import { LineSymbol } from '../../shared/ui/LineSymbol';
-import { X, FileText, ExternalLink, CheckCircle2, AlertTriangle, Copy, Check } from 'lucide-react';
+import { useRef, useState, type KeyboardEvent } from 'react';
+import { MOCK_EVIDENCES, EDITORIAL_CASES } from '@/shared/mock/storyData';
+import type { DetailKind } from '@/shared/types/routing';
+import { Badge } from '@/shared/ui/Badge';
+import { LineSymbol } from '@/shared/ui/LineSymbol';
+import { Drawer } from '@/shared/ui/overlay/Drawer';
+import { X, AlertTriangle, Copy, Check } from 'lucide-react';
 
-export const EvidenceDrawer: React.FC = () => {
-  const { activeEvidenceId, activeCaseId, isDrawerOpen, closeDrawer, openEvidence } = useOverlay();
-  const [activeTab, setActiveTab] = useState<'evidence' | 'transcript' | 'verification' | 'source'>('evidence');
+interface EvidenceDrawerProps {
+  kind: DetailKind;
+  itemId: string;
+  onClose: () => void;
+}
+
+const EVIDENCE_TABS = [
+  { id: 'evidence', label: '원문 증거' },
+  { id: 'transcript', label: '속기록 질의답변' },
+  { id: 'verification', label: '저널리즘 검증' },
+  { id: 'source', label: '출처 및 PDF' },
+] as const;
+
+type EvidenceTabId = (typeof EVIDENCE_TABS)[number]['id'];
+
+export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [activeTab, setActiveTab] = useState<EvidenceTabId>('evidence');
+  const tabRefs = useRef(new Map<EvidenceTabId, HTMLButtonElement>());
   const [copied, setCopied] = useState(false);
-
-  if (!isDrawerOpen) return null;
+  const activeEvidenceId = kind === 'evidence' ? itemId : null;
+  const activeCaseId = kind === 'case' ? itemId : null;
 
   // Resolve active item
   let activeEvidence = MOCK_EVIDENCES.find((ev) => ev.id === activeEvidenceId);
-  let activeCase = EDITORIAL_CASES.find((c) => c.id === activeCaseId);
+  const activeCase = EDITORIAL_CASES.find((c) => c.id === activeCaseId);
 
   if (!activeEvidence && activeCase) {
     activeEvidence = MOCK_EVIDENCES.find((ev) => ev.id === activeCase.evidenceId) || MOCK_EVIDENCES[0];
@@ -31,18 +48,29 @@ export const EvidenceDrawer: React.FC = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  return (
-    <div
-      className="fixed inset-0 z-[var(--z-modal)] flex justify-end bg-black/40 backdrop-blur-xs transition-opacity duration-300"
-      aria-modal="true"
-      role="dialog"
-      aria-labelledby="drawer-title"
-    >
-      {/* Backdrop */}
-      <div className="absolute inset-0" onClick={closeDrawer} />
+  const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, tabId: EvidenceTabId) => {
+    const currentIndex = EVIDENCE_TABS.findIndex((tab) => tab.id === tabId);
+    let nextIndex: number;
+    if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % EVIDENCE_TABS.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + EVIDENCE_TABS.length) % EVIDENCE_TABS.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = EVIDENCE_TABS.length - 1;
+    else return;
+    event.preventDefault();
+    const nextTab = EVIDENCE_TABS[nextIndex].id;
+    setActiveTab(nextTab);
+    tabRefs.current.get(nextTab)?.focus();
+  };
 
-      {/* Drawer Container */}
-      <div className="relative w-full max-w-2xl h-full bg-[var(--color-paper)] border-l border-[var(--color-neutral-200)] shadow-2xl flex flex-col justify-between z-10 overflow-hidden animate-fade-in">
+  return (
+    <Drawer
+      open
+      onClose={onClose}
+      titleId="drawer-title"
+      descriptionId="drawer-description"
+      initialFocusRef={closeButtonRef}
+    >
+      <div className="h-full bg-[var(--color-paper)] flex flex-col justify-between overflow-hidden">
         {/* Drawer Header */}
         <div className="p-6 border-b border-[var(--color-neutral-200)] bg-[var(--color-surface)]">
           <div className="flex items-center justify-between gap-4 mb-3">
@@ -55,8 +83,9 @@ export const EvidenceDrawer: React.FC = () => {
             </div>
 
             <button
-              onClick={closeDrawer}
-              className="p-1 text-[var(--color-neutral-500)] hover:text-[var(--color-ink)] hover:bg-[var(--color-neutral-200)] transition-colors"
+              ref={closeButtonRef}
+              onClick={onClose}
+              className="inline-flex min-h-11 min-w-11 items-center justify-center text-[var(--color-neutral-500)] hover:text-[var(--color-ink)] hover:bg-[var(--color-neutral-200)] transition-colors"
               aria-label="드로어 닫기"
             >
               <X className="w-5 h-5" />
@@ -67,57 +96,47 @@ export const EvidenceDrawer: React.FC = () => {
             {activeEvidence.issue}
           </h3>
 
-          <div className="type-caption font-mono text-[var(--color-neutral-500)]">
+          <div id="drawer-description" className="type-caption font-mono text-[var(--color-neutral-500)]">
             {activeEvidence.auditYear}년도 국정감사 · 피감기관: {activeEvidence.targetOrg}
           </div>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center border-b border-[var(--color-neutral-200)] bg-[var(--color-surface)] px-6 font-mono text-xs">
-          <button
-            onClick={() => setActiveTab('evidence')}
-            className={`py-3 px-3 border-b-2 transition-all ${
-              activeTab === 'evidence'
-                ? 'border-[var(--color-behavior-red-deep)] text-[var(--color-ink)] font-bold'
-                : 'border-transparent text-[var(--color-neutral-500)] hover:text-[var(--color-ink)]'
-            }`}
-          >
-            원문 증거
-          </button>
-          <button
-            onClick={() => setActiveTab('transcript')}
-            className={`py-3 px-3 border-b-2 transition-all ${
-              activeTab === 'transcript'
-                ? 'border-[var(--color-behavior-red-deep)] text-[var(--color-ink)] font-bold'
-                : 'border-transparent text-[var(--color-neutral-500)] hover:text-[var(--color-ink)]'
-            }`}
-          >
-            속기록 질의답변
-          </button>
-          <button
-            onClick={() => setActiveTab('verification')}
-            className={`py-3 px-3 border-b-2 transition-all ${
-              activeTab === 'verification'
-                ? 'border-[var(--color-behavior-red-deep)] text-[var(--color-ink)] font-bold'
-                : 'border-transparent text-[var(--color-neutral-500)] hover:text-[var(--color-ink)]'
-            }`}
-          >
-            저널리즘 검증
-          </button>
-          <button
-            onClick={() => setActiveTab('source')}
-            className={`py-3 px-3 border-b-2 transition-all ${
-              activeTab === 'source'
-                ? 'border-[var(--color-behavior-red-deep)] text-[var(--color-ink)] font-bold'
-                : 'border-transparent text-[var(--color-neutral-500)] hover:text-[var(--color-ink)]'
-            }`}
-          >
-            출처 및 PDF
-          </button>
+        <div className="drawer-tabs flex items-center border-b border-[var(--color-neutral-200)] bg-[var(--color-surface)] px-6 font-mono text-xs" role="tablist" aria-label="증거 상세 섹션">
+          {EVIDENCE_TABS.map((tab) => (
+            <button
+              key={tab.id}
+              ref={(element) => {
+                if (element) tabRefs.current.set(tab.id, element);
+                else tabRefs.current.delete(tab.id);
+              }}
+              id={`drawer-tab-${tab.id}`}
+              type="button"
+              onClick={() => setActiveTab(tab.id)}
+              onKeyDown={(event) => handleTabKeyDown(event, tab.id)}
+              role="tab"
+              aria-selected={activeTab === tab.id}
+              aria-controls="drawer-tabpanel"
+              tabIndex={activeTab === tab.id ? 0 : -1}
+              className={`px-3 py-3 border-b-2 transition-all ${
+                activeTab === tab.id
+                  ? 'border-[var(--color-behavior-red-deep)] text-[var(--color-ink)] font-bold'
+                  : 'border-transparent text-[var(--color-neutral-500)] hover:text-[var(--color-ink)]'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
 
         {/* Drawer Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div
+          id="drawer-tabpanel"
+          className="flex-1 overflow-y-auto p-6 space-y-6"
+          role="tabpanel"
+          aria-labelledby={`drawer-tab-${activeTab}`}
+          tabIndex={0}
+        >
           {activeCase && (
             <div className="p-4 bg-[var(--color-behavior-amber-bg)] border border-[var(--color-behavior-amber-soft)] mb-4">
               <span className="type-mono text-[10px] uppercase font-bold text-[var(--color-behavior-amber-deep)] block mb-1">
@@ -206,7 +225,7 @@ export const EvidenceDrawer: React.FC = () => {
 
               <button
                 onClick={handleCopySource}
-                className="w-full py-2.5 bg-[var(--color-ink)] text-[var(--color-paper)] font-mono text-xs flex items-center justify-center gap-2 hover:bg-[var(--color-neutral-700)] transition-colors"
+                className="flex min-h-11 w-full items-center justify-center gap-2 bg-[var(--color-ink)] px-4 py-2.5 font-mono text-xs text-[var(--color-paper)] transition-colors hover:bg-[var(--color-neutral-700)]"
               >
                 {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
                 <span>{copied ? '출처 인용문 복사됨' : '출처 인용문 복사하기'}</span>
@@ -221,13 +240,13 @@ export const EvidenceDrawer: React.FC = () => {
             Single Overlay Infrastructure
           </span>
           <button
-            onClick={closeDrawer}
-            className="px-4 py-1.5 border border-[var(--color-neutral-200)] bg-[var(--color-paper)] hover:bg-[var(--color-neutral-100)] transition-colors"
+            onClick={onClose}
+            className="min-h-11 px-4 py-1.5 border border-[var(--color-neutral-200)] bg-[var(--color-paper)] hover:bg-[var(--color-neutral-100)] transition-colors"
           >
             닫기 (ESC)
           </button>
         </div>
       </div>
-    </div>
+    </Drawer>
   );
-};
+}

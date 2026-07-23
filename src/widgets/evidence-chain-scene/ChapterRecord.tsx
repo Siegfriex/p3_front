@@ -4,22 +4,14 @@ import { PageFrame } from '../../shared/ui/PageFrame';
 import { ContentGrid } from '../../shared/ui/ContentGrid';
 import { Badge } from '../../shared/ui/Badge';
 import { MOCK_EVIDENCES } from '../../shared/mock/storyData';
-import { useOverlay } from '../../app/providers/OverlayProvider';
-import { ArrowRight, FileSearch, CheckCircle2, AlertTriangle, ExternalLink } from 'lucide-react';
+import { useDetailNavigation } from '@/shared/hooks/useDetailNavigation';
+import { FileSearch, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 export const ChapterRecord: React.FC = () => {
-  const { openEvidence } = useOverlay();
+  const { openEvidence } = useDetailNavigation();
   const [selectedEvidenceIndex, setSelectedEvidenceIndex] = useState(0);
 
   const activeItem = MOCK_EVIDENCES[selectedEvidenceIndex] || MOCK_EVIDENCES[0];
-
-  const steps = [
-    { step: '01', title: '시정 요구', subtitle: '국정감사 시정요구서 수록' },
-    { step: '02', title: '회의록 질의', subtitle: '속기록 실질 질의 문장' },
-    { step: '03', title: '기관 답변', subtitle: '피감기관장의 구두/서면 답변' },
-    { step: '04', title: '처리결과', subtitle: '익년도 공식 보고서 상태' },
-    { step: '05', title: '저널리즘 검증', subtitle: '현장 이행 실질 검증' },
-  ];
 
   return (
     <ChapterFrame id="record" orderNumber="CHAPTER 02">
@@ -36,7 +28,12 @@ export const ChapterRecord: React.FC = () => {
         </div>
 
         {/* Evidence Switcher Bar */}
-        <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-2 border-b border-[var(--color-neutral-200)]">
+        <div
+          className="mb-8 flex items-center gap-2 overflow-x-auto border-b border-[var(--color-neutral-200)] pb-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-behavior-red-deep)]"
+          role="region"
+          aria-label="증거 사안 가로 선택 목록"
+          tabIndex={0}
+        >
           <span className="type-caption font-mono text-[var(--color-neutral-500)] mr-2 shrink-0">
             사안 선택:
           </span>

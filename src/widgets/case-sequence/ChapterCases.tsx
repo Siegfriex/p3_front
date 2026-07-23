@@ -4,11 +4,11 @@ import { PageFrame } from '../../shared/ui/PageFrame';
 import { ContentGrid } from '../../shared/ui/ContentGrid';
 import { Badge } from '../../shared/ui/Badge';
 import { EDITORIAL_CASES } from '../../shared/mock/storyData';
-import { useOverlay } from '../../app/providers/OverlayProvider';
-import { FileText, ArrowRight, ShieldCheck, AlertCircle } from 'lucide-react';
+import { useDetailNavigation } from '@/shared/hooks/useDetailNavigation';
+import { FileText, ArrowRight } from 'lucide-react';
 
 export const ChapterCases: React.FC = () => {
-  const { openCase, openEvidence } = useOverlay();
+  const { openCase, openEvidence } = useDetailNavigation();
 
   return (
     <ChapterFrame id="cases" orderNumber="CHAPTER 05">

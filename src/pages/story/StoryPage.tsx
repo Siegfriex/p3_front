@@ -1,52 +1,60 @@
-import React, { useEffect } from 'react';
-import { ChapterPrologue } from '../../widgets/prologue-scene/ChapterPrologue';
-import { ChapterScale } from '../../widgets/scale-scene/ChapterScale';
-import { ChapterRecord } from '../../widgets/evidence-chain-scene/ChapterRecord';
-import { ChapterGap } from '../../widgets/gap-scene/ChapterGap';
-import { ChapterAnswersAtlas } from '../../widgets/atlas-scene/ChapterAnswersAtlas';
-import { ChapterCases } from '../../widgets/case-sequence/ChapterCases';
-import { ChapterRemains } from '../../widgets/remains-scene/ChapterRemains';
-import { ProgressTracker } from '../../widgets/app-shell/ProgressTracker';
-import { useOverlay } from '../../app/providers/OverlayProvider';
+import { useEffect } from 'react';
+import { useNavigate, useOutletContext } from 'react-router';
 
-interface StoryPageProps {
-  onViewChange: (view: 'story' | 'method' | 'data' | 'about') => void;
-}
+import type { AppOutletContext } from '@/shared/types/routing';
+import { ChapterHashController } from '@/shared/ui/navigation/ChapterHashController';
+import { ChapterAnswersAtlas } from '@/widgets/atlas-scene/ChapterAnswersAtlas';
+import { ProgressTracker } from '@/widgets/app-shell/ProgressTracker';
+import { ChapterCases } from '@/widgets/case-sequence/ChapterCases';
+import { ChapterRecord } from '@/widgets/evidence-chain-scene/ChapterRecord';
+import { ChapterGap } from '@/widgets/gap-scene/ChapterGap';
+import { ChapterPrologue } from '@/widgets/prologue-scene/ChapterPrologue';
+import { ChapterRemains } from '@/widgets/remains-scene/ChapterRemains';
+import { ChapterScale } from '@/widgets/scale-scene/ChapterScale';
 
-export const StoryPage: React.FC<StoryPageProps> = ({ onViewChange }) => {
-  const { setCurrentChapterId } = useOverlay();
+export function StoryPage() {
+  const navigate = useNavigate();
+  const { activeChapterId, setActiveChapterId } = useOutletContext<AppOutletContext>();
 
-  // IntersectionObserver to sync current chapter id as user scrolls
   useEffect(() => {
     const chapters = document.querySelectorAll('section[data-chapter-id]');
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('data-chapter-id');
-            if (id) {
-              setCurrentChapterId(id);
-            }
-          }
-        });
+      () => {
+        const headerHeight = document.querySelector('body > #root header')?.getBoundingClientRect().height ?? 56;
+        const visibleChapters = Array.from(chapters)
+          .map((chapter) => ({ chapter, rect: chapter.getBoundingClientRect() }))
+          .filter(({ rect }) => rect.bottom > headerHeight && rect.top < window.innerHeight)
+          .sort((left, right) =>
+            Math.abs(left.rect.top - headerHeight) - Math.abs(right.rect.top - headerHeight)
+          );
+        const id = visibleChapters[0]?.chapter.getAttribute('data-chapter-id');
+        if (id) setActiveChapterId(id);
       },
       { threshold: 0.3 }
     );
 
-    chapters.forEach((ch) => observer.observe(ch));
+    chapters.forEach((chapter) => observer.observe(chapter));
     return () => observer.disconnect();
-  }, [setCurrentChapterId]);
+  }, [setActiveChapterId]);
+
+  const handleChapterNavigate = (chapterId: string) => {
+    navigate({ pathname: '/', hash: `#${chapterId}` });
+  };
 
   return (
-    <main className="relative">
-      <ProgressTracker />
+    <main id="main-content" className="relative" tabIndex={-1}>
+      <ChapterHashController />
+      <ProgressTracker
+        currentChapterId={activeChapterId}
+        onChapterNavigate={handleChapterNavigate}
+      />
       <ChapterPrologue />
       <ChapterScale />
       <ChapterRecord />
       <ChapterGap />
       <ChapterAnswersAtlas />
       <ChapterCases />
-      <ChapterRemains onViewChange={onViewChange} />
+      <ChapterRemains />
     </main>
   );
-};
+}

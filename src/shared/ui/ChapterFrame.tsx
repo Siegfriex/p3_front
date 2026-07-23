@@ -20,7 +20,7 @@ export const ChapterFrame: React.FC<ChapterFrameProps> = ({ id, children, classN
               PUBLIC RECORD ARCHIVE
             </span>
           </div>
-          <div className="font-serif italic font-black text-3xl sm:text-4xl text-[var(--color-neutral-400)] opacity-40 select-none">
+          <div aria-hidden="true" className="font-serif italic font-black text-3xl sm:text-4xl text-[var(--color-neutral-400)] select-none">
             {orderNumber.replace(/CHAPTER\s*/i, '')}
           </div>
         </div>

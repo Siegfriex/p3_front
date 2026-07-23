@@ -1,0 +1,58 @@
+import { describe, expect, it } from 'vitest';
+
+import type { AtlasNodeViewModel } from '@/shared/types/atlas';
+import { findNextAtlasNodeId } from './atlasNodeNavigation';
+
+function node(id: string, x: number, y: number): AtlasNodeViewModel {
+  return {
+    id,
+    projectionId: 'projection-1',
+    topicBinId: `topic-${id}`,
+    topicLabel: null,
+    status: 'active',
+    answerType: 'A1',
+    behaviorFamily: 'information_non_direct',
+    anchor: { x, y },
+    display: { x, y },
+    screen: { x, y },
+    radiusPx: 12,
+    normalizedMass: 0.5,
+    answerCount: 2,
+    linkCount: 1,
+    confidence: null,
+    representativeEvidenceId: null,
+    isPublicEvidenceAvailable: false,
+    encoding: {
+      shapeToken: 'circle',
+      fillToken: 'var(--ink-primary)',
+      strokeToken: 'var(--line-strong)',
+      opacity: 1,
+    },
+  };
+}
+
+const nodes = [
+  node('center', 100, 100),
+  node('left', 40, 100),
+  node('right-near', 130, 105),
+  node('right-far', 180, 100),
+  node('up', 100, 20),
+  node('down', 100, 180),
+];
+
+describe('findNextAtlasNodeId', () => {
+  it('uses deterministic nearest spatial navigation without changing coordinates', () => {
+    const before = JSON.stringify(nodes.map(({ id, screen }) => ({ id, screen })));
+    expect(findNextAtlasNodeId(nodes, 'center', 'ArrowLeft')).toBe('left');
+    expect(findNextAtlasNodeId(nodes, 'center', 'ArrowRight')).toBe('right-near');
+    expect(findNextAtlasNodeId(nodes, 'center', 'ArrowUp')).toBe('up');
+    expect(findNextAtlasNodeId(nodes, 'center', 'ArrowDown')).toBe('down');
+    expect(JSON.stringify(nodes.map(({ id, screen }) => ({ id, screen })))).toBe(before);
+  });
+
+  it('supports canonical Home and End and stays put without a directional candidate', () => {
+    expect(findNextAtlasNodeId(nodes, 'center', 'Home')).toBe('center');
+    expect(findNextAtlasNodeId(nodes, 'center', 'End')).toBe('down');
+    expect(findNextAtlasNodeId(nodes, 'left', 'ArrowLeft')).toBe('left');
+  });
+});

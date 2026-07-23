@@ -2,12 +2,11 @@ import React from 'react';
 import { PageFrame } from '../../shared/ui/PageFrame';
 import { EditorialColumn } from '../../shared/ui/EditorialColumn';
 import { Badge } from '../../shared/ui/Badge';
-import { FoundationGallery } from '../../shared/ui/FoundationGallery';
-import { FileText, ShieldAlert, CheckCircle2, Info } from 'lucide-react';
+import { ShieldAlert, CheckCircle2, Info } from 'lucide-react';
 
 export const MethodPage: React.FC = () => {
   return (
-    <main className="py-12">
+    <main id="main-content" className="py-12" tabIndex={-1}>
       <PageFrame>
         <EditorialColumn>
           <Badge label="방법론 명세" variant="neutral" className="mb-4" />
@@ -65,8 +64,6 @@ export const MethodPage: React.FC = () => {
               </p>
             </section>
 
-            {/* Section 4: Foundation Gallery */}
-            <FoundationGallery />
           </div>
         </EditorialColumn>
       </PageFrame>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { PageFrame } from '../../shared/ui/PageFrame';
 import { Badge } from '../../shared/ui/Badge';
-import { MOCK_EVIDENCES, STORY_METRICS } from '../../shared/mock/storyData';
-import { Database, Download, Copy, Check, Table } from 'lucide-react';
+import { MOCK_EVIDENCES } from '../../shared/mock/storyData';
+import { Copy, Check, Table } from 'lucide-react';
 
 export const DataPage: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -15,7 +15,7 @@ export const DataPage: React.FC = () => {
   };
 
   return (
-    <main className="py-12">
+    <main id="main-content" className="py-12" tabIndex={-1}>
       <PageFrame>
         <div className="mb-8">
           <Badge label="데이터 계약" variant="neutral" className="mb-3" />
@@ -37,7 +37,7 @@ export const DataPage: React.FC = () => {
 
           <button
             onClick={handleCopySchema}
-            className="px-4 py-2 bg-[var(--color-ink)] text-[var(--color-paper)] font-mono text-xs flex items-center gap-2 hover:bg-[var(--color-neutral-700)] transition-colors"
+            className="flex min-h-11 items-center gap-2 bg-[var(--color-ink)] px-4 py-2 font-mono text-xs text-[var(--color-paper)] transition-colors hover:bg-[var(--color-neutral-700)]"
           >
             {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
             <span>{copied ? 'Mock JSON 복사됨' : 'Mock JSON 스키마 전체 복사'}</span>
@@ -45,7 +45,12 @@ export const DataPage: React.FC = () => {
         </div>
 
         {/* Schema Table */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-neutral-200)] overflow-x-auto">
+        <div
+          className="overflow-x-auto border border-[var(--color-neutral-200)] bg-[var(--color-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-behavior-red-deep)]"
+          role="region"
+          aria-label="Mock 데이터 스키마 가로 표"
+          tabIndex={0}
+        >
           <table className="w-full text-left font-mono text-xs border-collapse">
             <thead>
               <tr className="bg-[var(--color-neutral-200)]/60 text-[var(--color-ink)] border-b border-[var(--color-neutral-200)]">

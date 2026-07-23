@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { EditorialImageField } from './EditorialImageField';
+import { RedlineAtlasCalibration } from './RedlineAtlasCalibration';
 
 export const FoundationGallery: React.FC = () => {
   const [reducedMotion, setReducedMotion] = useState(false);
 
   return (
-    <section className="p-6 bg-[var(--color-surface)] border border-[var(--color-neutral-200)] space-y-6">
-      <div className="flex items-center justify-between border-b border-[var(--color-neutral-200)] pb-3">
-        <div>
+    <section className="bg-[var(--color-surface)] border border-[var(--color-neutral-200)] p-4 space-y-6 md:p-6">
+      <div className="flex flex-col items-start gap-4 border-b border-[var(--color-neutral-200)] pb-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="min-w-0">
           <h2 className="type-heading-2 font-serif text-[var(--color-ink)]">
             Prologue Foundation Gallery & Tokens
           </h2>
@@ -32,7 +33,7 @@ export const FoundationGallery: React.FC = () => {
             <span className="type-meta-micro text-[var(--color-neutral-500)] block mb-1">
               --type-display-hero-quote (clamp(3.5rem, 8.2vw, 8.5rem))
             </span>
-            <span className="type-display-hero-quote text-[var(--color-ink)] block">
+            <span className="foundation-type-sample type-display-hero-quote block text-[var(--color-ink)]">
               “검토하겠습니다”
             </span>
           </div>
@@ -150,6 +151,8 @@ export const FoundationGallery: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <RedlineAtlasCalibration />
     </section>
   );
 };

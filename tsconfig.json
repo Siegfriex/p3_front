@@ -11,15 +11,21 @@
     ],
     "skipLibCheck": true,
     "moduleResolution": "bundler",
+    "baseUrl": ".",
     "isolatedModules": true,
     "moduleDetection": "force",
     "allowJs": true,
     "jsx": "react-jsx",
     "paths": {
       "@/*": [
-        "./*"
+        "src/*"
       ]
     },
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "@testing-library/jest-dom"
+    ],
     "allowImportingTsExtensions": true,
     "noEmit": true
   }

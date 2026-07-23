@@ -1,26 +1,63 @@
-import React, { useState } from 'react';
-import { HeaderNav } from '../../widgets/app-shell/HeaderNav';
-import { FooterRail } from '../../widgets/app-shell/FooterRail';
-import { StoryPage } from '../../pages/story/StoryPage';
-import { MethodPage } from '../../pages/method/MethodPage';
-import { DataPage } from '../../pages/data/DataPage';
-import { AboutPage } from '../../pages/about/AboutPage';
-import { GlobalOverlayRoot } from '../../widgets/overlay-root/GlobalOverlayRoot';
+import { lazy, Suspense } from 'react';
+import { useLocation, Routes, Route } from 'react-router';
+import { AboutPage } from '@/pages/about/AboutPage';
+import { DataPage } from '@/pages/data/DataPage';
+import { MethodPage } from '@/pages/method/MethodPage';
+import { StoryPage } from '@/pages/story/StoryPage';
+import type { BackgroundLocationState } from '@/shared/types/routing';
+import { AppShell } from './AppShell';
+import { DetailPage } from './DetailPage';
+import { EvidenceRouteOverlay } from './EvidenceRouteOverlay';
+import { FoundationsPage } from './FoundationsPage';
+import { NotFoundPage } from './NotFoundPage';
+import { RouteErrorBoundary } from './RouteErrorBoundary';
 
-export const AppRouter: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'story' | 'method' | 'data' | 'about'>('story');
+const LazyAtlasPage = lazy(async () => {
+  const module = await import('@/pages/atlas/AtlasPage');
+  return { default: module.AtlasPage };
+});
+
+const atlasRouteLoading = (
+  <main id="main-content" className="page-frame py-20" aria-busy="true" data-testid="atlas-lazy-loading" tabIndex={-1}>
+    <p className="font-mono text-xs text-[var(--color-neutral-700)]">ATLAS ROUTE LOADING</p>
+    <h1 className="mt-3 font-serif text-3xl font-bold">답변행태 지도를 불러오고 있습니다</h1>
+  </main>
+);
+
+export function AppRouter() {
+  const location = useLocation();
+  const state = location.state as BackgroundLocationState | null;
+  const backgroundLocation = state?.backgroundLocation;
 
   return (
-    <div className="min-h-screen pb-14 bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-behavior-red-bg)] selection:text-[var(--color-behavior-red-deep)]">
-      <HeaderNav currentView={currentView} onViewChange={setCurrentView} />
+    <RouteErrorBoundary>
+      <Routes location={backgroundLocation ?? location}>
+        <Route element={<AppShell />}>
+          <Route index element={<StoryPage />} />
+          <Route path="method" element={<MethodPage />} />
+          <Route path="data" element={<DataPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route
+            path="atlas"
+            element={(
+              <Suspense fallback={atlasRouteLoading}>
+                <LazyAtlasPage />
+              </Suspense>
+            )}
+          />
+          <Route path="evidence/:evidenceId" element={<DetailPage kind="evidence" />} />
+          <Route path="case/:caseId" element={<DetailPage kind="case" />} />
+          <Route path="dev/foundations" element={import.meta.env.DEV ? <FoundationsPage /> : <NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
 
-      {currentView === 'story' && <StoryPage onViewChange={setCurrentView} />}
-      {currentView === 'method' && <MethodPage />}
-      {currentView === 'data' && <DataPage />}
-      {currentView === 'about' && <AboutPage />}
-
-      <GlobalOverlayRoot />
-      <FooterRail />
-    </div>
+      {backgroundLocation && (
+        <Routes>
+          <Route path="/evidence/:evidenceId" element={<EvidenceRouteOverlay kind="evidence" />} />
+          <Route path="/case/:caseId" element={<EvidenceRouteOverlay kind="case" />} />
+        </Routes>
+      )}
+    </RouteErrorBoundary>
   );
-};
+}

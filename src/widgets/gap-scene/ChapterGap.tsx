@@ -6,15 +6,15 @@ import { Badge } from '../../shared/ui/Badge';
 import { LineSymbol } from '../../shared/ui/LineSymbol';
 import { SankeyFlowDiagram } from '../../shared/ui/SankeyFlowDiagram';
 import { MOCK_EVIDENCES } from '../../shared/mock/storyData';
-import { useOverlay } from '../../app/providers/OverlayProvider';
-import { ReportedStatus } from '../../shared/types/story';
+import { useDetailNavigation } from '@/shared/hooks/useDetailNavigation';
+import { LineStyle, ReportedStatus } from '../../shared/types/story';
 import { Filter, Eye } from 'lucide-react';
 
 export const ChapterGap: React.FC = () => {
-  const { openEvidence } = useOverlay();
+  const { openEvidence } = useDetailNavigation();
   const [activeStatusFilter, setActiveStatusFilter] = useState<ReportedStatus | 'all'>('all');
 
-  const lineLegend = [
+  const lineLegend: Array<{ style: LineStyle; label: string; desc: string }> = [
     { style: 'solid', label: '실질 완결 (Solid Line)', desc: '법안 제정 및 예산 반영으로 현장 시정이 완료된 선' },
     { style: 'dashed', label: '진행 중 (Dashed Line)', desc: '부처 간 협의나 예산 심의가 진행 중인 선' },
     { style: 'dotted', label: '미확정 / 요약 대체 (Dotted Line)', desc: '공식 보고서엔 완료로 쓰였으나 요약본 대치 등에 그친 선' },
@@ -49,7 +49,7 @@ export const ChapterGap: React.FC = () => {
             >
               <div>
                 <div className="mb-3">
-                  <LineSymbol style={item.style as any} length={120} label={item.label} />
+                  <LineSymbol style={item.style} length={120} label={item.label} />
                 </div>
                 <p className="type-caption text-[var(--color-neutral-700)]">
                   {item.desc}

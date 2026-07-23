@@ -1,4 +1,6 @@
-/* Reset & Global Base Styles */
+/* Reset & Global Base Styles — kept in the base layer so component utilities win. */
+
+@layer base {
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -8,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-block: calc(var(--header-height) + 1rem) 4.5rem;
   font-family: var(--font-sans);
   background-color: var(--color-paper);
   color: var(--color-ink);
@@ -39,6 +42,44 @@ body {
   outline-offset: 3px;
 }
 
+[id],
+button,
+a[href],
+input,
+select,
+summary,
+[tabindex] {
+  scroll-margin-block: calc(var(--header-height) + 1rem) 4.5rem;
+}
+
+.skip-links {
+  position: fixed;
+  top: 0;
+  left: var(--layout-gutter);
+  z-index: var(--z-toast);
+  display: flex;
+  max-width: calc(100vw - (2 * var(--layout-gutter)));
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  transform: translateY(-150%);
+}
+
+.skip-links:focus-within {
+  transform: translateY(0);
+}
+
+.skip-links a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  border: 2px solid var(--color-focus);
+  background: var(--paper-surface);
+  padding: 0.65rem 1rem;
+  color: var(--ink-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
 button, input, select, textarea {
   font: inherit;
   color: inherit;
@@ -53,4 +94,36 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid Highlight;
+  }
+
+  .skip-links a,
+  button,
+  select,
+  input,
+  summary,
+  [role='tab'],
+  .atlas-node-navigator {
+    border-color: ButtonText;
+    forced-color-adjust: auto;
+  }
+
+  [aria-pressed='true'],
+  [aria-selected='true'] {
+    outline: 2px solid Highlight;
+    outline-offset: -4px;
+  }
+
+  .atlas-node-glyph,
+  .atlas-node-glyph * {
+    fill: Canvas;
+    stroke: CanvasText;
+    forced-color-adjust: auto;
+  }
+}
+
 }
