@@ -1,0 +1,20 @@
+2026-07-24 KST | git status/branch/HEAD/upstream and staged-index snapshot
+2026-07-24 KST | current release pointer, runtime closure, Agent 3 report and core fileset inspected
+2026-07-24 KST | baseline browser captures: Story, Explorer, Method
+2026-07-24 KST | implementation: Story dossier/layout, Explorer layout, Method Lab route/page/styles, route accessibility, E2E
+2026-07-24 KST | npm run typecheck | PASS
+2026-07-24 KST | npm run lint | PASS
+2026-07-24 KST | npm run test | PASS 20 files / 57 tests
+2026-07-24 KST | npm run build | PASS 2174 modules
+2026-07-24 KST | agent4-atlas-vid.spec.ts | PASS 8
+2026-07-24 KST | existing relevant presentation E2E | PASS 9 / SKIP 4 conditional
+2026-07-24 KST | AGENT4_PRODUCTION_E2E story-explorer-parity | PASS 2
+2026-07-24 KST | agent-browser 320/375/768/1440/1920 captures | PASS
+2026-07-24 KST | agent-browser forced-colors active | PASS
+2026-07-24 KST | agent-browser reduced-motion transition 1e-05s | PASS
+2026-07-24 KST | agent-browser text spacing horizontal overflow 0 | PASS
+2026-07-24 KST | agent-browser release pointer abort: Story ready field 0 | PASS FAIL-CLOSED
+2026-07-24 KST | fixture provenance server: CONTRACT_FIXTURE / 개발·테스트 전용 | PASS LABELLED
+2026-07-24 04:12 KST | CONCURRENT: branch changed to P3_FRONT_DEPLOY and deployment snapshot dd8f03b appeared; no Agent 4 Git mutation
+2026-07-24 04:14-04:16 KST | CONCURRENT: Agent 3-owned semantic/core files changed after baseline; preserved without overwrite
+2026-07-24 04:18-04:20 KST | CONCURRENT: Story changed from approved 16-node subset to 140-node field plus 16 anchors and extra type primer | CONTRACT CONTRADICTION

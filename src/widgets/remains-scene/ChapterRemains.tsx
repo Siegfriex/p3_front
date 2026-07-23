@@ -60,7 +60,7 @@ export const ChapterRemains: React.FC = () => {
             <p className="story-hierarchy-1">EVASIVE ANSWERS / 2020—2025</p>
             <strong>1,408</strong><span>건</span>
             <h3 className="story-hierarchy-3">감사장에서 반복된 회피성 답변</h3>
-            <div className="story-remains-spark" aria-label="연도별 회피성 답변 수">
+            <div className="story-remains-spark" role="group" aria-label="연도별 회피성 답변 수">
               {EVASIVE_BY_YEAR.map((item) => (
                 <div key={item.year} className={item.year === 2024 ? 'is-peak' : ''}>
                   <span style={{ height: `${Math.max(18, (item.value / 428) * 100)}%` }} aria-hidden="true" />
@@ -72,7 +72,7 @@ export const ChapterRemains: React.FC = () => {
           </div>
         </section>
 
-        <div className="story-line-legend" aria-label="결론 상태 선 범례">
+        <div className="story-line-legend" role="group" aria-label="결론 상태 선 범례">
           <div><LineSymbol style="solid" length={110} color="var(--color-behavior-blue-deep)" /><span>닫힌 선 · 완결</span></div>
           <div><LineSymbol style="dashed" length={110} color="var(--color-behavior-amber-deep)" /><span>이어지는 선 · 진행</span></div>
           <div><LineSymbol style="break" length={110} color="var(--color-behavior-red-deep)" /><span>끊어진 선 · 단절</span></div>

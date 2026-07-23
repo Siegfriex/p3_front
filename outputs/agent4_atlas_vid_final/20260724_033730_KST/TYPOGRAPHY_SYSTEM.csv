@@ -1,0 +1,6 @@
+role,family,scale,usage
+display,Noto Serif KR,"clamp editorial display",chapter and Method Lab thesis
+body,Pretendard Variable,"1rem to fluid body",explanation and dossier
+metadata,ui-monospace,"0.6rem to 0.8rem",release projection status A-code
+node_micro,ui-monospace,selected_only,A-code and count
+accessibility,system_fallback,zoom_and_spacing_resilient,all text

@@ -1,0 +1,6 @@
+viewport,story,explorer,method_lab,3d_policy,result
+320,"stage then dossier; collapsed legend","stage then inspector; DOM mirror 22rem","stacked metadata and tabs",default_disabled,PASS
+375,"stage then dossier; touch targets 44px","stage then inspector","stacked compare; fixed controls",default_disabled,PASS
+768,"full-width stage; lower rail","full-width stage; lower inspector","compare stacked",opt_in,PASS
+1440,"8:4 field and dossier","stage plus 24-27.5rem inspector","field plus 22-26rem dossier",opt_in,PASS
+1920,"bounded editorial width and negative space","bounded field and 400-440px class inspector","bounded record plane",opt_in,PASS

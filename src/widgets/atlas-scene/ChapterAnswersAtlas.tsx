@@ -21,6 +21,7 @@ import { AtlasMetadataRail } from '@/widgets/atlas-explorer/AtlasMetadataRail';
 import { AtlasScene } from '@/widgets/atlas-explorer/AtlasScene';
 import { AtlasSectionHeader } from '@/widgets/atlas-explorer/AtlasSectionHeader';
 import { StoryAtlasDossier } from './StoryAtlasDossier';
+import { StoryAtlasTypePrimer } from './StoryAtlasTypePrimer';
 import './story-atlas-vid.css';
 
 export function ChapterAnswersAtlas() {
@@ -59,16 +60,22 @@ export function ChapterAnswersAtlas() {
   }, [releaseBundle]);
 
   const storyNodes = useMemo(() => storySelection?.nodes ?? [], [storySelection]);
+  const allNodes = useMemo(() => releaseBundle?.nodes ?? [], [releaseBundle]);
   const filteredNodes = useMemo(
     () => storyNodes.filter((node) => (query.status === 'all' || node.status === query.status) && query.types.includes(node.answerType)),
-    [query.status, query.types, storyNodes],
+    [storyNodes, query.status, query.types],
   );
   const matchedIds = useMemo(() => new Set(filteredNodes.map((node) => node.id)), [filteredNodes]);
+  const editorialAnchorNodeIds = useMemo(() => new Set(storyNodes.map((node) => node.id)), [storyNodes]);
+  const persistentLabelNodeIds = useMemo(() => new Set(storyNodes.slice(0, 3).map((node) => node.id)), [storyNodes]);
   const filterStates = useMemo(
-    () => new Map(storyNodes.map((node): [string, NodeFilterState] => [node.id, matchedIds.has(node.id) ? 'matched' : 'excluded'])),
-    [matchedIds, storyNodes],
+    () => new Map(storyNodes.map((node): [string, NodeFilterState] => [node.id, matchedIds.has(node.id) ? 'matched' : 'context'])),
+    [storyNodes, matchedIds],
   );
-  const selectedNode = query.nodeId ? storyNodes.find((node) => node.id === query.nodeId) ?? null : null;
+  const requestedNode = query.nodeId ? storyNodes.find((node) => node.id === query.nodeId) ?? null : null;
+  const defaultNode = filteredNodes.find((node) => editorialAnchorNodeIds.has(node.id)) ?? filteredNodes[0] ?? null;
+  const selectedNode = query.nodeId ? requestedNode : defaultNode;
+  const isSelectedEditorialAnchor = selectedNode ? editorialAnchorNodeIds.has(selectedNode.id) : false;
 
   const updateQuery = (next: AtlasQueryState) => setSearchParams(serializeAtlasQueryState(next));
   const reset = () => updateQuery({ status: 'all', types: [...ANSWER_TYPES], nodeId: null, view: 'nodes' });
@@ -145,12 +152,22 @@ export function ChapterAnswersAtlas() {
                   <p className="mt-1 break-all font-mono text-xs font-bold">{release.bundle.releaseId}</p>
                 </div>
                 <p className="inline-flex min-h-11 items-center border border-[var(--atlas-state-ready)] bg-[var(--color-behavior-blue-bg)] px-4 font-mono text-xs font-bold">
-                  preview nodes {storyNodes.length}개
+                  전체 {allNodes.length} nodes · 편집 anchor {storyNodes.length}
                 </p>
               </div>
               {queryResult.issues.length > 0 ? (
                 <p className="border border-[var(--atlas-state-warning)] px-4 py-3 text-sm" role="status">URL parameter {queryResult.issues.length}개를 안전한 기본값으로 해석했습니다.</p>
               ) : null}
+              <StoryAtlasTypePrimer
+                distribution={release.bundle.storySummary.primaryBehaviorDistribution}
+                selectedTypes={query.types}
+                onSelectType={(answerType) => updateQuery({
+                  ...query,
+                  types: query.types.length === 1 && query.types[0] === answerType ? [...ANSWER_TYPES] : [answerType],
+                  nodeId: null,
+                })}
+                onShowAll={() => updateQuery({ ...query, types: [...ANSWER_TYPES], nodeId: null })}
+              />
               <AtlasControls
                 status={query.status}
                 types={query.types}
@@ -158,7 +175,7 @@ export function ChapterAnswersAtlas() {
                 onTypesChange={(types) => updateQuery({ ...query, types, nodeId: null })}
                 onReset={reset}
               />
-              <AtlasLegend />
+              <AtlasLegend defaultOpen />
               <div className="story-atlas-workspace">
                 <AtlasScene
                   nodes={storyNodes}
@@ -168,13 +185,21 @@ export function ChapterAnswersAtlas() {
                   focusNodeId={focusNodeId}
                   onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
                   onPreviewNode={setPreviewNodeId}
+                  editorialAnchorNodeIds={editorialAnchorNodeIds}
+                  persistentLabelNodeIds={persistentLabelNodeIds}
                 />
-                <StoryAtlasDossier node={selectedNode} onOpenEvidence={openEvidence} />
               </div>
+              <StoryAtlasDossier
+                node={selectedNode}
+                onOpenEvidence={openEvidence}
+                isEditorialAnchor={isSelectedEditorialAnchor}
+                atlasNodeCount={allNodes.length}
+                anchorCount={storyNodes.length}
+              />
               {filteredNodes.length === 0 ? (
                 <AtlasEmptyState
                   title="조건에 맞는 Story node가 없습니다"
-                  description="승인된 16-node subset은 유지되며 선택한 상태와 유형의 교집합만 비어 있습니다."
+                  description="승인된 140-node projection은 유지되며 선택한 상태와 유형의 교집합만 비어 있습니다."
                   onReset={reset}
                   testId="story-atlas-filter-empty-state"
                 />
@@ -200,7 +225,7 @@ export function ChapterAnswersAtlas() {
         </div>
 
         <p className="redline-annotation-rule mt-8 max-w-3xl text-sm leading-relaxed text-[var(--ink-secondary)]">
-          이 장면은 승인된 16개 node만 설명합니다. 전체 node·selection inspector·evidence 추적은 Full Explorer에서 담당합니다.
+          이 장면은 승인된 140개 node 전체 지형과 16개 편집 anchor를 함께 보여줍니다. 더 깊은 비교·URL 공유·근거 추적은 Full Explorer에서 이어집니다.
         </p>
       </PageFrame>
     </ChapterFrame>

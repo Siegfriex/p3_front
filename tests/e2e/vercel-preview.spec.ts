@@ -34,21 +34,22 @@ test.describe('Vercel production preview', () => {
     await expect(page.getByTestId('not-found-page')).toBeVisible();
   });
 
-  test('loads the runtime release pointer, Story subset, Full Explorer, and approved Evidence detail', async ({ page, request }) => {
+  test('loads the runtime release pointer, Story preview, Explorer, and approved Evidence detail', async ({ page, request }) => {
     const pointerResponse = await request.get('/data/current-release.json');
     expect(pointerResponse.status()).toBe(200);
     const pointer = await pointerResponse.json() as { release_id: string };
 
     await page.goto('/#answers');
     await expect(page.getByText('[2020–2025] 761개 decision group 증거 추적')).toBeVisible();
-    await expect(page.getByRole('heading', { name: /3년째 조치 중.*관계 기관 협의/ })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /조치 중.*3년째.*관계기관 협의/ })).toBeVisible();
     await expect(page.getByRole('heading', { name: /조치 완료.*반복된 사망사고/ })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /2년이 넘었는데.*아직도 조치 중/ })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /완료와 진행.*그 사이를 묻다/ })).toBeVisible();
     await expect(page.getByRole('heading', { name: /모르겠습니다.*기억이 안 납니다/ })).toBeVisible();
     await expect(page.getByText(/2,842|82\.4%|ev-101/)).toHaveCount(0);
     await expect(page.locator('[data-testid$="data-unavailable"]')).toHaveCount(0);
     await expect(page.getByTestId('story-atlas-ready')).toHaveAttribute('data-release-id', pointer.release_id);
     await expect(page.locator('#answers [data-testid="atlas-chart"] [data-node-id]')).toHaveCount(16);
+    await expect(page.locator('#answers [data-editorial-anchor="true"]')).toHaveCount(16);
 
     await page.goto('/atlas');
     await expect(page.getByText(pointer.release_id, { exact: true }).first()).toBeVisible();

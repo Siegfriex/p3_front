@@ -28,6 +28,7 @@ function bundleFixture(nodes = 1): AtlasViewModelBundle {
       answerCount: 2,
       linkCount: 1,
       confidence: 0.8,
+      meanSimilarity: 0.75,
       representativeEvidenceId: null,
       isPublicEvidenceAvailable: false,
       encoding: {

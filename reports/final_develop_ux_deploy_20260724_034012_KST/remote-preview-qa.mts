@@ -53,7 +53,7 @@ const storyPreviewDomCount = await page.locator('#answers .atlas-node-navigator'
 assert(releaseId === 'ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264', `Unexpected release ${releaseId}`);
 assert(storyPreviewSvgCount === 16 && storyPreviewDomCount === 16, 'Story node parity failed');
 assert(!/2,842|82\.4%|ev-101|CONTRACT_FIXTURE|MOCK PREVIEW/.test(storyText), 'Legacy fixture leaked into Story');
-for (const heading of ['3년째 조치 중', '반복된 사망사고', '2년이 넘었는데', '기억이 안 납니다']) {
+for (const heading of ['조치 중” 3년째', '반복된 사망사고', '완료와 진행', '기억이 안 납니다']) {
   assert(storyText.includes(heading), `Missing editorial Story heading: ${heading}`);
 }
 const editorialImages = page.locator('main img');
@@ -66,7 +66,7 @@ for (let index = 0; index < editorialImageCount; index += 1) {
 const brokenImages = await editorialImages.evaluateAll((images) => images
   .filter((image) => !(image as HTMLImageElement).complete || (image as HTMLImageElement).naturalWidth === 0)
   .map((image) => (image as HTMLImageElement).alt));
-assert(editorialImageCount === 8 && brokenImages.length === 0, `Editorial images failed: ${JSON.stringify(brokenImages)}`);
+assert(editorialImageCount === 7 && brokenImages.length === 0, `Editorial images failed: ${JSON.stringify(brokenImages)}`);
 await page.screenshot({ path: `${screenshotDir}/${qaLabel}-story-playwright.png`, fullPage: true });
 axe.story = await blockingAxe(page);
 

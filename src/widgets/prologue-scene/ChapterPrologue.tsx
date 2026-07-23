@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, type Variants } from 'motion/react';
 import { Link, useNavigate } from 'react-router';
-import ministryIdentity from '../../../reports/editorial_content_integration_20260724_022118_KST/pdf_renders/page1_embedded_4.jpeg';
+import ministryIdentity from '@/assets/editorial/ministry-identity.webp';
 import { ChapterFrame } from '../../shared/ui/ChapterFrame';
 import { PageFrame } from '../../shared/ui/PageFrame';
 import { EditorialImageField } from '../../shared/ui/EditorialImageField';
@@ -184,18 +184,16 @@ export const ChapterPrologue: React.FC<ChapterPrologueProps> = ({ bundle }) => {
               className="md:col-start-2 md:col-end-8 space-y-6 md:mt-2"
               variants={itemVariants}
             >
-              {bundle ? (
-                <p className="type-body-l text-[var(--color-neutral-700)] leading-relaxed max-w-2xl font-normal">
-                  승인된 release는 원문에서 정규화한 <strong className="text-[var(--color-ink)] font-bold">{bundle.storySummary.analysisEntityCount.toLocaleString('ko-KR')}개 decision group</strong>을
-                  {' '}<strong className="text-[var(--color-behavior-blue-deep)] font-bold">{bundle.storySummary.atlasNodeCount.toLocaleString('ko-KR')}개 aggregate node</strong>와
-                  {' '}{bundle.storySummary.publicEvidenceCount.toLocaleString('ko-KR')}개 공개 Evidence로 연결합니다. 완료율 하나로 닫지 않고 질문·답변·처리 상태를 함께 읽습니다.
-                </p>
-              ) : (
-                <p className="type-body-l text-[var(--color-neutral-700)] leading-relaxed max-w-2xl font-normal" role="status">
-                  승인된 집계와 공개 가능한 증거가 아직 연결되지 않았습니다. 검증 전 숫자나 사례를 실제 결과처럼 제시하지 않고,
-                  데이터 계약과 공개 상태를 먼저 확인할 수 있도록 안내합니다.
-                </p>
-              )}
+              <p className="type-body-l text-[var(--color-neutral-700)] leading-relaxed max-w-2xl font-normal">
+                최근 체육계와 관련해 많은 문제가 제기되는 가운데, 문체부의 국정감사 지적이 실제로 어떻게 처리됐는지를 물었습니다.
+                요구사항과 시정사항 가운데 얼마나 조치됐는지, 아직 ‘조치 중’인 비율은 얼마인지 회의록과 결과보고서를 따라갑니다.
+              </p>
+
+              <p className="story-hierarchy-1 max-w-2xl text-[var(--color-neutral-500)]" role="status">
+                {bundle
+                  ? `APPROVED EXPLORATION LAYER · ${bundle.storySummary.analysisEntityCount.toLocaleString('ko-KR')} decision groups · ${bundle.storySummary.atlasNodeCount.toLocaleString('ko-KR')} nodes · ${bundle.storySummary.publicEvidenceCount.toLocaleString('ko-KR')} public evidence`
+                  : 'APPROVED EXPLORATION LAYER · 연결 대기 · 기사 원고 수치와 승인 Atlas 집계는 분리 표시'}
+              </p>
 
               <p className="story-contract-note max-w-2xl">
                 기사 방법 · 2020~2025 문체부 국정감사 회의록 42건 전수 분석 · 2020~2024 국정감사결과 시정조치 및 결과보고서 전수 분석

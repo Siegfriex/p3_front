@@ -20,6 +20,7 @@ function node(id: string, x: number, y: number, radiusPx = 8): AtlasNodeViewMode
     answerCount: 1,
     linkCount: 0,
     confidence: null,
+    meanSimilarity: null,
     representativeEvidenceId: null,
     isPublicEvidenceAvailable: false,
     encoding: { shapeToken: 'circle', fillToken: 'black', strokeToken: 'black', opacity: 0.72 },

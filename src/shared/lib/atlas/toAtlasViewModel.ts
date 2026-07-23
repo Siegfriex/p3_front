@@ -39,9 +39,10 @@ export function toAtlasViewModel(
       answerCount: node.raw_answer_count,
       linkCount: node.raw_link_count,
       confidence,
+      meanSimilarity: node.mean_similarity,
       representativeEvidenceId: evidence?.id ?? null,
       isPublicEvidenceAvailable: evidence !== null,
-      encoding: createAtlasEncoding(node.behavior_family, node.status_canvas, confidence),
+      encoding: createAtlasEncoding(node.answer_type_code, node.status_canvas, confidence),
     };
   });
 

@@ -20,6 +20,7 @@ function node(id: string, x: number, y: number): AtlasNodeViewModel {
     answerCount: 2,
     linkCount: 1,
     confidence: null,
+    meanSimilarity: null,
     representativeEvidenceId: null,
     isPublicEvidenceAvailable: false,
     encoding: {

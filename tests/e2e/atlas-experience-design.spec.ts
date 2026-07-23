@@ -15,10 +15,16 @@ test('Story Answers renders approved nodes, carries URL filters to Explorer, and
   await expect(chapter).toBeInViewport();
   await expect(page.getByTestId('story-atlas-ready')).toBeVisible();
   await expect(chapter.locator('[data-testid="atlas-chart"] [data-node-id]')).toHaveCount(16);
+  await expect(chapter.locator('[data-editorial-anchor="true"]')).toHaveCount(16);
   await expect(chapter.locator('.atlas-node-navigator')).toHaveCount(16);
+  await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
   await expect(page.getByTestId('story-atlas-data-unavailable')).toHaveCount(0);
   await expect(chapter.getByText(/물리적 거리|질문 세분성|답변 수용성/)).toHaveCount(0);
   await expect(page.getByText(/CONTRACT_FIXTURE/)).toHaveCount(0);
+
+  const stageBox = await chapter.getByTestId('atlas-chart').boundingBox();
+  const dossierBox = await page.getByTestId('story-selected-dossier').boundingBox();
+  expect(Boolean(stageBox && dossierBox && dossierBox.y >= stageBox.y + stageBox.height)).toBe(true);
 
   await page.goto('/?status=active&types=A2&view=nodes#answers');
   const explorerLink = page.getByRole('link', { name: '현재 필터로 전체 답변행태 지도 보기' });
@@ -89,7 +95,7 @@ test('CTA contrast, fixed rail hit area, footer scope, and scroll regions are ex
   await expect(page.getByRole('heading', { name: /조치 완료.*반복된 사망사고/ })).toBeVisible();
   await expect(page.getByTestId('story-record-data-unavailable')).toHaveCount(0);
   await page.goto('/#gap');
-  await expect(page.getByRole('heading', { name: /2년이 넘었는데.*아직도 조치 중/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /완료와 진행.*그 사이를 묻다/ })).toBeVisible();
   await expect(page.getByTestId('approved-status-distribution').locator('article')).toHaveCount(3);
   await expect(page.getByTestId('story-gap-data-unavailable')).toHaveCount(0);
 });

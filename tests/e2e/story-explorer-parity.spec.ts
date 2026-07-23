@@ -25,6 +25,7 @@ test.describe('approved Story and Explorer parity', () => {
       radius: element.getAttribute('data-source-radius'),
     })));
     expect(storyNodes).toHaveLength(16);
+    await expect(page.locator('#answers [data-editorial-anchor="true"]')).toHaveCount(16);
     await expect(page.locator('#answers .atlas-node-navigator')).toHaveCount(16);
 
     await page.goto('/atlas');

@@ -18,6 +18,7 @@ interface AtlasNodeGlyphProps {
   opacity?: number;
   radius?: number;
   state?: AtlasGlyphState;
+  showAnswerMark?: boolean;
 }
 
 function InnerMark({ answerType, radius }: Pick<AtlasNodeGlyphProps, 'answerType'> & { radius: number }) {
@@ -42,6 +43,7 @@ export function AtlasNodeGlyph({
   opacity = 1,
   radius = 18,
   state = 'default',
+  showAnswerMark = true,
 }: AtlasNodeGlyphProps) {
   const scale = state === 'hovered' ? 1.06 : 1;
   const selected = state === 'selected' || state === 'focused-selected';
@@ -69,7 +71,7 @@ export function AtlasNodeGlyph({
       {shape === 'diamond' ? <path d={`M 0 ${-radius} L ${radius} 0 L 0 ${radius} L ${-radius} 0 Z`} {...markProps} /> : null}
       {shape === 'square' ? <rect x={-radius} y={-radius} width={radius * 2} height={radius * 2} {...markProps} /> : null}
       {shape === 'circle' ? <circle r={radius} {...markProps} /> : null}
-      <InnerMark answerType={answerType} radius={radius} />
+      {showAnswerMark ? <InnerMark answerType={answerType} radius={radius} /> : null}
     </g>
   );
 }

@@ -6,6 +6,7 @@ import type {
   AtlasShapeToken,
   BehaviorFamily,
 } from '@/shared/types/atlas';
+import { BEHAVIOR_FAMILY_PRESENTATION } from './atlasSemantics';
 
 export const ATLAS_VIEWBOX = Object.freeze({ width: 720, height: 520 });
 export const ATLAS_PLOT_RECT: AtlasPlotRect = Object.freeze({ x: 76, y: 48, width: 600, height: 408 });
@@ -51,14 +52,14 @@ export const ATLAS_CONFIDENCE_PRESENTATION_POLICY = Object.freeze({
 
 export const NODE_GLYPH_TOKENS: Readonly<Record<BehaviorFamily, NodeGlyphToken>> = Object.freeze({
   information_non_direct: Object.freeze({ family: 'information_non_direct', shape: 'circle' }),
-  deferral_procedural: Object.freeze({ family: 'deferral_procedural', shape: 'diamond' }),
-  action_evidence: Object.freeze({ family: 'action_evidence', shape: 'square' }),
+  deferral_procedural: Object.freeze({ family: 'deferral_procedural', shape: 'circle' }),
+  action_evidence: Object.freeze({ family: 'action_evidence', shape: 'circle' }),
 });
 
 export const BEHAVIOR_FAMILY_SHORT_LABEL: Readonly<Record<BehaviorFamily, string>> = Object.freeze({
-  information_non_direct: '간접 정보',
-  deferral_procedural: '절차 유보',
-  action_evidence: '조치 근거',
+  information_non_direct: BEHAVIOR_FAMILY_PRESENTATION.information_non_direct.shortLabel,
+  deferral_procedural: BEHAVIOR_FAMILY_PRESENTATION.deferral_procedural.shortLabel,
+  action_evidence: BEHAVIOR_FAMILY_PRESENTATION.action_evidence.shortLabel,
 });
 
 export const ANSWER_TYPE_MARKS: Readonly<Record<AnswerType, AnswerTypeMark>> = Object.freeze({
@@ -78,20 +79,16 @@ export const STATUS_STROKE_DASH: Readonly<Record<AtlasNodeStatus, string | undef
   unresolved: '2 5',
 });
 
-const FAMILY_ENCODING: Record<BehaviorFamily, Pick<AtlasEncodingViewModel, 'shapeToken' | 'fillToken'>> = {
-  information_non_direct: {
-    shapeToken: NODE_GLYPH_TOKENS.information_non_direct.shape,
-    fillToken: 'var(--ink-primary)',
-  },
-  deferral_procedural: {
-    shapeToken: NODE_GLYPH_TOKENS.deferral_procedural.shape,
-    fillToken: 'var(--archive-ochre)',
-  },
-  action_evidence: {
-    shapeToken: NODE_GLYPH_TOKENS.action_evidence.shape,
-    fillToken: 'var(--line-strong)',
-  },
-};
+export const ANSWER_TYPE_COLOR_TOKENS: Readonly<Record<AnswerType, string>> = Object.freeze({
+  A1: '#9f1239',
+  A2: '#c43f4f',
+  A3: '#d96758',
+  A4: '#c98a4a',
+  A5: '#6c91a8',
+  A6: '#3f7fa6',
+  A7: '#2167a8',
+  A8: '#064f9e',
+});
 
 const STATUS_STROKE: Record<AtlasNodeStatus, string> = {
   complete: 'var(--status-complete)',
@@ -100,7 +97,7 @@ const STATUS_STROKE: Record<AtlasNodeStatus, string> = {
 };
 
 export function createAtlasEncoding(
-  family: BehaviorFamily,
+  answerType: AnswerType,
   status: AtlasNodeStatus,
   confidence: number | null,
 ): AtlasEncodingViewModel {
@@ -108,7 +105,8 @@ export function createAtlasEncoding(
     ? ATLAS_CONFIDENCE_PRESENTATION_POLICY.nullOpacity
     : Math.min(1, Math.max(ATLAS_CONFIDENCE_PRESENTATION_POLICY.fixtureFloor, confidence));
   return {
-    ...FAMILY_ENCODING[family],
+    shapeToken: 'circle',
+    fillToken: ANSWER_TYPE_COLOR_TOKENS[answerType],
     strokeToken: STATUS_STROKE[status],
     opacity,
   };

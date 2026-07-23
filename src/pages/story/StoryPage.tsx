@@ -29,11 +29,11 @@ export function StoryPage() {
       : 'APPROVED_RELEASE_LOADING';
 
   useEffect(() => {
-    const chapters = document.querySelectorAll('section[data-chapter-id]');
     let animationFrame = 0;
 
     const updateActiveChapter = () => {
       animationFrame = 0;
+      const chapters = document.querySelectorAll('section[data-chapter-id]');
       const headerHeight = document.querySelector('body > #root header')?.getBoundingClientRect().height ?? 56;
       const readingLine = headerHeight + Math.min(240, Math.max(80, (window.innerHeight - headerHeight) * 0.34));
       const measured = Array.from(chapters).map((chapter) => ({ chapter, rect: chapter.getBoundingClientRect() }));

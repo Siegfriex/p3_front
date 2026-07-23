@@ -1,0 +1,6 @@
+interaction,duration,easing,reduced_motion,meaning
+tab_or_control,220ms,editorial_ease,1e-05s,orientation only
+drawer,300ms,editorial_ease,instant_with_focus_management,secondary evidence layer
+3d_fixed_preset,220ms,editorial_ease,1e-05s,optional orientation
+node_position,none,none,none,semantic coordinates never animate between filters
+loading,subtle_only,linear,static_copy,state not decoration

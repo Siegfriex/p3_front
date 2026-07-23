@@ -1,0 +1,13 @@
+test,scope,result,detail
+npm_run_typecheck,TypeScript,PASS,completed after implementation
+npm_run_lint,ESLint,PASS,completed after implementation
+npm_run_test,unit_component,PASS,"20 files; 57 tests"
+npm_run_build,production_bundle,PASS,"2174 modules; Method Lab 13.24kB JS and 11.82kB CSS before gzip"
+agent4_atlas_vid_spec,Method and responsive E2E,TECHNICAL_PASS_DESIGN_CONTRADICTION,"8 passed before drift; later concurrent test expects 140 Story nodes contrary to locked 16-node contract"
+existing_atlas_visual_specs,Story Explorer accessibility presentation,PASS_WITH_CONDITIONAL_SKIPS,"9 passed; 4 environment-gated skips"
+production_story_explorer_parity,current approved release,PASS,"2 passed"
+agent_browser_runtime,5 viewports and special states,PASS,"320; 375; 768; 1440; 1920"
+manual_screen_reader,assistive technology,NOT_VERIFIABLE,not executed
+vercel_preview_parity,deployment,BLOCKED,upstream runtime closure reports target contradiction
+story_subset_contract,Story Preview semantic scope,CONTRADICTED,"current worktree renders 140 nodes and 16 anchors; contract requires exactly approved 16 nodes"
+story_control_ceiling,Story Preview public controls,CONTRADICTED,"current worktree adds a separate type primer in addition to the locked control row"

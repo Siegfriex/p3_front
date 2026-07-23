@@ -8,13 +8,17 @@ async function blockingAxeViolations(page: Page) {
   return result.violations.filter((violation) => violation.impact === 'critical' || violation.impact === 'serious');
 }
 
-test('Story VID keeps the 16-node core and updates a shallow dossier without opening Evidence', async ({ page }) => {
+test('Story VID opens with the approved 16-node preview and an in-flow context dossier', async ({ page }) => {
   await page.goto('/#answers');
   await expect(page.getByTestId('story-atlas-ready')).toBeVisible();
   await expect(page.locator('#answers [data-node-id]')).toHaveCount(16);
-  await expect(page.getByTestId('story-selected-dossier')).toHaveCount(0);
+  await expect(page.locator('#answers [data-editorial-anchor="true"]')).toHaveCount(16);
+  await expect(page.locator('#answers #atlas-node-list button')).toHaveCount(16);
+  await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
+  await expect(page.getByTestId('story-atlas-type-primer').locator('[data-answer-type]')).toHaveCount(8);
+  await expect(page.locator('#answers [data-selection-ring="true"]')).toHaveCount(1);
 
-  await page.locator('#answers #atlas-node-list button').first().click();
+  await page.locator('#answers #atlas-node-list button').nth(1).click();
   await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await expect(page.locator('#answers [data-selection-ring="true"]')).toHaveCount(1);

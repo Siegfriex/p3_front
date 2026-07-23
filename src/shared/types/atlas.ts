@@ -42,6 +42,7 @@ export interface AtlasNodeViewModel {
   answerCount: number;
   linkCount: number;
   confidence: number | null;
+  meanSimilarity: number | null;
   representativeEvidenceId: string | null;
   isPublicEvidenceAvailable: boolean;
   encoding: AtlasEncodingViewModel;

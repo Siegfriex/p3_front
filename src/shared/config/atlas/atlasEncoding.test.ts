@@ -7,6 +7,7 @@ import {
   NODE_GLYPH_TOKENS,
   STATUS_STROKE_DASH,
   getNodeDisplayOpacity,
+  createAtlasEncoding,
   getNodeHitRadius,
   getPresentedNodeRadius,
   getRequiredProjectionPadding,
@@ -17,10 +18,13 @@ import {
 describe('Atlas node semantic encoding', () => {
   it('locks behavior shapes, A1-A8 marks, and status strokes as shared semantic tokens', () => {
     expect(NODE_GLYPH_TOKENS.information_non_direct.shape).toBe('circle');
-    expect(NODE_GLYPH_TOKENS.deferral_procedural.shape).toBe('diamond');
-    expect(NODE_GLYPH_TOKENS.action_evidence.shape).toBe('square');
+    expect(NODE_GLYPH_TOKENS.deferral_procedural.shape).toBe('circle');
+    expect(NODE_GLYPH_TOKENS.action_evidence.shape).toBe('circle');
     expect(Object.keys(ANSWER_TYPE_MARKS)).toEqual(['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8']);
     expect(STATUS_STROKE_DASH).toEqual({ complete: undefined, active: '12 6', unresolved: '2 5' });
+    expect(createAtlasEncoding('A1', 'complete', 1)).toEqual(expect.objectContaining({ shapeToken: 'circle', fillToken: '#9f1239' }));
+    expect(createAtlasEncoding('A4', 'complete', 1).fillToken).toBe('#c98a4a');
+    expect(createAtlasEncoding('A8', 'complete', 1).fillToken).toBe('#064f9e');
   });
 
   it('preserves source radius and expands only the interaction target', () => {

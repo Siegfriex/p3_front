@@ -57,5 +57,6 @@ export function storyExplorerNodeParity(
     && storyNode.normalizedMass === explorerNode.normalizedMass
     && storyNode.radiusPx === explorerNode.radiusPx
     && storyNode.confidence === explorerNode.confidence
+    && storyNode.meanSimilarity === explorerNode.meanSimilarity
     && JSON.stringify(storyNode.encoding) === JSON.stringify(explorerNode.encoding);
 }

@@ -1,11 +1,11 @@
 import { ArrowRight, FileText, ShieldCheck } from 'lucide-react';
 
-import dopingReportExcerpt from '../../../reports/editorial_content_integration_20260724_022118_KST/pdf_renders/page2_embedded_934.png';
-import lawmakerPhoto from '../../../reports/editorial_content_integration_20260724_022118_KST/pdf_renders/page2_embedded_946.png';
-import memorialPhoto from '../../../reports/editorial_content_integration_20260724_022118_KST/pdf_renders/crop_photo1.png';
-import spcLogo from '../../../reports/editorial_content_integration_20260724_022118_KST/pdf_renders/crop_photo2.png';
-import auditPhoto from '../../../reports/editorial_content_integration_20260724_022118_KST/pdf_renders/page4_embedded_photo_crop.png';
-import ministerPhoto from '../../../reports/editorial_content_integration_20260724_022118_KST/pdf_renders/page6_embedded_2.jpeg';
+import auditPhoto from '@/assets/editorial/audit-photo.webp';
+import dopingReportExcerpt from '@/assets/editorial/doping-report-excerpt.webp';
+import lawmakerPhoto from '@/assets/editorial/lawmaker-photo.webp';
+import memorialPhoto from '@/assets/editorial/memorial-photo.webp';
+import ministerPhoto from '@/assets/editorial/minister-photo.webp';
+import spcLogo from '@/assets/editorial/spc-logo.webp';
 
 import { useDetailNavigation } from '@/shared/hooks/useDetailNavigation';
 import type { AtlasViewModelBundle, EvidenceSummaryViewModel } from '@/shared/types/atlas';
@@ -132,7 +132,7 @@ function ExecutionOverview() {
         {IMPLEMENTATION_BY_YEAR.map((item) => (
           <div key={item.year}>
             <div className="story-execution-bars__label"><strong>{item.year}</strong><span>{item.complete + item.active}건</span></div>
-            <div className="story-execution-bars__track" aria-label={`${item.year}년 완료 ${item.complete}건 ${item.completeRate}퍼센트, 조치 중 ${item.active}건 ${item.activeRate}퍼센트`}>
+            <div className="story-execution-bars__track" role="img" aria-label={`${item.year}년 완료 ${item.complete}건 ${item.completeRate}퍼센트, 조치 중 ${item.active}건 ${item.activeRate}퍼센트`}>
               <span className="is-complete" style={{ width: `${item.completeRate}%` }}><b>{item.complete}</b><small>{item.completeRate}%</small></span>
               <span className="is-active" style={{ width: `${item.activeRate}%` }}><b>{item.active}</b><small>{item.activeRate}%</small></span>
             </div>
@@ -183,42 +183,86 @@ export function ChapterApprovedScale({ bundle }: ApprovedStoryChapterProps) {
       <PageFrame>
         <header className="story-editorial-header story-editorial-header--wide">
           <div>
-            <p className="story-hierarchy-1 story-accent-red">체대 입시 도핑 사례 / POLICY STILL PENDING</p>
-            <h2 className="story-hierarchy-5">“3년째 조치 중…<br />관계 기관 협의는 어디까지 왔나”</h2>
+            <p className="story-hierarchy-1 story-accent-red">전체 이행 현황 / 2020 · 2022 · 2024</p>
+            <h2 className="story-hierarchy-5">요구한 것 중,<br />얼마나 조치됐나</h2>
           </div>
           <p className="story-hierarchy-4">
-            도핑 제재 이력이 대학 입시에 반영되지 않는 문제. 관계기관 협의가 예고됐지만
-            2026년 현재 구체적인 제도화 결과는 공식 자료에서 확인하기 어렵습니다.
+            결과보고서 1,566건 가운데 830건은 완료, 736건은 여전히 조치 중이었습니다.
           </p>
         </header>
 
-        <div className="story-scale-lede">
+        <div className="story-finding-metrics" role="group" aria-label="기사 원고 시정 처리 요구 집계">
+          <article className="story-finding-metrics__total">
+            <p className="story-hierarchy-1">TOTAL REQUESTS</p><strong>1,566</strong><span>건</span><p>시정·처리요구 사항</p>
+          </article>
+          <article>
+            <p className="story-hierarchy-1">COMPLETE</p><strong>830</strong><span>건</span><p>53.0% · 조치 완료</p>
+          </article>
+          <article className="story-finding-metrics__risk">
+            <p className="story-hierarchy-1">STILL ACTIVE</p><strong>736</strong><span>건</span><p>47.0% · 조치 중·향후 계획</p>
+          </article>
+        </div>
+
+        <div className="story-gap-layout">
           <EditorialFigure
-            src={dopingPolicyFigure}
-            alt="국정감사 지적부터 관계기관 협의와 현재 확인 결과까지 이어지는 체대 입시 도핑 정책 타임라인"
-            caption="‘조치 중’이라는 분류만으로는 실제 정책 진행 여부를 알기 어렵다. 추진 일정·협의 결과·제도화 여부를 함께 공개해야 한다."
-            source="국정감사 지적 및 결과보고서 기반 재구성"
-            contain
+            src={auditPhoto}
+            alt="국회 문화체육관광위원회 국정감사장에서 의원이 마이크 앞에서 질의하는 모습"
+            caption="국정감사 이후 결과보고서는 통상 2년 뒤 제출된다. 그때까지도 ‘조치 중’인 요구가 47%였다."
+            source="포토뉴스 · 사용자 제공 PDF 수록본"
           />
           <div className="story-reading-column">
             <p className="story-hierarchy-2 story-dropcap">
-              국정감사에서는 교육부와 한국대학교육협의회, 한국대학스포츠협의회가 공동으로 개선안을 마련해야 한다고 요구했습니다.
-              문체부는 관계기관 협의를 거쳐 제도 개선을 검토하겠다고 답했고, 결과보고서는 이 사안을 ‘조치 중’으로 분류했습니다.
+              2020년, 2022년, 2024년 문화체육관광위원회 결과보고서를 분석한 결과 전체 시정·처리요구 1,566건 가운데
+              830건(53.0%)은 조치 완료, 736건(47.0%)은 조치 중 또는 향후 조치계획으로 집계됐습니다.
+            </p>
+            <p className="story-hierarchy-2">
+              장기 조치가 필요한 사안도 분명 존재합니다. 그러나 국정감사 이후 2년이 지나 제출되는 보고서에서도 약 절반이
+              ‘조치 중’이라면, 완료 여부뿐 아니라 일정과 장애 요인, 다음 확인 시점을 함께 공개할 필요가 있습니다.
             </p>
             <blockquote className="story-callout story-hierarchy-3">
-              행정 상태가 ‘진행’이라고 쓰였다는 사실과, 제도가 실제로 바뀌었다는 사실은 같지 않습니다.
+              “2년이 넘었는데 아직도 조치 중?” 상태 라벨만으로는 정책이 움직이고 있는지 판단하기 어렵습니다.
             </blockquote>
           </div>
         </div>
 
-        <div className="story-media-pair">
-          <EditorialFigure
-            src={dopingCaseFigure}
-            alt="도핑 적발 뒤에도 체육특기자 전형으로 대학에 합격한 사례의 재구성 인포그래픽"
-            caption="경기 실적 박탈과 자격 정지 처분은 있었지만, 대학 입시에서는 제재 이력 반영 규정이 작동하지 않았다."
-            source="TWIG 기사 사실관계 기반 재구성"
-            contain
+        <ExecutionOverview />
+
+        <section className="story-case-transition" aria-labelledby="doping-case-heading">
+          <p className="story-hierarchy-1 story-accent-red">CASE 01 / 체대 입시 도핑</p>
+          <h3 id="doping-case-heading" className="story-hierarchy-5">“조치 중” 3년째…<br />관계기관 협의는 어디까지 왔나</h3>
+          <p className="story-hierarchy-4">완료율의 반대편에서, 장기 진행 상태가 무엇을 감추는지 한 사례를 따라갑니다.</p>
+        </section>
+
+        <NativeFlow
+          title="국정감사 지적에서 2026년 확인까지"
+          steps={DOPING_POLICY_STEPS}
+          caption="‘조치 중’이라는 분류만으로는 정책 진행 정도를 알기 어렵다. 협의 과정·일정·제도화 여부를 함께 공개해야 한다."
+        />
+
+        <div className="story-scale-lede">
+          <NativeFlow
+            title="도핑 적발 뒤에도 대학 입시가 가능했던 경로"
+            steps={DOPING_CASE_STEPS}
+            caption="기사에 제시된 사실관계를 이 페이지의 네이티브 시각 언어로 재구성했다."
           />
+          <div className="story-reading-column">
+            <p className="story-hierarchy-2 story-dropcap">
+              고교 3학년 럭비선수 A씨는 메틸프레드니솔론 검출로 경기 실적을 박탈당하고 1년 6개월 자격 정지 처분을 받았습니다.
+              그러나 제재 이력을 대학 입시에 반영하는 규정이 없어, 자격 정지 상태에서 2022년 체육특기자 전형으로 입학했습니다.
+            </p>
+            <p className="story-hierarchy-2">
+              문체부는 교육부·한국대학교육협의회·한국대학스포츠협의회와 제도 개선을 협의하겠다고 답했습니다.
+              하지만 2026년 현재 공식 자료에서 협의 완료나 입시 반영 기준을 확인하기 어렵습니다.
+            </p>
+            <p className="story-hierarchy-2">
+              여러 기관이 참여하는 정책은 조정과 법적 검토에 시간이 걸릴 수 있습니다. 그럴수록 협의 단계와 일정,
+              추진 현황을 주기적으로 공개해야 시민이 진행과 중단을 구분할 수 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div className="story-media-pair">
+          <blockquote className="story-callout story-hierarchy-3">행정 상태가 ‘진행’이라고 쓰였다는 사실과, 제도가 실제로 바뀌었다는 사실은 같지 않습니다.</blockquote>
           <EditorialFigure
             src={lawmakerPhoto}
             alt="국회 문화체육관광위원회 국정감사에서 발언하는 이병훈 의원"
@@ -263,6 +307,18 @@ export function ChapterApprovedRecord({ bundle }: ApprovedStoryChapterProps) {
           <p className="story-hierarchy-4">서류와 현장의 간극을 한 사건의 시간축으로 다시 읽습니다.</p>
         </header>
 
+        <div className="story-record-copy">
+          <p className="story-hierarchy-2 story-dropcap">
+            2022년 SPL 평택 제빵공장에서 20대 노동자가 컨베이어 벨트에 끼여 숨진 뒤, 고용노동부는 SPC 계열사 전반을
+            대상으로 특별기획감독을 실시했습니다. 감독에서는 위험기계 안전장치와 방호장치, 작업절차, 위험성 평가 등
+            기본 안전관리 위반이 다수 확인됐고 정부는 시정명령 뒤 대부분 개선됐다고 발표했습니다.
+          </p>
+          <p className="story-hierarchy-2">
+            그러나 이후에도 계열 사업장에서 기계 끼임과 안전수칙 미준수 사례가 이어졌고 중대재해가 다시 발생했습니다.
+            문서상 ‘조치 완료’가 현장의 위험 제거와 같은 뜻인지 확인하려면, 동일 사고 재발과 후속 현장점검 결과를 함께 봐야 합니다.
+          </p>
+        </div>
+
         <ol className="story-redline-timeline" aria-label="SPC 안전 문제 5단계 증거 사슬">
           {RECORD_TRACE.map((step, index) => (
             <li key={step.year}>
@@ -275,7 +331,7 @@ export function ChapterApprovedRecord({ bundle }: ApprovedStoryChapterProps) {
         </ol>
 
         <blockquote className="story-fullwidth-quote story-hierarchy-4">
-          서류상 완료 여부보다 실제 현장에서 위험이 제거됐는지를 확인해야 합니다.
+          시정조치 건수와 완료율만으로는 충분하지 않습니다. 이후 같은 사고가 재발했는지, 작업 현장이 실제로 바뀌었는지를 확인해야 합니다.
         </blockquote>
 
         <div className="story-record-evidence">
@@ -315,46 +371,36 @@ export function ChapterApprovedGap({ bundle }: ApprovedStoryChapterProps) {
       <PageFrame>
         <header className="story-editorial-header story-editorial-header--wide">
           <div>
-            <p className="story-hierarchy-1 story-accent-red">간극과 명암 / REPORTED STATUS</p>
-            <h2 className="story-hierarchy-5">“2년이 넘었는데<br />아직도 조치 중?”</h2>
+            <p className="story-hierarchy-1 story-accent-red">두 사례를 관통하는 의미 / BEYOND STATUS</p>
+            <h2 className="story-hierarchy-5">완료와 진행,<br />그 사이를 묻다</h2>
           </div>
-          <p className="story-hierarchy-4">도대체 언제까지 조치 중인가.</p>
+          <p className="story-hierarchy-4">하나는 완료됐지만 효과를 확인할 수 없고, 다른 하나는 진행 중이지만 과정을 확인하기 어렵습니다.</p>
         </header>
 
-        <div className="story-finding-metrics" role="group" aria-label="기사 원고 시정 처리 요구 집계">
-          <article className="story-finding-metrics__total">
-            <p className="story-hierarchy-1">TOTAL REQUESTS</p>
-            <strong>1,566</strong><span>건</span>
-            <p>시정·처리요구 사항</p>
+        <div className="story-contrast-grid">
+          <article>
+            <p className="story-hierarchy-1">SPC / REPORTED COMPLETE</p>
+            <strong>완료</strong>
+            <h3 className="story-hierarchy-3">효과가 확인되지 않는 문제</h3>
+            <p className="story-hierarchy-2">행정적으로 시정이 끝났다고 기록됐지만 현장에서는 같은 유형의 위험과 사고가 반복됐습니다.</p>
           </article>
           <article>
-            <p className="story-hierarchy-1">COMPLETE</p>
-            <strong>830</strong><span>건</span>
-            <p>53.0% · 조치 완료</p>
-          </article>
-          <article className="story-finding-metrics__risk">
-            <p className="story-hierarchy-1">STILL ACTIVE</p>
-            <strong>736</strong><span>건</span>
-            <p>47.0% · 조치 중·향후 계획</p>
+            <p className="story-hierarchy-1">DOPING / STILL ACTIVE</p>
+            <strong>진행</strong>
+            <h3 className="story-hierarchy-3">과정이 보이지 않는 문제</h3>
+            <p className="story-hierarchy-2">관계기관 협의가 계속된다고 기록됐지만 일정과 논의 결과, 제도화 단계는 확인하기 어렵습니다.</p>
           </article>
         </div>
 
-        <div className="story-gap-layout">
-          <EditorialFigure
-            src={auditPhoto}
-            alt="국회 문화체육관광위원회 국정감사장에서 의원이 마이크 앞에서 질의하는 모습"
-            caption="완료와 진행이라는 행정 상태 뒤에는 질의가 현장 변화로 이어졌는지 확인하는 일이 남는다."
-            source="포토뉴스"
-          />
+        <div className="story-gap-meaning">
+          <p className="story-hierarchy-2 story-dropcap">
+            두 사례는 국정감사 결과보고서가 ‘완료’, ‘조치 중’, ‘미조치’ 같은 행정 분류에 머물러서는 안 된다는 점을 보여줍니다.
+            정책이 현장에서 어떤 변화를 만들었는지, 추진 과정이 시민에게 투명하게 공개되는지를 함께 평가해야 합니다.
+          </p>
           <div className="story-reading-column">
-            <p className="story-hierarchy-2 story-dropcap">
-              기사 원고의 집계에서는 총 1,566건 가운데 830건이 완료, 736건이 조치 중으로 분류됐습니다.
-              그러나 상태 라벨은 정책 효과를 자동으로 증명하지 않습니다. ‘완료’의 근거와 ‘진행’의 다음 일정이 함께 공개되어야 합니다.
-            </p>
-            <p className="story-contract-note">
-              <strong>분모 주의.</strong> 위 1,566건은 동료 기사 원고의 시정·처리요구 집계입니다. 아래 승인 release의
-              {` ${bundle.storySummary.analysisEntityCount.toLocaleString('ko-KR')}개 decision group`}과는 분석 단위가 달라 합산하거나 비율을 교차 해석하지 않습니다.
-            </p>
+            <p className="story-hierarchy-2">완료에는 재발 여부와 사후 점검이 뒤따라야 하고, 진행에는 일정·협의 주체·다음 공개 시점이 따라야 합니다.</p>
+            <blockquote className="story-callout story-hierarchy-3">상태를 세는 감사에서, 변화를 검증하는 감사로.</blockquote>
+            <p className="story-contract-note"><strong>분모 주의.</strong> 기사 원고의 1,566건과 아래 승인 release의 {bundle.storySummary.analysisEntityCount.toLocaleString('ko-KR')}개 decision group은 분석 단위가 달라 합산하지 않습니다.</p>
           </div>
         </div>
 
@@ -394,6 +440,12 @@ export function ChapterApprovedCases({ bundle }: ApprovedStoryChapterProps) {
           </div>
           <p className="story-hierarchy-4">감사장에서 계속된 회피성 발언은 6년간 1,408건이었습니다.</p>
         </header>
+
+        <p className="story-cases-definition story-hierarchy-2">
+          회피답변은 <strong>기억부재</strong>(“기억이 나지 않습니다”), <strong>정보 없음</strong>(“모르겠습니다”, “확인해보겠습니다”),
+          <strong>질문 비직접 대응</strong>(질문과 맞지 않는 답변)으로 정의했습니다. 2020~2025년 회의록을 같은 기준으로 분류해
+          연도별 변화와 실제 질의 장면을 함께 읽었습니다.
+        </p>
 
         <div className="story-cases-hero">
           <div className="story-cases-hero__metric">

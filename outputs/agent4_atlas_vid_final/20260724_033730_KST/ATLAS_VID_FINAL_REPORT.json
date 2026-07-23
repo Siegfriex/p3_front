@@ -1,0 +1,20 @@
+{
+  "run_id": "20260724_033730_KST",
+  "start_branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "start_head": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "observed_concurrent_branch": "P3_FRONT_DEPLOY",
+  "observed_concurrent_head": "dd8f03b999435f037c8ae2560059f557b05adfe7",
+  "release_id": "ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264",
+  "projection_id": "PROJ_DG761_20260723_213011_KST_4665FDF3E5CF",
+  "story_contract_node_count": 16,
+  "story_current_worktree_node_count": 140,
+  "story_editorial_anchor_count": 16,
+  "explorer_node_count": 140,
+  "core_modified_by_agent4": false,
+  "concurrent_core_drift_detected": true,
+  "canonical_view": "UMAP_2D_AGGREGATE",
+  "method_states": {"umap2d": "implemented", "pca2d": "data_unavailable", "pca3d": "shell_only", "tensor": "spec_only"},
+  "tests": {"unit_component": 57, "agent4_e2e": 8, "existing_presentation_e2e": 9, "production_parity_e2e": 2, "failures": 0},
+  "blockers": ["STORY_140_NODE_SCOPE_CONTRADICTS_16_NODE_CONTRACT", "STORY_CONTROL_CEILING_EXCEEDED", "CONCURRENT_AGENT3_CORE_DRIFT", "PCA_2D_3D_PAYLOAD_ABSENT", "TENSOR_PIPELINE_NOT_VERIFIED", "REGION_AND_CENTROID_SCREEN_GEOMETRY_ABSENT", "VERCEL_PARITY_BLOCKED", "MANUAL_SCREEN_READER_NOT_VERIFIED"],
+  "final_verdict": "AGENT_4_ATLAS_VID_HANDOFF_BLOCKED"
+}

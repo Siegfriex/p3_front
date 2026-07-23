@@ -1,0 +1,9 @@
+meaning,color,independent_encoding,forced_colors_result
+selection,#f01b2d,ring and aria state,PRESERVED
+focus,#111111,contrast halo and DOM focus,PRESERVED
+information_non_direct,#a40f1f,circle and family text,CONCURRENT_SEMANTIC_UPDATE_DETECTED
+deferral_procedural,#806426,diamond and family text,PRESERVED
+action_evidence,#365f75,square and family text,CONCURRENT_SEMANTIC_UPDATE_DETECTED
+complete,#111111,solid stroke and label,PRESERVED
+active,#555550,long dash and label,PRESERVED
+unresolved,#a40f1f,dotted stroke and label,PRESERVED

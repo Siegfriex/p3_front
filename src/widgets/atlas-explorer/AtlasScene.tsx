@@ -21,7 +21,11 @@ interface AtlasSceneProps {
   focusNodeId: string | null;
   onSelectNode: (nodeId: string) => void;
   onPreviewNode: (nodeId: string | null) => void;
+  editorialAnchorNodeIds?: ReadonlySet<string>;
+  persistentLabelNodeIds?: ReadonlySet<string>;
 }
+
+const EMPTY_NODE_IDS: ReadonlySet<string> = new Set();
 
 interface SvgPointerCoordinates {
   currentTarget: SVGSVGElement;
@@ -39,7 +43,17 @@ function toSvgPoint(event: SvgPointerCoordinates) {
   return point.matrixTransform(matrix.inverse());
 }
 
-export function AtlasScene({ nodes, nodeFilterStates, selectedNodeId, previewNodeId, focusNodeId, onSelectNode, onPreviewNode }: AtlasSceneProps) {
+export function AtlasScene({
+  nodes,
+  nodeFilterStates,
+  selectedNodeId,
+  previewNodeId,
+  focusNodeId,
+  onSelectNode,
+  onPreviewNode,
+  editorialAnchorNodeIds = EMPTY_NODE_IDS,
+  persistentLabelNodeIds = EMPTY_NODE_IDS,
+}: AtlasSceneProps) {
   const renderedNodes = nodes.filter((node) => nodeFilterStates.get(node.id) !== 'excluded');
   const interactiveNodes = renderedNodes.filter((node) => (nodeFilterStates.get(node.id) ?? 'matched') === 'matched');
   const contextCount = renderedNodes.length - interactiveNodes.length;
@@ -91,6 +105,7 @@ export function AtlasScene({ nodes, nodeFilterStates, selectedNodeId, previewNod
           const selected = node.id === selectedNodeId;
           const previewed = node.id === previewNodeId;
           const focused = node.id === focusNodeId;
+          const editorialAnchor = editorialAnchorNodeIds.has(node.id);
           const dimmed = interactive && Boolean((selectedNodeId && !selected) || (previewNodeId && !previewed));
           const state = resolveNodeInteractionState({
             isHovered: previewed,
@@ -107,7 +122,7 @@ export function AtlasScene({ nodes, nodeFilterStates, selectedNodeId, previewNod
             isSelected: selected,
             isFocused: focused,
           });
-          const showLabel = interactive && (selected || previewed || focused);
+          const showLabel = interactive && (selected || previewed || focused || persistentLabelNodeIds.has(node.id));
           const labelOnLeft = node.screen.x > ATLAS_PLOT_RECT.x + ATLAS_PLOT_RECT.width * 0.7;
           const labelX = labelOnLeft ? -(radius + 14) : radius + 14;
           return (
@@ -127,6 +142,7 @@ export function AtlasScene({ nodes, nodeFilterStates, selectedNodeId, previewNod
               data-node-opacity={opacity}
               data-node-state={state}
               data-node-filter-state={filterState}
+              data-editorial-anchor={editorialAnchor ? 'true' : undefined}
               className={interactive ? 'cursor-pointer' : undefined}
             >
               {interactive ? (
@@ -138,6 +154,18 @@ export function AtlasScene({ nodes, nodeFilterStates, selectedNodeId, previewNod
                   pointerEvents="all"
                 />
               ) : null}
+              {editorialAnchor && interactive ? (
+                <circle
+                  data-editorial-anchor-ring="true"
+                  r={radius + 5}
+                  fill="none"
+                  stroke={node.encoding.fillToken}
+                  strokeWidth="1.5"
+                  strokeDasharray="3 3"
+                  vectorEffect="non-scaling-stroke"
+                  pointerEvents="none"
+                />
+              ) : null}
               <AtlasNodeGlyph
                 shape={node.encoding.shapeToken}
                 answerType={node.answerType}
@@ -147,6 +175,7 @@ export function AtlasScene({ nodes, nodeFilterStates, selectedNodeId, previewNod
                 opacity={opacity}
                 radius={radius}
                 state={state}
+                showAnswerMark={false}
               />
               {showLabel ? (
                 <g className="atlas-node-label" transform={`translate(${labelX} ${-(radius + 10)})`}>
