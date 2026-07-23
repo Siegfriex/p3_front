@@ -10,6 +10,7 @@ function bundleFixture(nodes = 1): AtlasViewModelBundle {
   return {
     releaseId: 'contract-release-001',
     projectionId: 'contract-projection-001',
+    projectionHash: 'a'.repeat(64),
     bounds: { xMin: 0, xMax: 1, yMin: 0, yMax: 1 },
     nodes: nodes === 0 ? [] : [{
       id: 'contract-node-001',
@@ -39,6 +40,22 @@ function bundleFixture(nodes = 1): AtlasViewModelBundle {
     topicBins: [],
     centroids: [],
     evidence: [],
+    storySummary: {
+      analysisEntityCount: nodes,
+      atlasNodeCount: nodes,
+      behaviorChildCount: nodes,
+      primaryBehaviorDistribution: { A1: nodes, A2: 0, A3: 0, A4: 0, A5: 0, A6: 0, A7: 0, A8: 0 },
+      projectionPointCount: nodes,
+      publicEvidenceCount: 0,
+      statusDistribution: { complete: 0, active: nodes, unresolved: 0 },
+      topicBinCount: 0,
+      warnings: [],
+    },
+    storyPreviewNodeIds: ['contract-node-001'],
+    evidenceRepository: {
+      getSummary: () => null,
+      getDetail: async () => { throw new Error('not available in component fixture'); },
+    },
   };
 }
 
@@ -121,5 +138,19 @@ describe('AtlasExplorer accessibility contract shell', () => {
     await waitFor(() => expect(glyph).toHaveAttribute('data-interaction-state', 'focused-selected'));
     expect(glyph?.querySelector('[data-focus-halo="true"]')).toBeInTheDocument();
     expect(glyph?.querySelector('[data-selection-ring="true"]')).toBeInTheDocument();
+  });
+
+  it('clears a selected node when the active filters exclude it without choosing a replacement', async () => {
+    const onQueryChange = vi.fn();
+    renderExplorer(
+      bundleFixture(),
+      { ...queryFixture('contract-node-001'), status: 'complete' },
+      onQueryChange,
+    );
+    await waitFor(() => expect(onQueryChange).toHaveBeenCalledWith({
+      ...queryFixture(null),
+      status: 'complete',
+    }));
+    expect(onQueryChange).toHaveBeenCalledTimes(1);
   });
 });

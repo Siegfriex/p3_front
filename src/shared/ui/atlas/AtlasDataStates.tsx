@@ -12,6 +12,7 @@ interface AtlasStatePanelProps {
   signal?: string;
   loading?: boolean;
   compact?: boolean;
+  headingLevel?: 'h1' | 'h2';
 }
 
 function AtlasStatePanel({
@@ -26,7 +27,9 @@ function AtlasStatePanel({
   signal = '00',
   loading = false,
   compact = false,
+  headingLevel = 'h2',
 }: AtlasStatePanelProps) {
+  const Heading = headingLevel;
   return (
     <section
       className="atlas-state-panel"
@@ -39,7 +42,7 @@ function AtlasStatePanel({
       <div className="atlas-state-signal" aria-hidden="true">{signal}</div>
       <div className="atlas-state-content">
         <p className="redline-meta atlas-state-eyebrow">{eyebrow}</p>
-        <h2>{title}</h2>
+        <Heading>{title}</Heading>
         <p className="atlas-state-description">{description}</p>
         {loading ? <div className="atlas-state-skeleton" aria-hidden="true"><span /><span /><span /></div> : null}
         {detail ? <div className="atlas-state-detail">{detail}</div> : null}
@@ -57,7 +60,7 @@ interface AtlasLoadingStateProps {
 
 export function AtlasLoadingState({
   title = '승인된 Atlas 데이터를 확인하고 있습니다',
-  description = 'manifest와 데이터 계약을 검증하는 동안 좌표나 fixture를 대신 표시하지 않습니다.',
+  description = 'manifest와 데이터 계약을 검증하는 동안 임시 좌표나 대체 데이터를 표시하지 않습니다.',
   testId = 'atlas-route-loading',
 }: AtlasLoadingStateProps) {
   return (
@@ -81,6 +84,7 @@ interface AtlasDataUnavailableProps {
   reason?: string;
   actions?: ReactNode;
   testId?: string;
+  headingLevel?: 'h1' | 'h2';
 }
 
 export function AtlasDataUnavailable({
@@ -89,6 +93,7 @@ export function AtlasDataUnavailable({
   reason,
   actions,
   testId = 'atlas-data-unavailable',
+  headingLevel = 'h2',
 }: AtlasDataUnavailableProps) {
   return (
     <AtlasStatePanel
@@ -100,6 +105,7 @@ export function AtlasDataUnavailable({
       testId={testId}
       detail={reason ? <p className="font-mono text-xs">상태 코드: {reason}</p> : undefined}
       actions={actions}
+      headingLevel={headingLevel}
     />
   );
 }

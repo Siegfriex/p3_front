@@ -1,0 +1,60 @@
+{
+  "chapterId": "prologue",
+  "jsxTextReplacements": 2,
+  "typographyAdjustments": 0,
+  "imageAction": "kept_hero_placeholder_unchanged; no_new_image_slot_added_for_logo; missing_asset_logged_in_csv",
+  "unresolved": [
+    {
+      "block_id": "b5",
+      "action": "replaced",
+      "detail": "Replaced hardcoded h1 quote '“검토하겠습니다”' (line 149) with PDF final headline '국정감사 단순히 쇼인가?' (mapping_confidence HIGH, explicit replace instruction). Kept the same class (type-display-hero-quote) and HTML h1 level; removed the curly quote wrapper since the new copy is a rhetorical question, not a quoted utterance, and the PDF-extracted text has no quote marks."
+    },
+    {
+      "block_id": "b9",
+      "action": "replaced",
+      "detail": "Replaced dev-preview CTA button label/aria-label '개발용 증거 미리보기 (ev-101)' with PDF CTA copy '첫 증거 원문 확인하기 (ev-101)' (mapping_confidence MEDIUM but source_note flags it as likely final-copy replacement target). Updated aria-label to match for consistency; no structural/behavioral change."
+    },
+    {
+      "block_id": "b1",
+      "action": "left_unchanged",
+      "detail": "Top-left corner label text differs slightly from current JSX ('문화체육관광위원회 국정감사 6년 데이터저널리즘'), but source_note explicitly frames b1 as a background-mockup/'existing, keep' label rather than an overlay replacement instruction. Left as-is per conservative guidance."
+    },
+    {
+      "block_id": "b2",
+      "action": "left_unchanged",
+      "detail": "Matches current code (L124) verbatim aside from hyphen vs en-dash in '2018-2023'/'2018–2023'; source_note states this is already implemented. Left unchanged."
+    },
+    {
+      "block_id": "b4",
+      "action": "left_unchanged",
+      "detail": "Eyebrow badge text '저널리즘 에세이' already matches current JSX (line 143) exactly; mapping_confidence LOW and source_note notes ambiguity about keep/delete since it's covered by a new headline box in the mockup, but text is identical so no replacement needed regardless."
+    },
+    {
+      "block_id": "b6",
+      "action": "left_unchanged_no_jsx_slot",
+      "detail": "SOURCE footnote ('2020~2025 문체부 국정감사 회의록 42건 전수분석...') is new content with no corresponding element anywhere in ChapterPrologue.tsx. Adding a new footnote element would require new JSX structure/placement decisions beyond a text-swap pass, so left unaddressed per conservative guidance (consistent with how gap/remains/record chapter passes handled PDF blocks lacking a JSX counterpart)."
+    },
+    {
+      "block_id": "b7",
+      "action": "left_unchanged",
+      "detail": "Subhead '6년 뒤, 국정감사엔 무엇이 남았는가' already matches current h2 (L152-154) verbatim; source_note confirms no overlay/change instruction. Left unchanged."
+    },
+    {
+      "block_id": "b8",
+      "action": "left_unchanged",
+      "detail": "Lead paragraph text matches current JSX (L179-181) aside from a trivial spacing difference around '처리결과 보고서'; source_note explicitly states no overlay/change instruction, keep as-is."
+    },
+    {
+      "block_id": "b3",
+      "action": "no_new_jsx_added; logged_to_MISSING_ASSET_REQUEST_csv",
+      "detail": "PDF block b3 is a Ministry of Culture, Sports and Tourism emblem logo (upper-left) with no corresponding EditorialImageField/image slot anywhere in ChapterPrologue.tsx today (source_note itself says '현재 코드베이스에 대응 자산 없음 — 신규 삽입 요소로 추정'). The one existing EditorialImageField (slotId='prologue-hero-identity', National Assembly Audit Document hero portrait) is a different subject/region and has no PDF block addressing it, so its src/placeholderCaption were left untouched. Since the JSON has no embedded/production_ready field for b3, and its own source_note flags the extracted page1_embedded_4.jpeg (960x272px native, ~1.22x upscaled in PDF layout, JPEG compression artifacts) as needing an official vector/high-res replacement, this was treated as 'not production ready'. Per conservative guidance, no new EditorialImageField was inserted (would require new layout/placement decisions out of scope for a text/typography pass); instead the asset need was recorded in MISSING_ASSET_REQUEST.csv (chapter_id=prologue, slot=prologue-mcst-emblem-logo)."
+    }
+  ],
+  "typographyNotes": [
+    "h1 (b5, VERY_LARGE) uses type-display-hero-quote, a bespoke hero-scale display class larger than type-heading-1 - appropriate for the top hierarchy tier of a magazine hero; left unchanged.",
+    "h2 (b7, LARGE) uses type-display-hero-conclusion, a bespoke hero-scale subhead class sized between heading-1 and heading-2 - appropriate for a LARGE subhead in the hero scene; left unchanged.",
+    "Lead paragraph (b8, MEDIUM) uses type-body-l; while the H/B mapping would suggest type-body-m for MEDIUM, type-body-l is a common and defensible choice for a prominent hero lead paragraph and is not a gross mismatch, so left unchanged per conservative guidance.",
+    "CTA button label (b9, SMALL) uses component-specific 'font-mono text-xs' rather than a typography.css class; button labels are interactive UI text, not paragraph/caption prose, so forcing type-caption was not warranted - left unchanged.",
+    "No duplicate semantic h1 elements exist in the chapter (single h1 for the hero quote, single h2 for the conclusion subhead); heading level structure was not altered, only the h1's text content."
+  ]
+}

@@ -1,0 +1,9 @@
+check,expected,current,verdict
+branch,agent/frontend-routing-atlas-foundation-20260723,agent/frontend-routing-atlas-foundation-20260723,PASS
+HEAD,20835ecadcce0a57067231806c4cfde9dd5b8f41,20835ecadcce0a57067231806c4cfde9dd5b8f41,PASS
+upstream,20835ecadcce0a57067231806c4cfde9dd5b8f41,20835ecadcce0a57067231806c4cfde9dd5b8f41,PASS
+owner_sha,16 files,16 exact matches,PASS
+package_lock,fb7789623b1fd97398a9c21db57176fa9d7d741c860cac659f3f6dc3d57c8252,exact match,PASS
+owner_modification_by_agent4,0,0,PASS
+projection_padding,full transport radii before filtering,AtlasPage integration retained,PASS_CONTRACT_FIXTURE
+real_data_padding,approved distribution required,not connected,NOT_DECLARED

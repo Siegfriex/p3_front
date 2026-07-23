@@ -1,18 +1,13 @@
-import { CHAPTER_IDS } from '@/shared/config/chapterNavigation';
-import { STORY_CHAPTERS } from '@/shared/mock/storyData';
-
-const visibleStoryChapters = STORY_CHAPTERS.filter((chapter) =>
-  CHAPTER_IDS.some((chapterId) => chapterId === chapter.id)
-);
+import { STORY_CHAPTER_NAVIGATION } from '@/shared/config/chapterNavigation';
 
 interface FooterRailProps {
   currentChapterId: string;
 }
 
 export function FooterRail({ currentChapterId }: FooterRailProps) {
-  const activeChapterIndex = visibleStoryChapters.findIndex((chapter) => chapter.id === currentChapterId);
+  const activeChapterIndex = STORY_CHAPTER_NAVIGATION.findIndex((chapter) => chapter.id === currentChapterId);
   const progressPercent = activeChapterIndex >= 0
-    ? Math.min(100, Math.max(0, ((activeChapterIndex + 1) / visibleStoryChapters.length) * 100))
+    ? Math.min(100, Math.max(0, ((activeChapterIndex + 1) / STORY_CHAPTER_NAVIGATION.length) * 100))
     : 0;
 
   return (
@@ -25,7 +20,7 @@ export function FooterRail({ currentChapterId }: FooterRailProps) {
         <span className="opacity-60 hidden sm:inline">PROJECT: P3_CULTURE</span>
         <div className="flex items-center gap-2">
           <div className="h-1.5 w-1.5 bg-[var(--color-behavior-amber-soft)]" />
-          <span className="truncate opacity-90">ATLAS DATA: APPROVAL PENDING</span>
+          <span className="truncate opacity-90">ATLAS DATA: RELEASE-GATED</span>
         </div>
       </div>
 

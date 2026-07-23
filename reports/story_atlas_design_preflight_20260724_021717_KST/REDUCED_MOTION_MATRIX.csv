@@ -1,0 +1,9 @@
+interaction,standard,reduced_motion,acceptance
+node_hover,"scale 1.06 / 150ms","no scale; immediate outline/label","no coordinate movement"
+node_focus,"halo immediate or <=150ms","halo immediate","focus visible in first frame"
+node_select,"ring and inspector fade <=220ms","ring and content immediate","selection meaning preserved"
+filter,"opacity <=220ms","immediate visibility change","domain and coordinates unchanged"
+drawer,"translate/fade 300ms","no translate; immediate or <=60ms fade","focus trap active immediately"
+Story_chapter_entry,"Evidence Line reveal 600ms","static completed line","S1 continuity remains visible"
+smooth_scroll,"allowed for chapter/target navigation","scroll-behavior auto","target receives focus"
+loading_progress,"subtle progress","static indicator","aria-busy and text remain"

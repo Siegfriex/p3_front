@@ -1,0 +1,15 @@
+Vercel CLI: NOT INSTALLED
+.vercel/project.json: ABSENT
+Linked project: false / NOT_VERIFIABLE
+Linked project ID: null
+Linked org/scope: null
+Authentication: NOT_VERIFIABLE (CLI absent)
+vercel.json: PRESENT but untracked at START
+buildCommand: npm run build
+installCommand: npm ci
+outputDirectory: dist
+rewrite: /(.*) -> /index.html
+Deployment action: NOT PERFORMED
+Vercel connector authentication: CONFIRMED (read-only)
+Connector team: siegfriexs-projects
+Projects inspected: 6; matching p3_front project: NONE

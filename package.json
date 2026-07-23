@@ -18,8 +18,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "test:e2e:preview": "npm run build && playwright test --config=playwright.preview.config.ts",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:update": "playwright test --update-snapshots",
+    "deploy:check": "npm run typecheck && npm run lint && npm run test && npm run build",
     "qa:foundation": "npm run typecheck && npm run lint && npm run test && npm run build && npm run test:e2e",
     "qa": "npm run qa:foundation"
   },

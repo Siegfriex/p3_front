@@ -1,0 +1,29 @@
+{
+  "classification": "CONFIRMED",
+  "component": "src/widgets/atlas-scene/ChapterAnswersAtlas.tsx",
+  "unconditional_data_unavailable": true,
+  "loader_called": false,
+  "view_model_used": false,
+  "selector_exists": "src/shared/lib/atlas/atlasNodeParity.ts::selectStoryAtlasNodes",
+  "selector_called": false,
+  "story_renderer_exists": false,
+  "local_mock_import": false,
+  "local_state_shape": "none",
+  "status_control": false,
+  "answer_type_control": false,
+  "legend": false,
+  "reset": false,
+  "cta": true,
+  "cta_query_serialization": true,
+  "evidence_navigation": false,
+  "keyboard_interaction": false,
+  "dom_mirror": false,
+  "accessibility_label": "DataUnavailable semantics only",
+  "reduced_motion": "not applicable to missing renderer",
+  "responsive_layout": "DataUnavailable layout observed",
+  "runtime_observation": {
+    "svg_nodes": 0,
+    "dom_navigators": 0,
+    "cta_href": "/atlas?status=active&types=A1%2CA7&view=nodes"
+  }
+}

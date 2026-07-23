@@ -1,0 +1,25 @@
+command: npm run build
+release_source: local .env VITE_ATLAS_RELEASE_ID (ignored/untracked)
+exit_code: 0
+wall_time_seconds: 5.564798935
+
+
+> react-example@0.0.0 build
+> tsc -b && vite build
+
+vite v6.4.3 building for production...
+transforming...
+✓ 2168 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                      0.51 kB │ gzip:   0.34 kB
+dist/assets/index-BNmGwkFg.css      84.03 kB │ gzip:  15.99 kB
+dist/assets/AtlasPage-CWAL7Ryh.js   42.20 kB │ gzip:  13.42 kB
+dist/assets/index-Dm8LJuWB.js      423.52 kB │ gzip: 136.41 kB
+✓ built in 2.44s
+
+--- explicit no-release production build ---
+command: VITE_ATLAS_RELEASE_ID= npm run build
+exit_code: 0
+wall_time_seconds: 5.667889924
+result: PASS; final dist is the no-release build; AtlasPage chunk 42.16 kB raw / 13.38 kB gzip

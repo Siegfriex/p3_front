@@ -1,0 +1,7 @@
+chapter_id,component,image_slot,current_state,source_type
+prologue,ChapterPrologue.tsx,EditorialImageField,"pending (no src provided, shows placeholder caption + stamp badge)",MISSING
+scale,ChapterScale.tsx,(none),no image slot in current component,MISSING
+record,ChapterRecord.tsx,(none),no image slot in current component,MISSING
+gap,ChapterGap.tsx,(none),SankeyFlowDiagram is a generated chart, not a photo/image slot,MISSING
+cases,ChapterCases.tsx,(none),no image slot in current component,MISSING
+remains,ChapterRemains.tsx,(none),no image slot in current component,MISSING

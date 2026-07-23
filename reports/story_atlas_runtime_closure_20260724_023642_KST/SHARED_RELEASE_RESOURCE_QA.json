@@ -1,0 +1,27 @@
+{
+  "verdict": "SHARED_ATLAS_RESOURCE_PASS",
+  "resource": "src/shared/api/atlas/atlasReleaseResource.ts",
+  "hook": "src/shared/api/atlas/useAtlasRelease.ts",
+  "responsibilities": {
+    "env_override_resolution": "PASS",
+    "current_pointer_resolution": "PASS",
+    "manifest_fetch": "PASS",
+    "bundle_fetch": "PASS",
+    "web_crypto_sha256": "PASS",
+    "transport_validation": "PASS",
+    "view_model_adaptation": "PASS",
+    "evidence_repository": "PASS",
+    "request_cache": "PASS",
+    "request_dedupe": "PASS",
+    "abort_signal": "PASS",
+    "explicit_invalidation": "PASS"
+  },
+  "consumers": [
+    "AtlasPage",
+    "ChapterAnswersAtlas",
+    "DetailPage",
+    "EvidenceRouteOverlay",
+    "EvidenceDrawer"
+  ],
+  "forbidden_browser_operations_found": []
+}

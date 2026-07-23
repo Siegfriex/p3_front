@@ -1,0 +1,49 @@
+{
+  "gate": "VISUAL_PARITY_CONTRACT_LOCKED",
+  "required_equal": {
+    "release_id": true,
+    "projection_id": true,
+    "projection_domain": true,
+    "atlas_node_id": true,
+    "anchor_coordinates": true,
+    "display_coordinates": true,
+    "radius": true,
+    "behavior_family": true,
+    "answer_type": true,
+    "shape_token": true,
+    "fill_token": true,
+    "stroke_token": true,
+    "semantic_opacity": true,
+    "representative_evidence_id": true,
+    "default_glyph": true,
+    "hover_glyph": true,
+    "focus_halo": true,
+    "selection_ring": true,
+    "filtered_out_semantics": true,
+    "evidence_unavailable_semantics": true,
+    "legend_labels": true,
+    "status_labels": true
+  },
+  "allowed_different": [
+    "stage CSS width",
+    "surrounding chrome",
+    "persistent label count",
+    "annotation count",
+    "control composition",
+    "inspector depth",
+    "mobile presentation"
+  ],
+  "state_precedence": [
+    "data/error availability",
+    "filter membership",
+    "focus plus selected",
+    "focus",
+    "selected",
+    "hover",
+    "default"
+  ],
+  "focused_selected": "show both focus halo and selection ring",
+  "filtered_out": "not rendered and not hit-testable; removed from synchronized list; result count announced",
+  "evidence_unavailable": "node remains visually normal and selectable; evidence affordance changes",
+  "current_runtime_parity": "NOT_VERIFIABLE because Story has no renderer"
+}

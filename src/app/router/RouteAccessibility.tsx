@@ -15,6 +15,7 @@ function routeIdentifier(pathname: string): string {
 function routeTitle(pathname: string): string {
   if (pathname === '/') return `에세이 | ${PRODUCT_NAME}`;
   if (pathname === '/atlas') return `답변행태 지도 | ${PRODUCT_NAME}`;
+  if (pathname === '/method/projection') return `Projection Method Lab | ${PRODUCT_NAME}`;
   if (pathname === '/method') return `분석 방법론 | ${PRODUCT_NAME}`;
   if (pathname === '/data') return `데이터 계약 | ${PRODUCT_NAME}`;
   if (pathname === '/about') return `프로젝트 소개 | ${PRODUCT_NAME}`;

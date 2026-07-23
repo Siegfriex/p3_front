@@ -1,0 +1,7 @@
+{
+  "typecheck": { "status": "PASS", "command": "npm run typecheck" },
+  "lint": { "status": "PASS", "warnings": 0, "command": "npm run lint" },
+  "unit": { "status": "PASS", "files": 20, "tests": 56, "failures": 0, "command": "npm test -- --run" },
+  "build": { "status": "PASS", "modules_transformed": 2174, "command": "npm run build" },
+  "git_diff_check": { "status": "PASS" }
+}

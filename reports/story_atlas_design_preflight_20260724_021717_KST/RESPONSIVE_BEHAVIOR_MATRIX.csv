@@ -1,0 +1,12 @@
+feature,375,768,1440,1920,locked_rule
+Story header,"single column","signal plus copy; warning below","signal copy warning 3-part","same as 1440 with readable copy cap","warning always precedes controls"
+Story stage,"328px viewport over canonical canvas if target preservation requires","near-fit canonical canvas","max 72rem","max 72rem","same viewBox/domain; no Story-only scale domain"
+Story controls,"stack and disclosure","stack","single row","single row","same values and URL semantics"
+Story summary,"in flow below stage","in flow below stage","7:5 split below stage","7:5 split below stage","never Explorer sticky rail"
+Explorer controls,"stack; full-width reset","stack","one row","one row","result count visible before map"
+Explorer stage,"horizontal scroll region","near-fit 720 canvas","2/3 column","2/3 column","map remains primary"
+Explorer inspector,"in flow","in flow","sticky right","sticky right","not modal"
+DOM navigator,"collapsed visual section; one column","two columns","three columns","three/four columns","all filtered nodes reachable"
+Evidence,"Bottom Sheet 92dvh","Drawer or sheet","right Drawer","right Drawer","same record content and status"
+Legend,"collapsed before map","before map","before map","before map","never after long navigator"
+Footer,"must not cover active controls or state content","no overlap","no overlap","no overlap","reserve safe bottom padding"

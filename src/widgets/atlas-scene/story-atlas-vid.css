@@ -1,0 +1,197 @@
+.story-atlas-vid {
+  --color-neutral-300: #d9d6ce;
+}
+
+.story-atlas-vid .redline-section-header {
+  grid-template-columns: minmax(4.5rem, 1fr) minmax(0, 7fr) minmax(16rem, 4fr);
+}
+
+.story-atlas-vid .story-atlas-ready {
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.story-atlas-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(18rem, 4fr);
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  align-items: start;
+}
+
+.story-atlas-workspace [data-testid='atlas-chart'] {
+  box-shadow: inset 0 0 0 1px var(--paper-surface);
+}
+
+.story-atlas-workspace .redline-stage-body {
+  min-height: 30rem;
+}
+
+.story-atlas-dossier {
+  min-width: 0;
+  border-top: 2px solid var(--ink-primary);
+  border-bottom: 1px solid var(--line-medium);
+  background: var(--paper-muted);
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+.story-atlas-dossier__empty {
+  display: grid;
+  min-height: 26rem;
+  align-content: start;
+  gap: 1rem;
+  padding-top: 1.25rem;
+}
+
+.story-atlas-dossier__empty > span {
+  color: var(--signal-red);
+  font-family: var(--font-sans);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 0.8;
+}
+
+.story-atlas-dossier h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.4vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  word-break: keep-all;
+}
+
+.story-atlas-dossier__empty > p,
+.story-atlas-dossier__unavailable {
+  color: var(--ink-secondary);
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+.story-atlas-dossier__empty dl,
+.story-atlas-dossier__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-medium);
+  border-bottom: 1px solid var(--line-medium);
+}
+
+.story-atlas-dossier__empty dl > div,
+.story-atlas-dossier__metrics > div {
+  padding: 0.75rem 0;
+}
+
+.story-atlas-dossier__empty dl > div:nth-child(even),
+.story-atlas-dossier__metrics > div:nth-child(even) {
+  border-left: 1px solid var(--line-faint);
+  padding-left: 0.75rem;
+}
+
+.story-atlas-dossier dt {
+  color: var(--ink-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.story-atlas-dossier dd {
+  margin-top: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.story-atlas-dossier__selected {
+  display: grid;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+}
+
+.story-atlas-dossier__identity {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.story-atlas-dossier__identity > span {
+  display: grid;
+  width: 3.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  background: var(--ink-primary);
+  color: var(--inverse-text);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.story-atlas-dossier__identity p {
+  margin-bottom: 0.4rem;
+  color: var(--signal-red-dark);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+.story-atlas-dossier__id {
+  overflow-wrap: anywhere;
+  color: var(--ink-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+}
+
+.story-atlas-dossier__unavailable {
+  border-left: 2px dotted var(--status-unresolved);
+  padding-left: 0.75rem;
+}
+
+.story-atlas-dom-mirror {
+  max-height: 24rem;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+@media (max-width: 64rem) {
+  .story-atlas-vid .redline-section-header,
+  .story-atlas-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .story-atlas-vid .redline-section-aside {
+    grid-column: 1;
+  }
+
+  .story-atlas-dossier__empty {
+    min-height: 18rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .story-atlas-workspace {
+    gap: 1rem;
+  }
+
+  .story-atlas-workspace .redline-stage-body {
+    min-height: 25rem;
+  }
+
+  .story-atlas-dossier {
+    border: 1px solid var(--line-medium);
+    border-top: 2px solid var(--ink-primary);
+    padding: 1rem;
+  }
+
+  .story-atlas-dossier__empty {
+    min-height: 0;
+  }
+}
+
+@media (forced-colors: active) {
+  .story-atlas-dossier,
+  .story-atlas-dossier__identity > span {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+}

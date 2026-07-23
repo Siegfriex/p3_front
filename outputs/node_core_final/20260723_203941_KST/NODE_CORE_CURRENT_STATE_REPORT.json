@@ -1,0 +1,41 @@
+{
+  "verdict": "AGENT_3_NODE_CORE_HANDOFF_READY",
+  "real_data_verdict": "NOT_VERIFIABLE_APPROVED_DATA_ABSENT",
+  "repository": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "head": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "upstream": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "start_freeze_match": true,
+  "final_owner_freeze_match": true,
+  "final_post_qa_full_worktree_status_match": true,
+  "parallel_non_owner_worktree_status_changed_during_final_freeze": true,
+  "source_changes": {
+    "files": 11,
+    "insertions": 108,
+    "deletions": 20,
+    "outside_owner_source_modified_by_agent3": false
+  },
+  "decisions": [
+    "padded_isotropic_projection",
+    "source_radius_preserved",
+    "transparent_hit_layer_pointer_owner",
+    "angular_spatial_navigation",
+    "canonical_home_end",
+    "selected_excluded_node_clears_without_replacement",
+    "semantic_opacity_separated_from_interaction",
+    "production_fail_closed_without_approved_data"
+  ],
+  "qa": {
+    "repository_typecheck": "PASS",
+    "agent3_scoped_typecheck": "PASS",
+    "eslint": "PASS_ZERO_WARNINGS",
+    "vitest": "PASS_15_FILES_46_TESTS",
+    "npm_build": "PASS_2167_MODULES",
+    "production_playwright": "PASS_17_SKIPPED_9_MODE_SPECIFIC",
+    "fixture_playwright": "PASS_5_SKIPPED_2_PRODUCTION_ONLY",
+    "axe_critical_serious": 0,
+    "production_fixture_nodes": 0
+  },
+  "approved_data_claimed": false,
+  "generated_at": "2026-07-23T20:49:00+09:00"
+}

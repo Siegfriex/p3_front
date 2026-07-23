@@ -1,0 +1,58 @@
+{
+  "chapterId": "record",
+  "jsxTextReplacements": 0,
+  "typographyAdjustments": 0,
+  "imageAction": "skipped_no_image_slots_in_chapter",
+  "unresolved": [
+    {
+      "block_id": "record_label_evidence_chain",
+      "reason": "matched_no_change",
+      "note": "Badge label \"증거 사슬\" (line 20) already matches block text exactly."
+    },
+    {
+      "block_id": "record_subhead",
+      "reason": "matched_no_change",
+      "note": "Intro paragraph (lines 24-27) already begins with the identical phrase '국정감사의 한 질문이 공식 보고서의 문장으로 정착하기까지 거치는 5단계' plus additional elaboration; no replacement needed."
+    },
+    {
+      "block_id": "record_headline",
+      "reason": "not_applicable_to_this_component",
+      "note": "This case-specific SPC headline is already bound into STORY_CHAPTERS['record'].title in storyData.ts (handled by another agent) and is presumably rendered by StoryPage.tsx as the chapter hero, not by ChapterRecord.tsx. The hardcoded h2 in this file ('요구에서 결과까지의 사슬') is a generic label for the 5-step interactive tool that applies across all MOCK_EVIDENCES cases (blacklist, employment insurance, game ratings, museum storage, sports ethics) — none of which is the SPC case — so replacing it with the SPC-specific headline would misrepresent the tool. Left unchanged per conservative guidance."
+    },
+    {
+      "block_id": "record_case_label",
+      "reason": "not_applicable_to_this_component",
+      "note": "SPC-specific case label has no corresponding static JSX text slot in ChapterRecord.tsx; the component's case data comes from MOCK_EVIDENCES (different cases), not the SPC narrative. Likely already covered via storyData STORY_CHAPTERS summary/thesis fields."
+    },
+    {
+      "block_id": "record_timeline_metric",
+      "reason": "not_applicable_to_this_component",
+      "note": "No timeline UI element exists in ChapterRecord.tsx; this SPC-case timeline content is not represented as hardcoded JSX text here."
+    },
+    {
+      "block_id": "record_timeline_callout",
+      "reason": "not_applicable_to_this_component",
+      "note": "No corresponding callout element in ChapterRecord.tsx."
+    },
+    {
+      "block_id": "record_image_memorial",
+      "reason": "no_image_slot",
+      "note": "Chapter has no image slots per task instructions; image work skipped."
+    },
+    {
+      "block_id": "record_image_spc_logo",
+      "reason": "no_image_slot",
+      "note": "Chapter has no image slots per task instructions; image work skipped."
+    },
+    {
+      "block_id": "record_case_lead",
+      "reason": "not_applicable_to_this_component",
+      "note": "SPC-specific lead sentence already bound into STORY_CHAPTERS['record'].summary in storyData.ts; no corresponding hardcoded text slot in ChapterRecord.tsx."
+    },
+    {
+      "block_id": "record_source_step04",
+      "reason": "matched_no_change",
+      "note": "Step 4 label text 'STEP 04 · 공식 보고서 최종 기재 상태' already matches the '공식 보고서 최종 기재 상태' heading text at line 130; source_note detail (year/page) is dynamic data (activeItem.sourceLabel/sourcePage) already handled by another agent, not touched."
+    }
+  ]
+}

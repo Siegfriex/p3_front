@@ -1,0 +1,100 @@
+# COMMAND_LOG.txt
+# Editorial Content Integration run 20260724_022118_KST
+# High-level command overview. This log covers (a) the earlier phases of this
+# workflow that produced the artifacts already present in this report directory,
+# reconstructed from those artifacts' own contents, and (b) the final synthesis
+# pass (this session) that read them and produced EDITORIAL_IMPLEMENTATION_PLAN.md,
+# VISUAL_REGRESSION_INDEX.md, EDITORIAL_CONTENT_INTEGRATION_MANIFEST.json below.
+
+## Phase A — Baseline snapshot (pre-edit)
+- npm run dev  (dev server, port 3000)
+- Playwright/browser screenshot capture of route "/" at 4 viewports:
+    1440x900, 1920x1080, 768x1024, 375x812  -> screenshots/before/*.png
+- Wrote RESPONSIVE_BASELINE.md documenting capture conditions (dev-mode DEV gate
+  meant "before" shots show pre-existing MOCK content, not the prod placeholder).
+- Wrote START_SNAPSHOT.json: recorded git branch/HEAD, PDF inventory
+  (goal/page1,2,3,4,6,7.pdf found; page5.pdf missing), the page5/answers
+  PAGE_COMPONENT_CONTRADICTION and its resolution, the StoryPage.tsx DEV-gate
+  finding and its resolution, chapter->component map, typography token map,
+  image-handling inventory, and PDF render toolchain capability (PyMuPDF 1.28.0,
+  no CLI pdftoppm/poppler available).
+
+## Phase B — PDF extraction
+- Python + PyMuPDF (fitz) render/crop/embed-extraction script(s) run per page:
+    page1.pdf -> pdf_renders/page1*.png/.jpeg (crops, embedded image extracts, zooms)
+    page2.pdf -> pdf_renders/page2*.png
+    page3.pdf -> pdf_renders/page3*.png/.jpeg (row/col crops, embeds)
+    page4.pdf -> pdf_renders/page4*.png
+    page6.pdf -> pdf_renders/page6*.png/.jpeg
+    page7.pdf -> pdf_renders/page7*.png/.jpeg
+  (page5.pdf intentionally not processed -- file absent from goal/)
+- Block-level text/asset labeling per page -> PDF_EDITORIAL_BLOCKS_<chapter>.json
+  and matching .csv, for prologue/scale/record/gap/cases/remains.
+- UNRESOLVED_EDITORIAL_BLOCKS.csv written for the one block that could not be
+  resolved: page5-entire (answers), reason=PAGE_COMPONENT_CONTRADICTION.
+
+## Phase C — Existing-code inventory
+- grep/read of src/shared/mock/storyData.ts, src/shared/types/story.ts, and each
+  chapter widget .tsx -> EXISTING_COPY_INVENTORY.csv, EXISTING_IMAGE_INVENTORY.csv,
+  FRONTEND_COMPONENT_MAP.csv, TYPOGRAPHY_TOKEN_AUDIT.csv.
+
+## Phase D — Mapping and integrity planning
+- Field-by-field mapping of each PDF block to a storyData.ts field or JSX slot
+  (REPLACE / PRESERVE / NOT_IN_PDF) -> COPY_REPLACEMENT_MAP.csv (109 rows).
+- Self-check pass against "no invented numbers/dates/names/summarization" rule
+  -> COPY_INTEGRITY_QA.csv (26 rows, all pass=true).
+- [MOCK]-marker resolution plan -> MOCK_COPY_RESIDUAL_AUDIT.csv.
+- Missing-asset flagging (no fabricated images) -> MISSING_ASSET_REQUEST.csv.
+
+## Phase E — Code edits
+- Edit: src/shared/mock/storyData.ts (STORY_CHAPTERS title/thesis/summary/timeframe
+  for prologue/scale/record/gap/cases/remains; STORY_METRICS[m1..4] mock marker
+  cleanup; MOCK_EVIDENCES[ev-101..105] sourceLabel marker cleanup).
+- Edit: src/widgets/prologue-scene/ChapterPrologue.tsx (h1 headline, CTA label/aria-label).
+- Edit: src/widgets/gap-scene/ChapterGap.tsx (h2 headline, lead paragraph).
+- Edit: src/pages/story/StoryPage.tsx -- removed import.meta.env.DEV gate around
+  ChapterScale/ChapterRecord/ChapterGap/ChapterCases (GATE_REMOVED), per user
+  confirmation recorded in START_SNAPSHOT.json.
+- No edits made to: ChapterScale.tsx, ChapterRecord.tsx, ChapterCases.tsx,
+  ChapterRemains.tsx JSX (no matching PDF blocks / conservative preserve rule),
+  ChapterAnswersAtlas.tsx or the /atlas route (out of scope, no page5.pdf).
+- Per-chapter rationale written to chapter_reports/{prologue,scale,record,gap,
+  cases,remains}.json.
+- FRONTEND_FILE_CHANGE_MAP.csv written summarizing the StoryPage.tsx gate removal.
+
+## Phase F — Verification / QA
+- npm run build -> BUILD_TEST_RESULTS.json ({"success": true, "errors": []}).
+- Playwright/browser screenshot capture per chapter section, 2 viewports each
+  (1440x900, 375x812) -> screenshots/after/{chapter}[_mobile].png (12 files),
+  route http://127.0.0.1:3000/#<chapter> on npm run dev.
+- Per-page visual QA (screenshot + DOM/grep checks) -> PAGE_01..PAGE_07 (skipping
+  05) _VISUAL_QA.csv.
+- ACCESSIBILITY_QA.csv: heading hierarchy (h1 count per section), image alt-text,
+  icon-only control labeling, Sankey scrollbar-affordance check.
+- RESPONSIVE_CONTENT_QA.csv: 375x812 clipping checks, fixed-footer overlap check,
+  Sankey mobile-overflow check.
+
+## Phase G — Final synthesis (this session)
+- ls -R reports/editorial_content_integration_20260724_022118_KST
+- Read: BUILD_TEST_RESULTS.json, START_SNAPSHOT.json, RESPONSIVE_BASELINE.md,
+  FRONTEND_FILE_CHANGE_MAP.csv, FRONTEND_COMPONENT_MAP.csv,
+  chapter_reports/{prologue,scale,record,gap,cases,remains}.json,
+  COPY_REPLACEMENT_MAP.csv, COPY_INTEGRITY_QA.csv, MOCK_COPY_RESIDUAL_AUDIT.csv,
+  MISSING_ASSET_REQUEST.csv, TYPOGRAPHY_TOKEN_AUDIT.csv, RESPONSIVE_CONTENT_QA.csv,
+  ACCESSIBILITY_QA.csv, UNRESOLVED_EDITORIAL_BLOCKS.csv,
+  PAGE_01..PAGE_07(no 05)_VISUAL_QA.csv, EXISTING_COPY_INVENTORY.csv,
+  EXISTING_IMAGE_INVENTORY.csv.
+- grep -n "false\|FAIL" across all *_QA.csv files to enumerate gate failures.
+- Read current src/pages/story/StoryPage.tsx and ran
+  `git diff HEAD -- src/pages/story/StoryPage.tsx` plus `stat` mtimes on
+  StoryPage.tsx / BUILD_TEST_RESULTS.json / storyData.ts -- discovered the
+  DEV-gate has been re-introduced (differently) in the working tree AFTER the
+  build check was captured; documented as a caveat rather than silently
+  overwritten (see EDITORIAL_IMPLEMENTATION_PLAN.md section 5).
+- grep of ChapterPrologue.tsx / ChapterScale.tsx to confirm the two residual
+  mock-copy findings (Midjourney placeholder caption, "[MOCK Data Reference]"
+  span) are still present in the current source.
+- git status --porcelain (captured in EDITORIAL_CONTENT_INTEGRATION_MANIFEST.json).
+- Wrote: EDITORIAL_IMPLEMENTATION_PLAN.md, VISUAL_REGRESSION_INDEX.md,
+  EDITORIAL_CONTENT_INTEGRATION_MANIFEST.json, COMMAND_LOG.txt (this file).
+- Validated manifest JSON with `python3 -c "import json; json.load(...)"`.

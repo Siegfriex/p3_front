@@ -1,6 +1,9 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 
+const approvedEvidenceId = 'EVID_18557647961C4C1481271E6B';
+const representativeNodeId = 'ANODE_E488BDA6398875DB653D7A71';
+
 function collectRuntimeFailures(page: Page) {
   const consoleErrors: string[] = [];
   const pageErrors: string[] = [];
@@ -36,7 +39,7 @@ test('public URL routes, links, and wildcard 404 are reproducible', async ({ pag
   const assertCleanRuntime = collectRuntimeFailures(page);
 
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: '“검토하겠습니다”' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: '국정감사 단순히 쇼인가?' })).toBeVisible();
   await expect(page).toHaveTitle(/에세이/);
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: '본문으로 건너뛰기' })).toBeFocused();
@@ -44,10 +47,10 @@ test('public URL routes, links, and wildcard 404 are reproducible', async ({ pag
   await expect(page.locator('#main-content')).toBeFocused();
 
   const routes = [
-    { name: '방법론 (Method)', path: '/method', heading: /분석 방법론 및 저널리즘 원칙/ },
-    { name: '데이터 (Data)', path: '/data', heading: /데이터 스키마/ },
+    { name: '방법론 (Method)', path: '/method', heading: /국정감사 발언은 어떻게\s*검증 가능한 데이터가 되었나/ },
+    { name: '데이터 (Data)', path: '/data', heading: /데이터가 무엇을 말하고,\s*어디까지 말할 수 있는가/ },
     { name: '소개 (About)', path: '/about', heading: /프로젝트 정체성/ },
-    { name: '에세이 (Story)', path: '/', heading: /검토하겠습니다/ },
+    { name: '에세이 (Story)', path: '/', heading: /국정감사 단순히 쇼인가/ },
   ];
 
   for (const route of routes) {
@@ -83,33 +86,34 @@ test('story hashes support direct entry, explicit navigation, and back restorati
   assertCleanRuntime();
 });
 
-test('evidence and case direct URLs provide full detail and invalid IDs are explicit', async ({ page }) => {
+test('approved evidence resolves while unavailable case and evidence IDs fail closed', async ({ page }) => {
   const assertCleanRuntime = collectRuntimeFailures(page);
 
-  await page.goto('/evidence/ev-101');
+  await page.goto(`/evidence/${approvedEvidenceId}`);
   await expect(page.getByTestId('evidence-direct-page')).toBeVisible();
-  await expect(page.getByRole('heading', { name: /문화예술 블랙리스트/ })).toBeVisible();
+  await expect(page.getByTestId('approved-evidence-detail')).toHaveAttribute('data-evidence-id', approvedEvidenceId);
 
   await page.goto('/case/case-01');
   await expect(page.getByTestId('case-direct-page')).toBeVisible();
-  await expect(page.getByRole('link', { name: '연결 증거 전체 보기' })).toHaveAttribute('href', '/evidence/ev-101');
+  await expect(page.getByTestId('case-data-unavailable')).toContainText('APPROVED_CASE_ABSENT:case-01');
 
   await page.goto('/evidence/not-real');
-  await expect(page.getByTestId('detail-not-found')).toBeVisible();
+  await expect(page.getByTestId('evidence-data-unavailable')).toContainText('EVIDENCE_NOT_APPROVED');
   assertCleanRuntime();
 });
 
 test('route-driven evidence drawer is modal, history-aware, and restores focus', async ({ page }) => {
   const assertCleanRuntime = collectRuntimeFailures(page);
-  await page.goto('/');
+  await page.goto(`/atlas?node=${representativeNodeId}&view=nodes`);
 
-  const opener = page.getByRole('button', { name: '첫 증거 원문 ev-101 확인하기' });
+  const opener = page.getByRole('button', { name: '승인된 대표 증거 보기' });
   await opener.click();
-  await expect(page).toHaveURL('/evidence/ev-101');
+  await expect(page).toHaveURL(`/evidence/${approvedEvidenceId}`);
 
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
   await expect(dialog).toHaveAttribute('aria-modal', 'true');
+  await expect(dialog.getByTestId('approved-evidence-detail')).toHaveAttribute('data-evidence-id', approvedEvidenceId);
   await expect(page.locator('#root')).toHaveAttribute('aria-hidden', 'true');
   await expect.poll(() => page.evaluate(() => document.body.style.overflow)).toBe('hidden');
   await expect(page.getByRole('button', { name: '드로어 닫기' })).toBeFocused();
@@ -122,7 +126,7 @@ test('route-driven evidence drawer is modal, history-aware, and restores focus',
   })).toBe(true);
 
   await page.goBack();
-  await expect(page).toHaveURL('/');
+  await expect(page).toHaveURL(new RegExp(`/atlas\\?node=${representativeNodeId}`));
   await expect(dialog).toBeHidden();
   await expect.poll(() => page.evaluate(() => document.body.style.overflow)).toBe('');
   await expect(page.locator('#root')).not.toHaveAttribute('aria-hidden', 'true');
@@ -130,11 +134,11 @@ test('route-driven evidence drawer is modal, history-aware, and restores focus',
   assertCleanRuntime();
 });
 
-test('mobile drawer remains usable and keeps its tab row navigable', async ({ page }) => {
+test('mobile approved Evidence drawer remains usable and contained', async ({ page }) => {
   const assertCleanRuntime = collectRuntimeFailures(page);
   await page.setViewportSize({ width: 375, height: 812 });
-  await page.goto('/');
-  await page.getByRole('button', { name: '첫 증거 원문 ev-101 확인하기' }).click();
+  await page.goto(`/atlas?node=${representativeNodeId}&view=nodes`);
+  await page.getByRole('button', { name: '승인된 대표 증거 보기' }).click();
 
   const dialog = page.getByRole('dialog');
   await expect.poll(async () => {
@@ -144,15 +148,8 @@ test('mobile drawer remains usable and keeps its tab row navigable', async ({ pa
   const box = await dialog.boundingBox();
   expect(box?.x).toBeGreaterThanOrEqual(-0.01);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
-  await expect(page.getByRole('tablist', { name: '증거 상세 섹션' })).toBeVisible();
-  const firstTab = page.getByRole('tab', { name: '원문 증거' });
-  const sourceTab = page.getByRole('tab', { name: '출처 및 PDF' });
-  await firstTab.focus();
-  await page.keyboard.press('ArrowRight');
-  await expect(page.getByRole('tab', { name: '속기록 질의답변' })).toBeFocused();
-  await page.keyboard.press('End');
-  await expect(sourceTab).toBeFocused();
-  await expect(sourceTab).toHaveAttribute('aria-selected', 'true');
+  await expect(dialog.getByTestId('approved-evidence-detail')).toHaveAttribute('data-evidence-id', approvedEvidenceId);
+  await expect(dialog.getByRole('tablist')).toHaveCount(0);
   const closeBox = await page.getByRole('button', { name: '드로어 닫기' }).boundingBox();
   expect(closeBox?.width).toBeGreaterThanOrEqual(44);
   expect(closeBox?.height).toBeGreaterThanOrEqual(44);
@@ -167,8 +164,8 @@ test('Axe reports zero critical or serious violations on key route states', asyn
     await expectNoCriticalOrSeriousAxeViolations(page);
   }
 
-  await page.goto('/');
-  await page.getByRole('button', { name: '첫 증거 원문 ev-101 확인하기' }).click();
+  await page.goto(`/atlas?node=${representativeNodeId}&view=nodes`);
+  await page.getByRole('button', { name: '승인된 대표 증거 보기' }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await expectNoCriticalOrSeriousAxeViolations(page);
 });

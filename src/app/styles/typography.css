@@ -31,6 +31,18 @@
   word-break: keep-all;
 }
 
+/* keep-all treats a space-free quote as one unbreakable run — on narrow
+   viewports there's no break opportunity left, so it overflows the column
+   instead of wrapping. Fall back to per-character breaking below the point
+   where the clamp() floor stops shrinking with the viewport. */
+@media (max-width: 480px) {
+  .type-display-hero-quote,
+  .type-display-hero-conclusion {
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+}
+
 .type-meta-micro {
   font-family: var(--font-mono);
   font-size: var(--type-meta-micro);

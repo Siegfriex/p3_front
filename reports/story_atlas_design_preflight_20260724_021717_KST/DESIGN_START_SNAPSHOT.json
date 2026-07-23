@@ -1,0 +1,73 @@
+{
+  "run_id": "20260724_021717_KST",
+  "started_at": "2026-07-24T02:17:17+09:00",
+  "evidence_cutoff": "2026-07-24T02:39:34+09:00",
+  "role": [
+    "Frontend Visual Systems Director",
+    "Story Atlas Interaction Designer",
+    "Editorial Visualization UX Reviewer"
+  ],
+  "scope": "design_preflight_only",
+  "protected_mutations": {
+    "production_source": false,
+    "data_payload": false,
+    "release_pointer": false,
+    "node_selection": false,
+    "node_coordinates": false,
+    "node_radius": false,
+    "configuration": false,
+    "git_stage_commit_push": false
+  },
+  "allowed_output_root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/reports/story_atlas_design_preflight_20260724_021717_KST",
+  "frontend": {
+    "root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+    "branch": "agent/frontend-routing-atlas-foundation-20260723",
+    "head": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+    "worktree": "DIRTY_SHARED_WORKTREE",
+    "status_snapshot_sha256": "b947723d9d26e4d9bc3981966766409c0cec4181807c0a0c564cba28e57ac453",
+    "source_inventory_sha256": "129ebbde9e2064de08fa3c2ae35f06d9d0e13b05e04a7a00da35c527eb47b664",
+    "config_inventory_sha256": "5ee1180f687278be1d12155ba8742ab098c87503b2cbf3989c63621defb6c211",
+    "runtime_data_inventory_sha256": "d2c7db7292e357e4f325692eb26097e45dbf45bcf41eab9b64905352e1008ca2",
+    "local_runtime_release": "ATLAS_DG761_20260723_213011_KST_F7A35BC6",
+    "release_resolution": "LOCAL_IGNORED_ENV_OVERRIDE",
+    "story_state": "DATA_UNAVAILABLE",
+    "explorer_state": "READY_WITH_LOCAL_ENV_OVERRIDE",
+    "evidence_state": "REPOSITORY_NOT_CONNECTED",
+    "frontend_preflight_verdict": "FRONTEND_RELEASE_PREFLIGHT_READY",
+    "frontend_handoff_present": true,
+    "shared_loader_recommendation": "atlasReleaseResource.ts + useAtlasRelease.ts"
+  },
+  "data": {
+    "root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL",
+    "ssot": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL/contracts/P3_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md",
+    "base_release_id": "ATLAS_DG761_20260723_213011_KST_F7A35BC6",
+    "base_projection_id": "PROJ_DG761_20260723_213011_KST_4665FDF3E5CF",
+    "base_release_inventory_sha256": "7c8d5783c7fe8901e58ecaa8d69ef043d0e5aaff4d88753d45b2bdddf2185c10",
+    "data_preflight_verdict": "READY_WITH_CONCERNS",
+    "release_build_verdict": "STORY_ENABLED_CANONICAL_RELEASE_BLOCKED",
+    "approved_story_node_ids_available": false,
+    "candidate_story_node_count": 16,
+    "candidate_is_approved_contract": false
+  },
+  "evidence_inputs": [
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL/contracts/P3_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md",
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/reports/story_atlas_frontend_preflight_20260724_020153_KST",
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL/reports/story_atlas_data_preflight_20260724_020342_KST",
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL/reports/story_atlas_release_build_STORYREL_20260724_021056_KST_38B4D37E"
+  ],
+  "post_cutoff_shared_worktree_drift": {
+    "detected": true,
+    "first_observed_at": "2026-07-24T02:43:00+09:00",
+    "source_inventory_sha256_at_cutoff": "129ebbde9e2064de08fa3c2ae35f06d9d0e13b05e04a7a00da35c527eb47b664",
+    "source_inventory_sha256_first_observed_after_cutoff": "734061e6b4ece7a2310769ee68120dd1f6121ac25212c867af256f7162d88217",
+    "first_observed_paths": [
+      "src/shared/api/atlas/atlasTransportSchema.ts",
+      "src/shared/api/atlas/evidenceRepository.ts",
+      "src/shared/api/atlas/loadAtlasBundle.ts",
+      "src/shared/lib/atlas/toAtlasViewModel.ts",
+      "src/shared/types/atlas.ts"
+    ],
+    "attribution": "CONCURRENT_EXTERNAL_WORK_NOT_MODIFIED_BY_THIS_PREFLIGHT",
+    "handling": "NOT_INCORPORATED; rerun independent Visual QA after implementation stabilizes"
+  }
+}

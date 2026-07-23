@@ -1,0 +1,12 @@
+check,fixture_result,production_result,scope
+SVG name and description,PASS,DataUnavailable,automated
+DOM mirror single keyboard owner,PASS,unavailable mirror,automated
+duplicate accessible node,0,0,automated
+focus and selection independent,PASS,not applicable,unit plus E2E
+44px pointer target,PASS,not applicable,fixture E2E
+Arrow Home End Enter Space Escape,PASS,not applicable,unit plus E2E
+live announcement,PASS,not applicable,component E2E
+Axe critical serious,0,0,covered viewports
+forced colors,PASS_SCREENSHOT,NOT_CERTIFIED,automated environment
+reduced motion,PASS_SCREENSHOT,NOT_CERTIFIED,automated environment
+screen reader transcript,NOT_RUN,NOT_RUN,environment unavailable

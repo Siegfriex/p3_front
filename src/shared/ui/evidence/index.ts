@@ -1,4 +1,5 @@
 export {
+  EvidenceApprovedRecord,
   EvidenceChain,
   EvidenceFixtureNotice,
   EvidenceHeader,

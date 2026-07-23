@@ -1,0 +1,5 @@
+area,behavior,result
+global_transition,shortened or removed under preference,PASS
+Story_evidence_line,immediate final geometry,PASS
+Atlas_interaction,no required continuous motion,PASS
+user_toggle,aria-pressed and visible state,PASS

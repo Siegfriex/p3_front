@@ -1,0 +1,17 @@
+file,purpose
+src/pages/story/StoryPage.tsx,production chapter isolation and J/K navigation
+src/shared/ui/story/StoryChapterUnavailable.tsx,reusable fail-closed chapter state
+src/widgets/prologue-scene/ChapterPrologue.tsx,remove unapproved production metrics and Evidence ID
+src/app/router/DetailPage.tsx,fail-closed production Case route
+src/app/router/EvidenceRouteOverlay.tsx,production route validation without development collections
+src/widgets/evidence-drawer/EvidenceDrawer.tsx,prevent Case-to-Evidence development ID leakage
+src/pages/data/DataPage.tsx,production data state and truthful clipboard status
+src/pages/method/MethodPage.tsx,locked taxonomy and production methodology copy
+src/widgets/app-shell/HeaderNav.tsx,visible compact Story navigation
+src/shared/config/chapterNavigation.ts,navigation metadata outside development data module
+src/widgets/app-shell/FooterRail.tsx,consume stable navigation config
+src/widgets/app-shell/ProgressTracker.tsx,consume stable navigation config
+src/shared/ui/atlas/AtlasDataStates.tsx,heading-level and public copy support
+src/shared/ui/evidence/EvidencePresentation.tsx,public unavailable copy
+tests/e2e/agent4-presentation-wcag.spec.ts,production isolation and Drawer lifecycle
+tests/e2e/atlas-experience-design.spec.ts,mode-aware data-state contract

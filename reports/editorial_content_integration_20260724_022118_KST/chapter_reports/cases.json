@@ -1,0 +1,11 @@
+{
+  "chapterId": "cases",
+  "jsxTextReplacements": 0,
+  "typographyAdjustments": 0,
+  "imageAction": "skipped_no_image_slot",
+  "unresolved": [
+    "PDF_EDITORIAL_BLOCKS_cases.json contains page6 content ('모르겠습니다'/'기억이 안 납니다' 회피성 발언 케이스, 1,408건 통계) that maps to a data record already integrated into storyData.ts EDITORIAL_CASES (verified: title/summary/timeframe/thesis fields at lines ~64-76 match blocks b01/b02/b04/b05/b03 verbatim), not to any hardcoded JSX string in ChapterCases.tsx.",
+    "No hardcoded Korean JSX text in ChapterCases.tsx (badge label, h2 title, intro paragraph, field labels 요구 사항/당시 답변/공식 결과/Journalism Verification, button labels) has a corresponding block in PDF_EDITORIAL_BLOCKS_cases.json, so no replacements were made per instructions.",
+    "PDF block b08 (IMAGE, page6_embedded_2.jpeg, production_ready=false) and b09 (SOURCE for that image) have no corresponding image slot in ChapterCases.tsx; component renders no images, so image work was skipped as instructed."
+  ]
+}

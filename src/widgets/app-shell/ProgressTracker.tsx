@@ -1,9 +1,4 @@
-import { CHAPTER_IDS } from '@/shared/config/chapterNavigation';
-import { STORY_CHAPTERS } from '@/shared/mock/storyData';
-
-const visibleStoryChapters = STORY_CHAPTERS.filter((chapter) =>
-  CHAPTER_IDS.some((chapterId) => chapterId === chapter.id)
-);
+import { STORY_CHAPTER_NAVIGATION } from '@/shared/config/chapterNavigation';
 
 interface ProgressTrackerProps {
   currentChapterId: string;
@@ -20,7 +15,7 @@ export function ProgressTracker({ currentChapterId, onChapterNavigate }: Progres
         CH.
       </div>
       <div className="flex flex-col gap-1">
-        {visibleStoryChapters.map((chapter) => {
+        {STORY_CHAPTER_NAVIGATION.map((chapter) => {
           const isActive = currentChapterId === chapter.id;
           return (
             <button

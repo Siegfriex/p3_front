@@ -1,0 +1,16 @@
+path,responsibility,change
+src/shared/api/atlas/atlasTransportSchema.ts,runtime contract,Validate approved article summary counts distributions and warnings
+src/shared/api/atlas/loadAtlasBundle.ts,runtime integrity,Cross-check summary counts against topic and Evidence bundles and entity distributions
+src/shared/lib/atlas/toAtlasViewModel.ts,adapter,Preserve approved story summary in ViewModel
+src/shared/types/atlas.ts,ViewModel contract,Add AtlasStorySummaryViewModel
+src/pages/story/StoryPage.tsx,article orchestration,Connect approved shared release to Story chapters
+src/widgets/approved-story-scenes/ApprovedStoryChapters.tsx,article UX,Render approved scale Evidence chain reported status and Evidence cases
+src/widgets/prologue-scene/ChapterPrologue.tsx,article opening,Remove dev fixture leakage and open first approved Evidence
+src/widgets/remains-scene/ChapterRemains.tsx,article metadata,Align citation period to 2020-2025
+src/widgets/atlas-explorer/AtlasExplorer.test.tsx,test fixture,Extend bundle fixture for story summary
+src/widgets/atlas-scene/ChapterAnswersAtlas.test.tsx,test fixture,Extend bundle fixture for story summary
+src/shared/api/atlas/atlasTransportSchema.test.ts,schema test,Verify expanded summary contract
+tests/e2e/atlas-contract-shell.spec.ts,contract fixture,Serve expanded summary contract
+tests/e2e/atlas-experience-design.spec.ts,real-data UX,Replace defect expectation with approved chapter expectations
+tests/e2e/vercel-preview.spec.ts,deployment E2E,Assert article headings metrics and no legacy fixture
+tests/e2e/methodology-report.spec.ts,method contract,Align canonical release expectation

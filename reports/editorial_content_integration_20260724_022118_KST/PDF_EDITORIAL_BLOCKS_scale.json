@@ -1,0 +1,136 @@
+{
+  "chapter_id": "scale",
+  "page": "page2",
+  "blocks": [
+    {
+      "block_id": "scale_p2_b01",
+      "block_type": "LABEL",
+      "hierarchy_level": "SMALL",
+      "text": "체대 입시 도핑 사례",
+      "region": "top-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "scale_p2_b02",
+      "block_type": "HEADLINE",
+      "hierarchy_level": "LARGE",
+      "text": "\"3년째 조치 중...관계 기관 협의는 어디까지 왔나\"",
+      "region": "top-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "scale_p2_b03",
+      "block_type": "LEAD",
+      "hierarchy_level": "MEDIUM",
+      "text": "도핑 규정을 위반해 제재를 받은 선수의 이력이 대학 입시에 반영되지 않는 문제를 지적하며, 교육부를 비롯한 관계기관이 공동으로 개선방안을 마련해야 한다고 요구.\n\n당시 문체부는 해당 요구에 대해 교육부와 한국대학교육협의회, 한국대학스포츠협의회 등 관계기관이 협의를 거쳐 제도 개선을 검토하겠다고 답변. 국회에 제출된 결과보고서에서도 해당 사항은 '조치 중'으로 분류.\n\n그러나 이후 수년이 지난 2026년 현재까지도 관련 협의 결과나 구체적인 제도 개선안은 공식적으로 발표되지 않음. 교육부·한국대학교육협의회·한국대학스포츠협의회의 공식 자료와 보도자료를 확인해 보았을 때 대학 입시에 도핑 제재 이력을 반영하는 기준이 마련됐다는 발표도, 관계기관 협의가 마무리됐다는 자료도 확인하기 어려움.",
+      "region": "upper-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "scale_p2_b04",
+      "block_type": "IMAGE",
+      "hierarchy_level": "MEDIUM",
+      "text": "[인포그래픽] 체대 입시 도핑 제재 반영, 장기화된 '조치 중' — 국정감사 지적 이후 관계기관 협의가 예고됐지만 구체적인 제도화 결과는 확인하기 어려웠다.\n타임라인: 국정감사 지적(도핑 제재 이력을 대학 입시에 반영할 필요성 제기) → 정부 답변(교육부·대교협 등 관계기관과 협의 추진 검토) → 행정상 상태(이행 결과보고서에 '조치 중'으로 분류) → 협의 장기화(추진 일정과 기관별 협의 내용 공개 부족) → 현재 확인 결과(입시 반영 기준과 공식 제도화 결과 확인 어려움).\n결론 박스: '조치 중'이라는 분류만으로는 실제 정책 진행 여부를 알기 어렵다. 추진 일정·협의 결과·제도화 여부를 함께 공개해야 한다.",
+      "region": "top-right",
+      "image_reference": "reports/editorial_content_integration_20260724_022118_KST/pdf_renders/page2_embedded_990.png (940x399px, embedded original)",
+      "source_note": "국정감사 지적 및 결과보고서 기반 재구성 그래픽",
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "scale_p2_b05",
+      "block_type": "IMAGE",
+      "hierarchy_level": "MEDIUM",
+      "text": "국회 문화체육관광위원회 국정감사 현장에서 발언하는 이병훈 의원(더불어민주당, 광주 동남을) 사진. 명패 '이병훈'과 뉴시스(NEWSIS) 워터마크가 보임.",
+      "region": "center-right",
+      "image_reference": "reports/editorial_content_integration_20260724_022118_KST/pdf_renders/page2_embedded_946.png (640x420px, embedded original)",
+      "source_note": "뉴시스(NEWSIS)",
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "scale_p2_b06",
+      "block_type": "CAPTION",
+      "hierarchy_level": "MEDIUM",
+      "text": "이병훈 의원 \"체대 입시는 도핑 사각지대..규정 아예 없어\"",
+      "region": "center-right",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "scale_p2_b07",
+      "block_type": "IMAGE_CAPTION",
+      "hierarchy_level": "SMALL",
+      "text": "[광주=뉴시스] 송창헌 기자 = 체육대 입시가 도핑 사각지대에 놓여 있다는 지적이 나왔다. 5일 국회 문화체육관광위원회 소속 더불어민주당 이병훈 의원(광주 동남을)이 도핑방지위원회로부터 제출받은 자료에 따르면, 2019년부터 2022년 10월 현재까지 약물 복용으로 적발된 도핑 양성 반응자의 21.8%가 10대 학생인 것으로 드러났다. 5명 중 1명 꼴로 학생인 셈이다. 2019년 이후 도핑 양성반응자는 모두 87명으로, 이 중 19명이 10대 학생이었다. 연도별로는 2019년 8명, 2020년 7명, 2021년 2명, 2022년 2명이 적발됐다. 2020년 이후 적발된 학생이 줄어든 것은 코로나19로 상당수 대회가 개최되지 않거나 도핑검사가 이뤄지지 않았기 때문으로 보인다.",
+      "region": "lower-right",
+      "image_reference": null,
+      "source_note": "뉴시스(NEWSIS), 송창헌 기자",
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "scale_p2_b08",
+      "block_type": "IMAGE",
+      "hierarchy_level": "MEDIUM",
+      "text": "[인포그래픽] 체육특기생, 도핑 검사에서 적발됐지만 명문 사립대 합격 — 도핑 적발에도 불구하고 체육특기생 전형으로 대학에 합격한 사례.\n흐름: 체육특기생 선수 A(고교 럭비선수, 전국종별선수권대회 출전) → 도핑 검사 실시(대회 기간 중 도핑 검사 시행) → 스테로이드 약물 검출(메틸프레드니솔론 검출, 스테로이드 계열 약물) → 징계 처분(경기 실적 박탈, 자격 정지 1년 6개월) → 명문 사립대 합격(체육특기생 전형 합격, 입학 예정).\n요약 바: 도핑 적발 이후에도 대학 입학 가능 — 징계: 실적 박탈 + 자격 정지 1년 6개월 → 명문 사립대 체육특기생 합격.\n결론 박스: 도핑으로 인해 공식 경기 성과는 박탈됐지만, 대학 입시에서는 제재가 적용되지 않았다.\n각주: ※ 기사에 제시된 사실관계를 시각적으로 재구성한 자료.",
+      "region": "center-left",
+      "image_reference": "reports/editorial_content_integration_20260724_022118_KST/pdf_renders/page2_embedded_958.png (1672x941px, embedded original)",
+      "source_note": "기사에 제시된 사실관계를 시각적으로 재구성한 자료 (TWIG 기사 기반)",
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "scale_p2_b09",
+      "block_type": "HEADLINE",
+      "hierarchy_level": "LARGE",
+      "text": "[단독]도핑 검사 적발돼도 명문대 합격...약물 규정 없는 체육특기자 전형",
+      "region": "lower-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "scale_p2_b10",
+      "block_type": "BODY",
+      "hierarchy_level": "MEDIUM",
+      "text": "체육 특기생이 도핑 검사에서 적발됐는데도 유명 사립대에 합격한 것으로 18일 파악됐다. 고의적으로 금지 약물을 복용하지 않았다고 하더라도 대학 입시에 도핑 검사 적발 여부를 반영하는 규정이 없다는 점은 공정성 시비를 낳을 수 있다는 점에서 문제로 지적된다.\n\n럭비선수 A(19)씨는 고교 3학년이었던 지난해 6월 전국종별선수권대회에서 스테이로이드 약물의 한 종류인 '메틸프레드니솔론'이 검출돼 경기 실적을 박탈당하고 1년 6개월의 자격 정지 처분을 받았다.\n\n그러나 A씨는 자격 정지 처분을 받은 상태에서 고려대 체육특기자 전형을 통해 2022년 사범대학 신입생으로 입학했다. A씨가 합격한 학과의 올해 특기자 전형 경쟁률은 9대 1이었던 것으로 전해졌다.",
+      "region": "lower-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "scale_p2_b11",
+      "block_type": "SOURCE",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "출처: TWIG",
+      "region": "lower-left",
+      "image_reference": null,
+      "source_note": "TWIG",
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "scale_p2_b12",
+      "block_type": "IMAGE",
+      "hierarchy_level": "SMALL",
+      "text": "139. 체대 입시에 도핑으로 인한 제재 이력이 반영되도록 관계부처 및 기관간 대책 논의 필요 / <조치사항> 조치 중 ○ 대학 입시와 관련하여는 교육부와 협의 필요 - 교육부, 한국대학교육협의회, 한국대학스포츠협의회 등 관계기관 협의를 통해 추진 검토",
+      "region": "lower-center",
+      "image_reference": "reports/editorial_content_integration_20260724_022118_KST/pdf_renders/page2_embedded_934.png (966x149px, embedded original, low-resolution report-table screenshot crop)",
+      "source_note": "국정감사 결과보고서 발췌 (시정조치 요구사항 139번)",
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "scale_p2_b13",
+      "block_type": "CTA",
+      "hierarchy_level": "SMALL",
+      "text": "국정감사결과 시정조치 및 결과보고서",
+      "region": "lower-center",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "MEDIUM"
+    }
+  ]
+}

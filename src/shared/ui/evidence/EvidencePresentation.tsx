@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { EvidenceDetailViewModel } from '@/shared/types/atlas';
 
 interface EvidenceHeaderProps {
   recordId: string;
@@ -36,7 +37,7 @@ interface EvidenceUnavailableStateProps {
 
 export function EvidenceUnavailableState({
   evidenceId,
-  description = '승인된 EvidenceRepository에 이 기록의 공개 상세가 연결되지 않았습니다. mock excerpt나 임시 PDF를 대신 표시하지 않습니다.',
+  description = '승인된 EvidenceRepository에 이 기록의 공개 상세가 연결되지 않았습니다. 개발용 발췌문이나 임시 PDF를 대신 표시하지 않습니다.',
   actions,
   compact = false,
   headingLevel = 'h2',
@@ -128,5 +129,48 @@ export function EvidenceProvenanceRail(props: EvidenceProvenanceRailProps) {
         </div>
       ))}
     </dl>
+  );
+}
+
+export function EvidenceApprovedRecord({
+  detail,
+  headingLevel = 'h2',
+}: {
+  detail: EvidenceDetailViewModel;
+  headingLevel?: 'h1' | 'h2';
+}) {
+  return (
+    <article className="evidence-record-layout" data-testid="approved-evidence-detail" data-evidence-id={detail.id}>
+      <EvidenceHeader
+        recordId={detail.id}
+        title={detail.title}
+        context={`회의 ${detail.meetingId} / ${detail.pageStartNo}–${detail.pageEndNo}`}
+        headingLevel={headingLevel}
+      />
+      <EvidenceStatusPair reported={detail.reportedStatus} verified={detail.verificationStatus} />
+      <EvidenceChain
+        items={[
+          { step: '01', label: '시정요구', detail: detail.requestText },
+          { step: '02', label: '당시 질문', detail: detail.questionText },
+          { step: '03', label: '당시 답변', detail: detail.answerText },
+          { step: '04', label: '공개 증거 발췌', detail: detail.excerpt },
+        ]}
+      />
+      <EvidenceVerificationPanel
+        conclusion={detail.verificationStatus}
+        detail={`공개 승인 상세와 manifest SHA-256 검증을 통과했습니다. 보고 상태: ${detail.reportedStatus}.`}
+      />
+      <EvidenceProvenanceRail
+        meetingId={detail.meetingId}
+        pages={`${detail.pageStartNo}–${detail.pageEndNo}`}
+        pdfAsset={detail.pdfAssetId}
+        pipelineRun={detail.pipelineRunId}
+        reviewStatus="APPROVED"
+        publicationStatus="PUBLIC"
+      />
+      <footer className="border-t border-[var(--line-medium)] pt-4 font-mono text-xs text-[var(--ink-secondary)] [overflow-wrap:anywhere]">
+        SOURCE PDF SHA-256: {detail.sourcePdfSha256}
+      </footer>
+    </article>
   );
 }

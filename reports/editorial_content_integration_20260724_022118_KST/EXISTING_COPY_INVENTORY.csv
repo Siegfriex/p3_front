@@ -1,0 +1,53 @@
+chapter_id,source_module,field_path,current_text,contains_mock_marker
+prologue,storyData.ts,STORY_CHAPTERS[0].title,"질문은 남았다",false
+prologue,storyData.ts,STORY_CHAPTERS[0].subtitle,"Chapter 00",false
+prologue,storyData.ts,STORY_CHAPTERS[0].thesis,"“검토하겠습니다” — 6년 뒤, 국정감사의 요구와 답변 사이에는 무엇이 남았는가",false
+prologue,storyData.ts,STORY_CHAPTERS[0].summary,"국회 문화체육관광위원회가 피감기관에 전달한 시정요구 2,840여 건. 정부 보고서에 기록된 ‘완료’ 서명 뒤의 실질적 이행 상태를 단 하나의 증거선(Evidence Line)으로 추적합니다.",false
+prologue,storyData.ts,STORY_CHAPTERS[0].timeframe,"2018–2023 국정감사 시정 및 처리결과",false
+prologue,ChapterPrologue.tsx,EditorialImageField.placeholderCaption,"[Midjourney Hero Asset Slot: National Assembly Audit Document]",true
+prologue,ChapterPrologue.tsx,EditorialImageField.stampBadge,"ARCHIVE / DOC-01",false
+scale,storyData.ts,STORY_CHAPTERS[1].title,"요구는 얼마나 쌓였나",false
+scale,storyData.ts,STORY_CHAPTERS[1].subtitle,"Chapter 01",false
+scale,storyData.ts,STORY_CHAPTERS[1].thesis,"6년간 쌓인 2,842건의 시정요구, 그리고 반복되는 공식 답변의 무게",false
+scale,storyData.ts,STORY_CHAPTERS[1].summary,"매년 국정감사마다 수백 건의 시정요구서가 전달됩니다. 피감기관이 제출한 공식 처리결과 보고서상 ""완료"" 비율은 82.4%에 달하지만, 그 답변 문장의 패턴에는 명확한 간극이 존재합니다.",false
+scale,storyData.ts,STORY_CHAPTERS[1].timeframe,"2018–2023 누적 통계",false
+scale,storyData.ts,STORY_METRICS[m1].label,"6년간 총 시정요구 건수",false
+scale,storyData.ts,STORY_METRICS[m1].value+unit,"2,842 건",false
+scale,storyData.ts,STORY_METRICS[m1].comparison,"2018–2023 문체위 국정감사 집계",false
+scale,storyData.ts,STORY_METRICS[m1].sourceLabel,"국회사무처 문체위 국정감사 보고서 [MOCK]",true
+scale,storyData.ts,STORY_METRICS[m2].label,"공식 보고서상 완료율",false
+scale,storyData.ts,STORY_METRICS[m2].value+unit,"82.4 %",false
+scale,storyData.ts,STORY_METRICS[m2].comparison,"2,342건 ""추진완료"" 보고",false
+scale,storyData.ts,STORY_METRICS[m2].sourceLabel,"피감기관 제출 처리결과서 종합 [MOCK]",true
+scale,storyData.ts,STORY_METRICS[m3].label,"원론적 답변 비율 (A1/A2/A3)",false
+scale,storyData.ts,STORY_METRICS[m3].value+unit,"41.8 %",false
+scale,storyData.ts,STORY_METRICS[m3].comparison,"""검토하겠다"" / ""예산확보 후"" 대응",false
+scale,storyData.ts,STORY_METRICS[m3].sourceLabel,"답변 문장 패턴 분류 [MOCK]",true
+scale,storyData.ts,STORY_METRICS[m4].label,"추가 검증 필요 사안",false
+scale,storyData.ts,STORY_METRICS[m4].value+unit,"614 건",false
+scale,storyData.ts,STORY_METRICS[m4].comparison,"공식 완료 보고 중 실제 현장 미흡",false
+scale,storyData.ts,STORY_METRICS[m4].sourceLabel,"언론 및 감사원 표적검증 데이터 [MOCK]",true
+record,storyData.ts,STORY_CHAPTERS[2].title,"요구에서 결과까지",false
+record,storyData.ts,STORY_CHAPTERS[2].subtitle,"Chapter 02",false
+record,storyData.ts,STORY_CHAPTERS[2].thesis,"하나의 요구가 회의록의 문장 조각을 거쳐 공식 처리보고서로 귀결되는 과정",false
+record,storyData.ts,STORY_CHAPTERS[2].summary,"의원의 질의, 피감기관장의 답변, 시정요구서 작성, 이행계획 수립, 그리고 최종 처리결과 제출까지. 하나의 시정요구가 거치는 5단계 증거 사슬(Evidence Chain)을 분해합니다.",false
+record,storyData.ts,STORY_CHAPTERS[2].timeframe,"증거 사슬 구조",false
+record,ChapterRecord.tsx,hardcoded <h2>,"요구에서 결과까지의 사슬",false
+record,storyData.ts,MOCK_EVIDENCES[ev-101..ev-105],"5건의 evidence: issue/questionExcerpt/answerExcerpt/verificationLabel/verificationDetail/sourceLabel(각 [MOCK] 태그 포함)",true
+gap,storyData.ts,STORY_CHAPTERS[3].title,"완료와 진행의 경계",false
+gap,storyData.ts,STORY_CHAPTERS[3].subtitle,"Chapter 03",false
+gap,storyData.ts,STORY_CHAPTERS[3].thesis,"보고서상의 ‘완료’와 실제 현장의 ‘진행 중’ 사이, 모호하게 그어진 경선",false
+gap,storyData.ts,STORY_CHAPTERS[3].summary,"공식 보고서에는 단 한 단어 ""완료""로 적혀있으나, 실제 규정 개정이나 예산 반영이 미흡하거나 단순 현황 설명으로 대치된 사례들을 세 가지 선(Solid, Dashed, Dotted)으로 구별합니다.",false
+gap,storyData.ts,STORY_CHAPTERS[3].timeframe,"이행 검증 간극 분석",false
+gap,storyData.ts,MOCK_EVIDENCES (shared with record),"동일 5건 evidence를 lineStyle(break/dashed/dotted/loop/solid) 기준으로 재사용",true
+cases,storyData.ts,STORY_CHAPTERS[5].title,"완료라고 쓰였지만",false
+cases,storyData.ts,STORY_CHAPTERS[5].subtitle,"Chapter 05",false
+cases,storyData.ts,STORY_CHAPTERS[5].thesis,"공식 수치 뒤에 가려진 대표 5대 시정요구 심층 추적 사례",false
+cases,storyData.ts,STORY_CHAPTERS[5].summary,"문화예술계 블랙리스트 후속조치, 예술인 고용보험, 국립박물관 유물 수장률, 게임물 등급분류, 지역문화기금 등 5개 대표 분야의 6년간 궤적을 비교합니다.",false
+cases,storyData.ts,STORY_CHAPTERS[5].timeframe,"대표 사례 5선",false
+cases,storyData.ts,EDITORIAL_CASES[case-01..case-05],"5건의 case: eyebrow/title/summary/demandStatement/answerStatement/officialOutcome/journalismCheck/limitationNote",false
+remains,storyData.ts,STORY_CHAPTERS[6].title,"끝나지 않은 문장",false
+remains,storyData.ts,STORY_CHAPTERS[6].subtitle,"Chapter 06",false
+remains,storyData.ts,STORY_CHAPTERS[6].thesis,"닫힌 선과 밖으로 이어지는 선, 다음 국정감사를 향한 저널리틱 제언",false
+remains,storyData.ts,STORY_CHAPTERS[6].summary,"이행 완료된 사안은 선이 닫히지만, 미완의 질문은 프레임 밖으로 계속 이어집니다. 감시와 추적은 보고서 제출로 끝나지 않습니다.",false
+remains,storyData.ts,STORY_CHAPTERS[6].timeframe,"결언 및 후속과제",false

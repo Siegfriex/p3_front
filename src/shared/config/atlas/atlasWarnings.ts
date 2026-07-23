@@ -7,5 +7,5 @@ export const ATLAS_DATA_UNAVAILABLE_COPY = {
   eyebrow: 'DATA UNAVAILABLE / FAIL CLOSED',
   title: '승인된 Atlas 데이터가 아직 없습니다',
   description:
-    'P3_FINAL 승인 manifest가 배포되기 전에는 mock이나 legacy 좌표를 대신 표시하지 않습니다.',
+    'P3_FINAL 승인 manifest가 배포되기 전에는 개발용 또는 legacy 좌표를 대신 표시하지 않습니다.',
 } as const;

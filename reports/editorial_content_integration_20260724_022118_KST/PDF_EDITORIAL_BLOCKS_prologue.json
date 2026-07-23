@@ -1,0 +1,96 @@
+{
+  "chapter_id": "prologue",
+  "page": "page1",
+  "blocks": [
+    {
+      "block_id": "b1",
+      "block_type": "LABEL",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "CHAPTER 00 · PUBLIC RECORD ARCHIVE — Editorial Scrollytelling · 문화체육관광위원회 국정감사 6년",
+      "region": "top left",
+      "image_reference": null,
+      "source_note": "페이지 상단 챕터 식별 크레딧 바(코너 라벨). 배경 목업 이미지(page1_embedded_3.jpeg)에서 확인, 오버레이 박스로 덮이지 않은 기존/유지 텍스트.",
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "b2",
+      "block_type": "LABEL",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "[2018-2023] 시정요구 2,842건 전체 이행 궤적 추적",
+      "region": "top right",
+      "image_reference": null,
+      "source_note": "우측 상단 메타 라벨. 현재 코드(ChapterPrologue.tsx L124)의 개발 프리뷰 문구와 동일한 문자열로 이미 구현되어 있음.",
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "b3",
+      "block_type": "IMAGE",
+      "hierarchy_level": "MEDIUM",
+      "text": "",
+      "region": "upper left",
+      "image_reference": "pdf_renders/page1_embedded_4.jpeg",
+      "source_note": "문화체육관광부(Ministry of Culture, Sports and Tourism) 엠블럼 로고. PDF 내 네이티브 해상도 960x272px, PDF 배치 크기 약 1171x332pt(≈1.22배 업스케일, 경미). JPEG 압축 아티팩트/노이즈 있음. 현재 코드베이스(src, public/data)에 대응 자산 없음 — 신규 삽입 요소로 추정. 공식 벡터/고해상도 로고 소싱 권장.",
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "b4",
+      "block_type": "LABEL",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "저널리즘 에세이",
+      "region": "upper center",
+      "image_reference": null,
+      "source_note": "배경 목업(현재 상태, page1_embedded_3.jpeg)에서는 헤드라인 인용구 위 아이바로우(eyebrow) 태그로 존재. 최종 오버레이 버전에서는 이 위치가 새 헤드라인 콜아웃 박스(b5)에 완전히 덮여 있어, 유지/삭제 여부가 불명확함.",
+      "mapping_confidence": "LOW"
+    },
+    {
+      "block_id": "b5",
+      "block_type": "HEADLINE",
+      "hierarchy_level": "VERY_LARGE",
+      "text": "국정감사 단순히 쇼인가?",
+      "region": "upper center",
+      "image_reference": null,
+      "source_note": "편집자가 흰색 박스로 표시한 신규 텍스트로, 기존(배경 목업 및 현재 코드 L149) 헤드라인 인용구 “검토하겠습니다”를 대체함. PDF 실제 텍스트 레이어에서 추출 확인됨.",
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "b6",
+      "block_type": "SOURCE",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "2020~2025 문체부 국정감사 회의록 42건 전수 분석. 2020~2024 문체부 국정감사결과 시정조치 및 결과보고서 전수 분석.",
+      "region": "center left",
+      "image_reference": null,
+      "source_note": "편집자가 흰색 박스로 표시한 신규 방법론/출처 각주. 현재 코드에는 대응 요소가 없어 신규 추가 콘텐츠로 판단됨. PDF 실제 텍스트 레이어에서 두 줄로 추출 확인됨.",
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "b7",
+      "block_type": "SUBHEAD",
+      "hierarchy_level": "LARGE",
+      "text": "6년 뒤, 국정감사엔 무엇이 남았는가",
+      "region": "center",
+      "image_reference": null,
+      "source_note": "배경 목업 및 현재 코드(L153)와 동일한 서브헤드. 오버레이 박스로 덮이지 않아 변경 지시 없음 — 유지로 판단.",
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "b8",
+      "block_type": "LEAD",
+      "hierarchy_level": "MEDIUM",
+      "text": "2018년부터 2023년까지 국회 문화체육관광위원회가 정부 피감기관에 전달한 시정요구는 총 2,842건. 피감기관이 제출한 공식 처리결과보고서의 완료율은 82.4%에 달하지만, 우리가 마주한 현실의 질의와 답변 사이에는 여전히 끊어진 선이 존재합니다.",
+      "region": "lower center",
+      "image_reference": null,
+      "source_note": "배경 목업 및 현재 코드(L179-181)와 문구가 거의 동일(공식 처리결과 보고서 사이 공백 등 미세 차이). 오버레이 박스로 덮이지 않아 변경 지시 없음 — 유지로 판단.",
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "b9",
+      "block_type": "CTA",
+      "hierarchy_level": "SMALL",
+      "text": "첫 증거 원문 확인하기 (ev-101)",
+      "region": "lower center",
+      "image_reference": null,
+      "source_note": "배경 목업에 표시된 CTA 버튼 문구. 현재 코드(L198)의 개발용 임시 라벨 “개발용 증거 미리보기 (ev-101)”와 다름 — 최종 카피로 교체 대상일 가능성 높음. 오버레이 박스로 명시적으로 표시되지는 않았으나 목업상 최종 디자인 텍스트로 판단.",
+      "mapping_confidence": "MEDIUM"
+    }
+  ]
+}

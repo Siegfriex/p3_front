@@ -1,0 +1,9 @@
+risk,evidence,severity,mitigation,status
+ambient build env changes test semantics,.env sets DG761; unit/e2e no-release expectations fail,HIGH,explicit scenario configs and resolver mocks,OPEN
+duplicate requests from Story and Explorer,current page effect has no cache; history remount refetches,MEDIUM,resource promise cache keyed by release,OPEN
+abort one consumer cancels another,two hook consumers may share request,HIGH,reference-count subscribers or shared request with per-consumer cancellation,OPEN
+stale pointer cache,pointer is mutable,HIGH,no immutable browser cache; revalidation and explicit retry,OPEN
+base-path breakage,absolute /data URL ignores Vite base,MEDIUM,BASE_URL-aware URL helper,OPEN
+manifest trust gap,manifest is not independently pinned,MEDIUM,pointer may carry manifest SHA; verify before parse if Data contract provides it,DECISION_REQUIRED
+Story selection invented in frontend,DG761 has no approved Story node IDs,CRITICAL,fail closed until Data Agent supplies signed IDs,BLOCKER
+repository discarded,created inside adapter but not exposed,HIGH,resource result owns EvidenceRepository,OPEN

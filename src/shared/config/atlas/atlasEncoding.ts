@@ -138,8 +138,8 @@ export function getRequiredProjectionPaddingForRadii(sourceRadiiPx: readonly num
   return getRequiredProjectionPadding(maxSourceRadiusPx);
 }
 
-interface NodeOpacityInput {
-  baseOpacity: number;
+export interface NodeOpacityInput {
+  semanticOpacity: number;
   interactionState: NodeInteractionState;
   filterState: NodeFilterState;
   isSelected: boolean;
@@ -147,19 +147,22 @@ interface NodeOpacityInput {
 }
 
 export function getNodeDisplayOpacity({
-  baseOpacity,
+  semanticOpacity,
   interactionState,
   filterState,
   isSelected,
   isFocused,
 }: NodeOpacityInput): number {
-  const semanticOpacity = Math.min(1, Math.max(ATLAS_CONFIDENCE_PRESENTATION_POLICY.fixtureFloor, baseOpacity));
+  const boundedSemanticOpacity = Math.min(
+    1,
+    Math.max(ATLAS_CONFIDENCE_PRESENTATION_POLICY.fixtureFloor, semanticOpacity),
+  );
   if (filterState === 'excluded') return 0;
-  if (filterState === 'context') return Math.min(0.4, Math.max(0.24, semanticOpacity));
-  if (isSelected || isFocused) return Math.max(0.88, semanticOpacity);
-  if (interactionState === 'hovered') return Math.max(0.82, semanticOpacity);
-  if (interactionState === 'dimmed') return Math.min(0.4, Math.max(0.24, semanticOpacity));
-  return semanticOpacity;
+  if (filterState === 'context') return Math.min(0.4, Math.max(0.24, boundedSemanticOpacity));
+  if (isSelected || isFocused) return Math.max(0.88, boundedSemanticOpacity);
+  if (interactionState === 'hovered') return Math.max(0.82, boundedSemanticOpacity);
+  if (interactionState === 'dimmed') return Math.min(0.4, Math.max(0.24, boundedSemanticOpacity));
+  return boundedSemanticOpacity;
 }
 
 interface ResolveNodeInteractionStateInput {

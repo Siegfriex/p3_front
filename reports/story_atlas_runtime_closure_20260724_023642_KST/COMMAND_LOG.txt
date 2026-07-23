@@ -1,0 +1,31 @@
+2026-07-24T02:31+09:00 read Vercel verification, deployment, API, browser verification, and CLI skill instructions
+2026-07-24T02:32+09:00 inspect live Git branch, HEAD, upstream, dirty tree, source inventory, runtime and canonical releases
+2026-07-24T02:35+09:00 detect and inspect concurrent canonical story-derived release; no overwrite performed
+2026-07-24T02:36:42+09:00 create closure report directory and START snapshot files
+2026-07-24T02:42+09:00 first derived-release run stopped at canonical/runtime recursive path crosscheck; no pre-existing file overwritten
+2026-07-24T02:43+09:00 preserve failed-attempt targets under report _failed_attempt and fix relative-path traversal
+2026-07-24T02:44+09:00 create validated story release ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264 and byte-identical current release pointers
+2026-07-24T02:45+09:00 implement shared resource, hook, pointer resolution, manifest and bundle validation, and Evidence detail validation
+2026-07-24T02:47+09:00 wire AtlasPage, ChapterAnswersAtlas, direct Evidence page, and Evidence Drawer to shared runtime
+2026-07-24T02:48+09:00 unit baseline exposes three stale expectation tests; no source runtime failure inferred
+2026-07-24T02:49+09:00 clear ignored local env override so default local production QA exercises current-release.json
+2026-07-24T02:51+09:00 add resource, pointer, schema, Evidence repository, Story Preview, and direct Evidence unit coverage
+2026-07-24T02:52+09:00 configure Vercel pointer no-cache, immutable release cache, SPA HTML no-cache, and existing rewrite
+2026-07-24T02:52+09:00 move 28-node runtime copy from public to recoverable report quarantine; canonical copy retained
+2026-07-24T02:55+09:00 concurrent MethodPage edit temporarily broke build because method-page.css had not yet been created
+2026-07-24T02:56+09:00 concurrent method-page.css appeared; remove only the unused Database icon import required by repository lint
+2026-07-24T03:01+09:00 fix Story real-data E2E expectations, deliberate pointer-404 classification, and 375px layout containment
+2026-07-24T03:05+09:00 gate production legacy Story fixtures behind explicit DEV provenance; production chapters fail closed
+2026-07-24T03:08+09:00 verify release ID mobile containment at 375px
+2026-07-24T03:10+09:00 production Playwright: 19 passed, 6 paired-environment skips, 0 failed
+2026-07-24T03:12+09:00 contract fixture Playwright: 5 passed, 2 inverse-environment skips, 0 failed
+2026-07-24T03:12+09:00 local production QA: Story 16, Explorer 140, approved Evidence, 10 HTTP checks, stable errors 0
+2026-07-24T03:16+09:00 Vercel connector project created and deployment requested with target=preview
+2026-07-24T03:17+09:00 authoritative deployment inspection contradicts request: actual target=production; stop all further deploy/promotion/alias changes
+2026-07-24T03:21+09:00 read-only deployed-runtime QA passes routes, cache headers, Story/Explorer/Evidence, interactions, responsive, Axe, and stable errors
+2026-07-24T03:23+09:00 final typecheck/lint/unit/build PASS after concurrent source edits
+2026-07-24T03:24+09:00 final local production Playwright: 19 passed, 6 paired-environment skips, 0 failed
+2026-07-24T03:25+09:00 final technical routing Playwright: 7 passed, 0 skipped, 0 failed
+2026-07-24T03:25+09:00 final contract fixture Playwright: 5 passed, 2 inverse-environment skips, 0 failed
+2026-07-24T03:26+09:00 explicit development Evidence Drawer Playwright: 1 passed, 0 failed
+2026-07-24T03:29+09:00 detect concurrent canonical pointer drift to contradicted BF673FD1 and restore byte-identical D9DB2264 pointer under explicit closure authority

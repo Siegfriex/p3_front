@@ -1,0 +1,10 @@
+decision_id,decision,state,evidence
+D-017,padded isotropic projection with immutable projection-wide domain,LOCKED_LOCAL,scaleProjection tests
+D-018,half-plane then angular deviation then directional distance then canonical ID,LOCKED_LOCAL,atlasNodeNavigation tests
+D-019,source radius preserved and pointer target at least 44,LOCKED_LOCAL,encoding unit and fixture E2E
+D-020,matched context excluded are separate filter states,LOCKED_LOCAL,encoding and Explorer tests
+D-021,confidence mapping remains provisional pending approved distribution,LOCKED_LOCAL,ATLAS_CONFIDENCE_PRESENTATION_POLICY
+D-022,Home and End resolve canonical node ID endpoints,LOCKED_LOCAL,navigation unit tests
+D-023,selected node excluded by filter clears without replacement,LOCKED_LOCAL,Explorer unit and fixture E2E
+D-024,semanticOpacity is independent from interaction emphasis,LOCKED_LOCAL,encoding unit tests
+D-025,production without approved bundle remains DataUnavailable,LOCKED_LOCAL,production E2E

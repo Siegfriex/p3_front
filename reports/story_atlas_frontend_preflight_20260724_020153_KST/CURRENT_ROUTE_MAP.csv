@@ -1,0 +1,9 @@
+route,route_entry,page_or_component,data_source,validator_adapter,render_or_state,evidence_navigation,status
+/#answers,src/app/router/AppRouter.tsx index,src/pages/story/StoryPage.tsx -> src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,none; reads URL query only,none,unconditional AtlasDataUnavailable; 0 SVG nodes; 0 DOM navigators,CTA serializes status/types to /atlas,CONTRADICTED
+/atlas,lazy route in src/app/router/AppRouter.tsx,src/pages/atlas/AtlasPage.tsx,VITE_ATLAS_RELEASE_ID -> frontend-manifest.json -> 5 bundle JSON files,atlasTransportSchema -> createProjectionScale -> toAtlasViewModel,AtlasExplorer -> AtlasScene/Controls/Inspector/DomMirror,AtlasInspector -> useDetailNavigation -> /evidence/:id background route,CONFIRMED_WITH_ENV_OVERRIDE
+/evidence/:evidenceId,src/app/router/AppRouter.tsx,src/app/router/DetailPage.tsx,DEV: shared/mock/storyData; PROD: none,EvidenceRepository not consumed,DEV mock detail or not-found; PROD EvidenceUnavailableState,direct page only; approved detail not rendered,CONTRADICTED
+/evidence/:evidenceId background,src/app/router/EvidenceRouteOverlay.tsx,GlobalOverlayRoot -> EvidenceDrawer,DEV: shared/mock/storyData; PROD: none,EvidenceRepository not consumed,DEV mock/unmatched not-found drawer; PROD unavailable drawer,backgroundLocation history works structurally,CONTRADICTED
+/case/:caseId,src/app/router/AppRouter.tsx,src/app/router/DetailPage.tsx,DEV EDITORIAL_CASES; PROD none,none,DEV fixture; PROD DataUnavailable,direct/full and background shell exist,PARTIALLY_CONFIRMED
+/method,src/app/router/AppRouter.tsx,src/pages/method/MethodPage.tsx,static copy; DEV-only fixture qualifiers,none,page renders,none,CONFIRMED
+/data,src/app/router/AppRouter.tsx,src/pages/data/DataPage.tsx,DEV MOCK_EVIDENCES; PROD unavailable,none,page renders / fail-closed production,none,PARTIALLY_CONFIRMED
+/about,src/app/router/AppRouter.tsx,src/pages/about/AboutPage.tsx,static content,none,page renders,none,CONFIRMED

@@ -1,0 +1,9 @@
+command: npm run typecheck
+exit_code: 0
+wall_time_seconds: 3.441269987
+
+
+> react-example@0.0.0 typecheck
+> tsc --noEmit
+
+

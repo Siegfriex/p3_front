@@ -61,8 +61,8 @@
   --color-focus: var(--signal-red-dark);
 
   /* Fluid Typography Scale */
-  --type-display-hero-quote: clamp(3.5rem, 8.2vw, 8.5rem);
-  --type-display-hero-conclusion: clamp(2.25rem, 5.2vw, 5.5rem);
+  --type-display-hero-quote: clamp(2.5rem, 8.2vw, 8.5rem);
+  --type-display-hero-conclusion: clamp(1.75rem, 5.2vw, 5.5rem);
   --type-display-xl: clamp(4rem, 8vw, 8.25rem);
   --type-display-l: clamp(2.75rem, 4.5vw, 4.75rem);
   --type-heading-1: clamp(1.875rem, 3vw, 3rem);

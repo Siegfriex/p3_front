@@ -77,6 +77,29 @@ export interface EvidenceSummaryViewModel {
   publicVisibility: true;
 }
 
+export interface EvidenceDetailViewModel {
+  id: string;
+  title: string;
+  requestText: string;
+  questionText: string;
+  answerText: string;
+  excerpt: string;
+  reportedStatus: string;
+  verificationStatus: string;
+  meetingId: string;
+  pageStartNo: string;
+  pageEndNo: string;
+  pdfAssetId: string;
+  sourcePdfSha256: string;
+  pipelineRunId: string;
+  publicVisibility: true;
+}
+
+export interface EvidenceRepository {
+  getSummary(evidenceId: string): EvidenceSummaryViewModel | null;
+  getDetail(evidenceId: string, signal?: AbortSignal): Promise<EvidenceDetailViewModel>;
+}
+
 export interface ProjectionBounds {
   xMin: number;
   xMax: number;
@@ -98,12 +121,28 @@ export interface AtlasQueryState {
   view: AtlasViewMode;
 }
 
+export interface AtlasStorySummaryViewModel {
+  analysisEntityCount: number;
+  atlasNodeCount: number;
+  behaviorChildCount: number;
+  primaryBehaviorDistribution: Record<AnswerType, number>;
+  projectionPointCount: number;
+  publicEvidenceCount: number;
+  statusDistribution: Record<AtlasNodeStatus, number>;
+  topicBinCount: number;
+  warnings: string[];
+}
+
 export interface AtlasViewModelBundle {
   releaseId: string;
   projectionId: string;
+  projectionHash: string;
   bounds: ProjectionBounds;
   nodes: AtlasNodeViewModel[];
   topicBins: TopicBinViewModel[];
   centroids: CentroidViewModel[];
   evidence: EvidenceSummaryViewModel[];
+  storySummary: AtlasStorySummaryViewModel;
+  storyPreviewNodeIds: string[];
+  evidenceRepository: EvidenceRepository;
 }

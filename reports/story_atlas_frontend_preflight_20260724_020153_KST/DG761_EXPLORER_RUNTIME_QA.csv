@@ -1,0 +1,11 @@
+scenario,manifest_declared_nodes,physical_viewmodel_nodes,svg_marks,dom_navigators,result,classification
+env override /atlas default,140,140,140,140,release/projection rendered,CONFIRMED
+default filters,140,140,140,140,status=all; logical types A1-A8; 16 checkbox DOM copies due responsive duplicate controls,CONFIRMED
+valid node selection,,,1 selected,140,URL node set; aria-pressed=true,CONFIRMED
+invalid node query,,,140,140,explicit invalid-node state,CONFIRMED
+reload invalid node,,,140,140,invalid state restored,CONFIRMED
+Back/Forward,,,140,140,selected/invalid URLs restored,CONFIRMED
+Story #answers,,,0,0,unconditional Story DataUnavailable,CONFIRMED
+Evidence drawer from approved node,,,,,route opens but approved detail not rendered,CONTRADICTED
+production preview with DG761,140,140,140,140,all public direct routes HTTP 200; no console/request errors,CONFIRMED
+production preview without env/pointer,,,0,0,DataUnavailable NO_APPROVED_RELEASE_CONFIGURED and zero data requests,CONFIRMED

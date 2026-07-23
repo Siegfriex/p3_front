@@ -78,6 +78,7 @@ export function toAtlasViewModel(
   return {
     releaseId: bundle.manifest.release_id,
     projectionId: bundle.manifest.projection_id,
+    projectionHash: bundle.manifest.projection_hash,
     bounds: {
       xMin: bundle.projectionMeta.x_min,
       xMax: bundle.projectionMeta.x_max,
@@ -88,5 +89,18 @@ export function toAtlasViewModel(
     topicBins,
     centroids,
     evidence,
+    storySummary: {
+      analysisEntityCount: bundle.summary.analysis_entity_count,
+      atlasNodeCount: bundle.summary.atlas_node_count,
+      behaviorChildCount: bundle.summary.behavior_child_count,
+      primaryBehaviorDistribution: { ...bundle.summary.primary_behavior_distribution },
+      projectionPointCount: bundle.summary.projection_point_count,
+      publicEvidenceCount: bundle.summary.public_evidence_count,
+      statusDistribution: { ...bundle.summary.status_distribution },
+      topicBinCount: bundle.summary.topic_bin_count,
+      warnings: [...bundle.summary.warnings],
+    },
+    storyPreviewNodeIds: [...bundle.summary.story_preview_node_ids],
+    evidenceRepository,
   };
 }

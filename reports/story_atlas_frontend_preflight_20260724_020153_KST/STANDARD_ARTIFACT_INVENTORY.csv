@@ -1,0 +1,6 @@
+artifact,generated_by,size_bytes,tracked,note
+dist/,npm run build,1960025,ignored,final contents are explicit no-release build; public data copied including DG761 and legacy release
+playwright-report/,npm run test:e2e,18094743,ignored,8 failure HTML report and traces
+test-results/,npm run test:e2e,16133655,ignored,failure screenshots/traces
+reports/story_atlas_frontend_preflight_20260724_020153_KST/screenshots/,custom Playwright,3549149,untracked report,DG761 Atlas; evidence gap; Story unavailable
+reports/story_atlas_frontend_preflight_20260724_020153_KST/,preflight reports,3694210,untracked report,50 files before final artifacts

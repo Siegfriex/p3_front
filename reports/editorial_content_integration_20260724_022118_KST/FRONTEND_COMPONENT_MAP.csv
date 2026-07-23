@@ -1,0 +1,9 @@
+chapter_id,page_no,order,component_name,source_file,gated_in_production,gate_reason,data_source
+prologue,1,0,ChapterPrologue,src/widgets/prologue-scene/ChapterPrologue.tsx,false,,src/shared/mock/storyData.ts (STORY_CHAPTERS[0])
+scale,2,1,ChapterScale,src/widgets/scale-scene/ChapterScale.tsx,true,APPROVED_STORY_METRICS_ABSENT,src/shared/mock/storyData.ts (STORY_CHAPTERS[1] + STORY_METRICS)
+record,3,2,ChapterRecord,src/widgets/evidence-chain-scene/ChapterRecord.tsx,true,APPROVED_EVIDENCE_CHAIN_ABSENT,src/shared/mock/storyData.ts (STORY_CHAPTERS[2] + MOCK_EVIDENCES)
+gap,4,3,ChapterGap,src/widgets/gap-scene/ChapterGap.tsx,true,APPROVED_STATUS_FLOW_ABSENT,src/shared/mock/storyData.ts (STORY_CHAPTERS[3] + MOCK_EVIDENCES)
+answers,5,4,ChapterAnswersAtlas,src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,false,,src/shared/mock/storyData.ts (ATLAS_NODES) -- OUT OF SCOPE (page5.pdf missing)
+cases,6,5,ChapterCases,src/widgets/case-sequence/ChapterCases.tsx,true,APPROVED_EDITORIAL_CASES_ABSENT,src/shared/mock/storyData.ts (STORY_CHAPTERS[5] + EDITORIAL_CASES)
+remains,7,6,ChapterRemains,src/widgets/remains-scene/ChapterRemains.tsx,false,,src/shared/mock/storyData.ts (STORY_CHAPTERS[6])
+method,-,7,(not in scope),-,false,,src/shared/mock/storyData.ts (STORY_CHAPTERS[7]) -- no PDF page provided, out of scope

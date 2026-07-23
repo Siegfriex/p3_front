@@ -1,0 +1,39 @@
+{
+  "status": "AGENT_4_SOURCE_DRIFT_BLOCKED",
+  "implementation_qa": "PASS_BEFORE_EXTERNAL_OWNER_DRIFT",
+  "branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "head": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "upstream": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "commit_or_push_performed": false,
+  "agent3_core_modified_by_agent4": false,
+  "agent3_change_request_created": false,
+  "final_owner_snapshot_stable_11_seconds": true,
+  "complete_suite_rerun_after_external_drift": false,
+  "external_owner_drift": [
+    "src/app/styles/tokens.css",
+    "src/app/styles/typography.css",
+    "src/shared/ui/ChapterFrame.tsx",
+    "src/widgets/prologue-scene/ChapterPrologue.tsx",
+    "src/widgets/scale-scene/ChapterScale.tsx"
+  ],
+  "qa": {
+    "typecheck": "PASS",
+    "lint": "PASS_ZERO_WARNINGS",
+    "unit": "PASS_15_FILES_46_TESTS",
+    "build": "PASS_2167_MODULES",
+    "full_e2e": "PASS_17_SKIPPED_9",
+    "agent4_production_e2e": "PASS_4",
+    "agent3_fixture_readonly_e2e": "PASS_5_SKIPPED_2",
+    "runtime_samples": 12,
+    "blocking_axe_violations": 0,
+    "page_overflow_failures": 0,
+    "undersized_target_failures": 0,
+    "atlas_evidence_fixture_markers": 0,
+    "atlas_production_visual_nodes": 0,
+    "story_case_production_mock_source_audit": "FAIL"
+  },
+  "approved_real_data_pass": false,
+  "evidence_traceability_pass": false,
+  "p3_final_cutover_pass": false,
+  "resume_condition": "Coordinator explicitly accepts or reverts all external Agent 4 owner drift, removes or production-gates Story and Case mock paths, and reruns the recorded full QA matrix."
+}

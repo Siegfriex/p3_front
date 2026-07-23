@@ -59,7 +59,36 @@ describe('findNextAtlasNodeId', () => {
 
   it('supports canonical Home and End and stays put without a directional candidate', () => {
     expect(findNextAtlasNodeId(nodes, 'center', 'Home')).toBe('center');
-    expect(findNextAtlasNodeId(nodes, 'center', 'End')).toBe('down');
+    expect(findNextAtlasNodeId(nodes, 'center', 'End')).toBe('up');
     expect(findNextAtlasNodeId(nodes, 'left', 'ArrowLeft')).toBe('left');
+  });
+
+  it('recomputes from the filtered candidates without moving node coordinates', () => {
+    const filtered = [nodes[0], nodes[2]];
+    const before = JSON.stringify(filtered.map(({ id, screen }) => ({ id, screen })));
+    expect(findNextAtlasNodeId(filtered, 'center', 'ArrowRight')).toBe('right-near');
+    expect(JSON.stringify(filtered.map(({ id, screen }) => ({ id, screen })))).toBe(before);
+  });
+
+  it('preserves directional results after a proportional viewport resize', () => {
+    const resized = nodes.map((current) => ({
+      ...current,
+      screen: { x: current.screen.x * 0.5, y: current.screen.y * 0.5 },
+    }));
+    expect(findNextAtlasNodeId(resized, 'center', 'ArrowLeft')).toBe('left');
+    expect(findNextAtlasNodeId(resized, 'center', 'ArrowRight')).toBe('right-far');
+    expect(findNextAtlasNodeId(resized, 'center', 'ArrowUp')).toBe('up');
+    expect(findNextAtlasNodeId(resized, 'center', 'ArrowDown')).toBe('down');
+  });
+
+  it('uses angular deviation for diagonal candidates before directional distance', () => {
+    const center = node('center', 0, 0);
+    const diagonalNear = node('diagonal-near', 10, -10);
+    const straightFar = node('straight-far', 0, -100);
+    expect(findDirectionalNode({
+      current: center,
+      candidates: [center, diagonalNear, straightFar],
+      direction: 'up',
+    })?.id).toBe('straight-far');
   });
 });

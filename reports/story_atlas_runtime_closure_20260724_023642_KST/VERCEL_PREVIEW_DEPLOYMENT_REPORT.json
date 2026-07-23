@@ -1,0 +1,23 @@
+{
+  "requested_target": "preview",
+  "connector_creation_response_target": "preview",
+  "authoritative_deployment_target": "production",
+  "target_verdict": "CONTRADICTED",
+  "deployment_id": "dpl_3cctJPJoX6u3W9D88kE6gYfYadVC",
+  "deployment_url": "https://p3-culture-atlas-iau5j8z2r-siegfriexs-projects.vercel.app",
+  "state": "READY",
+  "project_id": "prj_EwJ8B4Fz9jrJ2mtCTuzF7RFIptVi",
+  "build": {
+    "files": 178,
+    "cli": "56.5.0",
+    "duration_ms": 102,
+    "errors": 0,
+    "functions_expected": 0
+  },
+  "technical_browser_qa": "PASS",
+  "production_alias_assigned_by_connector": true,
+  "no_further_deployment_or_alias_action_taken": true,
+  "deployed_snapshot_matches_final_local_build": false,
+  "preview_gate": "BLOCKED",
+  "reason": "The connector ignored or reclassified target=preview as production; the deployed artifact also predates final concurrent local edits."
+}

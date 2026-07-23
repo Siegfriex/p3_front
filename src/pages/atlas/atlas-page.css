@@ -1,0 +1,77 @@
+.atlas-page-vid {
+  --color-neutral-300: #dad7cf;
+  background:
+    linear-gradient(to right, transparent calc(50% - 0.5px), color-mix(in srgb, var(--line-faint) 42%, transparent) 50%, transparent calc(50% + 0.5px));
+}
+
+.atlas-page-vid .atlas-vid-workspace {
+  border-top: 1px solid var(--line-faint);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.atlas-page-vid [data-testid='atlas-explorer-ready'] {
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.atlas-page-vid [data-testid='atlas-chart'] {
+  box-shadow: 0 1rem 2.5rem rgb(17 17 17 / 5%);
+}
+
+.atlas-page-vid [data-testid='atlas-chart'] .redline-stage-body {
+  min-height: 34rem;
+}
+
+.atlas-page-vid #atlas-selection-inspector {
+  min-height: 28rem;
+  background:
+    linear-gradient(180deg, var(--paper-muted), color-mix(in srgb, var(--paper-muted) 76%, var(--paper-surface)));
+}
+
+.atlas-page-vid #atlas-node-list {
+  max-height: 30rem;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  background: color-mix(in srgb, var(--paper-surface) 72%, transparent);
+  padding-inline: 0.75rem;
+}
+
+.atlas-page-vid #atlas-node-list > :is(.redline-meta, h2, p) {
+  max-width: 52rem;
+}
+
+@media (min-width: 80rem) {
+  .atlas-page-vid [data-testid='atlas-explorer-ready'] > .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(24rem, 27.5rem);
+  }
+}
+
+@media (max-width: 64rem) {
+  .atlas-page-vid [data-testid='atlas-chart'] .redline-stage-body {
+    min-height: 28rem;
+  }
+
+  .atlas-page-vid #atlas-selection-inspector {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 40rem) {
+  .atlas-page-vid {
+    background: none;
+  }
+
+  .atlas-page-vid #atlas-node-list {
+    max-height: 22rem;
+    padding-inline: 0;
+  }
+}
+
+@media (forced-colors: active) {
+  .atlas-page-vid,
+  .atlas-page-vid #atlas-node-list,
+  .atlas-page-vid #atlas-selection-inspector {
+    background: Canvas;
+    color: CanvasText;
+  }
+}

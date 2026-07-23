@@ -1,0 +1,17 @@
+Repository inspection and runtime authority verification
+agent-browser dev verification: Story, Atlas, approved and invalid Evidence
+npm run typecheck
+npm run lint
+npm test -- --run
+npm run build
+npm run test:e2e:preview
+AGENT4_PRODUCTION_E2E=true npx playwright test agent4-presentation-wcag atlas-experience-design methodology-report
+AGENT4_PRODUCTION_E2E=true npx playwright test technical-routing agent4-atlas-vid
+npx playwright test --config=reports/final_develop_ux_deploy_20260724_034012_KST/playwright.contract.config.ts
+agent-browser local production verification: Story, CTA filter carry, Explorer, Evidence
+Vercel Preview attempt dpl_ASyQsE8L3kRBRg1vnydXjBDBwHCn: ERROR missing_lock_file
+Vercel Preview dpl_AL8SFbZ1nsMdfTLV2yQJYfZ1hyV9: READY
+npx tsx reports/final_develop_ux_deploy_20260724_034012_KST/remote-preview-qa.mts: VERCEL_PREVIEW_PASS
+Vercel Production dpl_5CKmLNV4ojieeo1xfLezorYcwig9: READY
+npx tsx reports/final_develop_ux_deploy_20260724_034012_KST/remote-preview-qa.mts: VERCEL_PRODUCTION_PASS
+Vercel runtime errors and fatal/error logs inspection: none

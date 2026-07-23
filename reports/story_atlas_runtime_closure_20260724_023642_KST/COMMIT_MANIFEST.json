@@ -1,0 +1,16 @@
+{
+  "commits_created": [],
+  "commit_count": 0,
+  "head_before": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "head_after": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "head_unchanged": true,
+  "reason": "Shared dirty worktree had active concurrent edits and overlapping files; creating the requested five commits would mix unrelated user-owned changes. The Vercel target contradiction also prevents a truthful closure commit boundary.",
+  "safe_proposed_boundaries": [
+    "derived release + canonical/runtime pointers",
+    "atlasReleaseResource + useAtlasRelease + schema/types",
+    "AtlasPage + ChapterAnswersAtlas + Story parity",
+    "Evidence direct route + overlay + Drawer",
+    "tests + vercel config"
+  ],
+  "staged_files": []
+}

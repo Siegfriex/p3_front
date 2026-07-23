@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
 import { Link } from 'react-router';
+import { useEvidenceDetail } from '@/shared/api/atlas/useEvidenceDetail';
 import { MOCK_EVIDENCES, EDITORIAL_CASES } from '@/shared/mock/storyData';
 import type { DetailKind } from '@/shared/types/routing';
 import { Badge } from '@/shared/ui/Badge';
 import { LineSymbol } from '@/shared/ui/LineSymbol';
-import { EvidenceFixtureNotice, EvidenceUnavailableState } from '@/shared/ui/evidence';
+import { EvidenceApprovedRecord, EvidenceFixtureNotice, EvidenceUnavailableState } from '@/shared/ui/evidence';
 import { Drawer } from '@/shared/ui/overlay/Drawer';
 import { X, AlertTriangle, Copy, Check } from 'lucide-react';
 
@@ -30,9 +31,16 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
   const [copied, setCopied] = useState(false);
   const activeEvidenceId = kind === 'evidence' ? itemId : null;
   const activeCaseId = kind === 'case' ? itemId : null;
-  const activeCase = EDITORIAL_CASES.find((c) => c.id === activeCaseId);
-  const requestedEvidenceId = activeEvidenceId ?? activeCase?.evidenceId;
-  const activeEvidence = import.meta.env.DEV
+  const fixtureMode = import.meta.env.DEV
+    && import.meta.env.VITE_ATLAS_FIXTURE_PROVENANCE === 'CONTRACT_FIXTURE';
+  const approvedEvidence = useEvidenceDetail(!fixtureMode && kind === 'evidence' ? itemId : null);
+  const activeCase = fixtureMode
+    ? EDITORIAL_CASES.find((c) => c.id === activeCaseId)
+    : undefined;
+  const requestedEvidenceId = fixtureMode
+    ? activeEvidenceId ?? activeCase?.evidenceId
+    : itemId;
+  const activeEvidence = fixtureMode
     ? MOCK_EVIDENCES.find((evidence) => evidence.id === requestedEvidenceId)
     : undefined;
 
@@ -63,6 +71,60 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
     tabRefs.current.get(nextTab)?.focus();
   };
 
+  if (!fixtureMode && kind === 'evidence') {
+    return (
+      <Drawer
+        open
+        onClose={onClose}
+        titleId="drawer-title"
+        descriptionId="drawer-description"
+        initialFocusRef={closeButtonRef}
+      >
+        <div className="evidence-drawer-shell" data-testid="approved-evidence-drawer">
+          <header className="evidence-drawer-header">
+            <div>
+              <p className="redline-meta text-[var(--signal-red-dark)]">EVIDENCE TRACE / APPROVED RELEASE</p>
+              <h2 id="drawer-title" className="mt-3 font-serif text-3xl font-bold">승인된 증거 상세</h2>
+              <p id="drawer-description" className="mt-3 text-sm leading-relaxed text-[var(--ink-secondary)]">
+                current Atlas release의 manifest와 동일한 EvidenceRepository 결과입니다.
+              </p>
+            </div>
+            <button type="button" ref={closeButtonRef} onClick={onClose} className="inline-flex min-h-11 min-w-11 items-center justify-center" aria-label="드로어 닫기">
+              <X className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </header>
+          <div
+            className="evidence-drawer-body"
+            role="region"
+            aria-label="승인된 증거 상세 내용"
+            tabIndex={0}
+          >
+            {approvedEvidence.status === 'loading' ? (
+              <div aria-busy="true" data-testid="evidence-detail-loading">
+                <p className="redline-meta">EVIDENCE DETAIL / LOADING</p>
+                <p className="mt-3 font-serif text-2xl font-bold">승인 상세를 불러오고 있습니다</p>
+              </div>
+            ) : null}
+            {approvedEvidence.status === 'ready' ? <EvidenceApprovedRecord detail={approvedEvidence.detail} /> : null}
+            {approvedEvidence.status === 'unavailable' || approvedEvidence.status === 'error' ? (
+              <EvidenceUnavailableState
+                evidenceId={itemId}
+                compact
+                description={approvedEvidence.status === 'error' ? approvedEvidence.error.message : `승인된 release에서 이 기록을 사용할 수 없습니다. ${approvedEvidence.reason}`}
+                actions={(
+                  <>
+                    {approvedEvidence.status === 'error' ? <button type="button" className="atlas-action-primary" onClick={approvedEvidence.retry}>다시 시도</button> : null}
+                    <button type="button" className="atlas-action-secondary" onClick={onClose}>Atlas로 돌아가기</button>
+                  </>
+                )}
+              />
+            ) : null}
+          </div>
+        </div>
+      </Drawer>
+    );
+  }
+
   if (!activeEvidence) {
     return (
       <Drawer
@@ -78,7 +140,7 @@ export function EvidenceDrawer({ kind, itemId, onClose }: EvidenceDrawerProps) {
               <p className="redline-meta text-[var(--signal-red-dark)]">EVIDENCE TRACE / UNAVAILABLE</p>
               <h2 id="drawer-title" className="mt-3 font-serif text-3xl font-bold">증거 상세를 표시할 수 없습니다</h2>
               <p id="drawer-description" className="mt-3 text-sm leading-relaxed text-[var(--ink-secondary)]">
-                선택한 node는 유지됩니다. 승인된 EvidenceRepository 상세가 연결되기 전에는 mock excerpt를 대신 표시하지 않습니다.
+                선택한 node는 유지됩니다. 승인된 EvidenceRepository 상세가 연결되기 전에는 개발용 발췌문을 대신 표시하지 않습니다.
               </p>
             </div>
             <button

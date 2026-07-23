@@ -1,0 +1,6 @@
+surface,viewports,threshold,result
+global_header,320 375 768,44x44 minimum,PASS
+Story actions,320 375 768,44x44 minimum,PASS
+Evidence Drawer close,375,44x44 minimum,PASS
+Atlas DOM node fixture,320 375 768 1440 1920,44x44 effective,PASS_CONTRACT_FIXTURE
+real_data_overlap,not connected,44x44 effective without overlap,NOT_DECLARED

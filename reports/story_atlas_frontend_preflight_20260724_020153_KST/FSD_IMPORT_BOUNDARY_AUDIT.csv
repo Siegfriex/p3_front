@@ -1,0 +1,11 @@
+check,evidence,classification,required_action
+pages/widgets/shared importing app,no matches outside app,CONFIRMED,none
+shared importing pages,no matches,CONFIRMED,none
+shared importing widgets,src/shared/ui/RedlineAtlasCalibration.tsx -> @/widgets/atlas-explorer/AtlasNodeGlyph,CONTRADICTED,move glyph primitive to shared or move calibration composition out of shared
+widget cross-slice imports,ChapterAnswersAtlas -> atlas-explorer metadata/header; GlobalOverlayRoot -> evidence-drawer,PARTIALLY_CONFIRMED,prefer shared primitives or explicit public widget API
+component raw transport access,AtlasPage reads projectionMeta.x_min/x_max/y_min/y_max and transport.nodes[].node_radius,PARTIALLY_CONFIRMED,move release-to-ViewModel orchestration into shared release resource
+component aggregation,AtlasExplorer filters finalized nodes only; no mass/status/bin aggregation,CONFIRMED,retain
+duplicate Atlas loader,only AtlasPage loads; Story has no loader,CONFIRMED,replace page-local orchestration with shared resource rather than copy
+fixture fallback for Atlas,none; missing config returns DataUnavailable,CONFIRMED,retain fail-closed
+legacy runtime source,second untracked ATLAS_20260723_211051... release exists but no latest scan/fallback,LEGACY_PROVISIONAL_FIXTURE,do not select or commit as approved
+raw Parquet browser access,no source references,CONFIRMED,retain

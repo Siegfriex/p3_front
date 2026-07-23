@@ -35,10 +35,10 @@ describe('Atlas node semantic encoding', () => {
 
   it('composes semantic opacity and interaction state without multiplying them away', () => {
     expect(ATLAS_CONFIDENCE_PRESENTATION_POLICY.status).toBe('PROVISIONAL_PENDING_APPROVED_DISTRIBUTION');
-    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'dimmed', filterState: 'matched', isSelected: false, isFocused: false })).toBe(0.4);
-    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'default', filterState: 'context', isSelected: false, isFocused: false })).toBe(0.4);
-    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'default', filterState: 'excluded', isSelected: false, isFocused: false })).toBe(0);
-    expect(getNodeDisplayOpacity({ baseOpacity: 0.5, interactionState: 'selected', filterState: 'matched', isSelected: true, isFocused: false })).toBe(0.88);
+    expect(getNodeDisplayOpacity({ semanticOpacity: 0.5, interactionState: 'dimmed', filterState: 'matched', isSelected: false, isFocused: false })).toBe(0.4);
+    expect(getNodeDisplayOpacity({ semanticOpacity: 0.5, interactionState: 'default', filterState: 'context', isSelected: false, isFocused: false })).toBe(0.4);
+    expect(getNodeDisplayOpacity({ semanticOpacity: 0.5, interactionState: 'default', filterState: 'excluded', isSelected: false, isFocused: false })).toBe(0);
+    expect(getNodeDisplayOpacity({ semanticOpacity: 0.5, interactionState: 'selected', filterState: 'matched', isSelected: true, isFocused: false })).toBe(0.88);
     expect(resolveNodeInteractionState({ isHovered: false, isFocused: true, isSelected: true, isDimmed: false, filterState: 'matched' })).toBe('focused-selected');
     expect(resolveNodeInteractionState({ isHovered: true, isFocused: false, isSelected: false, isDimmed: false, filterState: 'context' })).toBe('dimmed');
   });

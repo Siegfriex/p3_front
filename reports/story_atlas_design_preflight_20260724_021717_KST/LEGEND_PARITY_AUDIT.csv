@@ -1,0 +1,12 @@
+legend_item,story_required,explorer_required,current_explorer,current_story,status,locked_label
+position_topic,true,true,CONFIRMED,ABSENT,PARTIALLY_CONFIRMED,"위치 · 주제 공간"
+radius_mass,true,true,CONFIRMED,ABSENT,PARTIALLY_CONFIRMED,"크기 · 정규화된 답변 규모"
+opacity_confidence,true,true,CONFIRMED,ABSENT,PARTIALLY_CONFIRMED,"불투명도 · 신뢰도"
+family_information_non_direct,true,true,CONFIRMED,ABSENT,PARTIALLY_CONFIRMED,"A1–A4 정보부재·비직접 계열"
+family_deferral_procedural,true,true,CONFIRMED,ABSENT,PARTIALLY_CONFIRMED,"A5–A6 유보·절차 계열"
+family_action_evidence,true,true,CONFIRMED,ABSENT,PARTIALLY_CONFIRMED,"A7–A8 조치·근거 계열"
+status_complete,true,true,CONFIRMED,ABSENT,PARTIALLY_CONFIRMED,"추진완료 · 실선"
+status_active,true,true,CONFIRMED,ABSENT,PARTIALLY_CONFIRMED,"추진중 · 긴 점선"
+status_unresolved,true,true,CONFIRMED,ABSENT,PARTIALLY_CONFIRMED,"미완료·단절 · 짧은 점선"
+projection_warning,true,true,CONFIRMED,CONFIRMED,CONFIRMED,"2차원 거리는 실제 유사도 점수가 아님"
+focus_vs_selected,true,true,ABSENT_FROM_LEGEND,ABSENT,CONTRADICTED,"키보드 포커스 · 바깥 고리 / 선택 · 안쪽 붉은 고리"

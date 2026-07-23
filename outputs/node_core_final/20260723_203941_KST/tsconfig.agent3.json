@@ -1,0 +1,29 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "@testing-library/jest-dom",
+      "node"
+    ]
+  },
+  "include": [
+    "../../../src/shared/config/atlas/atlasEncoding.ts",
+    "../../../src/shared/config/atlas/atlasEncoding.test.ts",
+    "../../../src/shared/lib/atlas/scaleProjection.ts",
+    "../../../src/shared/lib/atlas/scaleProjection.test.ts",
+    "../../../src/shared/lib/atlas/atlasNodeNavigation.ts",
+    "../../../src/shared/lib/atlas/atlasNodeNavigation.test.ts",
+    "../../../src/shared/lib/atlas/atlasNodeHitTesting.ts",
+    "../../../src/shared/lib/atlas/atlasNodeHitTesting.test.ts",
+    "../../../src/shared/lib/atlas/atlasNodeParity.ts",
+    "../../../src/shared/lib/atlas/atlasNodeParity.test.ts",
+    "../../../src/widgets/atlas-explorer/AtlasNodeGlyph.tsx",
+    "../../../src/widgets/atlas-explorer/AtlasScene.tsx",
+    "../../../src/widgets/atlas-explorer/AtlasDomMirror.tsx",
+    "../../../src/widgets/atlas-explorer/AtlasExplorer.tsx",
+    "../../../src/widgets/atlas-explorer/AtlasExplorer.test.tsx",
+    "../../../tests/e2e/atlas-contract-shell.spec.ts"
+  ]
+}

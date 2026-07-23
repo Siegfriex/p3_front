@@ -12,9 +12,13 @@ export function EvidenceRouteOverlay({ kind }: EvidenceRouteOverlayProps) {
   const navigate = useNavigate();
   const params = useParams();
   const itemId = kind === 'evidence' ? params.evidenceId : params.caseId;
-  const isValid = kind === 'evidence'
-    ? MOCK_EVIDENCES.some((item) => item.id === itemId)
-    : EDITORIAL_CASES.some((item) => item.id === itemId);
+  const fixtureMode = import.meta.env.DEV
+    && import.meta.env.VITE_ATLAS_FIXTURE_PROVENANCE === 'CONTRACT_FIXTURE';
+  const isValid = fixtureMode
+    ? kind === 'evidence'
+      ? MOCK_EVIDENCES.some((item) => item.id === itemId)
+      : EDITORIAL_CASES.some((item) => item.id === itemId)
+    : Boolean(itemId);
   const close = () => navigate(-1);
 
   if (!itemId || !isValid) {

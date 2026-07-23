@@ -1,0 +1,5 @@
+viewport,body_overflow,controls_height_px,chart_width_px,chart_height_px,chart_scroll_client_px,chart_scroll_width_px,inspector_mode,judgment,key_risk
+375,false,288.2,328,711,328,720,in_flow_sheet,PARTIALLY_CONFIRMED,"Map requires horizontal exploration and begins far below route title"
+768,false,286.2,705,665.8,705,720,in_flow_stack,CONFIRMED,"Control rail remains tall; chart nearly fits without horizontal scroll"
+1440,false,134.2,870,759.1,870,870,sticky_right,CONFIRMED,"First viewport prioritizes header and controls before most of map"
+1920,false,134.2,1158,951.7,1158,1158,sticky_right,CONFIRMED,"Map grows very tall; inspector width is generous but vertical density remains high"

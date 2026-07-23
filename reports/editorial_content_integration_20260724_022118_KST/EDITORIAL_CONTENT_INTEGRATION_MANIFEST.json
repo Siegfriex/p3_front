@@ -1,0 +1,187 @@
+{
+  "run_id": "20260724_022118_KST",
+  "report_dir": "reports/editorial_content_integration_20260724_022118_KST",
+  "generated_at_utc": "2026-07-23T18:07:42Z",
+  "git_branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "git_head_at_run_start": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "chapters_in_scope": ["prologue", "scale", "record", "gap", "cases", "remains"],
+  "chapters_out_of_scope": ["answers", "method"],
+  "gates": {
+    "PDF_EDITORIAL_EXTRACTION_PASS": {
+      "status": "PASS",
+      "evidence": [
+        "PDF_EDITORIAL_BLOCKS_prologue.json/csv (page1)",
+        "PDF_EDITORIAL_BLOCKS_scale.json/csv (page2)",
+        "PDF_EDITORIAL_BLOCKS_record.json/csv (page3)",
+        "PDF_EDITORIAL_BLOCKS_gap.json/csv (page4)",
+        "PDF_EDITORIAL_BLOCKS_cases.json/csv (page6)",
+        "PDF_EDITORIAL_BLOCKS_remains.json/csv (page7)",
+        "pdf_renders/ (60+ crop/embed PNGs/JPEGs across all 6 pages)"
+      ],
+      "reason": "All 6 available PDF pages (page1,2,3,4,6,7) were rendered and decomposed into labeled editorial blocks. page5.pdf was never provided as input, so no extraction was possible or expected for it (see PAGE_COMPONENT_MAPPING_PASS)."
+    },
+    "PAGE_COMPONENT_MAPPING_PASS": {
+      "status": "PASS_WITH_EXCLUSION",
+      "excluded": ["answers (page5)"],
+      "evidence": [
+        "FRONTEND_COMPONENT_MAP.csv",
+        "START_SNAPSHOT.json.page_component_contradiction",
+        "UNRESOLVED_EDITORIAL_BLOCKS.csv (editorial_block_id=page5-entire, implementation_action=UNRESOLVED)"
+      ],
+      "reason": "6 of 7 story-page chapters (prologue/scale/record/gap/cases/remains) are fully mapped page-to-component. The 7th, answers -> ChapterAnswersAtlas.tsx, cannot be mapped because goal/page5.pdf does not exist in the provided PDF set. Per explicit user confirmation on 2026-07-24, this run proceeds without page5 and leaves ChapterAnswersAtlas.tsx / the /atlas route completely untouched (PRESERVE_EXISTING), intentionally out of scope rather than a mapping failure to be silently ignored."
+    },
+    "EDITORIAL_MAPPING_PASS": {
+      "status": "PASS",
+      "evidence": ["COPY_REPLACEMENT_MAP.csv (109 field-level mapping rows)", "COPY_INTEGRITY_QA.csv (26/26 checks pass=true)"],
+      "reason": "Every PDF block was explicitly resolved to REPLACE / PRESERVE / NOT_IN_PDF against a specific storyData.ts field or JSX slot, with no invented numbers, dates, names, or arbitrary summarization (verified by COPY_INTEGRITY_QA.csv, all pass=true)."
+    },
+    "COPY_REPLACEMENT_PASS": {
+      "status": "FAIL",
+      "evidence": [
+        "PAGE_02_VISUAL_QA.csv row 8 (scale, jsx_hardcoded_mock_label_residual, pass=false)",
+        "PAGE_01_VISUAL_QA.csv row 5 (prologue, mock_placeholder_residual, pass=FAIL)"
+      ],
+      "reason": "storyData.ts itself is clean (MOCK_COPY_RESIDUAL_AUDIT.csv confirms all applicable [MOCK] markers resolved to [UNVERIFIED]/false), but two component-level copy residuals still render to real users: (1) ChapterScale.tsx line 216 has an unconditional '[MOCK Data Reference]' span independent of the now-false metric.mock flags; (2) ChapterPrologue.tsx's hero image placeholder caption text is still visible pending a real asset. Both are outside storyData.ts and were not addressed in this pass."
+    },
+    "IMAGE_ASSET_PASS": {
+      "status": "FAIL",
+      "evidence": [
+        "MISSING_ASSET_REQUEST.csv (prologue-mcst-emblem-logo)",
+        "PAGE_01_VISUAL_QA.csv row 5 (mock_placeholder_residual)",
+        "EXISTING_IMAGE_INVENTORY.csv (prologue hero slot state=pending, all other chapters MISSING/no slot)"
+      ],
+      "reason": "No production-ready image asset exists for either of the two image needs identified in prologue: the hero portrait slot (EditorialImageField) remains src-less and renders a placeholder caption to real users, and the MCST emblem logo indicated by PDF block b3 has no sourced replacement (only a low-res, upscaled, JPEG-compressed embed was extracted, logged rather than inserted). No image was fabricated to fill either gap, which is the correct conservative behavior, but the gate itself does not pass because a production-ready asset is not yet in place."
+    },
+    "TYPOGRAPHY_HIERARCHY_PASS": {
+      "status": "PASS",
+      "evidence": ["TYPOGRAPHY_TOKEN_AUDIT.csv", "chapter_reports/*.json typographyNotes"],
+      "reason": "H1/H2/B1/B2/B3 token mapping is documented and consistently referenced. Every chapter report explicitly reviewed its heading/lead/caption classes against the H/B hierarchy and found no gross mismatch (0 typographyAdjustments across all 6 chapters, each with a documented justification for leaving classes as-is); no FAIL/false rows exist in any QA CSV under a typography-labeled check."
+    },
+    "RESPONSIVE_CONTENT_PASS": {
+      "status": "FAIL",
+      "evidence": [
+        "RESPONSIVE_CONTENT_QA.csv row 4 (scale, fixed_footer_overlap_content, pass=false)",
+        "RESPONSIVE_CONTENT_QA.csv row 9 (gap, mobile_sankey_horizontal_overflow, pass=false)"
+      ],
+      "reason": "4 of 6 chapters pass all responsive checks cleanly (remains, record, cases, and scale's own text-wrap check). Two real defects remain: the app-shell fixed FooterRail overlaps the scale chapter's second metric card at 375x812, and the gap chapter's Sankey diagram (min-w-[880px], hide-scrollbar) only shows stage 1 of 3 on a 375px viewport with no visible affordance that more content exists off-screen."
+    },
+    "ACCESSIBILITY_PASS": {
+      "status": "FAIL",
+      "evidence": ["ACCESSIBILITY_QA.csv row 12 (gap, sankey_hidden_scrollbar_affordance, pass=false)"],
+      "reason": "11 of 12 accessibility checks pass (no duplicate h1 in any of the 6 chapter sections, all icon-only controls labeled, no missing alt text -- either no <img> elements exist or EditorialImageField has a sensible default alt). One failure: SankeyFlowDiagram's overflow-x-auto container hides its scrollbar via a 'hide-scrollbar' class, so keyboard-only/low-vision users relying on tabIndex=0 focus have no visual cue that horizontal scroll content exists."
+    },
+    "VISUAL_REGRESSION_PASS": {
+      "status": "FAIL",
+      "evidence": [
+        "PAGE_01_VISUAL_QA.csv (prologue mock_placeholder_residual = FAIL)",
+        "PAGE_02_VISUAL_QA.csv (scale jsx_hardcoded_mock_label_residual, fixed_footer_overlay_obscures_content = false)",
+        "PAGE_04_VISUAL_QA.csv (gap sankey_data_consistency, mobile_sankey_scroll_affordance = false)",
+        "screenshots/before/ (4 files) and screenshots/after/ (12 files) captured, see VISUAL_REGRESSION_INDEX.md"
+      ],
+      "reason": "Before/after screenshots were captured for all 6 in-scope chapters at desktop+mobile viewports (VISUAL_REGRESSION_INDEX.md). Screenshot-driven QA across the 6 PAGE_0X_VISUAL_QA.csv files surfaces 5 real visual defects visible in the 'after' captures: prologue's residual placeholder caption, scale's residual mock-data span and footer overlap, and gap's Sankey figures not reconciling with the new headline statistics plus its mobile overflow-affordance gap. These are genuine visual regressions/carry-overs, not merely responsive or accessibility framing of the same issue -- they change what a real user visually sees on the page."
+    },
+    "PRODUCTION_BUILD_PASS": {
+      "status": "PASS",
+      "evidence": ["BUILD_TEST_RESULTS.json: {\"success\": true, \"command\": \"npm run build\", \"errors\": []}"],
+      "reason": "Reflects BUILD_TEST_RESULTS.json success value as-is, per task instruction.",
+      "caveat": "IMPORTANT: BUILD_TEST_RESULTS.json (mtime 2026-07-24 02:58 KST) was captured against a state of src/pages/story/StoryPage.tsx where the DEV-only gate had been removed (chapters render unconditionally, matching FRONTEND_FILE_CHANGE_MAP.csv's GATE_REMOVED entry and git HEAD 20835ec). During this report's compilation, the working-tree copy of that same file (mtime 2026-07-24 03:04 KST, i.e. modified AFTER the build check) was found to have a different conditional gate re-introduced (`fixtureChaptersEnabled = import.meta.env.DEV && VITE_ATLAS_FIXTURE_PROVENANCE === 'CONTRACT_FIXTURE'`), which would again render StoryChapterUnavailable for scale/record/gap/cases in a production build. This is very likely caused by another concurrent agent/session editing the same working tree (git status --porcelain below touches dozens of unrelated Atlas/evidence files never referenced by this workflow). This PASS reflects the recorded build artifact only; it should be re-validated against the current working tree before being relied on as proof the integrated copy is live in production. See EDITORIAL_IMPLEMENTATION_PLAN.md section 5 for full detail."
+    }
+  },
+  "final_gate": {
+    "name": "EDITORIAL_CONTENT_INTEGRATION_PASS",
+    "value": false,
+    "rule": "true only if every gate above is PASS or PASS_WITH_EXCLUSION; false if any gate is FAIL",
+    "failed_gates": [
+      "COPY_REPLACEMENT_PASS",
+      "IMAGE_ASSET_PASS",
+      "RESPONSIVE_CONTENT_PASS",
+      "ACCESSIBILITY_PASS",
+      "VISUAL_REGRESSION_PASS"
+    ]
+  },
+  "git_status_porcelain": [
+    " M .env.example",
+    " M .gitignore",
+    " M package.json",
+    " M src/app/router/AppRouter.test.tsx",
+    " M src/app/router/AppRouter.tsx",
+    " M src/app/router/DetailPage.tsx",
+    " M src/app/router/EvidenceRouteOverlay.tsx",
+    " M src/app/styles/layout.css",
+    " M src/app/styles/reset.css",
+    " M src/app/styles/tokens.css",
+    " M src/app/styles/typography.css",
+    " M src/pages/about/AboutPage.tsx",
+    " M src/pages/atlas/AtlasPage.test.tsx",
+    " M src/pages/atlas/AtlasPage.tsx",
+    " M src/pages/atlas/AtlasRouteError.tsx",
+    " M src/pages/data/DataPage.tsx",
+    " M src/pages/method/MethodPage.tsx",
+    " M src/pages/story/StoryPage.tsx",
+    " M src/shared/api/atlas/atlasTransportSchema.test.ts",
+    " M src/shared/api/atlas/atlasTransportSchema.ts",
+    " M src/shared/api/atlas/evidenceRepository.ts",
+    " M src/shared/api/atlas/loadAtlasBundle.ts",
+    " M src/shared/api/atlas/loadAtlasManifest.test.ts",
+    " M src/shared/api/atlas/loadAtlasManifest.ts",
+    " M src/shared/config/atlas/atlasEncoding.test.ts",
+    " M src/shared/config/atlas/atlasEncoding.ts",
+    " M src/shared/config/atlas/atlasWarnings.ts",
+    " M src/shared/config/chapterNavigation.ts",
+    " M src/shared/lib/atlas/atlasNodeHitTesting.ts",
+    " M src/shared/lib/atlas/atlasNodeNavigation.test.ts",
+    " M src/shared/lib/atlas/atlasNodeNavigation.ts",
+    " M src/shared/lib/atlas/scaleProjection.test.ts",
+    " M src/shared/lib/atlas/toAtlasViewModel.ts",
+    " M src/shared/mock/storyData.ts",
+    " M src/shared/types/atlas.ts",
+    " M src/shared/ui/ChapterFrame.tsx",
+    " M src/shared/ui/atlas/AtlasDataStates.tsx",
+    " M src/shared/ui/evidence/EvidencePresentation.tsx",
+    " M src/shared/ui/evidence/index.ts",
+    " M src/widgets/app-shell/FooterRail.tsx",
+    " M src/widgets/app-shell/HeaderNav.tsx",
+    " M src/widgets/app-shell/ProgressTracker.tsx",
+    " M src/widgets/atlas-explorer/AtlasExplorer.test.tsx",
+    " M src/widgets/atlas-explorer/AtlasExplorer.tsx",
+    " M src/widgets/atlas-explorer/AtlasNodeGlyph.tsx",
+    " M src/widgets/atlas-explorer/AtlasScene.tsx",
+    " M src/widgets/atlas-scene/ChapterAnswersAtlas.tsx",
+    " M src/widgets/evidence-drawer/EvidenceDrawer.tsx",
+    " M src/widgets/gap-scene/ChapterGap.tsx",
+    " M src/widgets/prologue-scene/ChapterPrologue.tsx",
+    " M src/widgets/remains-scene/ChapterRemains.tsx",
+    " M src/widgets/scale-scene/ChapterScale.tsx",
+    " M tests/e2e/atlas-contract-shell.spec.ts",
+    " M tests/e2e/atlas-experience-design.spec.ts",
+    " M tsconfig.json",
+    "?? design/Untitled.pdf",
+    "?? docs/VERCEL_GITHUB_DEPLOYMENT.md",
+    "?? goal/",
+    "?? outputs/agent4_final_handoff/",
+    "?? outputs/agent4_presentation_recovery/",
+    "?? outputs/methodology_portfolio_20260724/",
+    "?? outputs/node_core_final/",
+    "?? playwright.preview.config.ts",
+    "?? public/data/",
+    "?? public/methodology/",
+    "?? reports/",
+    "?? src/app/router/DetailPage.test.tsx",
+    "?? src/pages/method/method-page.css",
+    "?? src/shared/api/atlas/atlasReleaseResource.test.ts",
+    "?? src/shared/api/atlas/atlasReleaseResource.ts",
+    "?? src/shared/api/atlas/evidenceRepository.test.ts",
+    "?? src/shared/api/atlas/useAtlasRelease.ts",
+    "?? src/shared/api/atlas/useEvidenceDetail.test.tsx",
+    "?? src/shared/api/atlas/useEvidenceDetail.ts",
+    "?? src/shared/ui/story/",
+    "?? src/widgets/atlas-scene/ChapterAnswersAtlas.test.tsx",
+    "?? tests/e2e/agent4-presentation-wcag.spec.ts",
+    "?? tests/e2e/evidence-detail.spec.ts",
+    "?? tests/e2e/methodology-report.spec.ts",
+    "?? tests/e2e/story-explorer-parity.spec.ts",
+    "?? tests/e2e/vercel-preview.spec.ts",
+    "?? vercel.json"
+  ],
+  "note_on_git_status": "This working tree shows far more modified/untracked files than this editorial-content-integration run touched (e.g. src/shared/api/atlas/*, src/widgets/atlas-explorer/*, AppRouter.tsx are unrelated to storyData/chapter-copy work). This indicates concurrent, parallel agent activity in the same working directory rather than uncommitted scope creep by this run; only the files listed in FRONTEND_FILE_CHANGE_MAP.csv and referenced in EDITORIAL_IMPLEMENTATION_PLAN.md were edited by this workflow."
+}

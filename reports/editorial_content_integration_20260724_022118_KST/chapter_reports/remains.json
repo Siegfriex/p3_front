@@ -1,0 +1,30 @@
+{
+  "chapterId": "remains",
+  "jsxTextReplacements": 0,
+  "typographyAdjustments": 0,
+  "imageAction": "skipped_no_image_slots",
+  "unresolved": [
+    {
+      "issue": "no_matching_jsx_text_changed",
+      "detail": "All hardcoded Korean JSX text in ChapterRemains.tsx (badge label, h2 headline, line-symbol legend labels, lead paragraph, CTA labels, source footer) already matches the corresponding PDF_EDITORIAL_BLOCKS_remains.json text 1:1 (remains_eyebrow, remains_headline, remains_legend_lines, remains_lead, remains_cta_method, remains_cta_data, remains_cta_cite, remains_source). No replacement was made."
+    },
+    {
+      "issue": "minor_punctuation_diff_left_as_is",
+      "detail": "Footer source text uses en-dash '2018–2023' in JSX vs hyphen '2018-2023' in remains_source PDF block text. Treated as an extraction-formatting artifact, not a content difference; left unchanged per conservative guidance."
+    },
+    {
+      "issue": "citation_text_not_covered_by_chapter_blocks",
+      "detail": "The handleCopyCitation clipboard string ('문체위 국정감사 6년: 요구–답변–처리결과 사이의 간극을 추적하는 Editorial Scrollytelling (2018–2023)') is a JS string constant (not a rendered JSX text node) with no corresponding block in PDF_EDITORIAL_BLOCKS_remains.json (closest candidate remains_source has different, chapter-scoped wording). Left unchanged per rule: no matching block -> leave as is."
+    },
+    {
+      "issue": "pdf_blocks_without_jsx_counterpart",
+      "detail": "PDF_EDITORIAL_BLOCKS_remains.json contains several substantive blocks with no corresponding element in the current ChapterRemains.tsx component (remains_label_section, remains_body_summary, remains_card2_subhead, remains_card2_caption, remains_metric_total, remains_metric_2024, remains_label_answer_types, remains_label_progression, remains_callout_card2, remains_footer_stats). These describe metric-card / callout content (e.g. 47% 이행 미완료 통계, 1,408건 회피성 답변, 연도별 추이, 42/18/40% 분류) that is not implemented in this component at all. Out of scope for a text-swap/typography pass since it would require adding new JSX structure; flagged for a follow-up content/layout task rather than modified here."
+    }
+  ],
+  "typographyNotes": [
+    "h2 headline (type-display-l) already exceeds H1 sizing and is the chapter's sole visual headline (single <h2>, no duplicate h1/h2 siblings) - left unchanged.",
+    "Lead paragraph uses type-body-l for a MEDIUM-hierarchy LEAD block, consistent with B1 mapping - left unchanged.",
+    "CTA button labels use font-mono text-xs (component-specific button styling) rather than typography.css classes; hierarchy_level SMALL does not warrant forcing these into type-caption since they are interactive button labels, not paragraph/caption text - left unchanged per conservative guidance.",
+    "Source footer already uses type-caption, consistent with its VERY_SMALL/SMALL hierarchy - left unchanged."
+  ]
+}

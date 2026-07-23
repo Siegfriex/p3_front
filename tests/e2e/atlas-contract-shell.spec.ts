@@ -12,7 +12,7 @@ async function capture(page: Page, fileName: string) {
   if (SCREENSHOT_DIR) await page.screenshot({ path: `${SCREENSHOT_DIR}/${fileName}`, fullPage: true });
 }
 
-function collectRuntimeFailures(page: Page) {
+function collectRuntimeFailures(page: Page, options: { ignoreDeliberateHttp404?: boolean } = {}) {
   const consoleErrors: string[] = [];
   const pageErrors: string[] = [];
   const failedRequests: string[] = [];
@@ -22,10 +22,18 @@ function collectRuntimeFailures(page: Page) {
     const errorText = request.failure()?.errorText ?? 'unknown';
     const expectedNavigationAbort = errorText.includes('ERR_ABORTED')
       && request.url().includes('/data/releases/contract-release-001/frontend-manifest.json');
-    if (!expectedNavigationAbort) failedRequests.push(`${request.method()} ${request.url()} ${errorText}`);
+    const expectedPointerAbort = options.ignoreDeliberateHttp404
+      && errorText.includes('ERR_ABORTED')
+      && request.url().includes('/data/current-release.json');
+    if (!expectedNavigationAbort && !expectedPointerAbort) {
+      failedRequests.push(`${request.method()} ${request.url()} ${errorText}`);
+    }
   });
   return () => {
-    expect(consoleErrors).toEqual([]);
+    const unexpectedConsoleErrors = options.ignoreDeliberateHttp404
+      ? consoleErrors.filter((message) => !message.includes('404 (Not Found)'))
+      : consoleErrors;
+    expect(unexpectedConsoleErrors).toEqual([]);
     expect(pageErrors).toEqual([]);
     expect(failedRequests).toEqual([]);
   };
@@ -90,7 +98,21 @@ const nodes = [
 ];
 
 const dataPayloads: Record<string, unknown> = {
-  'atlas-summary.json': { node_count: 2 },
+  'atlas-summary.json': {
+    release_id: 'contract-release-001',
+    projection_id: 'contract-projection-001',
+    projection_hash: HASH,
+    analysis_entity_count: 5,
+    atlas_node_count: 2,
+    behavior_child_count: 5,
+    primary_behavior_distribution: { A1: 2, A2: 0, A3: 0, A4: 0, A5: 0, A6: 0, A7: 3, A8: 0 },
+    projection_point_count: 5,
+    public_evidence_count: 1,
+    status_distribution: { complete: 2, active: 3, unresolved: 0 },
+    topic_bin_count: 2,
+    warnings: ['계약 fixture 투영 경고'],
+    story_preview_node_ids: ['contract-node-001', 'contract-node-002'],
+  },
   'atlas-nodes-all.json': nodes,
   'atlas-topic-bins.json': [
     { topic_bin_id: 'contract-topic-001', projection_id: 'contract-projection-001', dominant_topic_label: '계약 주제 하나', center_x: 0.2, center_y: 0.3, member_count: 2, representative_target_issue_id: null },
@@ -121,7 +143,8 @@ async function routeFixture(route: Route) {
 
 test('production-style no-approved-manifest route fails closed without legacy requests', async ({ page }) => {
   test.skip(FIXTURE_ENABLED, 'no-manifest behavior runs against the production preview without fixture env');
-  const assertClean = collectRuntimeFailures(page);
+  await page.route('**/data/current-release.json', (route) => route.fulfill({ status: 404, body: '' }));
+  const assertClean = collectRuntimeFailures(page, { ignoreDeliberateHttp404: true });
   const requested: string[] = [];
   page.on('request', (request) => requested.push(request.url()));
   await page.goto('/atlas?status=active&types=A7,A1&view=nodes');
@@ -144,6 +167,7 @@ test('production-style no-approved-manifest route fails closed without legacy re
 
 test('invalid Atlas query is explicit and never rewritten by a passive observer', async ({ page }) => {
   test.skip(FIXTURE_ENABLED, 'no-manifest behavior runs against the production preview without fixture env');
+  await page.route('**/data/current-release.json', (route) => route.fulfill({ status: 404, body: '' }));
   await page.goto('/atlas?status=pending&types=A9&node=%3CNA%3E&view=raw');
   await expect(page.getByTestId('atlas-data-unavailable')).toBeVisible();
   await expect(page.getByText(/URL parameter 5개는 안전한 기본값/)).toBeVisible();
@@ -224,6 +248,10 @@ test.describe('CONTRACT_FIXTURE route and query shell', () => {
     await page.goto('/atlas?status=active&types=A7&view=nodes');
     await page.getByRole('button', { name: '필터 초기화' }).first().click();
     await expect(page).toHaveURL('/atlas');
+
+    await page.goto('/atlas?status=active&types=A7&node=contract-node-001&view=nodes');
+    await expect(page).not.toHaveURL(/node=/);
+    await expect(page.locator('#atlas-selection-inspector')).toContainText('선택된 기록이 없습니다');
   });
 
   test('keeps node coordinates and radius invariant across pointer, touch, focus, selection, and filtering', async ({ page }) => {
@@ -238,6 +266,8 @@ test.describe('CONTRACT_FIXTURE route and query shell', () => {
     await expect(firstVisual).toHaveAttribute('data-source-radius', '18');
     await expect(firstVisual).toHaveAttribute('data-rendered-radius', '18');
     await expect(firstVisual.locator('[data-atlas-hit-target="true"]')).toHaveAttribute('r', '22');
+    await expect(firstVisual.locator('.atlas-node-glyph')).toHaveAttribute('pointer-events', 'none');
+    await expect(firstVisual).toHaveAttribute('data-node-filter-state', 'matched');
     await expect(firstVisual.locator('.atlas-node-glyph')).toHaveAttribute('data-answer-mark', 'empty');
     await expect(secondVisual.locator('.atlas-node-glyph')).toHaveAttribute('data-answer-mark', 'plus');
 

@@ -1,0 +1,80 @@
+{
+  "status": "AGENT_4_PRESENTATION_HANDOFF_READY",
+  "branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "HEAD": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "upstream": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "agent_3_handoff_sha_match": true,
+  "agent_3_owner_files_modified_count": 0,
+  "agent_4_exact_modified_new_files": [
+    "src/app/router/DetailPage.tsx",
+    "src/app/router/EvidenceRouteOverlay.tsx",
+    "src/pages/about/AboutPage.tsx",
+    "src/pages/atlas/AtlasPage.test.tsx",
+    "src/pages/atlas/AtlasRouteError.tsx",
+    "src/pages/data/DataPage.tsx",
+    "src/pages/method/MethodPage.tsx",
+    "src/pages/story/StoryPage.tsx",
+    "src/shared/config/atlas/atlasWarnings.ts",
+    "src/shared/config/chapterNavigation.ts",
+    "src/shared/ui/atlas/AtlasDataStates.tsx",
+    "src/shared/ui/evidence/EvidencePresentation.tsx",
+    "src/shared/ui/story/StoryChapterUnavailable.tsx",
+    "src/widgets/app-shell/FooterRail.tsx",
+    "src/widgets/app-shell/HeaderNav.tsx",
+    "src/widgets/app-shell/ProgressTracker.tsx",
+    "src/widgets/atlas-scene/ChapterAnswersAtlas.tsx",
+    "src/widgets/evidence-drawer/EvidenceDrawer.tsx",
+    "src/widgets/prologue-scene/ChapterPrologue.tsx",
+    "src/widgets/remains-scene/ChapterRemains.tsx",
+    "tests/e2e/agent4-presentation-wcag.spec.ts",
+    "tests/e2e/atlas-experience-design.spec.ts"
+  ],
+  "initial_freeze": {
+    "snapshots": ["2026-07-23T21:13:33+09:00", "2026-07-23T21:13:53+09:00"],
+    "owner_hashes_match": true,
+    "branch_head_upstream_match": true
+  },
+  "final_freeze": {
+    "snapshots": ["2026-07-23T21:38:52+09:00", "2026-07-23T21:39:24+09:00"],
+    "owner_hashes_match": true,
+    "git_status_digest": "c523b2bd9f5b563e0ad17d63431984d91ab581e69e392170ef384064e92f8635",
+    "git_name_status_digest": "f3f45e7fdc364c3c9084342dee888f78775bac9b8697a2fbd5fa9553911eaff9",
+    "git_numstat_digest": "99fb67278b25aeeb7e267b970cd4566e90dbed137cb04237739218e8820ad82a",
+    "package_lock_sha256": "fb7789623b1fd97398a9c21db57176fa9d7d741c860cac659f3f6dc3d57c8252"
+  },
+  "qa_results": {
+    "typecheck": "PASS",
+    "agent4_scoped_lint": "PASS_ZERO_WARNINGS",
+    "repository_lint": "BLOCKED_BY_FOREIGN_UNTRACKED_TMP_SCRIPTS",
+    "unit": "PASS_15_FILES_46_TESTS",
+    "build": "PASS_2168_MODULES",
+    "production_e2e": "PASS_14_SKIPPED_6",
+    "development_agent4_e2e": "PASS_3_SKIPPED_2",
+    "responsive_viewports": ["320x800", "375x812", "768x1024", "1440x900", "1920x1080"],
+    "axe_critical_serious": 0,
+    "page_horizontal_overflow": 0,
+    "production_mock_fixture_rendered": 0
+  },
+  "visual_wcag_decisions": [
+    "REDLINE PUBLIC RECORD retained",
+    "mobile Story navigation has a visible icon",
+    "J/K chapter navigation added without intercepting editable or interactive controls",
+    "production Story data chapters fail closed independently",
+    "production Case, Evidence and Data routes do not render development records",
+    "copy status reports clipboard failure instead of false success"
+  ],
+  "remaining_blockers": [
+    "FRONTEND_HANDOFF.json absent",
+    "FRONTEND_RELEASE_INVENTORY.csv absent",
+    "VITE_ATLAS_RELEASE_ID unset",
+    "approved Story preview node IDs absent from the connected app contract",
+    "approved Evidence excerpts not connected",
+    "foreign untracked .tmp_*check.mjs files break repository-wide npm run lint"
+  ],
+  "independent_qa_requirements": [
+    "Disposition foreign root temporary scripts and rerun npm run lint",
+    "Verify data handoff flags before configuring a release ID",
+    "Run keyboard-only and assistive-technology manual sessions",
+    "Repeat real-data density, projection padding and Evidence provenance QA after connection"
+  ]
+}

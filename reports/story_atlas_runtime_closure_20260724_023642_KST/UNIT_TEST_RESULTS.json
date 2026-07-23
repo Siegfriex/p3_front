@@ -1,0 +1,26 @@
+{
+  "command": "npm run test",
+  "exit_code": 0,
+  "test_files_passed": 20,
+  "tests_passed": 56,
+  "tests_failed": 0,
+  "duration_seconds": 2.48,
+  "final_run_started_at": "2026-07-24T03:23:08+09:00",
+  "typecheck": {
+    "command": "npm run typecheck",
+    "exit_code": 0,
+    "duration_seconds": 4
+  },
+  "lint": {
+    "command": "npm run lint",
+    "exit_code": 0,
+    "warnings": 0,
+    "duration_seconds": 4
+  },
+  "build": {
+    "command": "npm run build",
+    "exit_code": 0,
+    "modules_transformed": 2174,
+    "duration_seconds": 9
+  }
+}

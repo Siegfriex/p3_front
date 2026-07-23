@@ -1,0 +1,12 @@
+scenario,expected,result
+horizontal,half-plane and angular priority,PASS
+vertical,half-plane and angular priority,PASS
+diagonal,smaller angular deviation wins before distance,PASS
+exact tie,canonical node ID wins,PASS
+no candidate,current node retained,PASS
+filtered reduction,recompute only from remaining candidates,PASS
+viewport resize,proportional resize preserves direction result,PASS
+Home,canonical minimum node ID,PASS
+End,canonical maximum node ID,PASS
+Enter Space,selection through native button,PASS
+Escape,selection cleared,PASS

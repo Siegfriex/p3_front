@@ -1,9 +1,11 @@
 import { Link, useParams } from 'react-router';
+import { useEvidenceDetail } from '@/shared/api/atlas/useEvidenceDetail';
 import type { DetailKind } from '@/shared/types/routing';
 import { EDITORIAL_CASES, MOCK_EVIDENCES } from '@/shared/mock/storyData';
 import { PageFrame } from '@/shared/ui/PageFrame';
 import {
   EvidenceChain,
+  EvidenceApprovedRecord,
   EvidenceFixtureNotice,
   EvidenceHeader,
   EvidenceProvenanceRail,
@@ -11,6 +13,7 @@ import {
   EvidenceUnavailableState,
   EvidenceVerificationPanel,
 } from '@/shared/ui/evidence';
+import { AtlasDataUnavailable } from '@/shared/ui/atlas';
 
 interface DetailPageProps {
   kind: DetailKind;
@@ -19,20 +22,59 @@ interface DetailPageProps {
 export function DetailPage({ kind }: DetailPageProps) {
   const { evidenceId, caseId } = useParams();
   const itemId = kind === 'evidence' ? evidenceId : caseId;
-  const developmentPreview = import.meta.env.DEV;
-  const evidence = kind === 'evidence' && developmentPreview
+  const fixtureMode = import.meta.env.DEV
+    && import.meta.env.VITE_ATLAS_FIXTURE_PROVENANCE === 'CONTRACT_FIXTURE';
+  const approvedEvidence = useEvidenceDetail(kind === 'evidence' && !fixtureMode ? itemId ?? null : null);
+  const evidence = kind === 'evidence' && fixtureMode
     ? MOCK_EVIDENCES.find((item) => item.id === itemId)
     : undefined;
-  const editorialCase = kind === 'case' ? EDITORIAL_CASES.find((item) => item.id === itemId) : undefined;
+  const editorialCase = kind === 'case' && fixtureMode
+    ? EDITORIAL_CASES.find((item) => item.id === itemId)
+    : undefined;
 
-  if (kind === 'evidence' && itemId && !developmentPreview) {
+  if (kind === 'evidence' && itemId && !fixtureMode) {
     return (
       <main id="main-content" className="py-12 md:py-16" data-testid="evidence-direct-page" tabIndex={-1}>
         <PageFrame>
           <Link className="atlas-action-secondary" to="/#answers">← Story Answers로 돌아가기</Link>
           <div className="mt-8">
-            <EvidenceUnavailableState
-              evidenceId={itemId}
+            {approvedEvidence.status === 'loading' ? (
+              <section aria-busy="true" data-testid="evidence-detail-loading" className="border-y border-[var(--line-medium)] py-10">
+                <p className="redline-meta">EVIDENCE DETAIL / LOADING</p>
+                <h1 className="mt-3 font-serif text-3xl font-bold">승인된 증거 상세를 불러오고 있습니다</h1>
+              </section>
+            ) : null}
+            {approvedEvidence.status === 'ready' ? <EvidenceApprovedRecord detail={approvedEvidence.detail} headingLevel="h1" /> : null}
+            {approvedEvidence.status === 'unavailable' || approvedEvidence.status === 'error' ? (
+              <EvidenceUnavailableState
+                evidenceId={itemId}
+                headingLevel="h1"
+                description={approvedEvidence.status === 'error' ? approvedEvidence.error.message : `승인된 release에서 이 기록을 사용할 수 없습니다. ${approvedEvidence.reason}`}
+                actions={(
+                  <>
+                    {approvedEvidence.status === 'error' ? <button className="atlas-action-primary" type="button" onClick={approvedEvidence.retry}>다시 시도</button> : null}
+                    <Link className="atlas-action-secondary" to="/atlas">답변행태 지도로 이동</Link>
+                  </>
+                )}
+              />
+            ) : null}
+          </div>
+        </PageFrame>
+      </main>
+    );
+  }
+
+  if (kind === 'case' && itemId && !fixtureMode) {
+    return (
+      <main id="main-content" className="py-12 md:py-16" data-testid="case-direct-page" tabIndex={-1}>
+        <PageFrame>
+          <Link className="atlas-action-secondary" to="/#cases">← Story Cases로 돌아가기</Link>
+          <div className="mt-8">
+            <AtlasDataUnavailable
+              title="공개 승인된 대표 사례가 아직 없습니다"
+              description="원문, 공개 범위, provenance가 검증된 사례만 제공합니다. 개발용 사례를 대신 표시하지 않습니다."
+              reason={`APPROVED_CASE_ABSENT:${itemId}`}
+              testId="case-data-unavailable"
               headingLevel="h1"
               actions={(
                 <>

@@ -1,0 +1,360 @@
+ M .env.example
+ M .gitignore
+ M package.json
+ M src/app/router/DetailPage.tsx
+ M src/app/router/EvidenceRouteOverlay.tsx
+ M src/app/styles/layout.css
+ M src/app/styles/reset.css
+ M src/app/styles/tokens.css
+ M src/app/styles/typography.css
+ M src/pages/about/AboutPage.tsx
+ M src/pages/atlas/AtlasPage.test.tsx
+ M src/pages/atlas/AtlasPage.tsx
+ M src/pages/atlas/AtlasRouteError.tsx
+ M src/pages/data/DataPage.tsx
+ M src/pages/method/MethodPage.tsx
+ M src/pages/story/StoryPage.tsx
+ M src/shared/config/atlas/atlasEncoding.test.ts
+ M src/shared/config/atlas/atlasEncoding.ts
+ M src/shared/config/atlas/atlasWarnings.ts
+ M src/shared/config/chapterNavigation.ts
+ M src/shared/lib/atlas/atlasNodeHitTesting.ts
+ M src/shared/lib/atlas/atlasNodeNavigation.test.ts
+ M src/shared/lib/atlas/atlasNodeNavigation.ts
+ M src/shared/lib/atlas/scaleProjection.test.ts
+ M src/shared/ui/ChapterFrame.tsx
+ M src/shared/ui/atlas/AtlasDataStates.tsx
+ M src/shared/ui/evidence/EvidencePresentation.tsx
+ M src/widgets/app-shell/FooterRail.tsx
+ M src/widgets/app-shell/HeaderNav.tsx
+ M src/widgets/app-shell/ProgressTracker.tsx
+ M src/widgets/atlas-explorer/AtlasExplorer.test.tsx
+ M src/widgets/atlas-explorer/AtlasExplorer.tsx
+ M src/widgets/atlas-explorer/AtlasNodeGlyph.tsx
+ M src/widgets/atlas-explorer/AtlasScene.tsx
+ M src/widgets/atlas-scene/ChapterAnswersAtlas.tsx
+ M src/widgets/evidence-drawer/EvidenceDrawer.tsx
+ M src/widgets/prologue-scene/ChapterPrologue.tsx
+ M src/widgets/remains-scene/ChapterRemains.tsx
+ M src/widgets/scale-scene/ChapterScale.tsx
+ M tests/e2e/atlas-contract-shell.spec.ts
+ M tests/e2e/atlas-experience-design.spec.ts
+ M tsconfig.json
+?? design/Untitled.pdf
+?? docs/VERCEL_GITHUB_DEPLOYMENT.md
+?? goal/page1.pdf
+?? goal/page2.pdf
+?? goal/page3.pdf
+?? goal/page4.pdf
+?? goal/page6.pdf
+?? goal/page7.pdf
+?? outputs/agent4_final_handoff/20260723_213128_KST/AGENT_3_HANDOFF_ACCEPTANCE.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/AGENT_3_NODE_CORE_CHANGE_REQUEST.md
+?? outputs/agent4_final_handoff/20260723_213128_KST/AGENT_4_FILE_CHANGE_MAP.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/AGENT_4_FINAL_HANDOFF.json
+?? outputs/agent4_final_handoff/20260723_213128_KST/AGENT_4_FINAL_HANDOFF.md
+?? outputs/agent4_final_handoff/20260723_213128_KST/COMMAND_LOG.txt
+?? outputs/agent4_final_handoff/20260723_213128_KST/DATA_STATE_MATRIX.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/EVIDENCE_EXPERIENCE_QA.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/FORCED_COLORS_QA.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/MOCK_LEGACY_ISOLATION.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/OUTPUT_SHA256_MANIFEST.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/REDUCED_MOTION_QA.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/REFLOW_TEXT_SPACING_QA.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/RESPONSIVE_QA.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/SOURCE_FREEZE_REPORT.md
+?? outputs/agent4_final_handoff/20260723_213128_KST/TARGET_SIZE_AUDIT.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/TEST_RESULT_MATRIX.csv
+?? outputs/agent4_final_handoff/20260723_213128_KST/VERCEL_READINESS_CURRENT_STATE.md
+?? outputs/agent4_final_handoff/20260723_213128_KST/VISUAL_QA_INDEX.md
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/1440/atlas.png
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/1440/story-answers.png
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/1920/atlas.png
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/1920/story-answers.png
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/320/atlas.png
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/320/story-answers.png
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/375/atlas.png
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/375/story-answers.png
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/768/atlas.png
+?? outputs/agent4_final_handoff/20260723_213128_KST/screenshots/768/story-answers.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/AGENT_4_PRESENTATION_HANDOFF.json
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/AGENT_4_PRESENTATION_HANDOFF.md
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/COMMAND_LOG.txt
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/CONTRAST_QA.csv
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/CURRENT_STATE_RUNTIME_AUDIT.json
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/DATA_STATE_QA.csv
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/FINAL_VISUAL_QA_REPORT.md
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/NODE_CORE_PERFORMANCE_BASELINE.json
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/NODE_CORE_PERFORMANCE_FINAL.json
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/OUTPUT_SHA256_MANIFEST.csv
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/PRODUCTION_ISOLATION_QA.csv
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/PRODUCTION_MOCK_EXPOSURE_AUDIT.md
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/RESPONSIVE_QA.csv
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/SCREENSHOT_INDEX.md
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/SOURCE_FREEZE_REPORT.md
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/VISUAL_DESIGN_QA_REPORT.md
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/WCAG_CURRENT_STATE_DIFF.csv
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/current-state.visual.spec.ts
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/playwright.agent4-production-wcag.config.ts
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/playwright.current-state.config.ts
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/playwright.node-core-readonly.config.ts
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/1440/atlas-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/1440/evidence-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/1440/story-answers-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/1920/atlas-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/1920/story-answers-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/320/atlas-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/320/story-answers-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/375/atlas-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/375/evidence-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/375/evidence-drawer-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/375/story-answers-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/768/atlas-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/768/story-answers-current.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/1440/atlas_1440x900_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/1920/atlas_1920x1080_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/320/atlas_320x800_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/375/atlas_375x812_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/768/atlas_768x1024_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/atlas_contract_fixture_1440x1000.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/atlas_contract_fixture_selected_1440x1000.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/forced-colors/atlas_375x812_forced-colors.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/reduced-motion/atlas_375x812_reduced-motion.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/text-spacing/atlas_375x812_text-spacing.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final/zoom-400/atlas_320x800_zoom-400-simulated.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/1440/atlas_1440x900_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/1920/atlas_1920x1080_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/320/atlas_320x800_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/375/atlas_375x812_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/768/atlas_768x1024_approved-default.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/atlas_contract_fixture_1440x1000.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/atlas_contract_fixture_selected_1440x1000.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/forced-colors/atlas_375x812_forced-colors.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/reduced-motion/atlas_375x812_reduced-motion.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/text-spacing/atlas_375x812_text-spacing.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core/zoom-400/atlas_320x800_zoom-400-simulated.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/overrides/atlas-focus-visible.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/overrides/atlas-forced-colors.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/overrides/atlas-reduced-motion.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/overrides/atlas-text-spacing.png
+?? outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/overrides/atlas-zoom-400-equivalent.png
+?? outputs/node_core_final/20260723_203941_KST/AGENT_3_NODE_CORE_HANDOFF.json
+?? outputs/node_core_final/20260723_203941_KST/AGENT_4_PRESENTATION_CHANGE_REQUEST.md
+?? outputs/node_core_final/20260723_203941_KST/COMMAND_LOG.txt
+?? outputs/node_core_final/20260723_203941_KST/FINAL_FREEZE_1.json
+?? outputs/node_core_final/20260723_203941_KST/FINAL_FREEZE_2.json
+?? outputs/node_core_final/20260723_203941_KST/NODE_ACCESSIBILITY_AUDIT.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_CORE_CURRENT_STATE_REPORT.json
+?? outputs/node_core_final/20260723_203941_KST/NODE_CORE_CURRENT_STATE_REPORT.md
+?? outputs/node_core_final/20260723_203941_KST/NODE_CORE_DECISION_LOG.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_CORE_FILESET.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_CORE_VISUAL_DEFECT_BASELINE.md
+?? outputs/node_core_final/20260723_203941_KST/NODE_FILTER_STATE_POLICY.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_GLYPH_SYSTEM_SPEC.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_HIT_OVERLAP_AUDIT.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_HIT_TARGET_AUDIT.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_NAVIGATION_AUDIT.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_OPACITY_POLICY.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_PERFORMANCE_BASELINE_BEFORE.json
+?? outputs/node_core_final/20260723_203941_KST/NODE_PERFORMANCE_REPORT.json
+?? outputs/node_core_final/20260723_203941_KST/NODE_RADIUS_POLICY.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_SEMANTIC_CONTRACT.md
+?? outputs/node_core_final/20260723_203941_KST/NODE_STORY_EXPLORER_PARITY.csv
+?? outputs/node_core_final/20260723_203941_KST/NODE_VIEWMODEL_CHANGE_REQUEST.md
+?? outputs/node_core_final/20260723_203941_KST/OUTPUT_SHA256_MANIFEST.csv
+?? outputs/node_core_final/20260723_203941_KST/START_FREEZE_1.json
+?? outputs/node_core_final/20260723_203941_KST/START_FREEZE_2.json
+?? outputs/node_core_final/20260723_203941_KST/VISUAL_QA_INDEX.md
+?? outputs/node_core_final/20260723_203941_KST/playwright.agent3.fixture.config.ts
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/1440/answers_1440x900_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/1440/atlas_1440x900_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/1440/atlas_1440x900_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/1920/answers_1920x1080_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/1920/atlas_1920x1080_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/1920/atlas_1920x1080_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/320/answers_320x800_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/320/atlas_320x800_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/320/atlas_320x800_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/375/answers_375x812_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/375/atlas_375x812_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/375/atlas_375x812_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/768/answers_768x1024_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/768/atlas_768x1024_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/768/atlas_768x1024_unavailable.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/atlas_contract_fixture_1440x1000.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/atlas_contract_fixture_selected_1440x1000.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/forced-colors/atlas_375x812_forced-colors.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/reduced-motion/atlas_375x812_reduced-motion.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/text-spacing/atlas_375x812_text-spacing.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/baseline/zoom-400/atlas_320x800_zoom-400-simulated.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/1440/atlas_1440x900_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/1920/atlas_1920x1080_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/320/atlas_320x800_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/375/atlas_375x812_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/768/atlas_768x1024_approved-default.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/atlas_contract_fixture_1440x1000.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/atlas_contract_fixture_selected_1440x1000.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/forced-colors/atlas_375x812_forced-colors.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/reduced-motion/atlas_375x812_reduced-motion.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/text-spacing/atlas_375x812_text-spacing.png
+?? outputs/node_core_final/20260723_203941_KST/screenshots/final/zoom-400/atlas_320x800_zoom-400-simulated.png
+?? outputs/node_core_final/20260723_203941_KST/tsconfig.agent3.json
+?? playwright.preview.config.ts
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/assets-manifest.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/atlas-centroids.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/atlas-nodes-all.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/atlas-summary.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/atlas-topic-bins.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence-index.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_04539DD9949E3D307726A2DB.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_13F7D774F4C5A2AA4A6C1B6F.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_18557647961C4C1481271E6B.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_1B18D2E6EB84827CAFB4EF70.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_1F4B3F53934A5A3EBC07E5C1.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_238914C385B630FBAA183AC0.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_30241F2584CC056B62BE5A89.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_312C46F35602CAD26DB7BA1F.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_3284E622399C0FD7E6183210.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_3B0401493250F4E231E905DA.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_437E9EB75AD071D9C3AAA1C8.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_43E065D777F9E1F27A10FA5E.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_46FB5C306FBCACBA5D73DF71.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_5432C4C87D7CD48E64ED2BB1.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_57D53419FEE16152D1F4A019.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_5B3142922358A7792F65DE0C.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_5B4681416FBF3CB90163024D.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_717D1F34B3A90B24DCBD4653.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_73E85B7E956CB3F09FB06511.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_79461CDE767270F0EC9FD352.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_7D7F05FD5253E3E36AAF5F46.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_7E6E85DB27FEA26F9BDD4F64.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_816A40FDCC8F34C5E3275461.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_844282CE7F3CB085E0A66B28.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_8DE0E062C17C462B960C6E22.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_8E0216FBAB0A966C0E0BD5B6.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_904E0307BEFF560C41A0CACD.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_952E4FE58CE1E1B93ACAD4CA.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_9A18BC7E691ADD4306D5DAEB.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_A426A1F41A4EE246B9A9FBB9.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_A4B37BD6B880EF78A0D8721E.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_A7F850DD33547B2085CD8D5A.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_A8AE5AE1975B8DC110353ED5.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_A9119DB363A79658F1FD47BA.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_AA36D13DADA42407031AC82A.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_ADED4382638C86BED544819C.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_B1858AE7655FA85EE63B2021.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_B66DE41063225B59538FDC73.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_B83084034FAAD48E6E246BAA.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_B96FA73AC01F07D98FAFDDD6.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_C487B53F31E323A09C1E9EE7.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_C8007B3A431FEE9A7BCA4C5A.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_C9180354772A5217ACFD4276.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_D268A96ECA02EC19CECFB910.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_D2A37B039658110A9090B3D0.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_D38A8B46D0F6F279FFDBE6AF.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_D524A2889E7371E34F2FE028.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_D6026748459FFF7AD553A023.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_DB8D01893615CCDB1A2742BD.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_DB9E2A3AAAD4101418FDD794.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_DDC3E3EC524A6EEB84FF2657.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_E2AFC5C3146E9038D972CBC0.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_E39FA93F9813206F7020C306.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_E3F9B5FA39D08726EDD7C631.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_E994F6470673BDA42C313934.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_EB73857391FEA9A91DDBFE4B.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_EB9DF065BE062149BCECE2B6.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_ED7E1EFDCE613D27BA84F3FB.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_F36711211829BB89C6BFE5EC.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_F43B7E35F7F97698F4F7A9AC.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_F7F2CBCB52B7D3D6BA8C8301.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_F9A077E38CF8A7949DA96761.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_F9D4203E5800B22EEF707588.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/evidence/EVID_FE9D9F4B30A2EE74D5E496B2.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/frontend-manifest.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/method-meta.json
+?? public/data/releases/ATLAS_20260723_211051_KST_1A82C82A/projection-meta.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/assets-manifest.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-bounds.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-centroids.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-node-secondary-behaviors.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-nodes-all.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-nodes-full.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-nodes-lite.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-summary.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-topic-bins.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence-index.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_04539DD9949E3D307726A2DB.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_13F7D774F4C5A2AA4A6C1B6F.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_18557647961C4C1481271E6B.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_1B18D2E6EB84827CAFB4EF70.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_1F4B3F53934A5A3EBC07E5C1.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_238914C385B630FBAA183AC0.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_30241F2584CC056B62BE5A89.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_312C46F35602CAD26DB7BA1F.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_3284E622399C0FD7E6183210.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_3B0401493250F4E231E905DA.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_437E9EB75AD071D9C3AAA1C8.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_43E065D777F9E1F27A10FA5E.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_46FB5C306FBCACBA5D73DF71.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_5432C4C87D7CD48E64ED2BB1.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_57D53419FEE16152D1F4A019.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_5B3142922358A7792F65DE0C.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_5B4681416FBF3CB90163024D.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_717D1F34B3A90B24DCBD4653.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_73E85B7E956CB3F09FB06511.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_79461CDE767270F0EC9FD352.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_7D7F05FD5253E3E36AAF5F46.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_7E6E85DB27FEA26F9BDD4F64.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_816A40FDCC8F34C5E3275461.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_844282CE7F3CB085E0A66B28.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_8DE0E062C17C462B960C6E22.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_8E0216FBAB0A966C0E0BD5B6.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_904E0307BEFF560C41A0CACD.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_952E4FE58CE1E1B93ACAD4CA.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_9A18BC7E691ADD4306D5DAEB.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_A426A1F41A4EE246B9A9FBB9.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_A4B37BD6B880EF78A0D8721E.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_A7F850DD33547B2085CD8D5A.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_A8AE5AE1975B8DC110353ED5.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_A9119DB363A79658F1FD47BA.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_AA36D13DADA42407031AC82A.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_ADED4382638C86BED544819C.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_B1858AE7655FA85EE63B2021.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_B66DE41063225B59538FDC73.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_B83084034FAAD48E6E246BAA.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_B96FA73AC01F07D98FAFDDD6.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_C487B53F31E323A09C1E9EE7.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_C8007B3A431FEE9A7BCA4C5A.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_C9180354772A5217ACFD4276.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_D268A96ECA02EC19CECFB910.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_D2A37B039658110A9090B3D0.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_D38A8B46D0F6F279FFDBE6AF.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_D524A2889E7371E34F2FE028.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_D6026748459FFF7AD553A023.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_DB8D01893615CCDB1A2742BD.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_DB9E2A3AAAD4101418FDD794.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_DDC3E3EC524A6EEB84FF2657.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_E2AFC5C3146E9038D972CBC0.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_E39FA93F9813206F7020C306.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_E3F9B5FA39D08726EDD7C631.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_E994F6470673BDA42C313934.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_EB73857391FEA9A91DDBFE4B.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_EB9DF065BE062149BCECE2B6.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_ED7E1EFDCE613D27BA84F3FB.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_F36711211829BB89C6BFE5EC.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_F43B7E35F7F97698F4F7A9AC.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_F7F2CBCB52B7D3D6BA8C8301.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_F9A077E38CF8A7949DA96761.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_F9D4203E5800B22EEF707588.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence/EVID_FE9D9F4B30A2EE74D5E496B2.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/frontend-manifest.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/method-meta.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/node-evidence-links.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/node-members.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/projection-meta.json
+?? public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/topic-bins-index.json
+?? src/shared/ui/story/StoryChapterUnavailable.tsx
+?? tests/e2e/agent4-presentation-wcag.spec.ts
+?? tests/e2e/vercel-preview.spec.ts
+?? vercel.json
+

@@ -1,0 +1,65 @@
+## agent/frontend-routing-atlas-foundation-20260723...origin/agent/frontend-routing-atlas-foundation-20260723
+ M .env.example
+ M .gitignore
+ M package.json
+ M src/app/router/DetailPage.tsx
+ M src/app/router/EvidenceRouteOverlay.tsx
+ M src/app/styles/layout.css
+ M src/app/styles/reset.css
+ M src/app/styles/tokens.css
+ M src/app/styles/typography.css
+ M src/pages/about/AboutPage.tsx
+ M src/pages/atlas/AtlasPage.test.tsx
+ M src/pages/atlas/AtlasPage.tsx
+ M src/pages/atlas/AtlasRouteError.tsx
+ M src/pages/data/DataPage.tsx
+ M src/pages/method/MethodPage.tsx
+ M src/pages/story/StoryPage.tsx
+ M src/shared/config/atlas/atlasEncoding.test.ts
+ M src/shared/config/atlas/atlasEncoding.ts
+ M src/shared/config/atlas/atlasWarnings.ts
+ M src/shared/config/chapterNavigation.ts
+ M src/shared/lib/atlas/atlasNodeHitTesting.ts
+ M src/shared/lib/atlas/atlasNodeNavigation.test.ts
+ M src/shared/lib/atlas/atlasNodeNavigation.ts
+ M src/shared/lib/atlas/scaleProjection.test.ts
+ M src/shared/ui/ChapterFrame.tsx
+ M src/shared/ui/atlas/AtlasDataStates.tsx
+ M src/shared/ui/evidence/EvidencePresentation.tsx
+ M src/widgets/app-shell/FooterRail.tsx
+ M src/widgets/app-shell/HeaderNav.tsx
+ M src/widgets/app-shell/ProgressTracker.tsx
+ M src/widgets/atlas-explorer/AtlasExplorer.test.tsx
+ M src/widgets/atlas-explorer/AtlasExplorer.tsx
+ M src/widgets/atlas-explorer/AtlasNodeGlyph.tsx
+ M src/widgets/atlas-explorer/AtlasScene.tsx
+ M src/widgets/atlas-scene/ChapterAnswersAtlas.tsx
+ M src/widgets/evidence-drawer/EvidenceDrawer.tsx
+ M src/widgets/prologue-scene/ChapterPrologue.tsx
+ M src/widgets/remains-scene/ChapterRemains.tsx
+ M src/widgets/scale-scene/ChapterScale.tsx
+ M tests/e2e/atlas-contract-shell.spec.ts
+ M tests/e2e/atlas-experience-design.spec.ts
+ M tsconfig.json
+?? design/Untitled.pdf
+?? docs/VERCEL_GITHUB_DEPLOYMENT.md
+?? goal/
+?? outputs/agent4_final_handoff/
+?? outputs/agent4_presentation_recovery/
+?? outputs/node_core_final/
+?? playwright.preview.config.ts
+?? public/data/
+?? src/shared/ui/story/
+?? tests/e2e/agent4-presentation-wcag.spec.ts
+?? tests/e2e/vercel-preview.spec.ts
+?? vercel.json
+/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front
+agent/frontend-routing-atlas-foundation-20260723
+20835ecadcce0a57067231806c4cfde9dd5b8f41
+origin/agent/frontend-routing-atlas-foundation-20260723
+0	0
+worktree /home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front
+HEAD 20835ecadcce0a57067231806c4cfde9dd5b8f41
+branch refs/heads/agent/frontend-routing-atlas-foundation-20260723
+
+

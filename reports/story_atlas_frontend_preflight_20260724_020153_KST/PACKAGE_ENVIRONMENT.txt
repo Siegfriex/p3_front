@@ -1,0 +1,14 @@
+Node: v20.20.1
+Package manager: npm 10.8.2 (package.json packageManager npm@10.8.2)
+Lockfile: /home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/package-lock.json
+Lockfile SHA-256: fb7789623b1fd97398a9c21db57176fa9d7d741c860cac659f3f6dc3d57c8252
+Vite: 6.4.3
+React: 19.2.8
+React Router DOM: 7.13.1
+TypeScript: 5.8.3
+Playwright: 1.61.1
+@axe-core/playwright: 4.12.1
+Build command: npm run build (tsc -b && vite build)
+Output directory: dist
+Node engines: >=20.20 <21
+Environment keys observed (values redacted): VITE_ATLAS_RELEASE_ID in .env and .env.example

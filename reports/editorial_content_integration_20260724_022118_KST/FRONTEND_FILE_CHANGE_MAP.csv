@@ -1,0 +1,2 @@
+file_path,change_type,description
+src/pages/story/StoryPage.tsx,GATE_REMOVED,"Removed DEV-only production gate for scale/record/gap/cases; now render unconditionally"

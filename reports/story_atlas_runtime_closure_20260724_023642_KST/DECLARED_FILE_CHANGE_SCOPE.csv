@@ -1,0 +1,26 @@
+path,planned_responsibility,baseline_state
+/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL/data/90_exports/frontend/approved/ATLAS_DG761_STORY_20260724_022353_KST_BF673FD1/**,validate and adopt immutable derived release,DISCOVERED_EXISTING
+/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL/data/90_exports/frontend/approved/current-release.json,canonical release pointer,ABSENT
+public/data/releases/ATLAS_DG761_STORY_20260724_022353_KST_BF673FD1/**,runtime release copy,ABSENT
+public/data/current-release.json,runtime release pointer,ABSENT
+src/shared/api/atlas/loadAtlasManifest.ts,env-pointer resolution and manifest validation,CLEAN_TRACKED
+src/shared/api/atlas/atlasReleaseResource.ts,shared fetch validate adapt cache dedupe abort invalidate,ABSENT
+src/shared/api/atlas/useAtlasRelease.ts,React lifecycle wrapper,ABSENT
+src/shared/api/atlas/atlasTransportSchema.ts,story metadata and evidence detail schemas,CLEAN_TRACKED
+src/shared/api/atlas/evidenceRepository.ts,approved detail hash and schema validation,CLEAN_TRACKED
+src/shared/lib/atlas/toAtlasViewModel.ts,preserve release metadata and repository,CLEAN_TRACKED
+src/shared/types/atlas.ts,shared resource ViewModel contract,CLEAN_TRACKED
+src/pages/atlas/AtlasPage.tsx,consume shared hook,MODIFIED_PREEXISTING
+src/pages/atlas/AtlasPage.test.tsx,real data and fail closed coverage,MODIFIED_PREEXISTING
+src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,approved 16 node Story Preview,MODIFIED_PREEXISTING
+src/widgets/atlas-scene/ChapterAnswersAtlas.test.tsx,Story resource coverage,ABSENT
+src/app/router/DetailPage.tsx,approved repository direct route,MODIFIED_PREEXISTING
+src/app/router/EvidenceRouteOverlay.tsx,approved repository overlay route,MODIFIED_PREEXISTING
+src/widgets/evidence-drawer/EvidenceDrawer.tsx,approved detail rendering,MODIFIED_PREEXISTING
+tests/e2e/atlas-experience-design.spec.ts,replace defect expectations with real data parity,MODIFIED_PREEXISTING
+tests/e2e/story-explorer-parity.spec.ts,Story Explorer parity E2E,ABSENT
+tests/e2e/evidence-detail.spec.ts,approved detail route and drawer E2E,ABSENT
+tests/e2e/vercel-preview.spec.ts,Preview runtime assertions,UNTRACKED_PREEXISTING
+vercel.json,SPA and cache headers,UNTRACKED_PREEXISTING
+.env.example,document empty override,MODIFIED_PREEXISTING
+src/pages/method/MethodPage.tsx,remove concurrent unused icon import that blocked repository lint,MODIFIED_CONCURRENT

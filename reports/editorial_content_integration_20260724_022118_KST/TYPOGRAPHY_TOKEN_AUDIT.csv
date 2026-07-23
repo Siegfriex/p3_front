@@ -1,0 +1,12 @@
+hierarchy_level,html_semantic,css_variable,css_class,file
+H1,h1,--type-heading-1,type-heading-1,src/app/styles/tokens.css / typography.css
+H2,h2,--type-heading-2,type-heading-2,src/app/styles/tokens.css / typography.css
+B1,p (lead),--type-body-l,type-body-l,src/app/styles/tokens.css / typography.css
+B2,p,--type-body-m,type-body-m,src/app/styles/tokens.css / typography.css
+B3,small/figcaption,--type-caption,type-caption,src/app/styles/tokens.css / typography.css
+(display-only, not a hierarchy level),n/a,--type-display-hero-quote,type-display-hero-quote,src/app/styles/tokens.css / typography.css
+(display-only, not a hierarchy level),n/a,--type-display-hero-conclusion,type-display-hero-conclusion,src/app/styles/tokens.css / typography.css
+(display-only, not a hierarchy level),n/a,--type-display-xl,type-display-xl,src/app/styles/tokens.css / typography.css
+(display-only, not a hierarchy level),n/a,--type-display-l,type-display-l,src/app/styles/tokens.css / typography.css
+(mono/meta),small,--type-mono,type-mono,src/app/styles/tokens.css / typography.css
+(mono/meta),small,--type-meta-micro,type-meta-micro,src/app/styles/tokens.css / typography.css

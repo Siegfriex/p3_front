@@ -61,6 +61,7 @@ export function AtlasNodeGlyph({
       data-answer-mark={ANSWER_TYPE_MARKS[answerType]}
       data-interaction-state={state}
       data-status-stroke={status}
+      pointerEvents="none"
       style={{ transform: `scale(${scale})`, transformOrigin: 'center' }}
     >
       {focused ? <circle data-focus-halo="true" r={radius + ATLAS_FOCUS_HALO_OFFSET_PX} fill="none" stroke="var(--ink-primary)" strokeWidth="2" vectorEffect="non-scaling-stroke" /> : null}

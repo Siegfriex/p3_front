@@ -101,7 +101,7 @@ export function AtlasScene({ nodes, nodeFilterStates, selectedNodeId, previewNod
           });
           const radius = getPresentedNodeRadius(node.radiusPx);
           const opacity = getNodeDisplayOpacity({
-            baseOpacity: node.encoding.opacity,
+            semanticOpacity: node.encoding.opacity,
             interactionState: state,
             filterState,
             isSelected: selected,
@@ -126,6 +126,7 @@ export function AtlasScene({ nodes, nodeFilterStates, selectedNodeId, previewNod
               data-rendered-radius={radius}
               data-node-opacity={opacity}
               data-node-state={state}
+              data-node-filter-state={filterState}
               className={interactive ? 'cursor-pointer' : undefined}
             >
               {interactive ? (

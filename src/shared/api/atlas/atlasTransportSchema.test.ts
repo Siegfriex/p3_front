@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { AtlasSchemaError, parseAtlasNodes, parseFrontendManifest } from './atlasTransportSchema';
+import { AtlasSchemaError, parseAtlasNodes, parseAtlasSummary, parseEvidenceDetail, parseFrontendManifest } from './atlasTransportSchema';
 
 const HASH = 'a'.repeat(64);
 
@@ -84,5 +84,34 @@ describe('Atlas transport schema', () => {
     const fixture = manifestFixture();
     fixture.publication_ready = false;
     expect(() => parseFrontendManifest(fixture)).toThrow(/publication_ready/);
+  });
+
+  it('validates unique Story preview IDs and approved Evidence detail fields', () => {
+    expect(parseAtlasSummary({
+      release_id: 'release-1', projection_id: 'projection-1', projection_hash: HASH,
+      analysis_entity_count: 2, atlas_node_count: 140, behavior_child_count: 2,
+      primary_behavior_distribution: { A1: 1, A2: 1, A3: 0, A4: 0, A5: 0, A6: 0, A7: 0, A8: 0 },
+      projection_point_count: 2, public_evidence_count: 0,
+      status_distribution: { complete: 1, active: 1, unresolved: 0 }, topic_bin_count: 0,
+      warnings: ['projection warning'], story_preview_node_ids: ['node-1', 'node-2'],
+    }).story_preview_node_ids).toHaveLength(2);
+    expect(() => parseAtlasSummary({
+      release_id: 'release-1', projection_id: 'projection-1', projection_hash: HASH,
+      analysis_entity_count: 2, atlas_node_count: 140, behavior_child_count: 2,
+      primary_behavior_distribution: { A1: 1, A2: 1, A3: 0, A4: 0, A5: 0, A6: 0, A7: 0, A8: 0 },
+      projection_point_count: 2, public_evidence_count: 0,
+      status_distribution: { complete: 1, active: 1, unresolved: 0 }, topic_bin_count: 0,
+      warnings: [], story_preview_node_ids: ['node-1', 'node-1'],
+    })).toThrow(/unique/);
+
+    const detail = {
+      evidence_id: 'evidence-1', title: 'title', request_text: 'request', question_text: 'question',
+      answer_text: 'answer', evidence_excerpt: 'excerpt', reported_status: 'active',
+      verification_status: 'VERIFIED', meeting_id: 'meeting-1', page_start_no: '1', page_end_no: '2',
+      pdf_asset_id: 'pdf-1', source_pdf_sha256: HASH, pipeline_run_id: 'run-1',
+      review_status: 'approved', publish_status: 'approved', public_visibility: true,
+    };
+    expect(parseEvidenceDetail(detail).evidence_id).toBe('evidence-1');
+    expect(() => parseEvidenceDetail({ ...detail, public_visibility: false })).toThrow(/approved/);
   });
 });

@@ -32,11 +32,10 @@ export const ChapterGap: React.FC = () => {
         <div className="mb-10">
           <Badge label="간극과 명암" variant="neutral" className="mb-3" />
           <h2 className="type-heading-1 font-serif text-[var(--color-ink)] mb-4">
-            완료와 진행의 경계
+            "2년이 넘었는데 아직도 조치중?" 도대체 언제까지 조치중인가?
           </h2>
           <p className="type-body-l text-[var(--color-neutral-700)] max-w-2xl">
-            공식 보고서의 단색 표기 뒤에는 세분화된 다섯 가지 증거 선이 존재합니다. 
-            단순히 "완료"와 "미완료"로 양분할 수 없는 실질적 간극을 탐색하십시오.
+            총 1,566건의 시정·처리요구 사항 중 830건(53.0%)은 조치가 완료됐으며, 736건(47.0%)은 조치 중(향후 조치계획 포함)인 것으로 집계됐다.
           </p>
         </div>
 

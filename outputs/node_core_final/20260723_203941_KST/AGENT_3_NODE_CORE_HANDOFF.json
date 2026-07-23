@@ -1,0 +1,31 @@
+{
+  "status": "AGENT_3_NODE_CORE_HANDOFF_READY",
+  "approved_real_data_pass": false,
+  "production_data_state": "DATA_UNAVAILABLE",
+  "branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "head": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "upstream": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "owner_source_stable_at_start": true,
+  "owner_source_stable_at_final": true,
+  "final_post_qa_full_worktree_status_stable": true,
+  "parallel_non_owner_worktree_status_changed_during_final_freeze": true,
+  "agent3_source_files_changed": 11,
+  "agent3_insertions": 108,
+  "agent3_deletions": 20,
+  "qa": {
+    "repository_typecheck": "PASS",
+    "scoped_typecheck": "PASS",
+    "lint": "PASS_ZERO_WARNINGS",
+    "unit": "PASS_15_FILES_46_TESTS",
+    "npm_build": "PASS_2167_MODULES",
+    "production_e2e": "PASS_17_SKIPPED_9",
+    "fixture_e2e": "PASS_5_SKIPPED_2"
+  },
+  "remaining_blockers": [
+    "approved frontend bundle absent",
+    "approved story_preview_node_ids absent",
+    "approved Evidence excerpts absent",
+    "approved maximum radius and confidence distribution absent",
+    "real-data density accessibility performance and parity not verifiable"
+  ]
+}

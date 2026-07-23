@@ -1,0 +1,38 @@
+{
+  "run_id": "20260724_020153_KST",
+  "decision_at": "2026-07-24T02:20:05+09:00",
+  "executive_verdict": "PREFLIGHT_COMPLETE_IMPLEMENTATION_AND_DEPLOYMENT_NOT_AUTHORIZED",
+  "substatus": {
+    "DG761_EXPLORER_RUNTIME_CONFIRMED": "PASS",
+    "RELEASE_RESOLUTION_CHANGE_READY": "PASS",
+    "SHARED_LOADER_CHANGE_READY": "PASS",
+    "STORY_WIRING_CHANGE_READY": "READY_WITH_DATA_DEPENDENCY",
+    "EVIDENCE_RUNTIME_CHANGE_READY": "PASS_PLAN_ONLY",
+    "VERCEL_CONFIGURATION_CHANGE_READY": "READY_WITH_LINK_AND_TRACKING_BLOCKERS"
+  },
+  "qa": {
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "unit_current_env": "FAIL_45_OF_46",
+    "unit_no_release": "PASS_46_OF_46",
+    "build_dg761": "PASS",
+    "build_no_release": "PASS",
+    "playwright_default": "FAIL_10_PASS_8_FAIL_9_SKIP",
+    "manual_dg761_axe": "PASS_ZERO_VIOLATIONS"
+  },
+  "release_closure": "BLOCKED",
+  "vercel_preview": "NOT_DEPLOYED_BLOCKED",
+  "vercel_production": "NOT_DEPLOYED_BLOCKED",
+  "blockers": [
+    "approved story_preview_node_ids and their release/projection binding are absent",
+    "current-release.json and pointer resolver are absent",
+    "approved Evidence detail is not fetched/validated/rendered by either direct page or drawer",
+    "Vercel project is not linked or discoverable for this repo",
+    "vercel.json and DG761 runtime copy are untracked",
+    "legacy ATLAS_20260723_211051_KST_1A82C82A is under public/data and copied into dist",
+    "baseline unit under ambient env has 1 failure; default Playwright has 8 failures",
+    "Vercel cache headers and environment scope verification are absent",
+    "broad dirty worktree requires isolated staging or a clean clone"
+  ],
+  "final_verdict": "FRONTEND_RELEASE_PREFLIGHT_READY"
+}

@@ -1,0 +1,5 @@
+viewport,header,controls,legend,scene,inspector,dom_navigator,evidence,decision
+375,"single column; release badge full width","stacked; types disclosure; reset full width","collapsed before scene","canonical 720x520 scroll canvas in 328px viewport with pan instruction","in flow immediately after scene","collapsed section with skip-link target","Bottom Sheet from inspector action",LOCK_REQUIRED
+768,"two-column header where possible","stacked status/types/reset","before scene","720px canvas fits 705px viewport with minimal scroll","in flow below scene","two-column list","Drawer or Bottom Sheet based on media",LOCK_REQUIRED
+1440,"three-part redline header with compact release badge","single row","inline disclosure before scene","2/3 width; 720x520 viewBox scales to 870px","1/3 sticky rail","three-column list after inspector","right Drawer",LOCK_REQUIRED
+1920,"wide frame but copy remains readable","single row","inline disclosure before scene","2/3 width capped by useful map scale; avoid gratuitous height","1/3 sticky rail with max readable width","three/four-column list","right Drawer",LOCK_REQUIRED

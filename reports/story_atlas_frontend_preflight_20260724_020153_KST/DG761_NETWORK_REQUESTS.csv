@@ -1,0 +1,8 @@
+logical_name,url,status,bytes,runtime_sha256_verification,cache_observed
+frontend-manifest,/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/frontend-manifest.json,200,26652,schema/release-id only,Vite preview no-cache
+atlas-nodes-all,/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-nodes-all.json,200,122764,yes,Vite preview no-cache
+atlas-topic-bins,/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-topic-bins.json,200,9709,yes,Vite preview no-cache
+atlas-centroids,/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/atlas-centroids.json,200,8783,yes,Vite preview no-cache
+evidence-index,/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/evidence-index.json,200,32121,yes,Vite preview no-cache
+projection-meta,/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6/projection-meta.json,200,253,yes,Vite preview no-cache
+evidence-detail,not requested by current UI,NOT_CALLED,,no,n/a

@@ -8,6 +8,11 @@ export interface AtlasNodeHitOverlap {
   combinedHitRadius: number;
 }
 
+function compareCanonicalNodeIds(left: string, right: string): number {
+  if (left === right) return 0;
+  return left < right ? -1 : 1;
+}
+
 export function resolvePointerNode(
   pointer: Point2D,
   nodes: readonly AtlasNodeViewModel[],
@@ -19,7 +24,7 @@ export function resolvePointerNode(
       hitRadius: getNodeHitRadius(node.radiusPx),
     }))
     .filter(({ distance, hitRadius }) => distance <= hitRadius)
-    .sort((left, right) => left.distance - right.distance || left.node.id.localeCompare(right.node.id));
+    .sort((left, right) => left.distance - right.distance || compareCanonicalNodeIds(left.node.id, right.node.id));
 
   return candidates[0]?.node ?? null;
 }

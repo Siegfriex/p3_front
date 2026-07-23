@@ -34,6 +34,32 @@ export interface FrontendManifestTransport {
   files: AtlasManifestFileTransport[];
 }
 
+export interface AtlasReleasePointerTransport {
+  schema_version: '1.0';
+  release_id: string;
+  manifest_path: string;
+  manifest_sha256: string;
+  projection_id: string;
+  projection_hash: string;
+  generated_at: string;
+}
+
+export interface AtlasSummaryTransport {
+  release_id: string;
+  projection_id: string;
+  projection_hash: string;
+  analysis_entity_count: number;
+  atlas_node_count: number;
+  behavior_child_count: number;
+  primary_behavior_distribution: Record<AnswerType, number>;
+  projection_point_count: number;
+  public_evidence_count: number;
+  status_distribution: Record<AtlasNodeStatus, number>;
+  topic_bin_count: number;
+  warnings: string[];
+  story_preview_node_ids: string[];
+}
+
 export interface AtlasNodeTransport {
   atlas_node_id: string;
   projection_id: string;
@@ -90,6 +116,26 @@ export interface EvidenceSummaryTransport {
   page_start_no: string;
   page_end_no: string;
   pdf_asset_id: string;
+  review_status: 'approved';
+  publish_status: 'approved';
+  public_visibility: true;
+}
+
+export interface EvidenceDetailRecordTransport {
+  evidence_id: string;
+  title: string;
+  request_text: string;
+  question_text: string;
+  answer_text: string;
+  evidence_excerpt: string;
+  reported_status: string;
+  verification_status: string;
+  meeting_id: string;
+  page_start_no: string;
+  page_end_no: string;
+  pdf_asset_id: string;
+  source_pdf_sha256: string;
+  pipeline_run_id: string;
   review_status: 'approved';
   publish_status: 'approved';
   public_visibility: true;
@@ -192,6 +238,64 @@ function safeRelativePathAt(value: unknown, path: string): string {
     return fail(path, 'a safe relative bundle path');
   }
   return filePath;
+}
+
+function stringArrayAt(value: unknown, path: string): string[] {
+  if (!Array.isArray(value)) return fail(path, 'an array');
+  return value.map((entry, index) => stringAt(entry, `${path}[${index}]`));
+}
+
+export function parseAtlasReleasePointer(value: unknown): AtlasReleasePointerTransport {
+  const input = objectAt(value, 'current release pointer');
+  const manifestPath = stringAt(input.manifest_path, 'pointer.manifest_path');
+  if (!/^\/data\/releases\/[A-Za-z0-9._-]+\/frontend-manifest\.json$/.test(manifestPath)) {
+    fail('pointer.manifest_path', 'an approved manifest public path');
+  }
+  return {
+    schema_version: literalAt(input.schema_version, ['1.0'] as const, 'pointer.schema_version'),
+    release_id: stringAt(input.release_id, 'pointer.release_id'),
+    manifest_path: manifestPath,
+    manifest_sha256: shaAt(input.manifest_sha256, 'pointer.manifest_sha256'),
+    projection_id: stringAt(input.projection_id, 'pointer.projection_id'),
+    projection_hash: shaAt(input.projection_hash, 'pointer.projection_hash'),
+    generated_at: stringAt(input.generated_at, 'pointer.generated_at'),
+  };
+}
+
+export function parseAtlasSummary(value: unknown): AtlasSummaryTransport {
+  const input = objectAt(value, 'atlas summary');
+  const primaryBehaviorInput = objectAt(input.primary_behavior_distribution, 'atlasSummary.primary_behavior_distribution');
+  const statusInput = objectAt(input.status_distribution, 'atlasSummary.status_distribution');
+  const storyPreviewNodeIds = stringArrayAt(input.story_preview_node_ids, 'atlasSummary.story_preview_node_ids');
+  if (storyPreviewNodeIds.length === 0) fail('atlasSummary.story_preview_node_ids', 'a non-empty array');
+  if (new Set(storyPreviewNodeIds).size !== storyPreviewNodeIds.length) {
+    fail('atlasSummary.story_preview_node_ids', 'unique');
+  }
+  return {
+    release_id: stringAt(input.release_id, 'atlasSummary.release_id'),
+    projection_id: stringAt(input.projection_id, 'atlasSummary.projection_id'),
+    projection_hash: shaAt(input.projection_hash, 'atlasSummary.projection_hash'),
+    analysis_entity_count: nonNegativeIntegerAt(input.analysis_entity_count, 'atlasSummary.analysis_entity_count'),
+    atlas_node_count: nonNegativeIntegerAt(input.atlas_node_count, 'atlasSummary.atlas_node_count'),
+    behavior_child_count: nonNegativeIntegerAt(input.behavior_child_count, 'atlasSummary.behavior_child_count'),
+    primary_behavior_distribution: Object.fromEntries(
+      ANSWER_TYPES.map((answerType) => [
+        answerType,
+        nonNegativeIntegerAt(primaryBehaviorInput[answerType], `atlasSummary.primary_behavior_distribution.${answerType}`),
+      ]),
+    ) as Record<AnswerType, number>,
+    projection_point_count: nonNegativeIntegerAt(input.projection_point_count, 'atlasSummary.projection_point_count'),
+    public_evidence_count: nonNegativeIntegerAt(input.public_evidence_count, 'atlasSummary.public_evidence_count'),
+    status_distribution: Object.fromEntries(
+      ATLAS_NODE_STATUSES.map((status) => [
+        status,
+        nonNegativeIntegerAt(statusInput[status], `atlasSummary.status_distribution.${status}`),
+      ]),
+    ) as Record<AtlasNodeStatus, number>,
+    topic_bin_count: nonNegativeIntegerAt(input.topic_bin_count, 'atlasSummary.topic_bin_count'),
+    warnings: stringArrayAt(input.warnings, 'atlasSummary.warnings'),
+    story_preview_node_ids: storyPreviewNodeIds,
+  };
 }
 
 export function parseFrontendManifest(value: unknown): FrontendManifestTransport {
@@ -332,6 +436,32 @@ export function parseEvidenceSummaries(value: unknown): EvidenceSummaryTransport
       public_visibility: true,
     };
   });
+}
+
+export function parseEvidenceDetail(value: unknown): EvidenceDetailRecordTransport {
+  const evidence = objectAt(value, 'evidence detail');
+  if (evidence.review_status !== 'approved' || evidence.publish_status !== 'approved' || evidence.public_visibility !== true) {
+    fail('evidence detail', 'approved, published, public evidence');
+  }
+  return {
+    evidence_id: stringAt(evidence.evidence_id, 'evidenceDetail.evidence_id'),
+    title: stringAt(evidence.title, 'evidenceDetail.title'),
+    request_text: stringAt(evidence.request_text, 'evidenceDetail.request_text'),
+    question_text: stringAt(evidence.question_text, 'evidenceDetail.question_text'),
+    answer_text: stringAt(evidence.answer_text, 'evidenceDetail.answer_text'),
+    evidence_excerpt: stringAt(evidence.evidence_excerpt, 'evidenceDetail.evidence_excerpt'),
+    reported_status: stringAt(evidence.reported_status, 'evidenceDetail.reported_status'),
+    verification_status: stringAt(evidence.verification_status, 'evidenceDetail.verification_status'),
+    meeting_id: stringAt(evidence.meeting_id, 'evidenceDetail.meeting_id'),
+    page_start_no: stringAt(evidence.page_start_no, 'evidenceDetail.page_start_no'),
+    page_end_no: stringAt(evidence.page_end_no, 'evidenceDetail.page_end_no'),
+    pdf_asset_id: stringAt(evidence.pdf_asset_id, 'evidenceDetail.pdf_asset_id'),
+    source_pdf_sha256: shaAt(evidence.source_pdf_sha256, 'evidenceDetail.source_pdf_sha256'),
+    pipeline_run_id: stringAt(evidence.pipeline_run_id, 'evidenceDetail.pipeline_run_id'),
+    review_status: 'approved',
+    publish_status: 'approved',
+    public_visibility: true,
+  };
 }
 
 export function parseProjectionMeta(value: unknown): ProjectionMetaTransport {

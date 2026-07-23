@@ -1,0 +1,15 @@
+git branch --show-current
+git rev-parse HEAD
+git rev-parse @{upstream}
+sha256sum Agent 3 owner files and package-lock.json
+npm run deploy:check
+npx eslint src tests vite.config.ts playwright.config.ts playwright.preview.config.ts --max-warnings=0
+npm run typecheck
+npm run test
+npm run build
+npm run test:e2e:preview
+npx playwright test tests/e2e/agent4-presentation-wcag.spec.ts
+agent-browser production Story and Atlas verification at 320/375/768/1440/1920
+git diff --check
+
+No commit, push, branch switch, reset, restore, checkout, or stash command was run.

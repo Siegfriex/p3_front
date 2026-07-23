@@ -1,0 +1,7 @@
+surface,state,rendered,interactive,selection_rule,coordinate_rule
+Story Preview,matched,yes,yes,approved IDs only,unchanged
+Story Preview,context,yes,no,no automatic selection,unchanged
+Story Preview,excluded,optional no,no,clear without replacement,unchanged
+Full Explorer,matched,yes,yes,selectable,unchanged
+Full Explorer,context,not used,no,none,unchanged
+Full Explorer,excluded,no,no,clear without replacement,unchanged

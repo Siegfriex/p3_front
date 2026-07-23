@@ -1,0 +1,18 @@
+{
+  "run_id": "20260724_023642_KST",
+  "started_at": "2026-07-24T02:36:42+09:00",
+  "repository_root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "data_root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL",
+  "branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "head": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "upstream": "origin/agent/frontend-routing-atlas-foundation-20260723",
+  "ahead": 0,
+  "behind": 0,
+  "dirty": true,
+  "base_release_id": "ATLAS_DG761_20260723_213011_KST_F7A35BC6",
+  "expected_projection_id": "PROJ_DG761_20260723_213011_KST_4665FDF3E5CF",
+  "concurrent_change_observation": {
+    "status": "PARTIALLY_CONFIRMED",
+    "detail": "A canonical story-derived release appeared at 02:28:46 KST before frontend mutation. It will be validated and adopted only if contract checks pass. Existing dirty source changes are treated as user-owned baseline."
+  }
+}

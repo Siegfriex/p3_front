@@ -1,0 +1,12 @@
+capability,current_evidence,status,target_boundary
+release loader,none,NOT_IMPLEMENTED,shared release hook
+ViewModel,none,NOT_IMPLEMENTED,same AtlasViewModelBundle as Explorer
+approved selector,function exists but not imported,PARTIALLY_CONFIRMED,call before render with Data-Agent IDs
+renderer,DataUnavailable only,NOT_IMPLEMENTED,reuse AtlasScene primitives with Story composition
+status/type controls,none,NOT_IMPLEMENTED,reuse AtlasControls or shared control primitive
+legend/reset,none,NOT_IMPLEMENTED,reuse AtlasLegend and canonical reset
+CTA,buildAtlasHrefFromPreview,CONFIRMED,retain; source from actual Story query state
+evidence navigation,none,NOT_IMPLEMENTED,Story selection may route only approved representative evidence
+keyboard/DOM mirror,none,NOT_IMPLEMENTED,reuse synchronized DOM mirror
+reduced motion,no animated renderer,NOT_VERIFIABLE,verify after wiring
+responsive,fail-closed panel renders,PARTIALLY_CONFIRMED,verify renderer at 375/768/1440/1920

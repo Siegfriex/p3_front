@@ -16,6 +16,11 @@ const DIRECTION_VECTOR: Record<AtlasDirection, readonly [number, number]> = {
   down: [0, 1],
 };
 
+function compareCanonicalNodeIds(left: string, right: string): number {
+  if (left === right) return 0;
+  return left < right ? -1 : 1;
+}
+
 export function findDirectionalNode({
   current,
   candidates,
@@ -38,7 +43,7 @@ export function findDirectionalNode({
     .sort((left, right) =>
       left.angularDeviation - right.angularDeviation
       || left.directionalDistance - right.directionalDistance
-      || left.node.id.localeCompare(right.node.id));
+      || compareCanonicalNodeIds(left.node.id, right.node.id));
 
   return ranked[0]?.node ?? null;
 }
@@ -49,8 +54,10 @@ export function findNextAtlasNodeId(
   key: AtlasNavigationKey,
 ): string {
   if (nodes.length === 0) return currentNodeId;
-  if (key === 'Home') return nodes[0].id;
-  if (key === 'End') return nodes[nodes.length - 1].id;
+  if (key === 'Home' || key === 'End') {
+    const canonicalNodeIds = nodes.map(({ id }) => id).sort(compareCanonicalNodeIds);
+    return key === 'Home' ? canonicalNodeIds[0] : canonicalNodeIds[canonicalNodeIds.length - 1];
+  }
 
   const current = nodes.find((node) => node.id === currentNodeId);
   if (!current) return nodes[0].id;

@@ -1,0 +1,10 @@
+origin,action,destination_on_open,destination_on_close_or_back,fallback,status
+Story node navigator,"open evidence",drawer close button or first heading,"same Story node/evidence action","Story node list heading -> controls -> main",LOCK_REQUIRED
+Story selected summary,"open evidence",drawer close button or first heading,"same evidence action","Story selected summary heading -> main",LOCK_REQUIRED
+Explorer node navigator,"open evidence",drawer close button or first heading,"same Explorer evidence action","Atlas node list heading -> controls -> chart heading -> main",CONFIRMED
+Explorer inspector,"open evidence",drawer close button or first heading,"same evidence action","Atlas node list heading -> controls -> chart heading -> main",CONFIRMED
+Direct evidence URL,"browser Back",page heading,"browser-managed prior target","main",LOCK_REQUIRED
+Invalid node panel,"clear node",clear button,"clear button or result count","controls",LOCK_REQUIRED
+Empty result,"reset",reset button,"reset button","controls heading",LOCK_REQUIRED
+Filter removes active node,"change filter",filter control,"same filter control then result count announcement","first matched DOM node on explicit entry",LOCK_REQUIRED
+Drawer route reload,"close",dialog heading,"background route if present; otherwise direct page remains canonical","main",LOCK_REQUIRED

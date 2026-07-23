@@ -1,0 +1,27 @@
+{
+  "verdict": "STORY_PREVIEW_CONTRACT_PASS",
+  "release_id": "ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264",
+  "selection_hash": "d9db2264cdc3be415a2a45766d6a705b68db9266f801beffd89a2502eaf4b397",
+  "selected_count": 16,
+  "duplicate_count": 0,
+  "missing_node_count": 0,
+  "all_top_answer_type_nodes_included": true,
+  "answer_type_distribution": {
+    "A1": 1,
+    "A2": 3,
+    "A3": 1,
+    "A4": 1,
+    "A5": 1,
+    "A6": 1,
+    "A7": 1,
+    "A8": 7
+  },
+  "status_distribution": {
+    "complete": 1,
+    "active": 1,
+    "unresolved": 14
+  },
+  "topic_bin_count": 13,
+  "evidence_count": 2,
+  "immutable_base_payload_hash_failures": []
+}

@@ -1,0 +1,10 @@
+gate,command,result
+typecheck,npm run typecheck,PASS
+agent4_scoped_lint,npx eslint src tests vite.config.ts playwright.config.ts playwright.preview.config.ts --max-warnings=0,PASS_ZERO_WARNINGS
+repository_lint,npm run lint,BLOCKED_FOREIGN_UNTRACKED_TMP_SCRIPTS
+unit,npm run test,PASS_15_FILES_46_TESTS
+production_build,npm run build,PASS_2168_MODULES
+production_preview_e2e,npm run test:e2e:preview,PASS_14_SKIPPED_6
+development_agent4_e2e,npx playwright test tests/e2e/agent4-presentation-wcag.spec.ts,PASS_3_SKIPPED_2
+git_diff_check,git diff --check,PASS
+agent_browser_runtime,Story and Atlas at 5 viewports,PASS

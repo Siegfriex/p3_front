@@ -1,0 +1,12 @@
+{
+  "chapterId": "gap",
+  "jsxTextReplacements": 2,
+  "typographyAdjustments": 0,
+  "imageAction": "skipped_no_image_slot",
+  "unresolved": [
+    "Replaced hardcoded h2 headline '완료와 진행의 경계' with block_01 text ('\"2년이 넘었는데 아직도 조치중?\" 도대체 언제까지 조치중인가?') and hardcoded lead paragraph with block_02 text (1,566건/830건 53.0%/736건 47.0% statistic), since both were stale JSX literals that duplicated the pre-update STORY_CHAPTERS[gap].title/summary values (storyData.ts was already updated by another agent to these same block_01/block_02 strings per COPY_REPLACEMENT_MAP.csv, but ChapterGap.tsx does not consume STORY_CHAPTERS[gap] at all - these two strings are hardcoded directly in JSX, not variable-bound).",
+    "No typography change made: h2 already used type-heading-1 (matches VERY_LARGE/H1) and the lead p already used type-body-l (reasonable for LARGE/lead), so hierarchy mapping was not clearly off.",
+    "block_03 (IMAGE, national assembly hearing photo, production_ready=false) and block_04 (SOURCE '출처:포토뉴스') have no corresponding image slot in ChapterGap.tsx; component renders no images for this chapter, so image work was skipped as instructed.",
+    "Other hardcoded Korean JSX strings in ChapterGap.tsx (Badge label '간극과 명암', lineLegend labels/descriptions, 'Status Lane' filter heading, filter button labels, '저널리즘 검증:' prefix, '원문 및 출처 보기') have no corresponding block in PDF_EDITORIAL_BLOCKS_gap.json, so they were left unchanged."
+  ]
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "answer_type_code": null,
+    "centroid_id": "CENT_C8EBBC214F441104F0800F76",
+    "centroid_type": "status",
+    "medoid_entity_id": "PEI_4884F2754715577872A40295",
+    "member_count": 23,
+    "position_x": 0.336622953415,
+    "position_y": 0.822011590004,
+    "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+    "status_canvas": "active"
+  },
+  {
+    "answer_type_code": null,
+    "centroid_id": "CENT_42FD7F509AC6253A3C2C52E8",
+    "centroid_type": "status",
+    "medoid_entity_id": "PEI_D79A046948669640D2B8F518",
+    "member_count": 41,
+    "position_x": 0.11927460134,
+    "position_y": 0.878758192062,
+    "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+    "status_canvas": "complete"
+  },
+  {
+    "answer_type_code": "A2",
+    "centroid_id": "CENT_59EF6CCE0DE241312422C47E",
+    "centroid_type": "answer_type",
+    "medoid_entity_id": "PEI_CB15A77A8F029C8FA12748D0",
+    "member_count": 5,
+    "position_x": 0.495540678501,
+    "position_y": 0.791270971298,
+    "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+    "status_canvas": null
+  },
+  {
+    "answer_type_code": "A4",
+    "centroid_id": "CENT_211B5CBA13D078DD603B06A9",
+    "centroid_type": "answer_type",
+    "medoid_entity_id": "PEI_B6DF5697BD6C7788C0C8806C",
+    "member_count": 2,
+    "position_x": 0.316262066364,
+    "position_y": 0.803897917271,
+    "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+    "status_canvas": null
+  },
+  {
+    "answer_type_code": "A5",
+    "centroid_id": "CENT_337F9F506481F9516D347BD6",
+    "centroid_type": "answer_type",
+    "medoid_entity_id": "PEI_E8D1DB9A2B4A58FEBA13E425",
+    "member_count": 2,
+    "position_x": 0.309924602509,
+    "position_y": 0.748920917511,
+    "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+    "status_canvas": null
+  },
+  {
+    "answer_type_code": "A6",
+    "centroid_id": "CENT_FF8D2C887649B0B08E9A4297",
+    "centroid_type": "answer_type",
+    "medoid_entity_id": "PEI_EA288D8DA581C0A59E645501",
+    "member_count": 18,
+    "position_x": 0.734188616276,
+    "position_y": 0.758158385754,
+    "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+    "status_canvas": null
+  },
+  {
+    "answer_type_code": "A7",
+    "centroid_id": "CENT_D8D643AF1733BEA4FC488AA2",
+    "centroid_type": "answer_type",
+    "medoid_entity_id": "PEI_EBBEC5231568AF81C288025D",
+    "member_count": 8,
+    "position_x": 0.267623364925,
+    "position_y": 0.81261742115,
+    "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+    "status_canvas": null
+  },
+  {
+    "answer_type_code": "A8",
+    "centroid_id": "CENT_3DF3DCC0B366C2C69CB2794A",
+    "centroid_type": "answer_type",
+    "medoid_entity_id": "PEI_B74D2DB7A0F95E460DC9D441",
+    "member_count": 29,
+    "position_x": 0.973546147346,
+    "position_y": 0.016357507557,
+    "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+    "status_canvas": null
+  }
+]

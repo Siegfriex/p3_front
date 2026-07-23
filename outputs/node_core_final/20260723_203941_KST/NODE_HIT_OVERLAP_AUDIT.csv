@@ -1,0 +1,4 @@
+mode,node_count,overlap_count,resolution_policy,coordinate_displacement,result
+CONTRACT_FIXTURE,2,0,distance_then_canonical_id,0,PASS
+UNIT_OVERLAP_FIXTURE,3,expected_overlap,distance_then_canonical_id,0,PASS
+APPROVED_REAL_DATA,unknown,unknown,distance_then_canonical_id,0,NOT_VERIFIABLE

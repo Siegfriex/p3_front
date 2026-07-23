@@ -1,9 +1,5 @@
 import { lazy, Suspense } from 'react';
 import { useLocation, Routes, Route } from 'react-router';
-import { AboutPage } from '@/pages/about/AboutPage';
-import { DataPage } from '@/pages/data/DataPage';
-import { MethodPage } from '@/pages/method/MethodPage';
-import { StoryPage } from '@/pages/story/StoryPage';
 import type { BackgroundLocationState } from '@/shared/types/routing';
 import { AppShell } from './AppShell';
 import { DetailPage } from './DetailPage';
@@ -17,10 +13,42 @@ const LazyAtlasPage = lazy(async () => {
   return { default: module.AtlasPage };
 });
 
+const LazyStoryPage = lazy(async () => {
+  const module = await import('@/pages/story/StoryPage');
+  return { default: module.StoryPage };
+});
+
+const LazyAboutPage = lazy(async () => {
+  const module = await import('@/pages/about/AboutPage');
+  return { default: module.AboutPage };
+});
+
+const LazyDataPage = lazy(async () => {
+  const module = await import('@/pages/data/DataPage');
+  return { default: module.DataPage };
+});
+
+const LazyMethodPage = lazy(async () => {
+  const module = await import('@/pages/method/MethodPage');
+  return { default: module.MethodPage };
+});
+
+const LazyProjectionMethodLabPage = lazy(async () => {
+  const module = await import('@/pages/method/ProjectionMethodLabPage');
+  return { default: module.ProjectionMethodLabPage };
+});
+
 const atlasRouteLoading = (
   <main id="main-content" className="page-frame py-20" aria-busy="true" data-testid="atlas-lazy-loading" tabIndex={-1}>
     <p className="font-mono text-xs text-[var(--color-neutral-700)]">ATLAS ROUTE LOADING</p>
     <h1 className="mt-3 font-serif text-3xl font-bold">답변행태 지도를 불러오고 있습니다</h1>
+  </main>
+);
+
+const secondaryRouteLoading = (
+  <main id="main-content" className="page-frame py-20" aria-busy="true" data-testid="secondary-route-loading" tabIndex={-1}>
+    <p className="font-mono text-xs text-[var(--color-neutral-700)]">PAGE LOADING</p>
+    <h1 className="mt-3 font-serif text-3xl font-bold">페이지를 불러오고 있습니다</h1>
   </main>
 );
 
@@ -33,10 +61,11 @@ export function AppRouter() {
     <RouteErrorBoundary>
       <Routes location={backgroundLocation ?? location}>
         <Route element={<AppShell />}>
-          <Route index element={<StoryPage />} />
-          <Route path="method" element={<MethodPage />} />
-          <Route path="data" element={<DataPage />} />
-          <Route path="about" element={<AboutPage />} />
+          <Route index element={<Suspense fallback={secondaryRouteLoading}><LazyStoryPage /></Suspense>} />
+          <Route path="method" element={<Suspense fallback={secondaryRouteLoading}><LazyMethodPage /></Suspense>} />
+          <Route path="method/projection" element={<Suspense fallback={atlasRouteLoading}><LazyProjectionMethodLabPage /></Suspense>} />
+          <Route path="data" element={<Suspense fallback={secondaryRouteLoading}><LazyDataPage /></Suspense>} />
+          <Route path="about" element={<Suspense fallback={secondaryRouteLoading}><LazyAboutPage /></Suspense>} />
           <Route
             path="atlas"
             element={(

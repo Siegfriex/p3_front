@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { ANSWER_TYPES, type AtlasQueryState, type AtlasViewModelBundle } from '@/shared/types/atlas';
 import type { NodeFilterState } from '@/shared/config/atlas/atlasEncoding';
@@ -47,8 +47,21 @@ export function AtlasExplorer({ bundle, query, queryIssues, fixtureProvenance, o
   const selectNode = (nodeId: string) => onQueryChange({ ...query, nodeId });
   const reset = () => onQueryChange({ status: 'all', types: [...ANSWER_TYPES], nodeId: null, view: 'nodes' });
 
+  useEffect(() => {
+    if (selectedNode && !matchedNodeIds.has(selectedNode.id)) {
+      onQueryChange({ ...query, nodeId: null });
+    }
+  }, [matchedNodeIds, onQueryChange, query, selectedNode]);
+
   return (
-    <div className="space-y-5" onKeyDown={(event) => { if (event.key === 'Escape' && query.nodeId) clearSelection(); }}>
+    <div
+      className="space-y-5"
+      data-testid="atlas-explorer-ready"
+      data-release-id={bundle.releaseId}
+      data-projection-id={bundle.projectionId}
+      data-projection-hash={bundle.projectionHash}
+      onKeyDown={(event) => { if (event.key === 'Escape' && query.nodeId) clearSelection(); }}
+    >
       {fixtureProvenance ? (
         <p className="border border-[var(--status-active)] bg-[var(--color-behavior-amber-bg)] px-4 py-3 font-mono text-xs" data-testid="fixture-provenance">
           CONTRACT_FIXTURE / 개발·테스트 전용 / 실제 분석 결과가 아님
@@ -58,10 +71,10 @@ export function AtlasExplorer({ bundle, query, queryIssues, fixtureProvenance, o
         <div className="border border-[var(--status-active)] px-4 py-3 text-sm" role="status">잘못된 URL 값 {queryIssues.length}개를 안전한 기본값으로 해석했습니다.</div>
       ) : null}
 
-      <section className="flex flex-col gap-3 border-y border-[var(--color-neutral-200)] py-4 sm:flex-row sm:items-center sm:justify-between" aria-label="Atlas release 상태">
-        <div>
+      <section className="flex min-w-0 max-w-full flex-col gap-3 border-y border-[var(--color-neutral-200)] py-4 sm:flex-row sm:items-center sm:justify-between" aria-label="Atlas release 상태">
+        <div className="min-w-0">
           <p className="font-mono text-[11px] font-bold tracking-[0.1em] text-[var(--color-neutral-500)]">APPROVED RELEASE</p>
-          <p className="mt-1 font-mono text-sm font-bold">{bundle.releaseId}</p>
+          <p className="mt-1 break-all font-mono text-sm font-bold">{bundle.releaseId}</p>
         </div>
         <p className="inline-flex min-h-11 items-center border border-[var(--atlas-state-ready)] bg-[var(--color-behavior-blue-bg)] px-4 font-mono text-xs font-bold">
           aggregate nodes {bundle.nodes.length}개

@@ -1,0 +1,1139 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/node_modules/.bin/playwright",
+      "test",
+      "--config=reports/story_atlas_runtime_closure_20260724_023642_KST/playwright.local-4330.config.ts",
+      "tests/e2e/agent4-presentation-wcag.spec.ts",
+      "tests/e2e/atlas-contract-shell.spec.ts",
+      "tests/e2e/atlas-experience-design.spec.ts",
+      "tests/e2e/vercel-preview.spec.ts",
+      "tests/e2e/story-explorer-parity.spec.ts",
+      "tests/e2e/evidence-detail.spec.ts"
+    ],
+    "configFile": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/reports/story_atlas_runtime_closure_20260724_023642_KST/playwright.local-4330.config.ts",
+    "rootDir": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/reports/story_atlas_runtime_closure_20260724_023642_KST/PLAYWRIGHT_PRODUCTION_RAW.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "agent4-presentation-wcag.spec.ts",
+      "file": "agent4-presentation-wcag.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "global header keeps every visible pointer target at least 44 by 44",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4220,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:23:55.487Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a28ed1b0e10c75bacf6c-304a513b6884584648c1",
+          "file": "agent4-presentation-wcag.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "focus indicator keeps a two-layer boundary on paper and inverse surfaces",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1198,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:23:59.787Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a28ed1b0e10c75bacf6c-0382737c5587ef883425",
+          "file": "agent4-presentation-wcag.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "mobile Evidence unavailable hierarchy reflows without a vertical record ID",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 279,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:00.992Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a28ed1b0e10c75bacf6c-0cfc507a9acb5880cdd0",
+          "file": "agent4-presentation-wcag.spec.ts",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "development Evidence Drawer preserves modal focus lifecycle while failing closed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "development-only fixture interaction does not run against production",
+                  "location": {
+                    "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/agent4-presentation-wcag.spec.ts",
+                    "line": 84,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 74,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:01.280Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "development-only fixture interaction does not run against production",
+                      "location": {
+                        "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/agent4-presentation-wcag.spec.ts",
+                        "line": 84,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "a28ed1b0e10c75bacf6c-ae55dd4e40286a5cd797",
+          "file": "agent4-presentation-wcag.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "production Story, Data, Case and Evidence expose no mock or fixture content",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2215,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:01.362Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a28ed1b0e10c75bacf6c-2b63373a6824be93655f",
+          "file": "agent4-presentation-wcag.spec.ts",
+          "line": 108,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "atlas-contract-shell.spec.ts",
+      "file": "atlas-contract-shell.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "production-style no-approved-manifest route fails closed without legacy requests",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1333,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:03.604Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4be9f17a373505dda4cc-77ccf4d4e14ba34149f2",
+          "file": "atlas-contract-shell.spec.ts",
+          "line": 136,
+          "column": 1
+        },
+        {
+          "title": "invalid Atlas query is explicit and never rewritten by a passive observer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 559,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:04.947Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4be9f17a373505dda4cc-a9e17b09c66d681552f2",
+          "file": "atlas-contract-shell.spec.ts",
+          "line": 160,
+          "column": 1
+        }
+      ],
+      "suites": [
+        {
+          "title": "CONTRACT_FIXTURE route and query shell",
+          "file": "atlas-contract-shell.spec.ts",
+          "line": 169,
+          "column": 6,
+          "specs": [
+            {
+              "title": "restores filters and node selection through URL, reload, Back, and Forward",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "requires the explicit test-only fixture environment",
+                      "location": {
+                        "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                        "line": 170,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:05.518Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "requires the explicit test-only fixture environment",
+                          "location": {
+                            "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                            "line": 170,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-cdd04f1036cdd68d739e",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 176,
+              "column": 3
+            },
+            {
+              "title": "supports keyboard selection, Escape clear, 44px mirror target, invalid node, and reset",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "requires the explicit test-only fixture environment",
+                      "location": {
+                        "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                        "line": 170,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:05.519Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "requires the explicit test-only fixture environment",
+                          "location": {
+                            "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                            "line": 170,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-a2b072e8c2060332ee91",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 196,
+              "column": 3
+            },
+            {
+              "title": "keeps node coordinates and radius invariant across pointer, touch, focus, selection, and filtering",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "requires the explicit test-only fixture environment",
+                      "location": {
+                        "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                        "line": 170,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:05.519Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "requires the explicit test-only fixture environment",
+                          "location": {
+                            "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                            "line": 170,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-aa47ca62af3184ca955a",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 249,
+              "column": 3
+            },
+            {
+              "title": "has zero Axe critical or serious violations in the contract fixture shell",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "requires the explicit test-only fixture environment",
+                      "location": {
+                        "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                        "line": 170,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:05.519Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "requires the explicit test-only fixture environment",
+                          "location": {
+                            "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                            "line": 170,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-9f4b6e96fc71af4dce76",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 299,
+              "column": 3
+            },
+            {
+              "title": "records the contract-fixture node rendering performance baseline",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "requires the explicit test-only fixture environment",
+                      "location": {
+                        "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                        "line": 170,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:05.520Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "requires the explicit test-only fixture environment",
+                          "location": {
+                            "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                            "line": 170,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-90936cfba9eb0a357f45",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 340,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "atlas-experience-design.spec.ts",
+      "file": "atlas-experience-design.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Story Answers renders approved nodes, carries URL filters to Explorer, and restores with Back",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1777,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:05.528Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7536add29c34a7f26db-7de6d1cebfd112f306e9",
+          "file": "atlas-experience-design.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "real-data Atlas surfaces have no overflow or blocking Axe issue at 375x812",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5009,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:07.317Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7536add29c34a7f26db-ad6307847cc1f1688cd3",
+          "file": "atlas-experience-design.spec.ts",
+          "line": 43,
+          "column": 3
+        },
+        {
+          "title": "real-data Atlas surfaces have no overflow or blocking Axe issue at 768x1024",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4957,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:12.338Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7536add29c34a7f26db-d9c891e2c5bcf48f253b",
+          "file": "atlas-experience-design.spec.ts",
+          "line": 43,
+          "column": 3
+        },
+        {
+          "title": "real-data Atlas surfaces have no overflow or blocking Axe issue at 1440x900",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4961,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:17.307Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7536add29c34a7f26db-b987f9f35353d48bfff8",
+          "file": "atlas-experience-design.spec.ts",
+          "line": 43,
+          "column": 3
+        },
+        {
+          "title": "real-data Atlas surfaces have no overflow or blocking Axe issue at 1920x1080",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4882,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:23.325Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7536add29c34a7f26db-7025c89fd032bf01b5b1",
+          "file": "atlas-experience-design.spec.ts",
+          "line": 43,
+          "column": 3
+        },
+        {
+          "title": "CTA contrast, fixed rail hit area, footer scope, and scroll regions are explicit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3658,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:24:28.220Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7536add29c34a7f26db-abf408d5526e76934c88",
+          "file": "atlas-experience-design.spec.ts",
+          "line": 65,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "evidence-detail.spec.ts",
+      "file": "evidence-detail.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "approved Evidence detail runtime",
+          "file": "evidence-detail.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "loads an approved direct detail and fails closed for an invalid ID",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 349,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:31.901Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "33b0d119385b2e3b6ce1-3fc4614d4222d058681e",
+              "file": "evidence-detail.spec.ts",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "opens the same approved detail in the route-driven Drawer and restores Atlas history",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1411,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:32.259Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "33b0d119385b2e3b6ce1-b5e1d10aec6cf3cdef69",
+              "file": "evidence-detail.spec.ts",
+              "line": 25,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "story-explorer-parity.spec.ts",
+      "file": "story-explorer-parity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "approved Story and Explorer parity",
+          "file": "story-explorer-parity.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "uses one release/projection and preserves every approved Story node field in Explorer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2221,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:33.703Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3e04ec80c384d23e2c08-ce4b0c2cb4278fb77d79",
+              "file": "story-explorer-parity.spec.ts",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "serializes status and answer types into the CTA without carrying Story selection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1095,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:35.930Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3e04ec80c384d23e2c08-47a0c5932ac5929aece5",
+              "file": "story-explorer-parity.spec.ts",
+              "line": 61,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "vercel-preview.spec.ts",
+      "file": "vercel-preview.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Vercel production preview",
+          "file": "vercel-preview.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "serves every public BrowserRouter entry point",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 864,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:37.044Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88573ce4248041344d87-10f9165b3203f579806e",
+              "file": "vercel-preview.spec.ts",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "keeps development-only UI out of the production build",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 227,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:37.921Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88573ce4248041344d87-f9e51ef7f7c82407cf5e",
+              "file": "vercel-preview.spec.ts",
+              "line": 30,
+              "column": 3
+            },
+            {
+              "title": "loads the runtime release pointer, Story subset, Full Explorer, and approved Evidence detail",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2231,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:24:38.158Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88573ce4248041344d87-2fc19219778e2ddd4c90",
+              "file": "vercel-preview.spec.ts",
+              "line": 37,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-23T18:23:54.847Z",
+    "duration": 44561.662,
+    "expected": 19,
+    "skipped": 6,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

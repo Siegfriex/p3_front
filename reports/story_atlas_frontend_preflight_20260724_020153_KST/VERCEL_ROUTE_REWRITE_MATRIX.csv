@@ -1,0 +1,10 @@
+route,local_vite_preview,vercel_json_rule,git_deploy_state,classification
+/,200,catch-all index.html,vercel.json untracked,PARTIALLY_CONFIRMED
+/atlas,200 direct,catch-all index.html,vercel.json untracked,PARTIALLY_CONFIRMED
+/evidence/:id,200 direct fail-closed shell,catch-all index.html,vercel.json untracked,PARTIALLY_CONFIRMED
+/case/:id,200 direct fail-closed shell,catch-all index.html,vercel.json untracked,PARTIALLY_CONFIRMED
+/method,200 direct,catch-all index.html,vercel.json untracked,PARTIALLY_CONFIRMED
+/data,200 direct,catch-all index.html,vercel.json untracked,PARTIALLY_CONFIRMED
+/about,200 direct,catch-all index.html,vercel.json untracked,PARTIALLY_CONFIRMED
+/data/releases/<id>/**,200 existing static files,Vercel Vite SPA pattern should preserve static files,runtime files untracked,BLOCKED
+/data/current-release.json,404/absent,catch-all risk avoided only when real static file exists,file forbidden/not created in preflight,BLOCKED

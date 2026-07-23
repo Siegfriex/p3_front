@@ -1,12 +1,34 @@
 import React, { useState } from 'react';
+import { motion, type Variants } from 'motion/react';
 import { ChapterFrame } from '../../shared/ui/ChapterFrame';
 import { PageFrame } from '../../shared/ui/PageFrame';
 import { ContentGrid } from '../../shared/ui/ContentGrid';
 import { Badge } from '../../shared/ui/Badge';
 import { STORY_METRICS } from '../../shared/mock/storyData';
+import { usePreferences } from '@/shared/hooks/usePreferences';
 
 export const ChapterScale: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
+  const { isReducedMotion } = usePreferences();
+
+  // Same stagger/easing voice as the Prologue reveal, applied here so the
+  // motion language reads as one system rather than a one-off hero effect.
+  const containerVariants: Variants = {
+    hidden: { opacity: isReducedMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: isReducedMotion ? 1 : 0, y: isReducedMotion ? 0 : 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: isReducedMotion ? 0 : 0.6, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
 
   const yearStats = [
     { year: 2018, count: 420, completed: 348, evasive: 182 },
@@ -32,10 +54,17 @@ export const ChapterScale: React.FC = () => {
         </div>
 
         {/* Big Metric Statements — Sentence-first representation */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
         <ContentGrid className="mb-12">
           {STORY_METRICS.map((metric) => (
-            <div
+            <motion.div
               key={metric.id}
+              variants={itemVariants}
               className="col-span-12 sm:col-span-6 lg:col-span-3 p-6 bg-[var(--color-surface)] border border-[var(--color-neutral-200)] flex flex-col justify-between"
             >
               <div>
@@ -62,12 +91,19 @@ export const ChapterScale: React.FC = () => {
               <div className="type-mono text-[11px] text-[var(--color-neutral-500)] border-t border-[var(--color-neutral-200)] pt-2 truncate">
                 {metric.sourceLabel}
               </div>
-            </div>
+            </motion.div>
           ))}
         </ContentGrid>
+        </motion.div>
 
         {/* Cumulative Timeline Visualizer (2018–2023) */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-neutral-200)] p-6 md:p-8">
+        <motion.div
+          className="bg-[var(--color-surface)] border border-[var(--color-neutral-200)] p-6 md:p-8"
+          initial={isReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: isReducedMotion ? 0 : 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-[var(--color-neutral-200)]">
             <div>
               <h3 className="type-heading-2 font-serif text-[var(--color-ink)]">
@@ -179,7 +215,7 @@ export const ChapterScale: React.FC = () => {
             </div>
             <span>[MOCK Data Reference]</span>
           </div>
-        </div>
+        </motion.div>
       </PageFrame>
     </ChapterFrame>
   );

@@ -1,10 +1,10 @@
-import { Database, Eye, FileText, Info } from 'lucide-react';
+import { BookOpen, Database, Eye, FileText, Info } from 'lucide-react';
 import { Link, NavLink } from 'react-router';
 
 import { usePreferences } from '@/shared/hooks/usePreferences';
 
 const navItems = [
-  { to: '/', label: '에세이', longLabel: '에세이 (Story)', icon: null, end: true },
+  { to: '/', label: '에세이', longLabel: '에세이 (Story)', icon: BookOpen, end: true },
   { to: '/method', label: '방법론', longLabel: '방법론 (Method)', icon: FileText, end: false },
   { to: '/data', label: '데이터', longLabel: '데이터 (Data)', icon: Database, end: false },
   { to: '/about', label: '소개', longLabel: '소개 (About)', icon: Info, end: false },
@@ -38,7 +38,7 @@ export function HeaderNav() {
             </span>
           </Link>
           <span className="hidden 2xl:inline-block text-[11px] font-mono px-2 py-0.5 bg-[var(--color-surface)] text-[var(--color-neutral-700)] border border-[var(--color-neutral-200)]">
-            2018–2023
+            2020–2025
           </span>
         </div>
 
