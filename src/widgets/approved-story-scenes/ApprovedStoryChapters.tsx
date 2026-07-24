@@ -261,7 +261,7 @@ export function ChapterApprovedRecord() {
         </ol>
 
         <blockquote className="story-fullwidth-quote story-hierarchy-4">
-          시정조치 건수와 완료율만으로는 충분하지 않습니다. 이후 같은 사고가 재발했는지, 작업 현장이 실제로 바뀌었는지를 확인해야 합니다.
+          <p>시정조치 건수와 완료율만으로는 충분하지 않습니다. 이후 같은 사고가 재발했는지, 작업 현장이 실제로 바뀌었는지를 확인해야 합니다.</p>
         </blockquote>
 
         <div className="story-record-evidence">

@@ -82,7 +82,11 @@ describe('ChapterAnswersAtlas approved Story Preview', () => {
     expect(screen.getByTestId('story-atlas-type-primer').querySelectorAll('[data-answer-type]')).toHaveLength(8);
     expect(container.querySelectorAll('[data-testid="atlas-chart"] [data-node-id]')).toHaveLength(140);
     expect(container.querySelectorAll('[data-testid="atlas-chart"] [data-editorial-anchor="true"]')).toHaveLength(16);
+    expect(container.querySelectorAll('[data-node-filter-state="matched"]')).toHaveLength(16);
+    expect(container.querySelectorAll('[data-node-filter-state="context"]')).toHaveLength(124);
     expect(container.querySelectorAll('.atlas-node-navigator')).toHaveLength(140);
+    expect(screen.getByTestId('story-atlas-cluster-disclosure')).not.toHaveAttribute('open');
+    expect(screen.getByTestId('story-atlas-node-directory')).not.toHaveAttribute('open');
     expect(screen.getByTestId('story-selected-dossier')).toHaveTextContent('기억 부재 진술');
     expect(screen.getByText(/FEATURED CONTEXT/)).toBeInTheDocument();
     expect(container.querySelectorAll('[data-selection-ring="true"]')).toHaveLength(0);
@@ -90,10 +94,13 @@ describe('ChapterAnswersAtlas approved Story Preview', () => {
     expect(screen.getByRole('link', { name: '현재 필터로 전체 답변행태 지도 보기' })).toHaveAttribute('href', '/atlas');
 
     await user.selectOptions(screen.getByLabelText('처리 상태'), 'active');
+    const storyNodeIds = new Set(bundle.storyPreviewNodeIds);
+    const activeAnchorCount = bundle.nodes.filter((node) => node.status === 'active' && storyNodeIds.has(node.id)).length;
+    const activeNodeCount = bundle.nodes.filter((node) => node.status === 'active').length;
     expect(container.querySelectorAll('[data-testid="atlas-chart"] [data-node-id]')).toHaveLength(140);
-    expect(container.querySelectorAll('[data-node-filter-state="matched"]')).toHaveLength(47);
-    expect(container.querySelectorAll('[data-node-filter-state="context"]')).toHaveLength(93);
-    expect(container.querySelectorAll('.atlas-node-navigator')).toHaveLength(47);
+    expect(container.querySelectorAll('[data-node-filter-state="matched"]')).toHaveLength(activeAnchorCount);
+    expect(container.querySelectorAll('[data-node-filter-state="context"]')).toHaveLength(140 - activeAnchorCount);
+    expect(container.querySelectorAll('.atlas-node-navigator')).toHaveLength(activeNodeCount);
     expect(screen.getByRole('link', { name: '현재 필터로 전체 답변행태 지도 보기' })).toHaveAttribute('href', '/atlas?status=active');
   });
 });

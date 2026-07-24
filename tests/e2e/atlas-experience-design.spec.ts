@@ -115,6 +115,14 @@ test('desktop editorial cleanup and final appeal layout match the approved compo
   await expect(page.locator('#remains .story-remains-summary .story-contract-note')).toHaveCount(0);
   await expect(page.locator('#remains .story-line-legend')).toHaveCount(0);
 
+  const storyPlot = page.locator('#answers .atlas-plot-surface');
+  const plotFill = await storyPlot.evaluate((element) => getComputedStyle(element).fill);
+  expect(plotFill).not.toMatch(/rgb\(0,?\s*0,?\s*0\)|#000(?:000)?/i);
+  await expect(page.locator('#answers [data-node-filter-state="matched"]')).toHaveCount(16);
+  await expect(page.locator('#answers [data-node-filter-state="context"]')).toHaveCount(124);
+  await expect(page.getByTestId('story-atlas-cluster-disclosure')).not.toHaveAttribute('open');
+  await expect(page.getByTestId('story-atlas-node-directory')).not.toHaveAttribute('open');
+
   const identity = page.locator('#prologue-hero-identity');
   await identity.scrollIntoViewIfNeeded();
   const identityRatio = await identity.evaluate((element) => {
@@ -148,4 +156,19 @@ test('desktop editorial cleanup and final appeal layout match the approved compo
     return { appealWidth: appeal.width, contentWidth };
   });
   expect(finalLayout.appealWidth).toBeGreaterThan(finalLayout.contentWidth * 0.98);
+
+  const recordQuote = page.locator('#record .story-fullwidth-quote');
+  const recordQuoteWidth = await recordQuote.evaluate((element) => element.getBoundingClientRect().width);
+  expect(recordQuoteWidth).toBeGreaterThan(1400);
+
+  for (const selector of ['#scale .story-media-pair', '#gap .story-gap-meaning', '#remains .story-remains-summary']) {
+    const contained = await page.locator(selector).evaluate((element) => {
+      const parent = element.getBoundingClientRect();
+      return [...element.children].every((child) => {
+        const box = child.getBoundingClientRect();
+        return box.top >= parent.top - 1 && box.bottom <= parent.bottom + 1;
+      });
+    });
+    expect(contained, `${selector} children should remain inside their composition`).toBe(true);
+  }
 });
