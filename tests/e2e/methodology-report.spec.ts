@@ -15,7 +15,7 @@ test('Methodology publishes the canonical release scope and distinct data popula
   await expect(page.getByText('A(Q,K,V) = softmax((QKᵀ / √dₖ) + M) V')).toBeVisible();
   await expect(page.getByRole('heading', { name: '‘조치완료·조치중·향후 추진계획’을 어떻게 상태로 바꿨나' })).toBeVisible();
   await expect(page.getByText('‘향후 추진계획’은 세 번째 상태 label이 아닙니다.')).toBeVisible();
-  await expect(page.getByText('ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264')).toBeVisible();
+  await expect(page.getByText('ATLAS_DG761_STORY_20260724_022353_KST_BF673FD1')).toBeVisible();
 
   const goldCard = page.getByTestId('methodology-fact-grid').locator('article').filter({ hasText: 'Gold 행태 라벨' });
   const analysisCard = page.getByTestId('methodology-fact-grid').locator('article').filter({ hasText: '승인 분석 엔터티' });

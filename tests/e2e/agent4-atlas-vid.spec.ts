@@ -33,17 +33,17 @@ test('Story VID opens with all 140 approved nodes, 16 editorial anchors, and an 
   await expect(page.getByText(/FEATURED CONTEXT/)).toBeVisible();
 
   const evidenceNodeId = 'ANODE_62B6852738502414C4FA08E3';
-  const chart = page.getByTestId('atlas-chart').locator('svg');
-  await chart.scrollIntoViewIfNeeded();
-  const nodePoint = await page.locator(`#answers [data-node-id="${evidenceNodeId}"]`).evaluate((element) => {
-    const svg = (element as SVGElement).ownerSVGElement!;
-    const point = svg.createSVGPoint();
-    point.x = Number((element as SVGElement).dataset.screenX);
-    point.y = Number((element as SVGElement).dataset.screenY);
-    const client = point.matrixTransform(svg.getScreenCTM()!);
-    return { x: client.x, y: client.y };
-  });
-  await page.mouse.click(nodePoint.x, nodePoint.y);
+  const storyNodeIds = await page.locator('#answers [data-node-id]').evaluateAll((elements) => (
+    elements.map((element) => element.getAttribute('data-node-id'))
+  ));
+  const evidenceNodeIndex = storyNodeIds.indexOf(evidenceNodeId);
+  expect(evidenceNodeIndex).toBeGreaterThanOrEqual(0);
+  const nodeDirectory = page.getByTestId('story-atlas-node-directory');
+  await nodeDirectory.locator('summary').click();
+  await expect(nodeDirectory).toHaveAttribute('open', '');
+  const evidenceNodeNavigator = page.locator('#answers #atlas-node-list button').nth(evidenceNodeIndex);
+  await evidenceNodeNavigator.scrollIntoViewIfNeeded();
+  await evidenceNodeNavigator.click();
   await expect(page).toHaveURL(new RegExp(`node=${evidenceNodeId}`));
   await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
   await expect(page.getByRole('dialog')).toHaveCount(0);
