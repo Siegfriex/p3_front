@@ -46,16 +46,25 @@ test('Methodology remains readable and overflow-free across desktop and compact 
 
     const layout = await page.evaluate(() => {
       const rail = document.querySelector<HTMLElement>('.method-rail');
+      const report = document.querySelector<HTMLElement>('.method-report');
       const factGrid = document.querySelector<HTMLElement>('.method-fact-grid');
+      const railBox = rail?.getBoundingClientRect();
+      const reportBox = report?.getBoundingClientRect();
       return {
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
         railDisplay: rail ? getComputedStyle(rail).display : null,
+        railOutsideReport: Boolean(railBox && reportBox && railBox.left > reportBox.right),
+        reportWidth: reportBox?.width ?? 0,
         factColumns: factGrid ? getComputedStyle(factGrid).gridTemplateColumns.split(' ').length : 0,
       };
     });
 
     expect(layout.overflow, `${viewport.width}px horizontal overflow`).toBe(0);
-    if (viewport.width === 1440) expect(layout.railDisplay).not.toBe('none');
+    if (viewport.width === 1440) {
+      expect(layout.railDisplay).not.toBe('none');
+      expect(layout.railOutsideReport).toBe(true);
+      expect(layout.reportWidth).toBeGreaterThanOrEqual(900);
+    }
     if (viewport.width === 390) expect(layout.factColumns).toBe(2);
     if (viewport.width === 320) expect(layout.factColumns).toBe(1);
   }

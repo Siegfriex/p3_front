@@ -74,6 +74,28 @@ test('mobile visual node hit targets remain at least 44px inside the bounded cha
   expect(await page.locator('.atlas-visual-scroll').evaluate((element) => element.scrollWidth > element.clientWidth)).toBe(true);
 });
 
+test('mobile visual field opens with the interactive node population centered', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto('/atlas');
+  const scroller = page.locator('.atlas-visual-scroll');
+  await expect(scroller).toBeVisible();
+
+  const field = await scroller.evaluate((element) => {
+    const scrollerRect = element.getBoundingClientRect();
+    const nodeRects = [...element.querySelectorAll<SVGGElement>('[data-node-filter-state="matched"]')]
+      .map((node) => node.getBoundingClientRect());
+    const visibleNodes = nodeRects.filter((rect) => rect.right > scrollerRect.left && rect.left < scrollerRect.right);
+    return {
+      scrollLeft: element.scrollLeft,
+      visibleNodeCount: visibleNodes.length,
+      totalNodeCount: nodeRects.length,
+    };
+  });
+
+  expect(field.scrollLeft).toBeGreaterThan(0);
+  expect(field.visibleNodeCount).toBeGreaterThan(field.totalNodeCount / 2);
+});
+
 test('pointer selection updates the URL and reveals the representative answer first', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/atlas');

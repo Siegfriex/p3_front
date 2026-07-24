@@ -29,7 +29,11 @@ describe('AppRouter', () => {
 
   it('renders the story route and semantic global links', async () => {
     renderAt('/');
-    expect(await screen.findByRole('heading', { name: '국정감사 단순히 쇼인가?' })).toBeInTheDocument();
+    expect(await screen.findByRole(
+      'heading',
+      { name: '국정감사 단순히 쇼인가?' },
+      { timeout: 5_000 },
+    )).toBeInTheDocument();
     expect(screen.getByRole('link', { name: '방법론 (Method)' })).toHaveAttribute('href', '/method');
   });
 

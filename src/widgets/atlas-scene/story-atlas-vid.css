@@ -199,10 +199,7 @@
 }
 
 .story-atlas-clusters__header {
-  display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr);
-  gap: clamp(1rem, 3vw, 3rem);
-  align-items: end;
+  display: block;
 }
 
 .story-atlas-clusters__header h3 {
@@ -213,7 +210,6 @@
   line-height: 1.12;
 }
 
-.story-atlas-clusters__header > p,
 .story-atlas-clusters__empty {
   color: var(--ink-secondary);
   font-size: 0.85rem;

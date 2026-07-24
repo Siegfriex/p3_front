@@ -255,7 +255,6 @@ export function ChapterAnswersAtlas() {
                 <Link className="atlas-action-primary" to={explorerHref}>현재 필터로 전체 답변행태 지도 보기</Link>
                 <Link className="atlas-action-secondary" to="/method">투영 방법 확인</Link>
               </div>
-              <AtlasProjectionNote />
             </section>
           ) : null}
         </div>

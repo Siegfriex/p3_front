@@ -101,28 +101,6 @@
 .atlas-view-tab[aria-selected='true'] { border-bottom-color: var(--signal-red); background: var(--paper-muted); }
 .atlas-view-tab:focus-visible { outline: 3px solid var(--color-focus); outline-offset: -3px; }
 
-.atlas-controls-layout {
-  display: grid;
-  grid-template-columns: minmax(10rem, 1fr) minmax(0, 5fr) auto;
-  gap: 1.25rem;
-  align-items: end;
-}
-
-.atlas-family-toggles { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.65rem; }
-.atlas-family-toggles button {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  gap: 0.65rem;
-  border: 1px solid var(--line-strong);
-  padding: 0.45rem 0.75rem;
-  background: var(--paper-surface);
-  font-size: 0.75rem;
-}
-.atlas-family-toggles button[aria-pressed='true'] { background: var(--ink-primary); color: var(--paper-surface); }
-.atlas-family-toggles small { font-family: var(--font-mono); font-size: 0.62rem; opacity: 0.78; }
-.atlas-behavior-controls label small { margin-left: 0.35rem; opacity: 0.72; }
-
 .atlas-map-layout {
   display: grid;
   grid-template-columns: minmax(0, 9fr) minmax(22rem, 3fr);
@@ -265,8 +243,6 @@
   .atlas-evidence-view,
   .atlas-distribution { grid-template-columns: minmax(0, 1fr); }
   .atlas-dossier--full { padding-left: 0; border-top: 1px solid var(--line-medium); border-left: 0; padding-top: 1.5rem; }
-  .atlas-controls-layout { grid-template-columns: 1fr 2fr; }
-  .atlas-controls-layout > .atlas-action-secondary { grid-column: 1 / -1; }
 }
 
 @media (max-width: 40rem) {
@@ -287,9 +263,6 @@
   .atlas-view-tabs { top: 0; margin-inline: -1rem; }
   .atlas-view-tab { min-height: 3.5rem; padding-inline: 0.65rem; text-align: center; }
   .atlas-view-tab span { display: none; }
-  .atlas-controls-layout { grid-template-columns: 1fr; }
-  .atlas-family-toggles { display: grid; grid-template-columns: 1fr; }
-  .atlas-family-toggles button { justify-content: space-between; }
   .atlas-topic-layer { display: none; }
   .atlas-topic-index { grid-template-columns: 1fr; }
   .atlas-topic-index ol { display: flex; overflow-x: auto; padding-bottom: 0.4rem; scroll-snap-type: x proximity; }

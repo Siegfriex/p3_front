@@ -202,13 +202,13 @@ export const ChapterPrologue: React.FC<ChapterPrologueProps> = ({ bundle }) => {
                 src={ministryIdentity}
                 alt="문화체육관광부 국문·영문 기관 표장"
                 slotId="prologue-hero-identity"
-                aspectRatio="4/3"
+                aspectRatio="auto"
                 objectFit="contain"
                 maskVariant="none"
                 stampBadge="PDF SOURCE / IDENTITY"
                 placeholderCaption="문화체육관광부 기관 표장"
-                className="shadow-sm hover:opacity-100 transition-opacity"
-                mobileCrop="banner"
+                className="prologue-identity-field shadow-sm hover:opacity-100 transition-opacity"
+                mobileCrop="inline"
               />
             </motion.div>
 
