@@ -92,7 +92,7 @@ export function ChapterAnswersAtlas() {
     () => selectStoryPersistentLabelNodeIds(
       storyNodes.filter((node) => node.id !== visualSelectedNode?.id),
       {
-        maximumLabels: visualSelectedNode ? 2 : 3,
+        maximumLabels: visualSelectedNode ? 1 : 3,
         minimumScreenDistance: 148,
         reservedNodes: visualSelectedNode ? [visualSelectedNode] : [],
       },

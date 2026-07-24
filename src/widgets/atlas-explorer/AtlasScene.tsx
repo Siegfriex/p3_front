@@ -156,7 +156,7 @@ export function AtlasScene({
             isSelected: selected,
             isFocused: focused,
           });
-          const showLabel = interactive && (selected || previewed || focused || persistentLabelNodeIds.has(node.id));
+          const showLabel = interactive && !selected && (previewed || focused || persistentLabelNodeIds.has(node.id));
           const labelOnLeft = node.screen.x > ATLAS_PLOT_RECT.x + ATLAS_PLOT_RECT.width * 0.7;
           const labelX = labelOnLeft ? -(radius + 14) : radius + 14;
           return (

@@ -37,6 +37,31 @@ test('Story VID opens with all 140 approved nodes, 16 editorial anchors, and an 
   await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await expect(page.locator('#answers [data-selection-ring="true"]')).toHaveCount(1);
+  await expect(page.locator(`#answers [data-node-id="${evidenceNodeId}"] .atlas-node-label`)).toHaveCount(0);
+  const annotation = page.locator('#answers .atlas-selected-annotation');
+  await expect(annotation).toHaveCount(1);
+  const annotationPresentation = await annotation.evaluate((element) => {
+    const panel = element.querySelector<SVGRectElement>('.atlas-selected-annotation__panel')!;
+    const box = panel.getBBox();
+    return {
+      x: box.x,
+      y: box.y,
+      right: box.x + box.width,
+      bottom: box.y + box.height,
+      fill: getComputedStyle(panel).fill,
+      textFill: getComputedStyle(element.querySelector('text')!).fill,
+    };
+  });
+  expect(annotationPresentation).toEqual(expect.objectContaining({
+    x: expect.any(Number),
+    y: expect.any(Number),
+  }));
+  expect(annotationPresentation.x).toBeGreaterThanOrEqual(76);
+  expect(annotationPresentation.y).toBeGreaterThanOrEqual(48);
+  expect(annotationPresentation.right).toBeLessThanOrEqual(676);
+  expect(annotationPresentation.bottom).toBeLessThanOrEqual(456);
+  expect(annotationPresentation.fill).not.toMatch(/rgb\(0,?\s*0,?\s*0\)|#000(?:000)?/i);
+  expect(annotationPresentation.textFill).not.toBe(annotationPresentation.fill);
   const questionContext = page.getByTestId('story-atlas-question-context');
   await expect(questionContext).toBeVisible();
   await expect(questionContext.locator('details')).not.toHaveAttribute('open');
