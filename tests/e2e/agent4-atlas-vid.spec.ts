@@ -16,6 +16,17 @@ test('Story VID opens with all 140 approved nodes, 16 editorial anchors, and an 
   await expect(page.locator('#answers [data-node-filter-state="matched"]')).toHaveCount(16);
   await expect(page.locator('#answers [data-node-filter-state="context"]')).toHaveCount(124);
   await expect(page.locator('#answers #atlas-node-list button')).toHaveCount(140);
+  const storyWorkspace = page.locator('#answers .story-atlas-workspace');
+  await expect(storyWorkspace.locator('.story-atlas-circle-shape--mark')).toHaveCount(140);
+  const storyCircleMarks = storyWorkspace.locator('.story-atlas-circle-shape--mark');
+  const sourceShapes = storyWorkspace.locator('.atlas-node-glyph__source-shape');
+  await expect(storyCircleMarks.first()).toHaveCSS('display', 'block');
+  await expect(sourceShapes.first()).toHaveCSS('display', 'none');
+  expect(await storyCircleMarks.evaluateAll((elements) => elements.every((element) => getComputedStyle(element).display === 'block'))).toBe(true);
+  expect(await sourceShapes.evaluateAll((elements) => elements.every((element) => getComputedStyle(element).display === 'none'))).toBe(true);
+  await expect(storyWorkspace.locator('[data-shape-token="circle"]')).toHaveCount(53);
+  await expect(storyWorkspace.locator('[data-shape-token="square"]')).toHaveCount(41);
+  await expect(storyWorkspace.locator('[data-shape-token="diamond"]')).toHaveCount(46);
   await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
   await expect(page.getByTestId('story-atlas-type-primer').locator('[data-answer-type]')).toHaveCount(8);
   await expect(page.locator('#answers [data-selection-ring="true"]')).toHaveCount(0);

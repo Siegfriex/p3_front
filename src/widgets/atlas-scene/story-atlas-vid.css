@@ -125,6 +125,14 @@
   filter: drop-shadow(0 2px 2px rgb(17 17 17 / 16%));
 }
 
+.story-atlas-workspace .atlas-node-glyph__source-shape {
+  display: none;
+}
+
+.story-atlas-workspace .story-atlas-circle-shape {
+  display: block;
+}
+
 .story-atlas-workspace [data-editorial-anchor='true'][data-node-filter-state='matched'] [data-editorial-anchor-ring='true'] {
   stroke-width: 2.25;
   stroke-dasharray: 4 3;
