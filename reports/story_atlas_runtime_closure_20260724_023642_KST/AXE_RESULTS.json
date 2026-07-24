@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "local_production_story_critical_or_serious": 0,
+  "local_production_atlas_critical_or_serious": 0,
+  "deployed_runtime_story_critical_or_serious": 0,
+  "deployed_runtime_atlas_critical_or_serious": 0,
+  "technical_routing_key_states_critical_or_serious": 0,
+  "contract_fixture_critical_or_serious": 0
+}

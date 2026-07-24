@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.0",
+  "audit_id": "20260722_170257",
+  "gate": "LOCAL_FRONTEND_STATE_AUDIT_COMPLETE",
+  "meaning": "Audit artifacts complete; application quality gates not passed",
+  "repository": {
+    "name": "p3_front",
+    "root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+    "filesystem": "ext4 on WSL2 under /home",
+    "branch": "main",
+    "detached_head": false,
+    "head": "6f4835292abe9bc0cbbed81469b21c25c4e95777",
+    "head_subject": "feat(prologue): implement high-fidelity design",
+    "head_time": "2026-07-22T16:58:30+09:00",
+    "remote": "https://github.com/Siegfriex/p3_front.git",
+    "start_clean": true,
+    "start_staged": [],
+    "start_unstaged": [],
+    "start_untracked": [],
+    "current_diff": [],
+    "submodule_detected": false,
+    "worktree": true
+  },
+  "time": {
+    "start_local": "2026-07-22T17:02:57+09:00",
+    "start_utc": "2026-07-22T08:02:57Z",
+    "end_local": "2026-07-22T17:11:29+09:00",
+    "end_utc": "2026-07-22T08:11:29Z"
+  },
+  "environment": {
+    "os": "Linux WSL2",
+    "shell": "/bin/bash",
+    "node": "v20.20.1",
+    "npm": "10.8.2",
+    "pnpm": null,
+    "yarn": null,
+    "package_manager": "UNKNOWN",
+    "package_manager_field": null,
+    "lockfiles": [],
+    "node_modules_present": false,
+    "declared": {
+      "react": "^19.0.1",
+      "react_dom": "^19.0.1",
+      "typescript": "~5.8.2",
+      "vite": "^6.2.3",
+      "tailwindcss": "^4.1.14",
+      "motion": "^12.23.24"
+    },
+    "playwright_project_config": false,
+    "storybook": false
+  },
+  "core_verdicts": {
+    "phase_0_current_state_registration": "PARTIAL",
+    "prologue_implementation": "PARTIAL",
+    "prologue_runtime_qa": "NOT_VERIFIABLE",
+    "chapter_01_locked": "DOCUMENT_DECLARATION_ONLY",
+    "scale_status": "FOUNDATION_ONLY",
+    "other_six_chapter_files_changed_by_prologue_commit": false,
+    "header_changed_by_prologue_commit": false,
+    "foundation_gallery_production_exposure": true,
+    "prologue_scale_handoff_contract": "OUTGOING_ENDPOINT_ONLY",
+    "documents_match_code": false,
+    "runtime_available": false,
+    "screenshots_captured": 0
+  },
+  "routing": {
+    "mechanism": "in-memory React useState view switch",
+    "view_ids": ["story", "method", "data", "about"],
+    "url_routes": [],
+    "evidence_route": false,
+    "case_route": false,
+    "hash_sync": false,
+    "direct_url_restore": false,
+    "browser_back_sync": false,
+    "header_persistent": true
+  },
+  "chapter_order": [
+    "prologue",
+    "scale",
+    "record",
+    "gap",
+    "answers",
+    "cases",
+    "remains"
+  ],
+  "observer": {
+    "location": "src/pages/story/StoryPage.tsx:19-38",
+    "threshold": 0.3,
+    "root_margin": null,
+    "cleanup": "disconnect",
+    "state_owner": "OverlayProvider.currentChapterId",
+    "consumers": ["ProgressTracker", "FooterRail"],
+    "reduced_motion_relation": false,
+    "presentation_mode_relation": false
+  },
+  "prologue_claims": [
+    {"id": 1, "claim": "12-column asymmetric magazine grid", "result": "PASS", "evidence": "src/widgets/prologue-scene/ChapterPrologue.tsx:103-149"},
+    {"id": 2, "claim": "mobile 4-column layout", "result": "PARTIAL", "evidence": "Prologue collapses to one column; global ContentGrid has 4-column CSS"},
+    {"id": 3, "claim": "type-display-hero-quote", "result": "PASS", "evidence": "ChapterPrologue.tsx:122-124; typography.css:15-22"},
+    {"id": 4, "claim": "type-display-hero-conclusion", "result": "PASS", "evidence": "ChapterPrologue.tsx:126-128; typography.css:24-32"},
+    {"id": 5, "claim": "2.5px Evidence Line", "result": "PASS", "evidence": "ChapterPrologue.tsx:56-64", "note": "hardcoded strokeWidth, not token-bound"},
+    {"id": 6, "claim": "top anchor circle", "result": "PASS", "evidence": "ChapterPrologue.tsx:67-74"},
+    {"id": 7, "claim": "handoff elbow X50 Y100", "result": "PASS", "evidence": "ChapterPrologue.tsx:56-83"},
+    {"id": 8, "claim": "EditorialImageField", "result": "PASS", "evidence": "ChapterPrologue.tsx:131-144"},
+    {"id": 9, "claim": "loaded pending missing states", "result": "PARTIAL", "evidence": "EditorialImageField.tsx:3,40-44,87-114", "note": "production Prologue exercises pending only"},
+    {"id": 10, "claim": "presentation trigger retained", "result": "PASS", "evidence": "HeaderNav.tsx:94-105; ChapterPrologue.tsx:122"},
+    {"id": 11, "claim": "reduced motion support", "result": "PARTIAL", "evidence": "ChapterPrologue.tsx:10-38,62-64,185-187; reset.css:27-34"},
+    {"id": 12, "claim": "native vertical scroll", "result": "PASS", "evidence": "StoryPage.tsx:40-50"},
+    {"id": 13, "claim": "other chapter components unmodified", "result": "PASS", "evidence": "Git per-file history"},
+    {"id": 14, "claim": "HeaderNav unmodified", "result": "PASS", "evidence": "Git per-file history"},
+    {"id": 15, "claim": "FoundationGallery exists", "result": "PASS", "evidence": "src/shared/ui/FoundationGallery.tsx"},
+    {"id": 16, "claim": "FoundationGallery not production-exposed", "result": "FAIL", "evidence": "src/pages/method/MethodPage.tsx:5,68-69"},
+    {"id": 17, "claim": "Chapter 1 documents exist", "result": "PASS", "evidence": "docs/PROLOGUE_*"},
+    {"id": 18, "claim": "CHAPTER_01_LOCKED is enforced", "result": "FAIL", "evidence": "document strings only; no enforcement found"}
+  ],
+  "scale": {
+    "classification": "FOUNDATION_ONLY",
+    "last_changed_commit": "3deb4ed",
+    "changed_by_prologue_commit": false,
+    "has_metric_cards": true,
+    "has_year_filter": true,
+    "has_inline_year_stats": true,
+    "data_status": "MOCK_FIXTURE",
+    "filter_effect": "dims unselected year cards only",
+    "prologue_receiver": false,
+    "record_contract": false,
+    "consumes_evidence_line_tokens": false
+  },
+  "overlay": {
+    "provider_count_static": 1,
+    "global_root_count_static": 1,
+    "drawer_mount_count_static": 1,
+    "portal": false,
+    "body_scroll_lock": false,
+    "escape_handler": true,
+    "focus_trap": false,
+    "focus_return": false,
+    "route_sync": false,
+    "mobile_bottom_sheet": false,
+    "event_listener_cleanup": true
+  },
+  "css_search_counts": {
+    "raw_hex_in_tsx": 17,
+    "inline_style": 9,
+    "arbitrary_z_index": 5,
+    "all_tailwind_arbitrary_bracket_classes": 555,
+    "important": 4,
+    "media_queries": 7,
+    "raw_numeric_css_z_index": 0,
+    "used_undefined_variables": ["--color-neutral-300", "--color-neutral-600", "--color-neutral-800", "--space-10"]
+  },
+  "data_provenance": {
+    "chapter_title_thesis": "MOCK_FIXTURE_AND_HARDCODED_DUPLICATION",
+    "scale_year_range": "MOCK_FIXTURE_AND_HARDCODED_PLACEHOLDER",
+    "scale_metrics": "MOCK_FIXTURE",
+    "evidence_chain": "MOCK_FIXTURE",
+    "a1_a8_labels": "MOCK_FIXTURE",
+    "case_studies": "MOCK_FIXTURE",
+    "reported_status": "MOCK_FIXTURE",
+    "verification_status": "MOCK_FIXTURE",
+    "pdf_links": "HARDCODED_PLACEHOLDER",
+    "app_data_version": "UNKNOWN"
+  },
+  "runtime": [
+    {"command": "npm run lint", "exit_code": 127, "result": "BLOCKED", "reason": "tsc not found"},
+    {"command": "npm run build", "exit_code": 1, "result": "BLOCKED", "reason": "@tailwindcss/vite unresolved and ancestor Vite .vite-temp EROFS"},
+    {"command": "npm run dev", "exit_code": 1, "result": "BLOCKED", "reason": "same dependency/toolchain blocker"},
+    {"command": "unit test", "exit_code": null, "result": "NOT_AVAILABLE", "reason": "no script/config"},
+    {"command": "E2E", "exit_code": null, "result": "NOT_AVAILABLE", "reason": "no script/config"},
+    {"command": "accessibility", "exit_code": null, "result": "NOT_AVAILABLE", "reason": "no script/config"}
+  ],
+  "document_mismatches": [
+    "React 18 claim vs React 19 declaration",
+    "URL routes vs in-memory views",
+    "all chapters min-h-screen vs no shared min-height",
+    "mobile bottom sheet absent",
+    "J/K navigation absent",
+    "body scroll lock and focus trap absent",
+    "Gap and Answers inverse themes absent",
+    "four-state Prologue state machine absent",
+    "Scale handoff receiver absent",
+    "build/lint/console claims not reproducible",
+    "raw-hex-free and 100-percent-token claims false",
+    "FoundationGallery production exposure"
+  ],
+  "decisions_required": [
+    "Separate Method production content from FoundationGallery QA content or explicitly approve combined exposure",
+    "Choose real URL routing/deep-link/back semantics or formally document in-memory views",
+    "Define the evidence required before CHAPTER_01_LOCKED can be accepted"
+  ],
+  "recommended_next_action": "Restore a reproducible dependency state from an approved lockfile in a separate task and rerun this audit for screenshots and browser evidence.",
+  "artifacts": [
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/outputs/local_frontend_audit/20260722_170257/LOCAL_FRONTEND_STATE_AUDIT.md",
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/outputs/local_frontend_audit/20260722_170257/LOCAL_FRONTEND_STATE_AUDIT.json",
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/outputs/local_frontend_audit/20260722_170257/COMMAND_LOG.txt",
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/outputs/local_frontend_audit/20260722_170257/FILE_CHANGE_MAP.csv",
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/outputs/local_frontend_audit/20260722_170257/RUNTIME_VERIFICATION.csv",
+    "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/outputs/local_frontend_audit/20260722_170257/SCREENSHOT_INDEX.md"
+  ],
+  "end_git": {
+    "status_short_branch": ["## main...origin/main", "?? outputs/"],
+    "unstaged_tracked": [],
+    "staged": [],
+    "untracked_required_artifacts": 6,
+    "application_source_modified": false
+  },
+  "optional_outputs": {
+    "screenshots_directory_created": true,
+    "screenshot_files": [],
+    "logs_directory_created": true,
+    "log_files": []
+  }
+}

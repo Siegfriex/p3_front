@@ -1,0 +1,13 @@
+scenario,input,canonical_output,result
+default,/atlas,/atlas,CONFIRMED
+legacy_nodes,/atlas?view=nodes,/atlas,CONFIRMED
+relations,/atlas?view=relations&node=ANODE_ID,/atlas?view=relations&node=ANODE_ID,CONFIRMED
+evidence,/atlas?view=evidence&node=ANODE_ID,/atlas?view=evidence&node=ANODE_ID,CONFIRMED
+type_order,/atlas?types=A8,A2,A1,/atlas?types=A1,A2,A8,CONFIRMED
+unknown_status,/atlas?status=other,/atlas,CONFIRMED
+unknown_view,/atlas?view=graph,/atlas,CONFIRMED
+relation_outside_view,/atlas?relation=shared_target,/atlas,CONFIRMED
+depth,/atlas?view=relations&depth=1,/atlas?view=relations,CONFIRMED
+reset,any valid query,/atlas,CONFIRMED
+invalid_node,/atlas?node=UNKNOWN,/atlas?node=UNKNOWN explicit invalid-node state,CONFIRMED
+history,map to relations to Back,restores map and selected node,CONFIRMED

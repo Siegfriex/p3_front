@@ -1,0 +1,12 @@
+state,visual_contract,current_evidence,result
+loading,quiet progress plus explicit copy,component contract,IMPLEMENTED
+unavailable,no mock and recovery action,release pointer abort screenshot,PASS
+empty,zero-result copy within ready release,existing Explorer contract,PASS
+error,error code and recovery action,component contract,IMPLEMENTED
+contract_mismatch,fail closed with mismatch reason,release validator,IMPLEMENTED
+projection_mismatch,fail closed with projection reason,release validator,IMPLEMENTED
+invalid_node,retain Atlas and explain invalid query,existing Explorer contract,IMPLEMENTED
+missing_evidence,dotted unavailable copy and no false CTA,dossier contract,IMPLEMENTED
+stale_release,explicit stale label required,not supplied by current VM,SPEC_READY
+unsupported_3d,3D unavailable plus canonical 2D,Method screenshot,PASS
+low_memory_fallback,canonical 2D and DOM table,SPEC_READY

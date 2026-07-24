@@ -1,0 +1,13 @@
+file,current_role,required_change,priority
+src/pages/atlas/AtlasPage.test.tsx,no-release fail-closed page test,isolate env and mock shared resource; add ready/error/pointer cases,P0
+src/shared/api/atlas/loadAtlasManifest.test.ts,env manifest tests,"add precedence, pointer, malformed pointer, BASE_URL, 404/non-404",P0
+src/shared/api/atlas/atlasTransportSchema.test.ts,manifest/node schema,"add pointer, Story selection metadata, evidence detail schema",P0
+src/shared/lib/atlas/atlasNodeParity.test.ts,selector/parity,retain; add DG contract metadata mismatch cases without approving IDs,P0
+src/widgets/atlas-scene/ChapterAnswersAtlas.test.tsx,absent,add loading/unavailable/ready/subset/controls/DOM/CTA cases,P0
+tests/e2e/atlas-experience-design.spec.ts,locks Story DataUnavailable and 0 nodes,split no-release and DG real-data scenarios; update ready expectations,P0
+tests/e2e/atlas-contract-shell.spec.ts,no-release + fixture modes depend on ambient env,make scenario env/config explicit; add DG SHA/schema/count/history case,P0
+tests/e2e/agent4-presentation-wcag.spec.ts,assumes Atlas DataUnavailable,run target-size/focus checks against explicit no-release or ready selectors,P1
+tests/e2e/technical-routing.spec.ts,stale Story mock opener label and mock-only evidence flow,add approved repository flow; align explicit DEV fixture selector,P0
+tests/e2e/vercel-preview.spec.ts,production routes only; currently skipped in default E2E,run no-release and approved-release builds; assert static data routes,P0
+playwright.config.ts,reuse dev server; inherits .env,prevent ambient .env from changing intended scenario,P0
+playwright.preview.config.ts,build/preview scenario coupled to local dist/env,declare scenario and release env explicitly,P0

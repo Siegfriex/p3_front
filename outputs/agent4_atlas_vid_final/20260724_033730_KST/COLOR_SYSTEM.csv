@@ -1,0 +1,14 @@
+meaning,color,independent_encoding,forced_colors_result
+A1,#9f1239,A1 label and semantic text,PRESERVED
+A2,#c43f4f,A2 label and semantic text,PRESERVED
+A3,#d96758,A3 label and semantic text,PRESERVED
+A4,#c98a4a,A4 label and semantic text,PRESERVED
+A5,#6c91a8,A5 label and semantic text,PRESERVED
+A6,#3f7fa6,A6 label and semantic text,PRESERVED
+A7,#2167a8,A7 label and semantic text,PRESERVED
+A8,#064f9e,A8 label and semantic text,PRESERVED
+selection,#f01b2d,ring and aria-selected state,PRESERVED
+focus,#111111,dark contrast halo and DOM focus,PRESERVED
+complete,#111111,solid stroke and status label,PRESERVED
+active,#555550,long dash and status label,PRESERVED
+unresolved,#a40f1f,dotted stroke and status label,PRESERVED

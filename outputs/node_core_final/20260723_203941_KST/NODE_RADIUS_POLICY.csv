@@ -1,0 +1,8 @@
+item,policy,fixture_result,real_data_status
+visual_radius,exact source radiusPx,preserved 18 and 22,NOT_VERIFIABLE
+mass_transform,none,none,LOCKED
+minimum_pointer_target,max 44 CSS px effective,44 minimum in E2E,NOT_VERIFIABLE_DENSITY
+selection_offset,7,rendered,PROVISIONAL_PRESENTATION
+focus_offset,13,rendered,PROVISIONAL_PRESENTATION
+safety_padding,8,fixture required padding 43,APPROVED_MAX_RADIUS_ABSENT
+configured_padding,48,fixture margin 5,PROVISIONAL_FIXTURE

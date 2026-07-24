@@ -1,0 +1,9 @@
+area,previous_or_recovered_state,current_tested_state,verdict
+global_header_targets,"10x44 at 320/375 and 36x44 at 768","all visible targets >=44x44",PASS
+evidence_mobile_id,"record ID collapsed vertically at 375","single-column full-width ID with horizontal reading",PASS
+focus_paper_inverse,"red outline lacked a guaranteed inverse-surface separation layer","2px red outline plus paper halo; forced-colors Highlight",PASS
+route_semantics,"route title/h1/main/skip links required","title and route-specific skip targets present; main=1 h1=1",PASS
+drawer_modal,"historical report required inert lock trap Escape Back and focus restore","inert aria-hidden initial close focus Escape restore verified; existing route-state implementation retained",PASS
+production_fixture_boundary,"mock or fixture exposure prohibited","Atlas and Evidence fail closed; Story and Case still import/render mock data",FAIL
+atlas_projection_padding,"Agent 3 requested complete-radius padding integration","AtlasPage uses complete transport node_radius set",PASS
+source_freeze,"owner hashes stable at initial freeze","five CSS/Story owner files changed externally during work",BLOCKED

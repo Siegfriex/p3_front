@@ -1,0 +1,10 @@
+chapter_id,check_name,pass,detail
+remains,mobile_375_no_clipping,true,"375x812 screenshot (remains_mobile.png) shows full section content wraps cleanly with no clipped or truncated text/buttons"
+scale,mobile_375_no_clipping,true,"375x812 screenshot (scale_mobile.png) shows metric cards and body copy wrap cleanly with no unintended text clipping; sourceLabel truncation is an intentional single-line ellipsis design pattern"
+scale,fixed_footer_overlap_content,false,"Global app-shell FooterRail (position:fixed) overlaps the second metric card (82.4% value) at 375x812 viewport in scale_mobile.png; app-shell-wide issue, not scale-content-specific"
+prologue,mobile_375_text_clipping,PASS,"375x812 뷰포트에서 제목/본문 텍스트 잘림 없음(prologue_mobile.png 확인). 장식용 세로선이 h2 일부 글자와 겹치는 경미한 시각적 이슈 존재(클리핑 아님)."
+prologue,mobile_layout_overflow,PASS,"section boundingBox width=375 (뷰포트와 일치), 가로 오버플로우 없음. height=1258px로 세로 스크롤 정상."
+record,mobile_375x812_text_clipping,true,"record_mobile.png(375x812) 확인 결과 STEP01~05 카드 텍스트 잘림 없이 정상 줄바꿈됨. 사안 선택 탭 바만 overflow-x-auto로 의도된 가로 스크롤 표시."
+gap,mobile_375_no_text_clipping,true,"375x812 스크린샷(gap_mobile.png)에서 헤드카피/범례카드/증거카드 텍스트 잘림 없음"
+gap,mobile_sankey_horizontal_overflow,false,"Sankey 다이어그램이 min-w-[880px]로 고정되어 375px 뷰포트 첫 화면에는 1단계(시정요구)만 보이고 2·3단계 박스는 가로 스크롤해야 노출됨; hide-scrollbar로 스크롤 가능 단서 부재(gap_mobile.png)"
+cases,mobile_375_no_clipping,true,"375x812 screenshot (cases_mobile.png) plus 6 scroll-position captures show all 5 CASE cards title/body/요구사항/답변/결과/검증 text wraps cleanly with no clipped or truncated text; body.scrollWidth==375==clientWidth confirms no horizontal overflow"

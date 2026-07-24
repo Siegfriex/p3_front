@@ -1,0 +1,8 @@
+surface,viewports,fixture_markers,visual_nodes,fallback_behavior,verdict
+Story_Answers,"320 375 768 1440 1920",0,0,Atlas_chapter_DataUnavailable,PASS_ATLAS_CHAPTER_ONLY
+Story_other_chapters,source_audit,"visible MOCK labels and mock-derived values",not_applicable,production_imports_shared_mock_storyData,FAIL
+Case_page_and_overlay,source_audit,"mock-derived editorial case content",not_applicable,no_production_repository_gate,FAIL
+Atlas,"320 375 768 1440 1920",0,0,DataUnavailable,PASS
+Evidence_page,"375 1440",0,0,EvidenceUnavailable,PASS
+Evidence_Drawer,375,0,0,EvidenceUnavailable,PASS
+contract_fixture_explicit_env,1440,CONTRACT_FIXTURE,2,"test-only explicit opt-in",PASS_TEST_BOUNDARY

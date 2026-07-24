@@ -1,0 +1,10 @@
+scenario,result,evidence
+direct_production_evidence,PASS_FAIL_CLOSED,unavailable panel and public actions
+direct_production_case,PASS_FAIL_CLOSED,no development case rendered
+production_overlay,PASS_FAIL_CLOSED,no development excerpt rendered
+development_drawer_initial_focus,PASS,close button focused
+background_inert_and_hidden,PASS,inert true and aria-hidden true
+Escape_close,PASS,dialog removed
+focus_return,PASS,opener restored
+browser_Back,PREVIOUSLY_VERIFIED,route overlay contract retained
+approved_evidence_trace,NOT_DECLARED,repository not connected

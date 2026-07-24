@@ -1,0 +1,17 @@
+{
+  "production_preview_suite": {
+    "passed": 19,
+    "failed": 0,
+    "skipped": 6,
+    "skip_reason": "contract-fixture-only or mode-specific"
+  },
+  "viewports": [375, 768, 1440, 1920],
+  "story_svg_nodes": 16,
+  "story_dom_nodes": 16,
+  "explorer_svg_nodes": 140,
+  "explorer_dom_nodes": 140,
+  "filtered_explorer_svg_nodes": 2,
+  "filtered_explorer_dom_nodes": 2,
+  "editorial_images_decoded": 7,
+  "interpretation": "Production real-data, fail-closed, parity, Evidence, responsive, and Axe gates passed. Six skips are explicit fixture or mode gates and are not production defects."
+}

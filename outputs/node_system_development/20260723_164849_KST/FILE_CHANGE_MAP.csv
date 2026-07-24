@@ -1,0 +1,9 @@
+file,owner,change,responsibility,commit_status
+src/shared/config/atlas/atlasEncoding.ts,Agent 3,modified,D-020 filter state D-021 provisional opacity full-radius padding helper,uncommitted
+src/shared/config/atlas/atlasEncoding.test.ts,Agent 3,modified,encoding filter opacity padding tests,uncommitted
+src/shared/lib/atlas/atlasNodeParity.ts,Agent 3,modified,release projection fail-closed selector,uncommitted
+src/shared/lib/atlas/atlasNodeParity.test.ts,Agent 3,modified,selector mismatch tests,uncommitted
+src/widgets/atlas-explorer/AtlasScene.tsx,Agent 3,modified,matched context excluded renderer contract,uncommitted
+src/widgets/atlas-explorer/AtlasExplorer.tsx,Agent 3,modified,Full Explorer unmatched excluded map,uncommitted
+src/widgets/atlas-explorer/AtlasExplorer.test.tsx,Agent 3,modified,excluded frame and summary test,uncommitted
+tests/e2e/atlas-contract-shell.spec.ts,Agent 3,modified,excluded coordinate reset and focus retention,uncommitted

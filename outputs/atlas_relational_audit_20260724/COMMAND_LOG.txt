@@ -1,0 +1,18 @@
+pwd
+realpath .
+git branch --show-current
+git rev-parse HEAD
+git status --short
+rg --files
+rg relation/manifest/projection/atlas route and contract terms
+diff -qr current runtime release approved P3_FINAL release
+sha256sum manifest and release files
+npm run typecheck
+npm run lint
+npm run test
+npm run build
+npx playwright test tests/e2e/atlas-relational-infographic.spec.ts
+npx playwright test tests/e2e/technical-routing.spec.ts
+agent-browser open/set viewport/snapshot/eval/screenshot against http://127.0.0.1:3001/atlas
+
+All source/report writes were performed with apply_patch. No commit, push, install, fixture injection, or pipeline mutation was performed.

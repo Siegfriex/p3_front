@@ -1,0 +1,16 @@
+Repository, release pointer, loader, Story, Explorer, Evidence, and Vercel project inspection
+Pillow 12.3.0: generate seven deployment WebP derivatives without overwriting source images
+npm run typecheck: PASS
+npm run lint: PASS, warnings 0
+npm test -- --run: PASS, 22 files / 61 tests
+npm run build: PASS, 2186 modules, stable boundary with zero source changes during final build
+npx playwright test --config=playwright.preview.config.ts: 19 PASS / 6 intentional skips
+agent-browser local: Story 16/16, Explorer 140/140, images 7/7, overflow 0, console/page errors 0
+Vercel Preview dpl_FzBwJuAybTT3uekrzoBcRk8MerJ8: READY
+remote-preview-qa.mts against final Preview: VERCEL_PREVIEW_PASS
+Vercel Production dpl_BQ2KQ8Y1dHAxzpoeawmoKvNiddod: READY
+remote-preview-qa.mts against canonical production: VERCEL_PRODUCTION_PASS
+agent-browser canonical production: Story 16/16, 13 visible Story clusters, images 7, unavailable 0, overflow 0
+Vercel runtime errors inspection for post-deploy hour: none
+Final dist inventory SHA-256: ddb79eac9deb02373a98c43bf88a3c4081f194b4deb56426218dfe92c334191a
+Post-deploy live-worktree resnapshot: concurrent source edits detected after the sealed build; excluded from deployed artifact

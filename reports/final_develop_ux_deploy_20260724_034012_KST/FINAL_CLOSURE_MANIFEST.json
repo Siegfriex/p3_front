@@ -1,0 +1,57 @@
+{
+  "run_id": "final_develop_ux_deploy_20260724_034012_KST",
+  "final_verdict": "P3_STORY_ATLAS_PRODUCTION_READY",
+  "publication_governance": "PUBLICATION_RIGHTS_REVIEW_REQUIRED",
+  "git": {
+    "branch": "P3_FRONT_DEPLOY",
+    "head": "aa6c391da3514957005da46f5fd41010157bbd75",
+    "upstream": "origin/P3_FRONT_DEPLOY",
+    "ahead": 1,
+    "behind": 0,
+    "dirty": true,
+    "porcelain_entry_count": 59,
+    "post_deploy_source_drift": true,
+    "post_deploy_drift_files": [
+      "src/widgets/atlas-scene/ChapterAnswersAtlas.tsx",
+      "src/widgets/atlas-scene/ChapterAnswersAtlas.test.tsx",
+      "src/shared/lib/atlas/storyAtlasLabelPolicy.ts",
+      "src/shared/lib/atlas/storyAtlasLabelPolicy.test.ts",
+      "tests/e2e/agent4-atlas-vid.spec.ts",
+      "src/widgets/prologue-scene/ChapterPrologue.tsx"
+    ],
+    "commit_created_by_this_run": false,
+    "push_performed_by_this_run": false
+  },
+  "runtime": {
+    "release_id": "ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264",
+    "projection_id": "PROJ_DG761_20260723_213011_KST_4665FDF3E5CF",
+    "manifest_sha256": "fb91d21a4171f1600835744a89138f762cad448c9dad4d9ef0eec91c45bd0fdc",
+    "story_nodes": 16,
+    "explorer_nodes": 140,
+    "approved_evidence": 64,
+    "editorial_images": 7,
+    "legacy_fixture_exposed": false
+  },
+  "qa": {
+    "typecheck": "PASS",
+    "lint": "PASS_WARNING_0",
+    "unit": "PASS_61",
+    "build": "PASS_2186_MODULES",
+    "playwright": "PASS_19_SKIP_6",
+    "vercel_preview": "PASS",
+    "vercel_production": "PASS",
+    "axe_critical": 0,
+    "axe_serious": 0,
+    "console_errors": 0,
+    "page_errors": 0,
+    "request_failures": 0
+  },
+  "deployment": {
+    "project_id": "prj_EwJ8B4Fz9jrJ2mtCTuzF7RFIptVi",
+    "preview_id": "dpl_FzBwJuAybTT3uekrzoBcRk8MerJ8",
+    "production_id": "dpl_BQ2KQ8Y1dHAxzpoeawmoKvNiddod",
+    "production_url": "https://p3-culture-atlas.vercel.app"
+  },
+  "dist_bytes": 3382744,
+  "dist_sha256_inventory_sha256": "ddb79eac9deb02373a98c43bf88a3c4081f194b4deb56426218dfe92c334191a"
+}

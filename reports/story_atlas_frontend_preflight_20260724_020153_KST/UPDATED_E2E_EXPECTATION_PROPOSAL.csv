@@ -1,0 +1,10 @@
+scenario,old_expectation,proposed_expectation,count_source
+Story DG ready,DataUnavailable visible,Story renderer visible; DataUnavailable absent,release resource ready
+Story nodes,0 marks,mark count equals approved story_preview_node_ids length,Data Agent selection metadata
+Story DOM,not asserted,DOM navigator count equals filtered Story node count,rendered Story subset
+CTA after filters,Atlas DataUnavailable,Atlas ready; status/types match Story; selected node cleared,query serializer
+Atlas DG ready,assumed unavailable in several tests,manifest=physical ViewModel=SVG=DOM count,manifest row_count
+Atlas no release,DataUnavailable,retain in explicit no-env/no-pointer scenario only,resolver state
+Evidence drawer,mock fixture or unavailable,approved detail title/fields render; route/history/focus preserved,EvidenceRepository detail
+Evidence direct,unavailable,approved detail renders; invalid/unapproved remains unavailable,repository eligibility
+Back/Forward,Story unavailable restored,Story controls/subset restored and Atlas node state restored,URL state

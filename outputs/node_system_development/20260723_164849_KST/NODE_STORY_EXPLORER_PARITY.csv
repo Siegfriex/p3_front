@@ -1,0 +1,14 @@
+field,pure_test,fixture_test,approved_data,status
+id,PASS,PASS,absent,CONTRACT_READY
+release,PASS,PASS,absent,CONTRACT_READY
+projection,PASS,PASS,absent,CONTRACT_READY
+anchor,PASS,PASS,absent,CONTRACT_READY
+display,PASS,PASS,absent,CONTRACT_READY
+status,PASS,PASS,absent,CONTRACT_READY
+answer_type,PASS,PASS,absent,CONTRACT_READY
+behavior_family,PASS,PASS,absent,CONTRACT_READY
+normalized_mass,PASS,PASS,absent,CONTRACT_READY
+source_radius,PASS,PASS,absent,CONTRACT_READY
+confidence,PASS,PASS,absent,CONTRACT_READY
+encoding,PASS,PASS,absent,CONTRACT_READY
+screen_coordinate,allowed_difference,allowed_difference,absent,VIEWPORT_SPECIFIC

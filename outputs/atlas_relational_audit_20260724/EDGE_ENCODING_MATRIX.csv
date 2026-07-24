@@ -1,0 +1,6 @@
+relation_type,line_token,width_basis,dash_token,marker,availability
+semantic_neighbor,relation-semantic,upstream weight,solid,none,BLOCKED
+shared_target,relation-target,upstream weight,6 4,none,BLOCKED
+same_topic_cross_behavior,relation-cross-behavior,upstream weight,2 4,none,BLOCKED
+shared_evidence_context,relation-evidence,upstream weight,10 4 2 4,none,BLOCKED
+temporal_continuity,relation-temporal,upstream weight,solid,arrow when directed,BLOCKED

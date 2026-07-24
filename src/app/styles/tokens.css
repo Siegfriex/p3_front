@@ -1,42 +1,72 @@
 /* Design System Tokens for P3_CULTURE — 문체위 국정감사 6년 */
 
 :root {
-  /* Neutral Color Tokens — Paper & Ink Palette */
-  --color-ink: #0a0a0a;
-  --color-paper: #f2f0ea;
-  --color-surface: #f8f8f5;
-  --color-neutral-900: #1c1c1a;
-  --color-neutral-700: #4e4e4a;
-  --color-neutral-500: #787771;
-  --color-neutral-400: #9c9b95;
-  --color-neutral-200: #d8d5cd;
-  --color-neutral-100: #e8e6e0;
+  /* REDLINE PUBLIC RECORD — semantic palette */
+  --paper-canvas: #f3f2ee;
+  --paper-surface: #fcfbf7;
+  --paper-muted: #e5e3dd;
+  --ink-primary: #111111;
+  --ink-secondary: #494945;
+  --ink-tertiary: #6f6e69;
+  --line-faint: #d4d1c9;
+  --line-medium: #aaa79f;
+  --line-strong: #555550;
+  --signal-red: #f01b2d;
+  --signal-red-dark: #a40f1f;
+  --signal-red-soft: #f6d8dc;
+  --archive-ochre: #806426;
+  --archive-ochre-soft: #e3d8bd;
+  --inverse-surface: #0b0b0b;
+  --inverse-text: #f5f3ed;
+  --inverse-muted: #bdbab2;
+
+  /* Backward-compatible aliases. Values remain declared only in this token file. */
+  --color-ink: var(--ink-primary);
+  --color-paper: var(--paper-canvas);
+  --color-on-ink: var(--inverse-text);
+  --color-surface: var(--paper-surface);
+  --color-neutral-900: #242422;
+  --color-neutral-800: #353532;
+  --color-neutral-700: var(--ink-secondary);
+  --color-neutral-600: #5d5c58;
+  --color-neutral-500: #676660;
+  --color-neutral-400: var(--ink-tertiary);
+  --color-neutral-300: var(--line-medium);
+  --color-neutral-200: var(--line-faint);
+  --color-neutral-100: var(--paper-muted);
 
   /* Behavior Family Color Tokens */
-  --color-behavior-red-deep: #8b342f;
-  --color-behavior-red-soft: #d5968e;
-  --color-behavior-red-bg: #f9edea;
+  --color-behavior-red-deep: var(--signal-red-dark);
+  --color-behavior-red-soft: #d9959d;
+  --color-behavior-red-bg: #faeaec;
 
-  --color-behavior-amber-deep: #9b6b25;
-  --color-behavior-amber-soft: #d8b273;
-  --color-behavior-amber-bg: #faf5e8;
+  --color-behavior-amber-deep: #6f571f;
+  --color-behavior-amber-soft: var(--archive-ochre-soft);
+  --color-behavior-amber-bg: #f5f0e4;
 
-  --color-behavior-blue-deep: #2d6089;
-  --color-behavior-blue-soft: #86abc7;
-  --color-behavior-blue-bg: #eef4f8;
+  --color-behavior-blue-deep: #365f75;
+  --color-behavior-blue-soft: #9bb4c1;
+  --color-behavior-blue-bg: #eaf1f3;
 
   /* Reported Status Color Tokens */
-  --status-complete: #2d6089;
-  --status-active: #9b6b25;
-  --status-unresolved: #8b342f;
+  --status-complete: var(--ink-primary);
+  --status-active: var(--line-strong);
+  --status-unresolved: var(--signal-red-dark);
+
+  /* Atlas Data-State Tokens */
+  --atlas-state-warning: var(--archive-ochre);
+  --atlas-state-error: var(--signal-red-dark);
+  --atlas-state-ready: #365f75;
+  --atlas-control-target: 2.75rem;
+  --color-focus: var(--signal-red-dark);
 
   /* Fluid Typography Scale */
-  --type-display-hero-quote: clamp(3.5rem, 8.2vw, 8.5rem);
-  --type-display-hero-conclusion: clamp(2.25rem, 5.2vw, 5.5rem);
-  --type-display-xl: clamp(3.5rem, 7.5vw, 7.5rem);
-  --type-display-l: clamp(2.25rem, 4.5vw, 4.5rem);
-  --type-heading-1: clamp(1.75rem, 3vw, 3.25rem);
-  --type-heading-2: clamp(1.25rem, 2vw, 2.25rem);
+  --type-display-hero-quote: clamp(2.5rem, 8.2vw, 8.5rem);
+  --type-display-hero-conclusion: clamp(1.75rem, 5.2vw, 5.5rem);
+  --type-display-xl: clamp(4rem, 8vw, 8.25rem);
+  --type-display-l: clamp(2.75rem, 4.5vw, 4.75rem);
+  --type-heading-1: clamp(1.875rem, 3vw, 3rem);
+  --type-heading-2: clamp(1.375rem, 2vw, 1.75rem);
   --type-body-l: clamp(1.0625rem, 1.25vw, 1.25rem);
   --type-body-m: 1rem;
   --type-caption: 0.8125rem;
@@ -55,6 +85,7 @@
   --space-4: 1rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
+  --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
   --space-20: 5rem;
@@ -62,9 +93,10 @@
   --space-32: 8rem;
 
   /* Layout Tokens */
-  --layout-max: 100rem;
-  --layout-gutter: clamp(1rem, 3vw, 3.5rem);
+  --layout-max: 120rem;
+  --layout-gutter: 1rem;
   --layout-editorial: 45rem;
+  --header-height: 3.5rem;
   --layout-hero-min-height: 85vh;
   --layout-hero-image-width: clamp(14rem, 24vw, 22rem);
   --chapter-prologue-padding-block: clamp(2rem, 5vh, 5rem);
@@ -117,6 +149,6 @@
   --motion-duration-morph: 550ms;
   --motion-duration-transition: 800ms;
 
-  --motion-ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-ease-sharp: cubic-bezier(0.4, 0, 0.2, 1);
 }

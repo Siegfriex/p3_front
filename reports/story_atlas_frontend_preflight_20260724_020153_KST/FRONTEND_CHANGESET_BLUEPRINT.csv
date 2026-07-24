@@ -1,0 +1,8 @@
+phase,commit_boundary,exact_files_or_group,responsibility,dependency
+1,resolver-resource,ADD atlasReleaseResource/useAtlasRelease; MODIFY loadAtlasManifest/loadAtlasBundle/schema/types/toAtlasViewModel,one shared release path,pointer schema and Data metadata
+2,story-wiring,MODIFY ChapterAnswersAtlas; reuse AtlasScene/Controls/Legend/DomMirror; tests,same VM + approved selector + CTA,story_preview_node_ids
+3,evidence-runtime,MODIFY evidenceRepository/DetailPage/EvidenceRouteOverlay/GlobalOverlayRoot/EvidenceDrawer/presentation; ADD adapter/types/tests,approved detail direct+drawer,detail/PDF contract
+4,fsd-hygiene,promote AtlasNodeGlyph to shared and update calibration/Scene/Legend imports,remove shared -> widget reverse import,none
+5,runtime-data,stage only DG761 hash-identical conforming copy and Data-Agent pointer; exclude old release,deployable data boundary,Data Agent handoff
+6,vercel,track vercel.json with SPA rewrite/cache headers; document env scopes,Preview readiness,project link
+7,qa,explicit env scenario configs and updated unit/E2E expectations,green no-release + DG release suites,all prior phases

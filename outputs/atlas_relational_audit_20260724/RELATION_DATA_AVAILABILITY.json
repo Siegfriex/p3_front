@@ -1,0 +1,13 @@
+{
+  "classification": "BLOCKED",
+  "code": "RELATION_DATA_BLOCKED",
+  "approved_entity_found": false,
+  "manifest_member_found": false,
+  "edge_count": 0,
+  "production_fixture_fallback": false,
+  "umap_2d_inference": false,
+  "legacy_graph_consumed": false,
+  "map_behavior": "available",
+  "relations_behavior": "explicit DataUnavailable",
+  "evidence_behavior": "available for approved representative Evidence"
+}

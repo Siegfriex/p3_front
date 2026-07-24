@@ -1,0 +1,16 @@
+component,state,pointer,keyboard,touch,feedback,status,severity
+Story node,default,visible,not focusable,visible,label text,CONTRADICTED,P0
+Story node,hover,detail card,n/a,n/a,crosshair and card,CONFIRMED,P2
+Story node,focus,n/a,focus remains BODY,n/a,no feedback,CONTRADICTED,P0
+Story node,selected,immediate Drawer only,unavailable,opens Drawer,no persistent selected state,CONTRADICTED,P1
+Story filter,change,select works,select works,native select,dimmed nodes,CONFIRMED,P2
+Story filter,reload,works then loses state,works then loses state,same,resets to all,CONTRADICTED,P1
+Story reset,active,works except one 1440 obstruction sample,keyboard possible,small 25.6px high,visual label can be obscured,PARTIALLY_CONFIRMED,P2
+Evidence Drawer,open,CONFIRMED,CONFIRMED,CONFIRMED,modal and focus close,CONFIRMED,P2
+Evidence Drawer,Escape,CONFIRMED,CONFIRMED,CONFIRMED,closes,CONFIRMED,P2
+Evidence Drawer,focus return,button opener confirmed; SVG Story node returns BODY,partial,partial,depends on opener,PARTIALLY_CONFIRMED,P1
+Evidence Drawer,scroll lock,n/a,n/a,n/a,body overflow hidden and root inert,CONFIRMED,P3
+Atlas DataUnavailable,default,visible,visible,visible,explicit fail-closed message,CONFIRMED,P2
+Atlas CTA,default,click target exists,focusable,target exists,black label visually absent,CONTRADICTED,P1
+Atlas fixture node,keyboard,source supports Enter Space Escape,isolated test reached node operation,n/a,fixture run incomplete,PARTIALLY_CONFIRMED,P1
+Atlas fixture DOM mirror,default,source and DOM present,focusable,44px class,test selectors ambiguous,PARTIALLY_CONFIRMED,P2

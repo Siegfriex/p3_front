@@ -1,0 +1,6 @@
+surface,copy,status
+story,"이 지도는 의미적 위치를 2차원으로 투영한 표시용 공간입니다. 2차원 거리 자체를 실제 유사도 점수로 해석하지 마십시오.",LOCKED
+explorer,"위치는 승인된 의미 투영 좌표입니다. 가까움은 표시상 이웃이며 실제 유사도 점수가 아닙니다.",LOCKED
+method_compare,"두 projection의 좌표는 직접 비교 가능한 절대 좌표가 아닙니다.",IMPLEMENTED
+pca,"PCA는 분산을 선형축으로 요약합니다.",LOCKED
+umap,"UMAP은 국소 이웃 구조를 보존하도록 비선형적으로 투영합니다.",LOCKED

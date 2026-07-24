@@ -1,0 +1,11 @@
+check,command,result,evidence
+TypeScript,npm run typecheck,PASS,exit 0
+ESLint,npm run lint,PASS,exit 0 and zero warnings
+Unit,npm run test,PASS,22 files and 63 tests
+Production build,npm run build,PASS,2197 modules transformed
+Relational Atlas E2E,npx playwright test tests/e2e/atlas-relational-infographic.spec.ts,PASS,6 of 6
+Technical routing E2E,npx playwright test tests/e2e/technical-routing.spec.ts,PASS,7 of 7
+Responsive Axe,relational E2E at 375 768 1440 1920,PASS,critical and serious zero
+Mobile hit target,relational E2E at 375,PASS,visual node targets at least 44px
+Relation fail-closed,relational E2E,PASS,no relation paths and explicit DataUnavailable
+Production relationship behavior,,BLOCKED,no approved edge entity

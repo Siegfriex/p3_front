@@ -1,0 +1,12 @@
+action,file,responsibility,boundary
+ADD,src/shared/api/atlas/atlasReleaseResource.ts,framework-independent orchestration; cache/dedupe; subscriber-safe abort; expose bundle/repository/metadata,shared api/service
+ADD,src/shared/api/atlas/useAtlasRelease.ts,React subscription wrapper and discriminated loading/unavailable/error/ready state,shared api hook
+MODIFY,src/shared/api/atlas/loadAtlasManifest.ts,env -> current pointer -> DataUnavailable resolver; BASE_URL-aware URLs,transport only
+MODIFY,src/shared/api/atlas/atlasTransportSchema.ts,pointer and approved Story selection metadata validation after Data contract confirmation,transport schema
+MODIFY,src/shared/api/atlas/loadAtlasBundle.ts,reuse exported hash verifier for evidence detail and ensure declared bootstrap files are verified,transport only
+MODIFY,src/shared/lib/atlas/toAtlasViewModel.ts,return or accept release dependencies without discarding EvidenceRepository,adapter
+MODIFY,src/shared/types/atlas.ts,typed release resource state/metadata and Story selection contract if transport-independent,types
+MODIFY,src/pages/atlas/AtlasPage.tsx,remove page-local effect/scale/adapter orchestration; consume shared hook,page composition
+MODIFY,src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,consume shared hook; selector; shared renderer primitives,widget composition
+ADD,src/shared/api/atlas/atlasReleaseResource.test.ts,dedupe/cache/abort/error/retry cases,unit test
+ADD,src/shared/api/atlas/useAtlasRelease.test.tsx,two-consumer subscription and state lifecycle,unit test

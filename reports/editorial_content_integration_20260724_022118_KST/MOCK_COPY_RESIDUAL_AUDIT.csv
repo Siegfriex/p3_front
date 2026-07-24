@@ -1,0 +1,15 @@
+﻿chapter_id,field_path,mock_marker_removed,note
+scale,STORY_METRICS[m1].sourceLabel,true,"[MOCK] -> [UNVERIFIED - PDF에 출처 미기재] (page2에 해당 METRIC 근거 블록 없음, 수치는 유지)"
+scale,STORY_METRICS[m1].mock,true,boolean mock 필드 true -> false (필드 삭제하지 않음)
+scale,STORY_METRICS[m2].sourceLabel,true,"[MOCK] -> [UNVERIFIED - PDF에 출처 미기재] (page2에 해당 METRIC 근거 블록 없음, 수치는 유지)"
+scale,STORY_METRICS[m2].mock,true,boolean mock 필드 true -> false (필드 삭제하지 않음)
+scale,STORY_METRICS[m3].sourceLabel,true,"[MOCK] -> [UNVERIFIED - PDF에 출처 미기재] (page2에 해당 METRIC 근거 블록 없음, 수치는 유지)"
+scale,STORY_METRICS[m3].mock,true,boolean mock 필드 true -> false (필드 삭제하지 않음)
+scale,STORY_METRICS[m4].sourceLabel,true,"[MOCK] -> [UNVERIFIED - PDF에 출처 미기재] (page2에 해당 METRIC 근거 블록 없음, 수치는 유지)"
+scale,STORY_METRICS[m4].mock,true,boolean mock 필드 true -> false (필드 삭제하지 않음)
+record/gap,MOCK_EVIDENCES[ev-101].sourceLabel,true,[MOCK] -> [UNVERIFIED] (page3/page4에 해당 사안과 일치하는 실제 출처 문구 없음)
+record/gap,MOCK_EVIDENCES[ev-102].sourceLabel,true,[MOCK] -> [UNVERIFIED] (page3/page4에 해당 사안과 일치하는 실제 출처 문구 없음)
+record/gap,MOCK_EVIDENCES[ev-103].sourceLabel,true,[MOCK] -> [UNVERIFIED] (page3/page4에 해당 사안과 일치하는 실제 출처 문구 없음)
+record/gap,MOCK_EVIDENCES[ev-104].sourceLabel,true,[MOCK] -> [UNVERIFIED] (page3/page4에 해당 사안과 일치하는 실제 출처 문구 없음)
+record/gap,MOCK_EVIDENCES[ev-105].sourceLabel,true,[MOCK] -> [UNVERIFIED] (page3/page4에 해당 사안과 일치하는 실제 출처 문구 없음)
+cases,EDITORIAL_CASES[*] (5건),false,EDITORIAL_CASES 필드에는 [MOCK] 마커 자체가 존재하지 않음(타입에 mock/sourceLabel 필드 없음). page6 콘텐츠(잼버리/회피성 답변)가 기존 5개 케이스 주제와 무관하여 내용 필드는 원본 유지.

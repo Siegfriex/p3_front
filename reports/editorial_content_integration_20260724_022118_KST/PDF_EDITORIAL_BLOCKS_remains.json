@@ -1,0 +1,186 @@
+{
+  "chapter_id": "remains",
+  "page": "page7",
+  "blocks": [
+    {
+      "block_id": "remains_label_section",
+      "block_type": "LABEL",
+      "hierarchy_level": "SMALL",
+      "text": "conclusion.",
+      "region": "top-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_body_summary",
+      "block_type": "BODY",
+      "hierarchy_level": "MEDIUM",
+      "text": "국정감사에서 지적된 시정요구 사항의 47%가 아직 완전히 이행되지 않았고, \"조치 완료\"로 종결된 SPC 사례에서조차 동일한 산업재해가 반복됐으며, \"조치 중\"으로 분류된 체대 입시 도핑 문제는 수년째 진행 상황조차 확인할 수 없다.\n\n여기에 2020년부터 2025년까지 회의록에서 확인된 회피성 답변만 1,408건, 특히 2024년에는 428건으로 급증했다는 사실을 더하면, 국정감사가 매년 형식적으로는 치러지고 있으나 실제로 기관의 행태나 정책 집행을 바꾸는 힘은 크지 않다는 결론에 이른다.\n\n국민의 세금으로 운영되는 기관들이 감사장에서는 기억나지 않는다거나 확인해보겠다는 답변으로 시간을 넘기고, 그 지적이 현장의 변화로 이어졌는지 검증할 장치조차 없다면, 국정감사는 감시 기능을 하는 절차라기보다 매년 되풀이되는 형식적 의례에 머물러 있다고 볼 수밖에 없다.",
+      "region": "upper-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_card2_subhead",
+      "block_type": "SUBHEAD",
+      "hierarchy_level": "LARGE",
+      "text": "2. 감사장에서 반복된 회피성 답변은 1,408건이었다",
+      "region": "center-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_card2_caption",
+      "block_type": "CAPTION",
+      "hierarchy_level": "SMALL",
+      "text": "2024년에는 428건까지 급증했다",
+      "region": "center-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_metric_total",
+      "block_type": "METRIC",
+      "hierarchy_level": "LARGE",
+      "text": "2020~2025년 · 1,408건 · 회의록에서 확인된 회피성 답변",
+      "region": "center-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_metric_2024",
+      "block_type": "METRIC",
+      "hierarchy_level": "MEDIUM",
+      "text": "2024년 · 428건 · 회피성 답변 급증 (연도별 추이 2021~2024년: 2021년 약 250건, 2022년 약 320건, 2023년 약 380건, 2024년 428건)",
+      "region": "center-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_label_answer_types",
+      "block_type": "LABEL",
+      "hierarchy_level": "SMALL",
+      "text": "반복되는 답변 유형: 기억나지 않습니다 / 확인해보겠습니다 / 추후 보고드리겠습니다",
+      "region": "center-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_label_progression",
+      "block_type": "LABEL",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "누적 → 급증 → 반복",
+      "region": "lower-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_callout_card2",
+      "block_type": "CALLOUT",
+      "hierarchy_level": "MEDIUM",
+      "text": "감사는 반복됐지만 답변 방식은 달라지지 않았다. 국정감사가 매년 형식적으로 진행되더라도, 반복되는 회피성 답변을 통제하지 못한다면 기관의 행태와 정책 집행을 바꾸는 실질적 힘은 제한될 수밖에 없다.",
+      "region": "lower-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_footer_stats",
+      "block_type": "METRIC",
+      "hierarchy_level": "SMALL",
+      "text": "PROJECT: P3_CULTURE · 원론적/유보적 답변 (42%) · 공식 완결 (18%) · 진행/이관 (40%)",
+      "region": "bottom-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "remains_eyebrow",
+      "block_type": "LABEL",
+      "hierarchy_level": "SMALL",
+      "text": "결언 및 후속 과제",
+      "region": "upper-right",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_headline",
+      "block_type": "HEADLINE",
+      "hierarchy_level": "VERY_LARGE",
+      "text": "끝나지 않은 문장",
+      "region": "upper-right",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_legend_lines",
+      "block_type": "LABEL",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "닫힌 선 (완결) · 이어지는 선 (진행) · 끊어진 선 (단절)",
+      "region": "upper-right",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_lead",
+      "block_type": "LEAD",
+      "hierarchy_level": "MEDIUM",
+      "text": "국정감사는 시정요구서 전달과 피감기관의 답변 제출로 끝나지 않습니다. 공식 보고서의 단정한 수치 뒤에 가려진 행태를 지속적으로 추적하고 기록하는 일, 그것이 시민 저널리즘이 의회 민주주의와 행정부 사이에 그어야 할 끊어지지 않는 선입니다.",
+      "region": "center-right",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_cta_method",
+      "block_type": "CTA",
+      "hierarchy_level": "SMALL",
+      "text": "분석 방법론 & 출처 계약 (Method)",
+      "region": "lower-right",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_cta_data",
+      "block_type": "CTA",
+      "hierarchy_level": "SMALL",
+      "text": "데이터 스키마 & 약관 (Data)",
+      "region": "lower-right",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_cta_cite",
+      "block_type": "CTA",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "작품 인용구 복사",
+      "region": "lower-right",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "remains_source",
+      "block_type": "SOURCE",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "국회 문화체육관광위원회 2018-2023 국정감사 기록 데이터 에세이",
+      "region": "bottom-right",
+      "image_reference": null,
+      "source_note": "국회 문화체육관광위원회 2018-2023 국정감사 기록 데이터 에세이",
+      "mapping_confidence": "HIGH"
+    }
+  ]
+}

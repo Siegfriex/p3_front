@@ -8,8 +8,14 @@ export default defineConfig(() => {
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(__dirname, 'src'),
       },
+    },
+    build: {
+      // Keep the editorial WebP derivatives inside the lazy Story chunks so the
+      // connector can upload a text-only prebuilt artifact without corrupting
+      // binary payloads. The source images remain independently reviewable.
+      assetsInlineLimit: 100_000,
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.

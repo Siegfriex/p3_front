@@ -1,0 +1,31 @@
+{
+  "run_id": "20260723_162520_KST",
+  "canonical_app_root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "head": "6f4835292abe9bc0cbbed81469b21c25c4e95777",
+  "verdict": "CONCURRENT_SOURCE_DRIFT_BLOCKED",
+  "vertical_slice_completed": false,
+  "initial_snapshots_match": true,
+  "post_freeze_drift_detected": true,
+  "drift_files": [
+    "src/widgets/atlas-explorer/AtlasScene.tsx",
+    "src/app/styles/layout.css",
+    "tests/e2e/atlas-contract-shell.spec.ts"
+  ],
+  "containment": {
+    "partial_agent3_changes_removed": true,
+    "typecheck": "PASS",
+    "commit": false,
+    "push": false,
+    "dependency_install": false
+  },
+  "baseline_dom": {
+    "selector": "#answers > div.page-frame",
+    "node_count": 0,
+    "data_unavailable_visible": true,
+    "cta_visible": true,
+    "cta_height_px": 44,
+    "horizontal_overflow_px": 0
+  },
+  "resume_condition": "Current AtlasScene/layout/E2E owner completes changes and two new snapshots match"
+}

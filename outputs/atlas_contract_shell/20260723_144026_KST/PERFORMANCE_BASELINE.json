@@ -1,0 +1,45 @@
+{
+  "audit_id": "20260723_144026_KST",
+  "scope": "contract shell and two-node CONTRACT_FIXTURE only",
+  "production_build": {
+    "modules_transformed": 2150,
+    "main_js": {
+      "raw_bytes": 477421,
+      "gzip_bytes": 146265
+    },
+    "atlas_lazy_chunk": {
+      "raw_bytes": 31015,
+      "gzip_bytes": 9663,
+      "route_lazy_loaded": true
+    },
+    "css": {
+      "raw_bytes": 63143,
+      "gzip_bytes": 11882
+    }
+  },
+  "renderer_shell": {
+    "renderer": "SVG",
+    "view_box": "0 0 720 520",
+    "plot_rectangle": { "x": 76, "y": 48, "width": 600, "height": 408 },
+    "fixture_node_count": 2,
+    "raw_points": 0,
+    "force": false,
+    "random_jitter": false,
+    "browser_umap": false,
+    "browser_aggregation": false,
+    "dom_mirror": true
+  },
+  "integrity_cost": {
+    "file_sha256_verification": true,
+    "required_json_fetches_when_approved": 5,
+    "no_release_fetches": 0
+  },
+  "not_measured": [
+    "real approved node render time",
+    "real bundle load/parse duration",
+    "real filter p95 latency",
+    "real mobile memory",
+    "real evidence detail latency"
+  ],
+  "verdict": "SHELL_BASELINE_ONLY_REAL_DATA_PENDING"
+}

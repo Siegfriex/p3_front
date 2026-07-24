@@ -1,0 +1,5 @@
+area,expected,result
+focus_outline,system Highlight retained,PASS
+selected_state,independent from focus,PASS_CONTRACT_FIXTURE
+status_and_form_boundary,visible system boundary,PASS
+manual_AT_session,independent verification,NOT_DECLARED

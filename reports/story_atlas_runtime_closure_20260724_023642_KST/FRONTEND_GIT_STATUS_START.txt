@@ -1,0 +1,13 @@
+branch=agent/frontend-routing-atlas-foundation-20260723
+head=20835ecadcce0a57067231806c4cfde9dd5b8f41
+upstream=origin/agent/frontend-routing-atlas-foundation-20260723
+ahead=0
+behind=0
+dirty=true
+
+The worktree contained broad pre-existing modified and untracked files before this closure run.
+Exact raw status is preserved in the earlier preflight report and will be re-snapshotted at END.
+Closure overlap risks: AtlasPage.tsx, AtlasPage.test.tsx, ChapterAnswersAtlas.tsx,
+DetailPage.tsx, EvidenceRouteOverlay.tsx, EvidenceDrawer.tsx,
+atlas-contract-shell.spec.ts, atlas-experience-design.spec.ts, .env.example,
+vercel.json, public/data, and reports were already dirty or untracked.

@@ -1,0 +1,4 @@
+state,visual,required_data,current_result
+approved,soft_contour_and_full_label,"topicBinId; reviewed label; medoid; rationale; screen geometry",NOT_RENDERED_VIEWMODEL_GAP
+provisional,dashed_soft_contour_and_provisional_tag,"topicBinId; proposed label; medoid; rationale; screen geometry",NOT_RENDERED_VIEWMODEL_GAP
+unlabeled,contour_without_semantic_name,"topicBinId; medoid; screen geometry",NOT_RENDERED_VIEWMODEL_GAP

@@ -1,0 +1,4 @@
+mode,node_count,overlap_pairs,resolution,coordinate_displacement,result
+CONTRACT_FIXTURE,2,0,pointer-center distance then canonical ID,0,PASS
+unit-overlap-fixture,3,reported,nearest center then canonical ID tie,0,PASS
+approved-release,unknown,not measured,same locked resolver,0,BLOCKED_BY_DATA

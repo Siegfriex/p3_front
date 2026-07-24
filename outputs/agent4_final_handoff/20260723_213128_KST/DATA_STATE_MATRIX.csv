@@ -1,0 +1,10 @@
+state,presentation,announcement,primary_action,secondary_navigation,verdict
+loading,distinct loading panel,status,wait,none,PASS
+unavailable,fail-closed 00 panel,status,data status,Method and Atlas,PASS
+empty,NO RESULTS panel,status,reset,none,PASS
+error,ERR panel,alert,retry,technical details,PASS
+contract_mismatch,VER panel,alert,retry,contract version,PASS
+projection_mismatch,XY panel,alert,retry,projection ID,PASS
+invalid_node,ID compact panel,alert,clear node,filters retained,PASS
+missing_evidence,Evidence unavailable panel,status,data status,Atlas return,PASS
+stale_release,OLD panel,status,provided action,release ID,PASS

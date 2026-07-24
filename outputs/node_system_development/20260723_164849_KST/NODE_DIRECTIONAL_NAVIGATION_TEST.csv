@@ -1,0 +1,9 @@
+case,direction,expected,rule,result
+center_to_left,left,left,half-plane then angular,PASS
+center_to_right,right,right-far,collinear angular priority over nearer diagonal,PASS
+center_to_up,up,up,half-plane then angular,PASS
+center_to_down,down,down,half-plane then angular,PASS
+exact_tie,right,alpha,canonical ID tie-break,PASS
+no_candidate,left,current,stable current node,PASS
+home,home,first,stable input order,PASS
+end,end,last,stable input order,PASS

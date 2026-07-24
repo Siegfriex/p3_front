@@ -1,0 +1,4 @@
+level,trigger,content,placement,default_visibility,status
+L1,"selected|focused|hovered|editorially_pinned","A-code and answer count",near node without overlap,hidden,LOCKED
+L2,selected,"reviewed short semantic label",external anchor with leader line,hidden,LOCKED
+L3,selected,"family; A-code; status; count; mass; confidence; evidence",inspector or dossier,visible on selection,IMPLEMENTED

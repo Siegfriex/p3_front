@@ -1,0 +1,109 @@
+﻿chapter_id,field_path,old_text,new_text,action,pdf_block_id
+prologue,STORY_CHAPTERS[prologue].title,질문은 남았다,국정감사 단순히 쇼인가?,REPLACE,b5
+prologue,STORY_CHAPTERS[prologue].thesis,"""검토하겠습니다"" — 6년 뒤, 국정감사의 요구와 답변 사이에는 무엇이 남았는가","6년 뒤, 국정감사엔 무엇이 남았는가",REPLACE,b7
+prologue,STORY_CHAPTERS[prologue].summary,"국회 문화체육관광위원회가 피감기관에 전달한 시정요구 2,840여 건. 정부 보고서에 기록된 완료 서명 뒤의 실질적 이행 상태를 단 하나의 증거선(Evidence Line)으로 추적합니다.","2018년부터 2023년까지 국회 문화체육관광위원회가 정부 피감기관에 전달한 시정요구는 총 2,842건. 피감기관이 제출한 공식 처리결과보고서의 완료율은 82.4%에 달하지만, 우리가 마주한 현실의 질의와 답변 사이에는 여전히 끊어진 선이 존재합니다.",REPLACE,b8
+prologue,STORY_CHAPTERS[prologue].timeframe,2018–2023 국정감사 시정 및 처리결과,2020~2025 문체부 국정감사 회의록 42건 전수 분석. 2020~2024 문체부 국정감사결과 시정조치 및 결과보고서 전수 분석.,REPLACE,b6
+scale,STORY_CHAPTERS[scale].title,요구는 얼마나 쌓였나,"""3년째 조치 중...관계 기관 협의는 어디까지 왔나""",REPLACE,scale_p2_b02
+scale,STORY_CHAPTERS[scale].thesis,"6년간 쌓인 2,842건의 시정요구, 그리고 반복되는 공식 답변의 무게",[단독]도핑 검사 적발돼도 명문대 합격...약물 규정 없는 체육특기자 전형,REPLACE,scale_p2_b09
+scale,STORY_CHAPTERS[scale].summary,"매년 국정감사마다 수백 건의 시정요구서가 전달됩니다. 피감기관이 제출한 공식 처리결과 보고서상 완료 비율은 82.4%에 달하지만, 그 답변 문장의 패턴에는 명확한 간극이 존재합니다.","도핑 규정을 위반해 제재를 받은 선수의 이력이 대학 입시에 반영되지 않는 문제를 지적...(scale_p2_b03 LEAD 전문, 문단 구분은 공백으로 결합)",REPLACE,scale_p2_b03
+scale,STORY_CHAPTERS[scale].timeframe,2018–2023 누적 통계,2018–2023 누적 통계,NOT_IN_PDF,
+record,STORY_CHAPTERS[record].title,요구에서 결과까지,"""조치 완료"" 보고 뒤에도 반복된 사망사고...서류와 현장의 간극",REPLACE,record_headline
+record,STORY_CHAPTERS[record].thesis,하나의 요구가 회의록의 문장 조각을 거쳐 공식 처리보고서로 귀결되는 과정,국정감사의 한 질문이 공식 보고서의 문장으로 정착하기까지 거치는 5단계,REPLACE,record_subhead
+record,STORY_CHAPTERS[record].summary,"의원의 질의, 피감기관장의 답변, 시정요구서 작성, 이행계획 수립, 그리고 최종 처리결과 제출까지. 하나의 시정요구가 거치는 5단계 증거 사슬(Evidence Chain)을 분해합니다.",SPC 사례는 조치 완료라는 행정적 결과와 현장 개선이라는 실제 성과 사이에 상당한 간극이 존재할 수 있음을 보여주는 대표적인 사례,REPLACE,record_case_lead
+record,STORY_CHAPTERS[record].timeframe,증거 사슬 구조,증거 사슬,REPLACE,record_label_evidence_chain
+gap,STORY_CHAPTERS[gap].title,완료와 진행의 경계,"""2년이 넘었는데 아직도 조치중?"" 도대체 언제까지 조치중인가?",REPLACE,block_01
+gap,STORY_CHAPTERS[gap].thesis,"보고서상의 완료와 실제 현장의 진행 중 사이, 모호하게 그어진 경선","보고서상의 완료와 실제 현장의 진행 중 사이, 모호하게 그어진 경선",NOT_IN_PDF,
+gap,STORY_CHAPTERS[gap].summary,"공식 보고서에는 단 한 단어 완료로 적혀있으나, 실제 규정 개정이나 예산 반영이 미흡하거나 단순 현황 설명으로 대치된 사례들을 세 가지 선으로 구별합니다.","총 1,566건의 시정·처리요구 사항 중 830건(53.0%)은 조치가 완료됐으며, 736건(47.0%)은 조치 중(향후 조치계획 포함)인 것으로 집계됐다.",REPLACE,block_02
+gap,STORY_CHAPTERS[gap].timeframe,이행 검증 간극 분석,이행 검증 간극 분석,NOT_IN_PDF,
+cases,STORY_CHAPTERS[cases].title,완료라고 쓰였지만,"모르겠습니다, 기억이 안 납니다. 계속되는 회피성 발언",REPLACE,cases_page6_b01
+cases,STORY_CHAPTERS[cases].thesis,공식 수치 뒤에 가려진 대표 5대 시정요구 심층 추적 사례,2024년도 문체부 실제 국정감사 질의,REPLACE,cases_page6_b04
+cases,STORY_CHAPTERS[cases].summary,"문화예술계 블랙리스트 후속조치, 예술인 고용보험, 국립박물관 유물 수장률, 게임물 등급분류, 지역문화기금 등 5개 대표 분야의 6년간 궤적을 비교합니다.","회피답변의 기준은 기억부재(기억이 나지 않습니다), 정보 없음(모르겠습니다, 확인해보겠습니다), 질문 비직접 대응(질문과 맞지 않는 답변)을 핵심 회피성 답변으로 정의하였다.",REPLACE,cases_page6_b02
+cases,STORY_CHAPTERS[cases].timeframe,대표 사례 5선,2024년 · 잼버리 · 답변자: 유인촌 문화체육관광부장관,REPLACE,cases_page6_b05
+remains,STORY_CHAPTERS[remains].title,끝나지 않은 문장,끝나지 않은 문장,PRESERVE,remains_headline
+remains,STORY_CHAPTERS[remains].thesis,"닫힌 선과 밖으로 이어지는 선, 다음 국정감사를 향한 저널리틱 제언","2. 감사장에서 반복된 회피성 답변은 1,408건이었다",REPLACE,remains_card2_subhead
+remains,STORY_CHAPTERS[remains].summary,"이행 완료된 사안은 선이 닫히지만, 미완의 질문은 프레임 밖으로 계속 이어집니다. 감시와 추적은 보고서 제출로 끝나지 않습니다.","국정감사는 시정요구서 전달과 피감기관의 답변 제출로 끝나지 않습니다. 공식 보고서의 단정한 수치 뒤에 가려진 행태를 지속적으로 추적하고 기록하는 일, 그것이 시민 저널리즘이 의회 민주주의와 행정부 사이에 그어야 할 끊어지지 않는 선입니다.",REPLACE,remains_lead
+remains,STORY_CHAPTERS[remains].timeframe,결언 및 후속과제,결언 및 후속 과제,REPLACE,remains_eyebrow
+scale,STORY_METRICS[m1].label,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m1].value,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m1].unit,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m1].comparison,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m1].sourceLabel,국회사무처 문체위 국정감사 보고서 [MOCK],국회사무처 문체위 국정감사 보고서 [UNVERIFIED - PDF에 출처 미기재],REPLACE,N/A (no METRIC block on page2; [MOCK] marker resolved per fallback rule)
+scale,STORY_METRICS[m1].mock,true,false,REPLACE,N/A
+scale,STORY_METRICS[m2].label,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m2].value,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m2].unit,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m2].comparison,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m2].sourceLabel,피감기관 제출 처리결과서 종합 [MOCK],피감기관 제출 처리결과서 종합 [UNVERIFIED - PDF에 출처 미기재],REPLACE,N/A (no METRIC block on page2; [MOCK] marker resolved per fallback rule)
+scale,STORY_METRICS[m2].mock,true,false,REPLACE,N/A
+scale,STORY_METRICS[m3].label,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m3].value,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m3].unit,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m3].comparison,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m3].sourceLabel,답변 문장 패턴 분류 [MOCK],답변 문장 패턴 분류 [UNVERIFIED - PDF에 출처 미기재],REPLACE,N/A (no METRIC block on page2; [MOCK] marker resolved per fallback rule)
+scale,STORY_METRICS[m3].mock,true,false,REPLACE,N/A
+scale,STORY_METRICS[m4].label,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m4].value,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m4].unit,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m4].comparison,(기존 값 유지),(기존 값 유지 - PDF page2에 METRIC 타입 블록 없음),NOT_IN_PDF,
+scale,STORY_METRICS[m4].sourceLabel,언론 및 감사원 표적검증 데이터 [MOCK],언론 및 감사원 표적검증 데이터 [UNVERIFIED - PDF에 출처 미기재],REPLACE,N/A (no METRIC block on page2; [MOCK] marker resolved per fallback rule)
+scale,STORY_METRICS[m4].mock,true,false,REPLACE,N/A
+record/gap,MOCK_EVIDENCES[ev-101].questionExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-101].answerExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-101].verificationLabel,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-101].verificationDetail,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-101].sourceLabel,2019년도 국정감사 시정 및 처리결과 보고서 [MOCK],2019년도 국정감사 시정 및 처리결과 보고서 [UNVERIFIED],REPLACE,N/A (topic mismatch; [MOCK] marker resolved per fallback rule)
+record/gap,MOCK_EVIDENCES[ev-102].questionExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-102].answerExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-102].verificationLabel,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-102].verificationDetail,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-102].sourceLabel,2020년도 국정감사 시정 및 처리결과 보고서 [MOCK],2020년도 국정감사 시정 및 처리결과 보고서 [UNVERIFIED],REPLACE,N/A (topic mismatch; [MOCK] marker resolved per fallback rule)
+record/gap,MOCK_EVIDENCES[ev-103].questionExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-103].answerExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-103].verificationLabel,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-103].verificationDetail,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-103].sourceLabel,2022년도 국정감사 시정 및 처리결과 보고서 [MOCK],2022년도 국정감사 시정 및 처리결과 보고서 [UNVERIFIED],REPLACE,N/A (topic mismatch; [MOCK] marker resolved per fallback rule)
+record/gap,MOCK_EVIDENCES[ev-104].questionExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-104].answerExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-104].verificationLabel,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-104].verificationDetail,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-104].sourceLabel,2021년도 국정감사 시정 및 처리결과 보고서 [MOCK],2021년도 국정감사 시정 및 처리결과 보고서 [UNVERIFIED],REPLACE,N/A (topic mismatch; [MOCK] marker resolved per fallback rule)
+record/gap,MOCK_EVIDENCES[ev-105].questionExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-105].answerExcerpt,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-105].verificationLabel,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-105].verificationDetail,(기존 값 유지),(기존 값 유지 - page3/page4 블록 중 이 사안과 주제가 일치하는 근거 없음),NOT_IN_PDF,
+record/gap,MOCK_EVIDENCES[ev-105].sourceLabel,2020년도 국정감사 시정 및 처리결과 보고서 [MOCK],2020년도 국정감사 시정 및 처리결과 보고서 [UNVERIFIED],REPLACE,N/A (topic mismatch; [MOCK] marker resolved per fallback rule)
+cases,EDITORIAL_CASES[case-01].title,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-01].summary,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-01].demandStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-01].answerStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-01].officialOutcome,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-01].journalismCheck,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-01].limitationNote,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-02].title,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-02].summary,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-02].demandStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-02].answerStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-02].officialOutcome,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-02].journalismCheck,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-02].limitationNote,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-03].title,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-03].summary,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-03].demandStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-03].answerStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-03].officialOutcome,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-03].journalismCheck,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-03].limitationNote,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-04].title,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-04].summary,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-04].demandStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-04].answerStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-04].officialOutcome,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-04].journalismCheck,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-04].limitationNote,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-05].title,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-05].summary,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-05].demandStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-05].answerStatement,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-05].officialOutcome,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-05].journalismCheck,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,
+cases,EDITORIAL_CASES[case-05].limitationNote,(기존 값 유지),"(기존 값 유지 - page6 블록은 잼버리/회피성 답변 사례이며 기존 5개 케이스 주제와 불일치, 임의 대입 회피)",NOT_IN_PDF,

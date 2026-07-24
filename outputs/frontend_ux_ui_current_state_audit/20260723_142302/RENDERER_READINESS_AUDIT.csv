@@ -1,0 +1,6 @@
+renderer,installed,imported,runtime_used,current_node_evidence,accessibility_fit,performance_evidence,semantic_axis_fit,recommendation,state
+SVG,browser native,yes,Story MOCK and Atlas shell,8 mock; 2 contract fixture; 0 approved,strong only in new shell,Story chunk 477.42kB plus Atlas route 30.67kB; no approved-node latency,n/a for 2D,retain for v1,PARTIALLY_CONFIRMED
+Canvas,not installed,no,no,0 approved,requires DOM mirror,no measured SVG failure,n/a,do not adopt,CONFIRMED
+PixiJS,not installed,no,no,0 approved,requires DOM mirror,no measured SVG failure,n/a,do not adopt,CONFIRMED
+Three.js/WebGL,not installed,no,no,0 approved,high accessibility cost,no measured need,no approved z axis,DEFERRED,CONFIRMED
+TensorFlow.js,not installed,no,no,0 approved,not applicable,prohibited,no browser embedding contract,PROHIBITED,CONFIRMED

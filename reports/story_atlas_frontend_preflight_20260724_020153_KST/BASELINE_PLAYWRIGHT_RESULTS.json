@@ -1,0 +1,58 @@
+{
+  "command": "npm run test:e2e",
+  "exit_code": 1,
+  "duration_reported": "2.5m",
+  "summary": {
+    "passed": 10,
+    "failed": 8,
+    "skipped": 9,
+    "total": 27
+  },
+  "failures": [
+    {
+      "test": "global header keeps every visible pointer target at least 44 by 44",
+      "cause": "expected Atlas DataUnavailable but ambient .env loaded DG761",
+      "classification": "TEST_SCENARIO_ENV_COUPLING"
+    },
+    {
+      "test": "focus indicator keeps a two-layer boundary on paper and inverse surfaces",
+      "cause": "expected Atlas DataUnavailable but ambient .env loaded DG761",
+      "classification": "TEST_SCENARIO_ENV_COUPLING"
+    },
+    {
+      "test": "production-style no-approved-manifest route fails closed without legacy requests",
+      "cause": "scenario did not clear ambient release env",
+      "classification": "TEST_SCENARIO_ENV_COUPLING"
+    },
+    {
+      "test": "invalid Atlas query is explicit and never rewritten by a passive observer",
+      "cause": "scenario expected unavailable shell under ambient DG761",
+      "classification": "TEST_SCENARIO_ENV_COUPLING"
+    },
+    {
+      "test": "Story Answers fails closed, carries URL filters to Explorer, and restores with Back",
+      "cause": "CTA reached real DG761 Explorer rather than expected unavailable state",
+      "classification": "DEFECT_EXPECTATION_LOCK"
+    },
+    {
+      "test": "route-driven evidence drawer is modal, history-aware, and restores focus",
+      "cause": "stale opener accessible name not found",
+      "classification": "TEST_SOURCE_MISMATCH"
+    },
+    {
+      "test": "mobile drawer remains usable and keeps its tab row navigable",
+      "cause": "stale opener accessible name not found",
+      "classification": "TEST_SOURCE_MISMATCH"
+    },
+    {
+      "test": "Axe reports zero critical or serious violations on key route states",
+      "cause": "setup timed out on stale opener before Axe analysis",
+      "classification": "TEST_SOURCE_MISMATCH_NOT_AXE_FAILURE"
+    }
+  ],
+  "artifacts": [
+    "playwright-report/",
+    "test-results/"
+  ],
+  "interpretation": "baseline technical FAIL; not a DG761 Explorer failure"
+}

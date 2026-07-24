@@ -1,8 +1,15 @@
 node_modules/
+.vercel/
 build/
 dist/
 coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
 .DS_Store
 *.log
 .env*
 !.env.example
+
+# Oversized local design-source export; the tracked PNG is the runtime/reference asset.
+design/Untitled.pdf

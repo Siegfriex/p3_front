@@ -1,0 +1,5 @@
+file,change,status
+src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,add status/type/reset controls backed by canonical query state; preserve #answers; derive CTA from live state,PLANNED
+src/shared/lib/atlas/atlasQueryState.ts,retain serializer; add Story hash/update helper only if React Router search update cannot preserve hash cleanly,OPTIONAL
+src/shared/lib/atlas/atlasQueryState.test.ts,add Story control update/hash preservation and CTA clearing selected node,PLANNED
+tests/e2e/atlas-experience-design.spec.ts,assert Story controls -> CTA -> Explorer filters -> Back restores Story controls,PLANNED

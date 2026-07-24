@@ -1,0 +1,34 @@
+2026-07-24T02:17:17+09:00 BEGIN design preflight; Git publish request superseded before staging
+read GitHub yeet skill before superseding request; no stage/commit/push executed
+read agent-browser skill for screenshot and interaction audit
+rg MEMORY.md for p3_front fail-closed and shared-worktree guidance
+git status --short --branch
+git rev-parse HEAD
+git branch --show-current
+read canonical P3_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md sections 4-16
+read frontend preflight story_atlas_frontend_preflight_20260724_020153_KST
+read data preflight story_atlas_data_preflight_20260724_020342_KST
+read release build story_atlas_release_build_STORYREL_20260724_021056_KST_38B4D37E
+read current Story Atlas Explorer Evidence components styles query state accessibility and motion source
+npm run dev -- --host 127.0.0.1 --port 3032 --strictPort
+agent-browser open /#answers /atlas and /evidence routes
+agent-browser set viewport 375x812 768x1024 1440x1000 1920x1080
+agent-browser screenshot current Story Atlas selected empty invalid Evidence Drawer and direct route states
+agent-browser snapshot accessibility trees
+agent-browser live tests: status filter Back Forward ArrowRight Enter Escape Drawer focus return
+agent-browser live audit: DOM dimensions target sizes accessible-name uniqueness body overflow
+agent-browser reduced-motion emulation and computed-style verification
+read-only pairwise overlap analysis for Full Explorer 140 nodes and candidate Story 16 nodes
+read-only WCAG contrast calculation for canonical tokens
+protected baseline hashes: source 129ebbde9e2064de08fa3c2ae35f06d9d0e13b05e04a7a00da35c527eb47b664
+protected baseline hashes: config 5ee1180f687278be1d12155ba8742ab098c87503b2cbf3989c63621defb6c211
+protected baseline hashes: runtime data d2c7db7292e357e4f325692eb26097e45dbf45bcf41eab9b64905352e1008ca2
+protected baseline hashes: canonical DG761 7c8d5783c7fe8901e58ecaa8d69ef043d0e5aaff4d88753d45b2bdddf2185c10
+all file writes limited to reports/story_atlas_design_preflight_20260724_021717_KST
+2026-07-24T02:39:34+09:00 JSON validation: 9 files PASS
+2026-07-24T02:39:34+09:00 CSV validation: 21 files / 299 rows PASS
+2026-07-24T02:39:34+09:00 required deliverables: PASS
+2026-07-24T02:39:34+09:00 protected source/config/runtime/canonical hashes unchanged
+2026-07-24T02:39:34+09:00 git staged path count: 0
+2026-07-24T02:39:34+09:00 refreshed finalized frontend preflight: FRONTEND_RELEASE_PREFLIGHT_READY; shared loader recommendation atlasReleaseResource.ts + useAtlasRelease.ts
+2026-07-24T02:43:00+09:00 detected post-cutoff concurrent source drift; preserved external edits and froze report evidence cutoff at 02:39:34

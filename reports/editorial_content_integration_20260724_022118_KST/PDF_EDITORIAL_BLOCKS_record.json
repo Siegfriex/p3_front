@@ -1,0 +1,106 @@
+{
+  "chapter_id": "record",
+  "page": "page3",
+  "blocks": [
+    {
+      "block_id": "record_label_evidence_chain",
+      "block_type": "LABEL",
+      "hierarchy_level": "SMALL",
+      "text": "증거 사슬",
+      "region": "top-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "record_headline",
+      "block_type": "HEADLINE",
+      "hierarchy_level": "VERY_LARGE",
+      "text": "\"조치 완료\" 보고 뒤에도 반복된 사망사고...서류와 현장의 간극",
+      "region": "top-center",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "record_subhead",
+      "block_type": "SUBHEAD",
+      "hierarchy_level": "MEDIUM",
+      "text": "국정감사의 한 질문이 공식 보고서의 문장으로 정착하기까지 거치는 5단계",
+      "region": "upper-center",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "record_case_label",
+      "block_type": "LABEL",
+      "hierarchy_level": "LARGE",
+      "text": "SPC 제빵공장: '조치 완료' 이후에도 반복된 안전 문제",
+      "region": "center-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "record_timeline_metric",
+      "block_type": "METRIC",
+      "hierarchy_level": "MEDIUM",
+      "text": "2022 · SPL 평택공장 노동자 사망사고 → 사고 이후 · 고용노동부 SPC 계열사 기획감독 → 감독 결과 · 산업안전보건법 위반 및 시정조치 → 행정상 처리 · 시정조치 완료 보고 → 이후 · 유사 안전사고·중대재해 반복",
+      "region": "center-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "record_timeline_callout",
+      "block_type": "CALLOUT",
+      "hierarchy_level": "SMALL",
+      "text": "서류상 완료 여부보다 실제 현장에서 위험이 제거됐는지 확인해야 한다.",
+      "region": "center-left",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "record_image_memorial",
+      "block_type": "IMAGE",
+      "hierarchy_level": "MEDIUM",
+      "text": "노동자 사망사고 희생자를 추모하는 빈소 사진. 조문객이 검은 리본 화환과 국화 앞에서 묵념하고 있으며 '전국식품노동조합연맹' 조끼를 입고 있음. 제단에는 얼굴이 모자이크 처리된 고인의 영정사진이 놓여 있고, 앞쪽 현수막에는 '삼가 고인의 명복을 빕니다' 문구가 보임.",
+      "region": "center-center",
+      "image_reference": "reports/editorial_content_integration_20260724_022118_KST/pdf_renders/crop_photo1.png",
+      "source_note": null,
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "record_image_spc_logo",
+      "block_type": "IMAGE",
+      "hierarchy_level": "SMALL",
+      "text": "SPC그룹 로고 이미지",
+      "region": "center-right",
+      "image_reference": "reports/editorial_content_integration_20260724_022118_KST/pdf_renders/crop_photo2.png",
+      "source_note": "Liberty Korea Post News (이미지 워터마크)",
+      "mapping_confidence": "MEDIUM"
+    },
+    {
+      "block_id": "record_case_lead",
+      "block_type": "LEAD",
+      "hierarchy_level": "MEDIUM",
+      "text": "SPC 사례는 '조치 완료'라는 행정적 결과와 '현장 개선'이라는 실제 성과 사이에 상당한 간극이 존재할 수 있음을 보여주는 대표적인 사례",
+      "region": "lower-right",
+      "image_reference": null,
+      "source_note": null,
+      "mapping_confidence": "HIGH"
+    },
+    {
+      "block_id": "record_source_step04",
+      "block_type": "SOURCE",
+      "hierarchy_level": "VERY_SMALL",
+      "text": "STEP 04 · 공식 보고서 최종 기재 상태",
+      "region": "lower-left",
+      "image_reference": null,
+      "source_note": "2019년도 국정감사 시정 및 처리결과 보고서 [MOCK] (p. 48-52)",
+      "mapping_confidence": "MEDIUM"
+    }
+  ]
+}

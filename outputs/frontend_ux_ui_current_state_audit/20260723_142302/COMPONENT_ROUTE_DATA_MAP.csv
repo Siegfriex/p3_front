@@ -1,0 +1,16 @@
+route_or_chapter,component,source_path,data_source,classification,interaction,contract_status
+/,StoryPage,src/pages/story/StoryPage.tsx,storyData.ts,MOCK,scroll and hash navigation,PARTIALLY_CONFIRMED
+/#prologue,ChapterPrologue,src/widgets/prologue-scene/ChapterPrologue.tsx,storyData.ts,MOCK,evidence drawer,MOCK disclosure insufficient
+/#scale,ChapterScale,src/widgets/scale-scene/ChapterScale.tsx,STORY_METRICS,MOCK,year filter,MOCK badges visible
+/#record,ChapterRecord,src/widgets/evidence-chain-scene/ChapterRecord.tsx,MOCK_EVIDENCES,MOCK,evidence selector and drawer,route overlay confirmed
+/#gap,ChapterGap,src/widgets/gap-scene/ChapterGap.tsx,MOCK_EVIDENCES plus hard-coded Sankey,MOCK,status lanes and drawer,internal numeric contradiction
+/#answers,ChapterAnswersAtlas,src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,ATLAS_NODES,MOCK,local filters hover click,legacy Story VM not shared
+/#cases,ChapterCases,src/widgets/case-sequence/ChapterCases.tsx,EDITORIAL_CASES,MOCK,case and evidence drawer,prominent MOCK label absent
+/#remains,ChapterRemains,src/widgets/remains-scene/ChapterRemains.tsx,static,DERIVED,links and copy,PARTIALLY_CONFIRMED
+/atlas,AtlasPage,src/pages/atlas/AtlasPage.tsx,approved release manifest,FRONTEND_BUNDLE,URL query and fail-closed loading,DataUnavailable confirmed
+/atlas,AtlasExplorer,src/widgets/atlas-explorer/AtlasExplorer.tsx,AtlasViewModelBundle,FRONTEND_BUNDLE,filter select DOM mirror,approved-data render blocked
+/atlas,AtlasScene,src/widgets/atlas-explorer/AtlasScene.tsx,AtlasNodeViewModel,FRONTEND_BUNDLE,SVG keyboard pointer,fixture shell partial
+/atlas,loadAtlasBundle,src/shared/api/atlas/loadAtlasBundle.ts,manifest JSON files,FRONTEND_BUNDLE,fetch schema projection cross-check,file-content hash not verified
+/evidence/:evidenceId,DetailPage,src/app/router/DetailPage.tsx,MOCK_EVIDENCES,MOCK,direct page,not connected to approved EvidenceRepository
+/case/:caseId,DetailPage,src/app/router/DetailPage.tsx,EDITORIAL_CASES,MOCK,direct page,not connected to approved data
+background detail,EvidenceRouteOverlay,src/app/router/EvidenceRouteOverlay.tsx,MOCK collections,MOCK,Drawer and history,focus trap confirmed for button openers

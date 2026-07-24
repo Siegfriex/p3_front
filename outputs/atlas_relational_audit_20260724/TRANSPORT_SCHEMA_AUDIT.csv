@@ -1,0 +1,13 @@
+entity,file,status,classification,count,frontend_behavior
+release_pointer,public/data/current-release.json,CONFIRMED,FRONTEND_BUNDLE,1,loads current release
+manifest,public/data/releases/ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264/manifest.json,CONFIRMED,FRONTEND_BUNDLE,1,validated before bundle load
+atlas_nodes,atlas_nodes.json,CONFIRMED,FRONTEND_BUNDLE,140,adapted without coordinate mutation
+answer_entities,atlas_answer_entities.json,CONFIRMED,FRONTEND_BUNDLE,761,member count and dossier context
+behavior_labels,atlas_behavior_labels.json,CONFIRMED,FRONTEND_BUNDLE,769,approved A1-A8 labels
+evidence_entities,atlas_evidence_entities.json,CONFIRMED,FRONTEND_BUNDLE,64,public Evidence repository
+node_evidence_links,atlas_node_evidence_links.json,CONFIRMED,FRONTEND_BUNDLE,64,representative Evidence routing
+topic_bins,atlas_topic_bins.json,CONFIRMED,FRONTEND_BUNDLE,24,approved topic identifiers and raw labels
+topic_centroids,atlas_topic_centroids.json,CONFIRMED,FRONTEND_BUNDLE,24,approved centroid coordinates
+atlas_relationship_edges,,BLOCKED,UNKNOWN,0,Relations DataUnavailable; no edge rendered
+percentile_or_rank,,NOT_VERIFIABLE,UNKNOWN,0,not displayed or computed
+topic_region_geometry,,NOT_VERIFIABLE,UNKNOWN,0,no browser-invented region boundary

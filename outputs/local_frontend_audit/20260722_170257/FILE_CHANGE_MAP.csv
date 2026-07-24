@@ -1,0 +1,18 @@
+path,git_status,staged,tracked,file_type,related_layer,related_chapter,approximate_purpose,diff_size,likely_generated_or_manual,risk,requires_review,comparison_to_report
+src/widgets/prologue-scene/ChapterPrologue.tsx,UNCHANGED,no,yes,TSX,widget,prologue,Prologue scene,0,manual,high,yes,MATCH
+src/widgets/scale-scene/ChapterScale.tsx,UNCHANGED,no,yes,TSX,widget,scale,Scale metrics and year selector,0,manual,high,yes,MATCH
+src/app/styles/tokens.css,UNCHANGED,no,yes,CSS,design-system,global,design tokens,0,manual,high,yes,MATCH
+src/app/styles/typography.css,UNCHANGED,no,yes,CSS,design-system,global,type utilities,0,manual,medium,yes,MATCH
+src/app/styles/layout.css,UNCHANGED,no,yes,CSS,design-system,global,layout primitives,0,manual,high,yes,MATCH
+src/app/styles/motion.css,UNCHANGED,no,yes,CSS,design-system,global,motion utilities,0,manual,medium,yes,MATCH
+src/shared/ui/EditorialImageField.tsx,UNCHANGED,no,yes,TSX,shared-ui,prologue,image slot state renderer,0,manual,medium,yes,MATCH
+src/shared/ui/FoundationGallery.tsx,UNCHANGED,no,yes,TSX,shared-ui,method,foundation showcase,0,manual,high,yes,MISMATCH
+src/widgets/app-shell/HeaderNav.tsx,UNCHANGED,no,yes,TSX,app-shell,global,sticky header and view controls,0,manual,high,yes,MATCH
+src/widgets/app-shell/ProgressTracker.tsx,UNCHANGED,no,yes,TSX,app-shell,global,chapter navigation,0,manual,medium,yes,PARTIAL_MATCH
+src/widgets/app-shell/FooterRail.tsx,UNCHANGED,no,yes,TSX,app-shell,global,fixed footer and chapter progress,0,manual,high,yes,MISMATCH
+src/app/providers/OverlayProvider.tsx,UNCHANGED,no,yes,TSX,provider,global,overlay and chapter state,0,manual,high,yes,PARTIAL_MATCH
+src/widgets/overlay-root/GlobalOverlayRoot.tsx,UNCHANGED,no,yes,TSX,overlay,global,single drawer mount,0,manual,medium,yes,MATCH
+src/widgets/evidence-drawer/EvidenceDrawer.tsx,UNCHANGED,no,yes,TSX,overlay,global,evidence and case drawer,0,manual,high,yes,PARTIAL_MATCH
+src/pages/story/StoryPage.tsx,UNCHANGED,no,yes,TSX,page,story,chapter order and observer,0,manual,high,yes,PARTIAL_MATCH
+src/app/router/AppRouter.tsx,UNCHANGED,no,yes,TSX,router,global,in-memory view switch,0,manual,critical,yes,MISMATCH
+src/shared/mock/storyData.ts,UNCHANGED,no,yes,TS,data,all,mock fixture and copy,0,manual,critical,yes,PARTIAL_MATCH

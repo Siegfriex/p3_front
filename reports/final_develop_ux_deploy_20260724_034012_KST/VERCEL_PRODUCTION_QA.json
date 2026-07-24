@@ -1,0 +1,90 @@
+{
+  "verdict": "VERCEL_PRODUCTION_PASS",
+  "origin": "https://p3-culture-atlas.vercel.app",
+  "releaseId": "ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264",
+  "counts": {
+    "storyPreviewSvgCount": 16,
+    "storyPreviewDomCount": 16,
+    "atlasSvgCount": 140,
+    "atlasDomCount": 140,
+    "filteredSvgCount": 2,
+    "filteredDomCount": 2,
+    "editorialImageCount": 7
+  },
+  "brokenImages": [],
+  "routeStatus": {
+    "/": 200,
+    "/atlas": 200,
+    "/evidence/EVID_18557647961C4C1481271E6B": 200,
+    "/method": 200,
+    "/method/projection": 200,
+    "/data": 200,
+    "/about": 200,
+    "/case/case-01": 200
+  },
+  "viewports": [
+    {
+      "width": 375,
+      "height": 812,
+      "route": "/",
+      "overflow": 0
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "route": "/atlas",
+      "overflow": 0
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/",
+      "overflow": 0
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "/atlas",
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "route": "/",
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "route": "/atlas",
+      "overflow": 0
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "/",
+      "overflow": 0
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "/atlas",
+      "overflow": 0
+    }
+  ],
+  "axe": {
+    "story": [],
+    "atlas": [],
+    "evidence": []
+  },
+  "cache": {
+    "pointer": "no-cache",
+    "releaseAsset": "public, max-age=31536000, immutable",
+    "html": "no-cache"
+  },
+  "manifestSha256": "fb91d21a4171f1600835744a89138f762cad448c9dad4d9ef0eec91c45bd0fdc",
+  "manifestSha256MatchesPointer": true,
+  "consoleErrors": [],
+  "pageErrors": [],
+  "requestFailures": []
+}

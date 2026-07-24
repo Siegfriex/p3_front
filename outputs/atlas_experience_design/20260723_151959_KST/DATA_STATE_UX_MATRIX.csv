@@ -1,0 +1,7 @@
+state,visual_signal,user_copy,recovery,route_evidence,status
+loading,"registration grid + red progress rule","manifest and contract validation","wait; no fallback","lazy/loading component",CONFIRMED_COMPONENT
+unavailable,"00 signal + paper record surface","approved data absent","Story/Data/Method navigation","/#answers and /atlas",CONFIRMED_RUNTIME
+empty,"00 signal while controls remain","valid bundle with zero results","reset filters","contract fixture component",CONFIRMED_COMPONENT
+error,"black inverse + ERR","user-safe failure","retry or recovery navigation","route error component",PARTIALLY_CONFIRMED
+contract_mismatch,"ochre strip + VER","app/data version incompatible","retry contract validation","component only",BLOCKED_TYPED_ERROR
+invalid_node,"stage retained + inspector ID state","selected ID absent in release","clear only node selection","contract fixture",CONFIRMED_RUNTIME

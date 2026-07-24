@@ -1,0 +1,53 @@
+Audit root: /home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/outputs/frontend_ux_ui_current_state_audit/20260723_142302
+Audit mode: source read-only; reports/screenshots only
+Canonical SSOT: /home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL/contracts/P3_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md
+
+2026-07-23 14:23 KST | pwd; git roots/status/branch/HEAD; find SSOT | exit 0
+Result: runnable nested repo p3_front; branch refactor/routing-technical-foundation; HEAD 6f4835292abe9bc0cbbed81469b21c25c4e95777; no staged files.
+
+2026-07-23 14:23 KST | node --version; npm --version; npm package inspection | exit 0
+Result: Node v20.20.1; npm 10.8.2; package lock v3.
+
+2026-07-23 14:23 KST | npm run typecheck | exit 0
+2026-07-23 14:23 KST | npm run lint | exit 0
+2026-07-23 14:23 KST | npm run test | exit 0
+Result: 3 files, 7 tests passed before concurrent Atlas files appeared.
+2026-07-23 14:23 KST | npm run build | exit 0
+Result: Vite 6.4.3; single JS 474.85 kB raw / 146.17 kB gzip; CSS 60.66 kB raw / 11.55 kB gzip.
+2026-07-23 14:24 KST | npm run test:e2e | exit 0
+Result: 7/7 technical routing tests passed.
+
+2026-07-23 14:26 KST | node AUDIT_CAPTURE.mjs | exit 1
+Result: Chromium sandbox Operation not permitted. Re-run with approved escalation.
+2026-07-23 14:27 KST | node AUDIT_CAPTURE.mjs | exit 1
+Result: fixed chapter navigation/footer intercepted Answers reset button at a 1440 capture point; audit script changed only to record obstruction and force audit continuation.
+2026-07-23 14:29-14:34 KST | node AUDIT_CAPTURE.mjs | exit 0
+Result: 80 current screenshots, DOM geometry, Axe and route flows collected across 375/768/1440/1920.
+
+2026-07-23 14:33 KST | re-snapshot git status and mtimes | exit 0
+Result: /atlas and Atlas API/adapter/renderer files appeared during the audit. Initial /atlas 404 evidence is superseded by current lazy contract shell; drift retained in report.
+
+2026-07-23 14:33 KST | npm run typecheck | exit 0
+2026-07-23 14:33 KST | npm run lint | exit 0
+2026-07-23 14:33 KST | npm run test | exit 0
+Result: 9 files, 23 tests passed on current tree.
+2026-07-23 14:33 KST | npm run build | exit 0
+Result: main JS 477.42 kB raw / 147.27 kB gzip; lazy AtlasPage 30.67 kB raw / 9.55 kB gzip; CSS 62.86 kB raw / 11.88 kB gzip.
+2026-07-23 14:34 KST | npm run test:e2e | exit 0
+Result: 9 passed, 3 explicit CONTRACT_FIXTURE tests skipped.
+
+2026-07-23 14:37 KST | fixture E2E with env on default config | exit 1
+Result: existing port-3000 dev server was reused without fixture env; 2 passed and 3 failed because fixture provenance/nodes were absent. Classified as contaminated execution.
+2026-07-23 14:39 KST | isolated port-3001 fixture E2E | exit 1
+Result: 2 passed, 3 failed. Fixture Axe test passed. Two fixture tests failed because role queries matched both SVG node and DOM mirror button. Fail-closed test conflicted with fixture release env and logged an expected 404. Product URL/keyboard assertions remain only partially confirmed.
+
+2026-07-23 14:35 KST | npm ls --depth=0 and import search | exit 0
+Result: React 19.2.8; React Router 7.18.1; TypeScript 5.8.3; Vite 6.4.3. Three/Pixi/D3/Tensor absent. motion, @google/genai, express and dotenv installed but not imported by src.
+
+Not run: dependency install/update, Lighthouse, screen reader software, 200% zoom, recordings, commit, push, branch switch.
+
+2026-07-23 14:45 KST | required-output, JSON, CSV, screenshot and report-section validation | exit 0
+Result: 16/16 required files present; 3/3 audit JSON files parsed; all 12 CSV files contain header plus data rows; report sections 1-16 present in required order; 80 screenshots present (20 per viewport); source-non-modification statement present.
+
+2026-07-23 14:45 KST | final git status and artifact size snapshot | exit 0
+Result: branch and HEAD unchanged; staged 0; tracked modified 29; tracked deleted 1; untracked entries 33; audit output directory 12M. Dirty source state is pre-existing/concurrent and was not modified by the auditor.

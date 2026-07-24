@@ -1,0 +1,7 @@
+layer,input,policy,status
+semantic,confidence or null,floor 0.45 and null 0.72,PROVISIONAL
+interaction,hover,minimum 0.82,PROVISIONAL
+interaction,selected or focused,minimum 0.88,PROVISIONAL
+filter,context,range 0.24 to 0.40,PROVISIONAL
+filter,excluded,0 and not rendered in Explorer,LOCKED
+composition,all,no multiplicative fade chain,LOCKED

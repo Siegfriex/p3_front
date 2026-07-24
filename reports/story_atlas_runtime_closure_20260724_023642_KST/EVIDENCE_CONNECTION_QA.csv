@@ -1,0 +1,8 @@
+"check","status","evidence"
+"repository_exists","PASS","src/shared/api/atlas/evidenceRepository.ts"
+"adapter_preserves_repository","PASS","toAtlasViewModel"
+"approved_direct_detail","PASS","EVID_18557647961C4C1481271E6B"
+"approved_drawer_detail","PASS","EVID_18557647961C4C1481271E6B"
+"invalid_detail_fail_closed","PASS","true"
+"drawer_history_restore","PASS","https://p3-culture-atlas-iau5j8z2r-siegfriexs-projects.vercel.app/atlas?node=ANODE_E488BDA6398875DB653D7A71&view=nodes"
+"mock_or_fixture_exposure","PASS","0"

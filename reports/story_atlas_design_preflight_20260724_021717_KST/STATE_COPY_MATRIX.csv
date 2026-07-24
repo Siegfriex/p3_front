@@ -1,0 +1,10 @@
+state,eyebrow,title,body,primary_action,announcement
+loading,"DATA CHECK IN PROGRESS","승인된 Atlas 데이터를 확인하고 있습니다","manifest와 데이터 계약을 확인하는 동안 임시 좌표나 대체 데이터를 표시하지 않습니다",,"승인된 Atlas 데이터 확인 중"
+data_unavailable,"DATA UNAVAILABLE / FAIL CLOSED","승인된 Atlas 데이터가 아직 없습니다","승인된 release가 연결되기 전에는 mock 또는 legacy 지도를 대신 표시하지 않습니다","데이터 승인 상태 확인","승인된 Atlas 데이터 없음"
+empty_filter,"NO RESULTS","조건에 맞는 node가 없습니다","선택한 처리 상태와 답변 유형의 교집합이 비어 있습니다. 지도 좌표계는 유지됩니다","필터 초기화","필터 결과 0개"
+invalid_node,"INVALID NODE","요청한 node를 찾을 수 없습니다","현재 release에 없는 선택입니다. 필터는 유지하고 node 선택만 지울 수 있습니다","node 선택 지우기","유효하지 않은 node 선택"
+evidence_unavailable,"EVIDENCE UNAVAILABLE","공개 승인된 대표 증거가 없습니다","node 집계 정보는 유효하지만 공개 가능한 대표 증거 상세은 연결되지 않았습니다",,"대표 증거 없음"
+error,"ATLAS ERROR / NO FALLBACK","Atlas 데이터를 확인하지 못했습니다","네트워크 또는 계약 오류가 발생했습니다. 승인되지 않은 대체 데이터를 표시하지 않습니다","다시 확인","Atlas 오류"
+contract_mismatch,"CONTRACT MISMATCH","앱과 Atlas 데이터 계약이 일치하지 않습니다","현재 앱이 이 release를 안전하게 해석할 수 없습니다","계약 다시 확인","Atlas 계약 불일치"
+projection_mismatch,"PROJECTION MISMATCH","좌표계와 Atlas release가 일치하지 않습니다","서로 다른 projection을 혼합해 표시하지 않습니다","projection 다시 확인","Atlas projection 불일치"
+stale_release,"STALE RELEASE","더 최신의 승인 release를 확인해야 합니다","현재 release는 표시 기준을 충족하지 않습니다",,"stale release"

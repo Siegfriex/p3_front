@@ -1,0 +1,65 @@
+P3_CULTURE TECHNICAL ROUTING GATE COMMAND LOG
+Canonical root: /home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front
+Start local: 2026-07-23T13:12:39+09:00
+Start UTC: 2026-07-23T04:12:39Z
+
+[PASS] git status --short --branch
+[PASS] git rev-parse HEAD -> 6f4835292abe9bc0cbbed81469b21c25c4e95777
+[PASS] git diff --name-status / git diff --cached --name-status
+[PASS] git ls-files --others --exclude-standard
+[PASS] git switch -c refactor/routing-technical-foundation
+[PASS] npm install react-router@^7
+[PASS] npm install --save-dev eslint @eslint/js typescript-eslint eslint-plugin-react-hooks eslint-plugin-react-refresh vitest jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event @playwright/test @axe-core/playwright
+[PASS] npm install --save-dev @types/react @types/react-dom
+[PASS] npm install (lockfile synchronization; audit reported 0 vulnerabilities)
+
+[EXPECTED INITIAL FAIL] npm run typecheck
+  RouteErrorBoundary props typing and HeaderNav union typing identified and fixed.
+[EXPECTED INITIAL FAIL] npm run typecheck
+  Missing React type packages exposed Motion easing tuple typing; types installed and variant types fixed.
+[PASS] npm run typecheck
+
+[EXPECTED INITIAL FAIL] npm run lint
+  20 pre-existing unused/any issues surfaced by real ESLint; imports/types fixed without --fix.
+[PASS] npm run lint
+
+[EXPECTED INITIAL FAIL] npm run test
+  setup imported no vi global; fixed explicit import.
+[EXPECTED INITIAL FAIL] npm run test
+  test expectations did not match existing Korean headings; assertions corrected to actual contracts.
+[PASS] npm run test -> 3 files / 7 tests
+
+[PASS] npm run build
+[ENVIRONMENT BLOCK] npm run test:e2e in restricted sandbox
+  Playwright could not access the local Vite socket; rerun with local-socket approval.
+[EXPECTED E2E FAIL] mobile tab locator and Axe
+  Correct tab name, accessible select names, neutral/amber contrast tokens, and motion-stable Axe run applied.
+[PASS] targeted mobile Drawer scenario
+[PASS] targeted Axe scenario -> critical 0 / serious 0
+
+[EXPECTED QA FAIL] npm run qa:foundation
+  routeConfig.tsx incorrectly triggered Fast Refresh component-only rule; moved to routeConfig.ts.
+[EXPECTED QA FAIL] npm run qa:foundation
+  Vitest default glob included Playwright spec; include narrowed to src unit tests.
+[EXPECTED QA FAIL] npm run qa:foundation
+  mobile transition bounding box sampled during animation; assertion changed to poll final geometry and document overflow.
+[EXPECTED QA FAIL] npm run qa:foundation
+  generated playwright-report was not in ESLint ignore config; explicit generated-output ignore added.
+
+[PASS FINAL] npm run qa:foundation
+  typecheck exit 0
+  ESLint exit 0, warnings 0
+  Vitest 3 files, 7 tests passed
+  Vite build passed, 2,132 modules
+  Playwright 7 scenarios passed
+  Axe critical 0, serious 0
+
+[PASS] npm run dev -- --strictPort -> port 3000
+[PASS] npm run preview -- --strictPort -> port 4173
+[PASS] agent-browser production public/direct/hash/modal/mobile screenshots
+[PASS] production /dev/foundations -> notFound=true, foundations=false
+[PASS] development /dev/foundations -> Foundation Gallery visible
+[PASS] CSS variable scan -> definitions=108, uses=81, undefined=[]
+[PASS] reverse import scans -> 0
+[PASS] three-or-more-level relative import scan -> 0
+[PASS] final Git status/diff inspection; no commit or push

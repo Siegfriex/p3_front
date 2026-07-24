@@ -1,0 +1,17 @@
+P3_CULTURE STORY ATLAS NODE FIELD COMMAND LOG
+Run ID: 20260723_162520_KST
+
+- Read the named React best-practices skill in full.
+- Read the agent-browser skill in full for required live DOM verification.
+- Read the complete 1,235-line Atlas integration SSOT.
+- Read the latest Agent 3 contract-shell report and Agent 4 design, decision, accessibility, parity, and component reports.
+- Read the manifest loader, bundle loader, runtime schema, adapter, ViewModel, query, scaler, EvidenceRepository, Story renderer, Full Explorer renderer, tests, CSS, and tokens.
+- Captured two matching worktree/source snapshots.
+- Started isolated Vite server at 127.0.0.1:3013 and inspected `#answers > div.page-frame` with agent-browser.
+- Baseline DOM: no approved nodes; DataUnavailable visible; CTA visible at 44px; horizontal overflow 0.
+- Detected later HMR/source changes to AtlasScene, layout CSS, and Atlas E2E tests.
+- Stopped implementation under Worktree Freeze rule.
+- Removed only Agent 3 partial edits via narrow apply_patch reversals.
+- Ran `npm run typecheck`: PASS after containment.
+- Confirmed branch and HEAD unchanged; no commit, push, branch switch, stash, reset, checkout, or dependency installation.
+- Closed browser and Vite sessions.

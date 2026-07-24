@@ -1,0 +1,11 @@
+requirement,implementation,evidence,result
+SVG accessible name,title desc and chart summary,agent-browser snapshot,PASS_PRESENTATION
+DOM mirror,synchronized single keyboard owner,140 and 16 node snapshots,PASS
+44x44 targets,existing semantic hit layer and control target,unit and E2E,PASS
+focus_vs_selection,dark halo vs red ring,focused-selected screenshot,PASS
+color_independence,shape inner mark stroke dash text,forced-colors screenshot,PASS
+reduced_motion,3D transition 1e-05s,matchMedia runtime,PASS
+text_spacing,no horizontal overflow at 375,scrollWidth-clientWidth=0,PASS
+400_percent,equivalent screenshot,zoom capture,PASS_PRESENTATION
+3d_alternative,canonical 2D link and textual explanation,DOM snapshot,PASS
+screen_reader_full_manual,not completed,manual AT pending,NOT_VERIFIABLE

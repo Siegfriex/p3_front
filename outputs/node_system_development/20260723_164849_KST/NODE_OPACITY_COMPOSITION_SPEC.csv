@@ -1,0 +1,10 @@
+layer,state,mapping,status
+semantic,confidence,clamp base to 0.45-1.00,PROVISIONAL
+semantic,null confidence,0.72,PROVISIONAL
+filter,matched,preserve semantic opacity,LOCKED
+filter,context,0.24-0.40 and noninteractive,LOCKED
+filter,excluded,not rendered,LOCKED
+interaction,hovered,minimum 0.82,PROVISIONAL
+interaction,selected or focused,minimum 0.88,PROVISIONAL
+interaction,dimmed,0.24-0.40,PROVISIONAL
+composition,rule,no multiplicative fade,LOCKED

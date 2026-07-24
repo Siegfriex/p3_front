@@ -1,0 +1,7 @@
+viewport,mode,page_overflow,stage_policy,hit_target,axe_blocking,result
+320x800,CONTRACT_FIXTURE,0,local horizontal stage scroll,44px minimum,0,PASS
+375x812,CONTRACT_FIXTURE,0,local horizontal stage scroll,44px minimum,0,PASS
+768x1024,CONTRACT_FIXTURE,0,responsive composition,44px minimum,0,PASS
+1440x900,CONTRACT_FIXTURE,0,centered stage,44px minimum,0,PASS
+1920x1080,CONTRACT_FIXTURE,0,max-width and negative space,44px minimum,0,PASS
+375x812,production unavailable,0,fail-closed frame,no nodes,0,PASS

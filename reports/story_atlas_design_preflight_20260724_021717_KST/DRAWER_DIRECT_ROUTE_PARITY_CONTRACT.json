@@ -1,0 +1,29 @@
+{
+  "gate": "EVIDENCE_UX_CONTRACT_LOCKED",
+  "same_record_source": true,
+  "same_required_fields": [
+    "evidence_id",
+    "title",
+    "request",
+    "question",
+    "answer",
+    "reported_status",
+    "verification_status",
+    "verification_detail",
+    "meeting_id",
+    "page_start_no",
+    "page_end_no",
+    "pdf_asset_id",
+    "pipeline_run_id",
+    "review_status",
+    "publication_status"
+  ],
+  "drawer_only": ["close button", "modal focus trap", "background preservation"],
+  "direct_only": ["h1", "route-aware return link", "canonical document flow"],
+  "mobile": "bottom_sheet",
+  "desktop": "right_drawer",
+  "focus_return_required": true,
+  "back_forward_restore_required": true,
+  "mock_in_production": false,
+  "current_status": "CONTRADICTED_BY_UNCONNECTED_REPOSITORY"
+}

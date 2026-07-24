@@ -1,0 +1,7 @@
+chapter_id,check_name,pass,detail
+remains,desktop_screenshot_captured,true,"1440x900 viewport; section[data-chapter-id='remains'] screenshot saved to screenshots/after/remains.png"
+remains,mobile_screenshot_captured,true,"375x812 viewport; section[data-chapter-id='remains'] screenshot saved to screenshots/after/remains_mobile.png"
+remains,semantic_heading_structure,true,"Only one heading element (h2 '끝나지 않은 문장') inside section[data-chapter-id='remains']; no duplicate h1 inside the chapter section"
+remains,image_alt_text,true,"ChapterRemains.tsx contains no <img> elements (only lucide-react icon components with aria-hidden='true' on Share2/Check); no missing alt text risk"
+remains,mobile_text_clipping,true,"Visual inspection of remains_mobile.png shows body copy, badge, line-symbol captions, and CTA buttons wrap and render fully with no horizontal or vertical clipping"
+remains,mock_data_residual,true,"grep on storyData.ts STORY_CHAPTERS 'remains' entry (lines 71-79) shows no [MOCK] marker; STORY_CHAPTERS items have no mock:true field pattern used, unlike STORY_METRICS"

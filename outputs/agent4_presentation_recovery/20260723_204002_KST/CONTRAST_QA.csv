@@ -1,0 +1,15 @@
+token_pair,ratio,threshold,use,verdict
+ink_on_paper,16.86,4.5,normal_text,PASS
+ink_on_surface,18.24,4.5,normal_text,PASS
+secondary_on_paper,8.07,4.5,normal_text,PASS
+tertiary_on_paper,4.56,4.5,metadata_text,PASS
+red_dark_on_paper,7.03,4.5,small_red_annotation_text,PASS
+bright_red_on_paper,3.83,3.0,large_signal_and_nontext_only,PASS_WITH_USE_RESTRICTION
+ochre_on_paper,4.97,4.5,metadata_text,PASS
+inverse_text_on_inverse,17.74,4.5,normal_text,PASS
+inverse_muted_on_inverse,10.15,4.5,normal_text,PASS
+line_strong_on_surface,7.24,3.0,essential_boundary,PASS
+line_medium_on_surface,2.32,not_essential,faint_nonessential_divider only,CONSTRAINED_USE
+ready_on_surface,6.65,4.5,status_text,PASS
+red_dark_on_inverse,2.50,3.0,focus_boundary,"PASS_WITH_PAPER_HALO"
+

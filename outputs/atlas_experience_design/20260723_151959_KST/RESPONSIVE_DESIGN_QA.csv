@@ -1,0 +1,5 @@
+viewport,grid,story_overflow,atlas_overflow,foundation_overflow,controls,inspector,blocking_axe,status
+375x812,4,0,0,0,vertical,"lower bottom-sheet anatomy",0,PASS_NO_DATA
+768x1024,8,0,0,0,wrapped,"lower rail",0,PASS_NO_DATA
+1440x900,12,0,0,0,"1-2 rows","right 4-column rail",0,PASS_NO_DATA
+1920x1080,16,0,0,0,"1-2 rows","right 400-440px equivalent",0,PASS_NO_DATA

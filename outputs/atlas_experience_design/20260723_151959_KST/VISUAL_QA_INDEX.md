@@ -1,0 +1,13 @@
+# Visual QA Index — REDLINE PUBLIC RECORD
+
+모든 final 파일은 `20260723_163000_REDLINE_KST` suffix를 가진다. 이전 `151959` 파일은 pre-REDLINE 비교 증거다.
+
+| 화면 | 375 | 768 | 1440 | 1920 | 증명하는 항목 |
+|---|---|---|---|---|---|
+| Story Answers chapter | [375](screenshots/375/answers_375x812_chapter-data-unavailable_20260723_163000_REDLINE_KST.png) | [768](screenshots/768/answers_768x1024_chapter-data-unavailable_20260723_163000_REDLINE_KST.png) | [1440](screenshots/1440/answers_1440x900_chapter-data-unavailable_20260723_163000_REDLINE_KST.png) | [1920](screenshots/1920/answers_1920x1080_chapter-data-unavailable_20260723_163000_REDLINE_KST.png) | mock 제거, CTA, data trust |
+| Atlas unavailable | [375](screenshots/375/atlas_375x812_data-unavailable_20260723_163000_REDLINE_KST.png) | [768](screenshots/768/atlas_768x1024_data-unavailable_20260723_163000_REDLINE_KST.png) | [1440](screenshots/1440/atlas_1440x900_data-unavailable_20260723_163000_REDLINE_KST.png) | [1920](screenshots/1920/atlas_1920x1080_data-unavailable_20260723_163000_REDLINE_KST.png) | stage/inspector shell, no fake node |
+| REDLINE header/tokens | [375](screenshots/375/foundations_375x812_redline-header_20260723_163000_REDLINE_KST.png) | [768](screenshots/768/foundations_768x1024_redline-header_20260723_163000_REDLINE_KST.png) | [1440](screenshots/1440/foundations_1440x900_redline-header_20260723_163000_REDLINE_KST.png) | [1920](screenshots/1920/foundations_1920x1080_redline-header_20260723_163000_REDLINE_KST.png) | direction lock, type/grid/color |
+| Glyph/status states | [375](screenshots/375/foundations_375x812_glyph-states_20260723_163000_REDLINE_KST.png) | [768](screenshots/768/foundations_768x1024_glyph-states_20260723_163000_REDLINE_KST.png) | [1440](screenshots/1440/foundations_1440x900_glyph-states_20260723_163000_REDLINE_KST.png) | [1920](screenshots/1920/foundations_1920x1080_glyph-states_20260723_163000_REDLINE_KST.png) | A1-A8, status stroke, selection/focus |
+| Evidence anatomy | [375](screenshots/375/foundations_375x812_evidence-anatomy_20260723_163000_REDLINE_KST.png) | [768](screenshots/768/foundations_768x1024_evidence-anatomy_20260723_163000_REDLINE_KST.png) | [1440](screenshots/1440/foundations_1440x900_evidence-anatomy_20260723_163000_REDLINE_KST.png) | [1920](screenshots/1920/foundations_1920x1080_evidence-anatomy_20260723_163000_REDLINE_KST.png) | static presentation hierarchy only |
+
+Raw measurements: [VISUAL_QA_RAW.json](VISUAL_QA_RAW.json). Final result: all 4 viewports have Story/Atlas/Foundation `scrollWidth - clientWidth = 0`, blocking Axe `0`, console error `0`, page error `0`, failed request `0`.

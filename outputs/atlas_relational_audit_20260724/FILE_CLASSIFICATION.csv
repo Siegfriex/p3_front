@@ -1,0 +1,15 @@
+path,classification,status,basis
+P3_FINAL/contracts/P3_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md,CANONICAL,CONFIRMED,locked integration contract
+P3_FINAL/contracts/ENTITY_REGISTRY.csv,CANONICAL,CONFIRMED,current entity authority
+P3_FINAL/contracts/COLUMN_DICTIONARY.csv,CANONICAL,CONFIRMED,current column authority
+P3_FINAL/data/90_exports/frontend/approved/ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264,FRONTEND_BUNDLE,PARTIALLY_CONFIRMED,approved-path pointer target; derived-release-specific validator not located
+public/data/releases/ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264,FRONTEND_BUNDLE,CONFIRMED,byte-identical conformed runtime copy
+public/data/current-release.json,FRONTEND_BUNDLE,CONFIRMED,current runtime pointer and matching manifest hash
+src/shared/api/atlas,DERIVED,CONFIRMED,manifest loader and runtime validation
+src/shared/lib/atlas,DERIVED,CONFIRMED,adapter query and immutable scaling layer
+src/widgets/atlas-explorer,DERIVED,CONFIRMED,current renderer and interaction layer
+outputs/atlas_contract_shell,STALE,PARTIALLY_CONFIRMED,historical shell evidence; superseded by current runtime where different
+outputs/agent4_atlas_vid_final,DERIVED,PARTIALLY_CONFIRMED,current staged visual work owned by user; preserve
+legacy 45-node assets,LEGACY,CONFIRMED,excluded from approved runtime
+contract test fixtures,MOCK,CONFIRMED,development/test only and production fail-closed
+atlas_relationship_edges,UNKNOWN,BLOCKED,no canonical or approved entity found

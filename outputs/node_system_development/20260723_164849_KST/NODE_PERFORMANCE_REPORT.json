@@ -1,0 +1,14 @@
+{
+  "mode": "CONTRACT_FIXTURE",
+  "approvedRealDataMeasured": false,
+  "initialDomContentLoadedMs": 358.80000000074506,
+  "layoutShift": 0,
+  "usedJsHeapBytes": 18200000,
+  "svgElementCount": 33,
+  "visualNodeCount": 2,
+  "domNavigatorItemCount": 2,
+  "filterLatencyMs": 21.300000000745058,
+  "navigationLatencyMs": 25.699999999254942,
+  "selectionLatencyMs": 28.300000000745058,
+  "resizeLatencyMs": 44.30000000074506
+}

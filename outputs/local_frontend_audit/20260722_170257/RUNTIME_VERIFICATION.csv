@@ -1,0 +1,8 @@
+command,start_local,end_local,exit_code,result,changed_files,blocker,output_summary
+"npm run lint","2026-07-22 17:04:08 KST","2026-07-22 17:04:08 KST",127,BLOCKED,none,"local node_modules absent; tsc unavailable","tsc --noEmit -> sh: 1: tsc: not found"
+"npm run build","2026-07-22 17:04:08 KST","2026-07-22 17:04:08 KST",1,BLOCKED,none,"local node_modules absent; @tailwindcss/vite unresolved; ancestor Vite attempted read-only .vite-temp","Could not resolve @tailwindcss/vite; EROFS at /home/sieg/projects-wsl/SBS_dataScience/node_modules/.vite-temp"
+"npm run dev","2026-07-22 17:04:08 KST","2026-07-22 17:04:09 KST",1,BLOCKED,none,"same dependency and read-only ancestor toolchain blocker","dev server did not start"
+"unit test",NA,NA,NA,NOT_AVAILABLE,none,"no package script or test configuration","not run"
+"existing E2E",NA,NA,NA,NOT_AVAILABLE,none,"no package script or Playwright configuration","not run"
+"existing accessibility test",NA,NA,NA,NOT_AVAILABLE,none,"no package script or accessibility configuration","not run"
+"browser screenshots",NA,NA,NA,NOT_VERIFIABLE,none,"dev server could not start","zero application screenshots captured"

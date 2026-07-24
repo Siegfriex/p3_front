@@ -1,0 +1,10 @@
+policy,value,evidence,status
+visual_radius,source radiusPx,no renderer clamp,LOCKED
+minimum_hit_diameter,44 CSS px,getNodeHitRadius unit and E2E,LOCKED
+selection_ring_offset,7 SVG units,shared config,LOCKED
+focus_halo_offset,13 SVG units,shared config,LOCKED
+safety_padding,8 SVG units,getRequiredProjectionPadding,LOCKED
+fixture_max_radius,22 px,CONTRACT_FIXTURE only,FIXTURE_ONLY
+fixture_required_padding,43 SVG units,22+13+8,PASS
+configured_padding,48 SVG units,fixture boundary,PASS
+approved_max_radius,unknown,approved release absent,BLOCKED

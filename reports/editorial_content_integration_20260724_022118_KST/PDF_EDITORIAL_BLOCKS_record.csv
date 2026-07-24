@@ -1,0 +1,11 @@
+﻿block_id,block_type,hierarchy_level,text,region,image_reference,source_note,mapping_confidence
+record_label_evidence_chain,LABEL,SMALL,증거 사슬,top-left,,,MEDIUM
+record_headline,HEADLINE,VERY_LARGE,"""조치 완료"" 보고 뒤에도 반복된 사망사고...서류와 현장의 간극",top-center,,,HIGH
+record_subhead,SUBHEAD,MEDIUM,국정감사의 한 질문이 공식 보고서의 문장으로 정착하기까지 거치는 5단계,upper-center,,,MEDIUM
+record_case_label,LABEL,LARGE,SPC 제빵공장: '조치 완료' 이후에도 반복된 안전 문제,center-left,,,HIGH
+record_timeline_metric,METRIC,MEDIUM,2022 · SPL 평택공장 노동자 사망사고 → 사고 이후 · 고용노동부 SPC 계열사 기획감독 → 감독 결과 · 산업안전보건법 위반 및 시정조치 → 행정상 처리 · 시정조치 완료 보고 → 이후 · 유사 안전사고·중대재해 반복,center-left,,,HIGH
+record_timeline_callout,CALLOUT,SMALL,서류상 완료 여부보다 실제 현장에서 위험이 제거됐는지 확인해야 한다.,center-left,,,HIGH
+record_image_memorial,IMAGE,MEDIUM,"노동자 사망사고 희생자를 추모하는 빈소 사진. 조문객이 검은 리본 화환과 국화 앞에서 묵념하고 있으며 '전국식품노동조합연맹' 조끼를 입고 있음. 제단에는 얼굴이 모자이크 처리된 고인의 영정사진이 놓여 있고, 앞쪽 현수막에는 '삼가 고인의 명복을 빕니다' 문구가 보임.",center-center,reports/editorial_content_integration_20260724_022118_KST/pdf_renders/crop_photo1.png,,MEDIUM
+record_image_spc_logo,IMAGE,SMALL,SPC그룹 로고 이미지,center-right,reports/editorial_content_integration_20260724_022118_KST/pdf_renders/crop_photo2.png,Liberty Korea Post News (이미지 워터마크),MEDIUM
+record_case_lead,LEAD,MEDIUM,SPC 사례는 '조치 완료'라는 행정적 결과와 '현장 개선'이라는 실제 성과 사이에 상당한 간극이 존재할 수 있음을 보여주는 대표적인 사례,lower-right,,,HIGH
+record_source_step04,SOURCE,VERY_SMALL,STEP 04 · 공식 보고서 최종 기재 상태,lower-left,,2019년도 국정감사 시정 및 처리결과 보고서 [MOCK] (p. 48-52),MEDIUM

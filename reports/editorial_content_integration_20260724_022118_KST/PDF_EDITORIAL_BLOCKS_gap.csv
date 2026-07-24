@@ -1,0 +1,5 @@
+﻿block_id,block_type,hierarchy_level,text,region,image_reference,source_note,mapping_confidence
+block_01,HEADLINE,VERY_LARGE,“2년이 넘었는데 아직도 조치중?” 도대체 언제까지 조치중인가?,top-center,,,HIGH
+block_02,LEAD,LARGE,"총 1,566건의 시정·처리요구 사항 중 830건(53.0%)은 조치가 완료됐으며, 736건(47.0%)은 조치 중(향후 조치계획 포함)인 것으로 집계됐다.",upper-center,,,HIGH
+block_03,IMAGE,MEDIUM,국회 문체위 국정감사 현장에서 마이크 앞에서 질의하는 의원 사진 (배경 인원은 관계자/보좌진),lower-right,"pdf_renders/page4_embedded_photo_crop.png (네이티브 임베디드 해상도 약 1427x963px, PDF 내 xref 184/208 중복 임베드; 본 파일은 300dpi로 재렌더링한 2976x2005 업스케일 크롭)",출처: 포토뉴스 (도입부 block_04 참조). 원본이 웹페이지 스크린샷 캐처로 보이며 상대적 저해상도/약간의 블러가 관찰됨.,HIGH
+block_04,SOURCE,VERY_SMALL,출처:포토뉴스,lower-right,,"포토뉴스 (사진 출처 표기, block_03 사진 바로 아래에 배치)",HIGH

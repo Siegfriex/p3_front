@@ -1,0 +1,9 @@
+semantic_dimension,approved_source,visual_channel,token,frontend_calculation,status
+Topic Space,display_x/display_y,position,immutable projection scale,no semantic computation,CONFIRMED
+behavior family,behavior_family,outer shape,circle/rounded-square/diamond,token mapping only,PLANNED
+A1-A8,answer_type_code,inner mark and secondary color,8 deterministic mark tokens,token mapping only,PLANNED
+mass,node_radius,radius,upstream radius,preserve value,CONFIRMED
+confidence,mean_label_confidence or mean_qa_confidence,controlled opacity,minimum 0.45 clamp,presentation clamp only,CONFIRMED
+status,status_canvas,outer stroke,solid/long dash/short dash,token mapping only,CONFIRMED
+selected,interaction state,halo plus focus ring,signal ring,interaction only,CONFIRMED
+Evidence unavailable,representative_evidence_id,internal slash badge,unavailable token,eligibility already upstream,PLANNED

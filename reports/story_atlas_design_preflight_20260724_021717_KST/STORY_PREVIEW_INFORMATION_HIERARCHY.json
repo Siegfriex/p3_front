@@ -1,0 +1,26 @@
+{
+  "route": "/#answers",
+  "public_name": "어떻게 답했나",
+  "role": "limited_editorial_scene",
+  "priority_order": [
+    {"rank": 1, "element": "headline", "required": true},
+    {"rank": 2, "element": "supporting_paragraph", "required": true},
+    {"rank": 3, "element": "projection_warning", "required": true},
+    {"rank": 4, "element": "compact_controls_and_legend", "required": true},
+    {"rank": 5, "element": "story_atlas_16_node_scene", "required": true},
+    {"rank": 6, "element": "selected_node_summary", "required": true},
+    {"rank": 7, "element": "evidence_action_or_unavailable", "required": true},
+    {"rank": 8, "element": "full_explorer_cta", "required": true},
+    {"rank": 9, "element": "method_and_data_links", "required": false}
+  ],
+  "must_not_compete": [
+    "release diagnostics",
+    "140-node DOM inventory",
+    "deep provenance table",
+    "dashboard card collection",
+    "raw point mode"
+  ],
+  "surface": "light_archival",
+  "stage_viewbox": {"width": 720, "height": 520},
+  "cta": {"label": "전체 지도 보기", "target": "/atlas", "carry": ["status", "types"]}
+}

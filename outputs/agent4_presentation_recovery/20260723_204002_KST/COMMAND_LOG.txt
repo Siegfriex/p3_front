@@ -1,0 +1,33 @@
+Repository: /home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front
+NOTE: Unless explicitly marked otherwise, these results were recorded before external Agent 4-owner CSS drift and must be rerun after coordinator disposition.
+
+npm run typecheck
+RESULT PASS
+
+npm run lint
+RESULT PASS ZERO WARNINGS
+
+npm run test
+RESULT PASS 15 FILES 46 TESTS
+
+npm run build
+RESULT PASS 2167 MODULES
+
+npm run test:e2e
+RESULT PASS 17 PASSED 9 CONDITIONAL SKIPS
+
+AGENT4_PRODUCTION_E2E=true ./node_modules/.bin/playwright test --config=outputs/agent4_presentation_recovery/20260723_204002_KST/playwright.agent4-production-wcag.config.ts
+RESULT PASS 4 PASSED
+
+./node_modules/.bin/playwright test --config=outputs/agent4_presentation_recovery/20260723_204002_KST/playwright.current-state.config.ts
+RESULT PASS 3 PASSED
+
+ATLAS_CONTRACT_FIXTURE_E2E=true ATLAS_SCREENSHOT_DIR=outputs/agent4_presentation_recovery/20260723_204002_KST/screenshots/node-core-final ATLAS_PERFORMANCE_OUTPUT=outputs/agent4_presentation_recovery/20260723_204002_KST/NODE_CORE_PERFORMANCE_FINAL.json ./node_modules/.bin/playwright test --config=outputs/agent4_presentation_recovery/20260723_204002_KST/playwright.node-core-readonly.config.ts
+RESULT PASS 5 PASSED 2 PRODUCTION-ONLY SKIPS
+RESULT TIMING AFTER EXTERNAL CSS DRIFT
+PERFORMANCE DOM_CONTENT_LOADED_MS 355.8 LAYOUT_SHIFT 0 FILTER_MS 21.5 NAVIGATION_MS 24.3 SELECTION_MS 19.3 RESIZE_MS 36
+
+git diff --check -- src/app/styles/layout.css src/app/styles/reset.css src/pages/atlas/AtlasPage.tsx tests/e2e/agent4-presentation-wcag.spec.ts
+RESULT PASS
+
+No commit or push was performed.

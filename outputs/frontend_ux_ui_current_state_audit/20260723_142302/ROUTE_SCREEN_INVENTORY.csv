@@ -1,0 +1,11 @@
+route,screen_id,exists,lazy,direct_entry,refresh,back_forward,title,main_heading,data_state,dev_isolation,mobile,status,evidence
+/,story,yes,no,CONFIRMED,CONFIRMED,CONFIRMED,static 문체위 국정감사 6년,“검토하겠습니다”,MOCK-heavy,n/a,PARTIALLY_CONFIRMED,CONFIRMED,router source + E2E + screenshots
+/#answers,story_answers,yes,no,CONFIRMED,CONFIRMED,hash restoration confirmed,static 문체위 국정감사 6년,답변의 기하학: 어떻게 답했나,8-node MOCK,n/a,PARTIALLY_CONFIRMED,PARTIALLY_CONFIRMED,local filter reload resets
+/method,method,yes,no,CONFIRMED,CONFIRMED,CONFIRMED,static 문체위 국정감사 6년,분석 방법론 및 저널리즘 원칙,MOCK disclosure,n/a,CONFIRMED,CONFIRMED,E2E
+/data,data,yes,no,CONFIRMED,CONFIRMED,CONFIRMED,static 문체위 국정감사 6년,데이터 스키마,MOCK schema,n/a,PARTIALLY_CONFIRMED,CONFIRMED,375px serious Axe violation
+/about,about,yes,no,CONFIRMED,CONFIRMED,CONFIRMED,static 문체위 국정감사 6년,프로젝트 정체성,static,n/a,CONFIRMED,CONFIRMED,E2E
+/atlas,atlas,yes,yes,CONFIRMED,CONFIRMED,query URL preserved,static 문체위 국정감사 6년,답변행태 지도,DataUnavailable in production,n/a,CONFIRMED,PARTIALLY_CONFIRMED,approved bundle absent; renderer tests incomplete
+/evidence/:evidenceId,evidence_direct,yes,no,CONFIRMED,CONFIRMED,CONFIRMED,static 문체위 국정감사 6년,evidence issue,MOCK,public,PARTIALLY_CONFIRMED,CONFIRMED,direct page and invalid ID explicit
+/case/:caseId,case_direct,yes,no,CONFIRMED,CONFIRMED,CONFIRMED,static 문체위 국정감사 6년,case title,MOCK,public,PARTIALLY_CONFIRMED,CONFIRMED,direct page and overlay captured
+/dev/foundations,foundation_gallery,dev only,no,CONTRADICTED in production,production 404,n/a,static 문체위 국정감사 6년,Foundation Gallery,static,CONFIRMED,CONFIRMED,CONFIRMED,production preview returned 404 screen
+*,not_found,yes,no,CONFIRMED,CONFIRMED,CONFIRMED,static 문체위 국정감사 6년,요청한 기록을 찾을 수 없습니다,explicit 404,n/a,CONFIRMED,CONFIRMED,E2E + screenshots

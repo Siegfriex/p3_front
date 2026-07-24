@@ -1,0 +1,11 @@
+block_id,block_type,hierarchy_level,text,region,image_reference,source_note,mapping_confidence
+cases_page6_b01,HEADLINE,VERY_LARGE,"'모르겠습니다', '기억이 안 납니다'. 계속되는 회피성 발언",upper left,,,HIGH
+cases_page6_b02,LEAD,LARGE,"회피답변의 기준은 '기억부재'(기억이 나지 않습니다), '정보 없음'(모르겠습니다, 확인해보겠습니다), '질문 비직접 대응'(질문과 맞지 않는 답변)을 핵심 회피성 답변으로 정의하였다.",upper left,,,HIGH
+cases_page6_b03,METRIC,MEDIUM,"총 회피성 답변의 개수는 1,408개가 집계되었다.",center left,,,HIGH
+cases_page6_b04,SUBHEAD,SMALL,2024년도 문체부 실제 국정감사 질의,lower left,,,HIGH
+cases_page6_b05,LABEL,VERY_SMALL,2024년 · 잼버리 · 답변자: 유인촌 문화체육관광부장관,lower left,,,HIGH
+cases_page6_b06,BODY,SMALL,"(질문) ""거기서 문체부가 여기에 얼마나 대관료 냈는지 알고 계십니까?"" (세계스카우트잼버리 K-pop 슈퍼라이브 서울월드컵경기장 대관료 관련 질의) / (답변) ""제가 있을 때 일어난 일이 아니기 때문에 저는 잘 모르겠습니다."" / (질문) ""작년 잼버리 케이팝 콘서트 이후 문체부는 훼손된 상암구장 잔디에 대한 적절한 사후조치를 했다라고 생각하십니까?"" / (답변) ""글쎄요, 그때는 제가 없어서 잘 모르겠는데요.""",lower left,,,HIGH
+cases_page6_b07,SOURCE,VERY_SMALL,출처: 문체부 국정감사 회의록,bottom left,,문체부 국정감사 회의록 (2024년도 실제 질의응답 기록),HIGH
+cases_page6_b08,IMAGE,MEDIUM,,center right,pdf_renders/page6_embedded_2.jpeg,국정감사에서 답변 중인 유인촌 문화체육관광부장관 사진. 임베디드 원본 해상도 340x284px (저해상도). production_ready=false,HIGH
+cases_page6_b09,SOURCE,VERY_SMALL,출처: 포토뉴스 (유인촌 문체부장관),center right,pdf_renders/page6_embedded_2.jpeg,포토뉴스 - 유인촌 문화체육관광부장관 국정감사 답변 사진 출처 표기,HIGH
+cases_page6_b10,BODY,SMALL,"회피답변의 기준은 '기억부재'(기억이 나지 않습니다), '정보 없음'(모르겠습니다, 확인해보겠습니다), '질문 비직접 대응'(질문과 맞지 않는 답변)을 핵심 회피성 답변으로 정의하였다. 실제로 2020년부터 2025년까지 문화체육관광부를 대상으로 한 국정감사에서 회피성 답변으로 분류되는 답변이 2020년에는 201개, 2021년에는 176개, 2022년에는 250개, 2023년에는 104개, 2024년에는 428개, 2025년에는 249개가 집계되었고 총 회피성 답변의 개수는 1,408개가 집계되었다. 이는 문화체육관광부가 국정감사를 받을 때 각 회의별로 상당히 많은 회피성 답변을 하고 있다고 볼 수 있다. 또한 국정감사에서 위원들의 질의에 대한 준비가 안되어있고 문체부와 문체부의 산하 기관들에 대한 이해가 부족하다고 볼 수도 있다.",bottom left,,,HIGH

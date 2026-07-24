@@ -1,0 +1,15 @@
+check,evidence,result,scope
+SVG accessible name,title plus description,PASS,contract shell
+chart summary,visible footer plus desc,PASS,contract shell
+single keyboard owner,DOM mirror only,PASS,contract shell
+duplicate accessible node,one button per matched node,PASS,fixture
+Enter Space,native button activation,PASS,fixture
+Escape,selection clear,PASS,fixture
+directional keys,spatial algorithm,PASS,fixture
+focus selected distinction,separate halo and ring,PASS,fixture
+live announcement,polite atomic region,PASS,fixture
+44px target,SVG and DOM geometry,PASS,fixture
+forced colors,screenshot plus Axe,PASS,fixture shell
+reduced motion,screenshot,PASS,fixture shell
+Axe critical serious,0,PASS,fixture and unavailable
+real-data accessibility,approved nodes absent,NOT_VERIFIABLE,blocked

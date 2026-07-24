@@ -1,0 +1,15 @@
+dimension,domain_value,visual_contract,status
+behavior_family,information_non_direct,circle,LOCKED
+behavior_family,deferral_procedural,diamond,LOCKED
+behavior_family,action_evidence,square,LOCKED
+answer_type,A1,empty,LOCKED
+answer_type,A2,horizontal-bar,LOCKED
+answer_type,A3,vertical-bar,LOCKED
+answer_type,A4,center-dot,LOCKED
+answer_type,A5,empty,LOCKED
+answer_type,A6,diagonal-slash,LOCKED
+answer_type,A7,plus,LOCKED
+answer_type,A8,double-dot,LOCKED
+status,complete,solid,LOCKED
+status,active,long-dash-12-6,LOCKED
+status,unresolved,broken-2-5,LOCKED

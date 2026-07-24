@@ -1,0 +1,26 @@
+{
+  "answer_type_distribution": {
+    "A2": 5,
+    "A4": 2,
+    "A5": 2,
+    "A6": 18,
+    "A7": 8,
+    "A8": 29
+  },
+  "atlas_node_count": 28,
+  "centroid_count": 8,
+  "input_entity_count": 64,
+  "projection_hash": "1a82c82a11dd22c305eed251aaf9d5b454dc60184cc9f8832ac967e00b92ce53",
+  "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+  "public_evidence_count": 64,
+  "release_id": "ATLAS_20260723_211051_KST_1A82C82A",
+  "status_distribution": {
+    "active": 23,
+    "complete": 41
+  },
+  "topic_bin_count": 8,
+  "warnings": [
+    "이 지도는 의미적 위치를 2차원으로 투영한 표시용 공간입니다.",
+    "2차원 거리 자체를 실제 유사도 점수로 해석하지 마십시오."
+  ]
+}

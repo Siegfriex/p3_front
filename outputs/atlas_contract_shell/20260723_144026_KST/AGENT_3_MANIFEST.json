@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "agent": "Agent 3 - Frontend Atlas Contract and Route Engineer",
+  "run_id": "20260723_144026_KST",
+  "generated_at": "2026-07-23T14:40:26+09:00",
+  "canonical_app_root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "branch": "refactor/routing-technical-foundation",
+  "head": "6f4835292abe9bc0cbbed81469b21c25c4e95777",
+  "commit_authorized": false,
+  "commit_created": false,
+  "push_performed": false,
+  "verdicts": [
+    "ROUTING_FOUNDATION_COMMIT_READY",
+    "ATLAS_CONTRACT_SHELL_PASS"
+  ],
+  "ssot": {
+    "path": "SSOT/P3_0723_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md",
+    "sha256": "99ee7cb16039afbebbd1373aa58e22aa89fd4ba257d26da3648e9422cf2bfb2d",
+    "hash_lock_match": true
+  },
+  "artifacts": [
+    {
+      "path": "FRONTEND_ATLAS_CONTRACT_SHELL_REPORT.md",
+      "sha256": "c84b7a750d35b729e1f641c5c49c5e37e4a992422dad65ec5bba738b4c10103f"
+    },
+    {
+      "path": "FRONTEND_ATLAS_CONTRACT_SHELL_REPORT.json",
+      "sha256": "962dfcc1ab6935edb01368937f275426e7ab055e8406b2431e1a1177c6da6c10"
+    },
+    {
+      "path": "ROUTING_COMMIT_PLAN.md",
+      "sha256": "158887730e62b861bfa6dbea74eedced955e1b589b5c14aa93a14bac712475fc"
+    },
+    {
+      "path": "ROUTING_COMMIT_FILESET.csv",
+      "sha256": "e079d4d8fb9533b3335fc3f3ae5c98e7a31d56adf19fb8611a88769948838731"
+    },
+    {
+      "path": "ATLAS_FILE_CHANGE_MAP.csv",
+      "sha256": "98697e7a5b36ec31214802eec11baa003e72ba22efd0595af4e88d0b3003f1de"
+    },
+    {
+      "path": "ROUTE_QUERY_MATRIX.csv",
+      "sha256": "6fd97b53f40fb1287e2f3b7b5c7b3da6d0d444c2c6de98b9f488c514e9241282"
+    },
+    {
+      "path": "VIEWMODEL_CONTRACT_DIFF.csv",
+      "sha256": "b8c935653f168b988483fba238ebb8827f8f61a884cc5c080f1f2c9a41f303e8"
+    },
+    {
+      "path": "TRANSPORT_SCHEMA_AUDIT.csv",
+      "sha256": "e9e7b8032855de79bdcadd252c43e4ca70fc518c69282adf429264ebe766ac40"
+    },
+    {
+      "path": "FIXTURE_ISOLATION_AUDIT.csv",
+      "sha256": "5f1396db3f3a52a58f180677b5de984914e8f181064f44a60ef4da00f742aa4a"
+    },
+    {
+      "path": "ACCESSIBILITY_CONTRACT_REPORT.csv",
+      "sha256": "25d68cc3777a79a5bb67f0e4f1b644666fb3bb87b975268e9e5cbb26f9554e0e"
+    },
+    {
+      "path": "PERFORMANCE_BASELINE.json",
+      "sha256": "cd5e694c4041450a3cfe81762a3609cb2346b34c3773d609af8edce89bb9abc9"
+    },
+    {
+      "path": "TEST_RESULT_MATRIX.csv",
+      "sha256": "1b738c75d80d0c63054cd40db72a168a55224736cc645cd685c8dec4e9feb797"
+    },
+    {
+      "path": "SCREENSHOT_INDEX.md",
+      "sha256": "04949567ce71cf36b2b2adb1feacd860a66baf73a810fe3d305227c57a013b32"
+    },
+    {
+      "path": "COMMAND_LOG.txt",
+      "sha256": "7768a22a7d749ad7210329372ab956e836a71edbd85ae297d94f4077001b8dd3"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "screenshots/atlas_data_unavailable_1440x1000.png",
+      "sha256": "89c13520a6709f71ad2ea7b450a2859c270111623cb575d5147b29cf92771ec6"
+    },
+    {
+      "path": "screenshots/atlas_contract_fixture_1440x1000.png",
+      "sha256": "aaf11b40661b2289467a1113123f195caafdb18c6184dd89cf3f03d635db1bdf"
+    },
+    {
+      "path": "screenshots/atlas_contract_fixture_selected_1440x1000.png",
+      "sha256": "5fe49afc84caa6cc1a26a1b7ae3048a4e9793aafa381b1c21c74135b605b6e10"
+    },
+    {
+      "path": "screenshots/atlas_contract_fixture_375x812.png",
+      "sha256": "f4abefa0427156cf69039c820a36879f8f5af364714c3525c90747650384fea6"
+    }
+  ],
+  "qa": {
+    "typecheck": "PASS",
+    "eslint": "PASS_ZERO_WARNINGS",
+    "vitest": "PASS_9_FILES_23_TESTS",
+    "production_build": "PASS",
+    "routing_playwright": "PASS_7_OF_7",
+    "atlas_fixture_playwright": "PASS_3_OF_3",
+    "production_no_manifest_playwright": "PASS_2_OF_2",
+    "axe_critical_serious": "0_0",
+    "unexpected_console_errors": 0,
+    "unexpected_request_failures": 0,
+    "fsd_reverse_imports": 0,
+    "undefined_css_variables": 0,
+    "production_fixture_fallback_scan": "PASS"
+  },
+  "scope_limits": {
+    "approved_manifest_present": false,
+    "approved_bundle_connected": false,
+    "real_data_accessibility_evaluated": false,
+    "story_or_scale_redesigned": false
+  }
+}

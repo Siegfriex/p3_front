@@ -1,0 +1,387 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/node_modules/.bin/playwright",
+      "test",
+      "--config=reports/story_atlas_runtime_closure_20260724_023642_KST/playwright.contract-fixture.config.ts"
+    ],
+    "configFile": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/reports/story_atlas_runtime_closure_20260724_023642_KST/playwright.contract-fixture.config.ts",
+    "rootDir": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "atlas-contract-shell.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/reports/story_atlas_runtime_closure_20260724_023642_KST/PLAYWRIGHT_CONTRACT_FIXTURE_RAW.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": {
+      "command": "VITE_ATLAS_RELEASE_ID=contract-release-001 VITE_ATLAS_FIXTURE_PROVENANCE=CONTRACT_FIXTURE npm run dev -- --host 127.0.0.1 --port 4340 --strictPort",
+      "url": "http://127.0.0.1:4340",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "atlas-contract-shell.spec.ts",
+      "file": "atlas-contract-shell.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "production-style no-approved-manifest route fails closed without legacy requests",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "no-manifest behavior runs against the production preview without fixture env",
+                  "location": {
+                    "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                    "line": 145,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 86,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:53:38.074Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no-manifest behavior runs against the production preview without fixture env",
+                      "location": {
+                        "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                        "line": 145,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "4be9f17a373505dda4cc-77ccf4d4e14ba34149f2",
+          "file": "atlas-contract-shell.spec.ts",
+          "line": 144,
+          "column": 1
+        },
+        {
+          "title": "invalid Atlas query is explicit and never rewritten by a passive observer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "no-manifest behavior runs against the production preview without fixture env",
+                  "location": {
+                    "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                    "line": 169,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 72,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-23T18:53:38.230Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "no-manifest behavior runs against the production preview without fixture env",
+                      "location": {
+                        "file": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/tests/e2e/atlas-contract-shell.spec.ts",
+                        "line": 169,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "4be9f17a373505dda4cc-a9e17b09c66d681552f2",
+          "file": "atlas-contract-shell.spec.ts",
+          "line": 168,
+          "column": 1
+        }
+      ],
+      "suites": [
+        {
+          "title": "CONTRACT_FIXTURE route and query shell",
+          "file": "atlas-contract-shell.spec.ts",
+          "line": 177,
+          "column": 6,
+          "specs": [
+            {
+              "title": "restores filters and node selection through URL, reload, Back, and Forward",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2197,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:53:38.311Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-cdd04f1036cdd68d739e",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 184,
+              "column": 3
+            },
+            {
+              "title": "supports keyboard selection, Escape clear, 44px mirror target, invalid node, and reset",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4417,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:53:40.518Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-a2b072e8c2060332ee91",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 204,
+              "column": 3
+            },
+            {
+              "title": "keeps node coordinates and radius invariant across pointer, touch, focus, selection, and filtering",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1815,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:53:44.943Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-aa47ca62af3184ca955a",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 257,
+              "column": 3
+            },
+            {
+              "title": "has zero Axe critical or serious violations in the contract fixture shell",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11020,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:53:46.769Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-9f4b6e96fc71af4dce76",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 307,
+              "column": 3
+            },
+            {
+              "title": "records the contract-fixture node rendering performance baseline",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1125,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "NODE_PERFORMANCE_BASELINE {\"mode\":\"CONTRACT_FIXTURE\",\"approvedRealDataMeasured\":false,\"initialDomContentLoadedMs\":327.29999999981374,\"layoutShift\":0,\"usedJsHeapBytes\":17100000,\"svgElementCount\":33,\"visualNodeCount\":2,\"domNavigatorItemCount\":2,\"filterLatencyMs\":14.599999999627471,\"navigationLatencyMs\":41.5,\"selectionLatencyMs\":24.09999999962747,\"resizeLatencyMs\":36.700000000186265}\n"
+                        }
+                      ],
+                      "stderr": [
+                        {
+                          "text": "(node:282708) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+                        }
+                      ],
+                      "retry": 0,
+                      "startTime": "2026-07-23T18:53:58.872Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4be9f17a373505dda4cc-90936cfba9eb0a357f45",
+              "file": "atlas-contract-shell.spec.ts",
+              "line": 348,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-23T18:53:36.556Z",
+    "duration": 22437.332,
+    "expected": 5,
+    "skipped": 2,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "local": {
+    "routes": ["/#answers", "/atlas", "/method", "approved Evidence", "key route states"],
+    "viewports": [375, 768, 1440, 1920],
+    "critical": 0,
+    "serious": 0
+  },
+  "vercel_preview": { "story": [], "atlas": [], "evidence": [] },
+  "vercel_production": { "story": [], "atlas": [], "evidence": [] }
+}

@@ -1,44 +1,35 @@
-import React from 'react';
-import { useOverlay } from '../../app/providers/OverlayProvider';
-import { STORY_CHAPTERS } from '../../shared/mock/storyData';
+import { STORY_CHAPTER_NAVIGATION } from '@/shared/config/chapterNavigation';
+import { useAtlasRelease } from '@/shared/api/atlas/useAtlasRelease';
 
-export const FooterRail: React.FC = () => {
-  const { currentChapterId } = useOverlay();
+interface FooterRailProps {
+  currentChapterId: string;
+}
 
-  const activeChapterIndex = STORY_CHAPTERS.findIndex(
-    (ch) => ch.id === currentChapterId
-  );
-  const totalChapters = STORY_CHAPTERS.length;
+export function FooterRail({ currentChapterId }: FooterRailProps) {
+  const release = useAtlasRelease();
+  const activeChapterIndex = STORY_CHAPTER_NAVIGATION.findIndex((chapter) => chapter.id === currentChapterId);
   const progressPercent = activeChapterIndex >= 0
-    ? Math.min(100, Math.max(0, ((activeChapterIndex + 1) / totalChapters) * 100))
+    ? Math.min(100, Math.max(0, ((activeChapterIndex + 1) / STORY_CHAPTER_NAVIGATION.length) * 100))
     : 0;
+  const releaseLabel = release.status === 'ready'
+    ? `APPROVED · ${release.bundle.releaseId}`
+    : release.status === 'loading'
+      ? 'RELEASE CHECKING'
+      : release.status === 'unavailable'
+        ? 'RELEASE UNAVAILABLE'
+        : 'RELEASE ERROR';
 
   return (
     <footer className="fixed bottom-0 left-0 right-0 z-[var(--z-sticky)] h-11 bg-[var(--color-ink)] text-[var(--color-paper)] flex items-center justify-between px-4 sm:px-8 border-t border-[var(--color-neutral-900)] text-[10px] font-mono tracking-widest uppercase shadow-xl select-none">
-      {/* Sticky horizontal progress bar tracking current scroll position across total chapters */}
-      <div className="sticky-bottom-progress">
-        <div
-          className="sticky-bottom-progress-bar"
-          style={{ width: `${progressPercent}%` }}
-        />
+      <div className="sticky-bottom-progress" aria-hidden="true">
+        <div className="sticky-bottom-progress-bar" style={{ width: `${progressPercent}%` }} />
       </div>
 
-      <div className="flex items-center gap-4 sm:gap-8 truncate">
+      <div className="hidden min-w-0 items-center gap-4 truncate sm:flex">
         <span className="opacity-60 hidden sm:inline">PROJECT: P3_CULTURE</span>
-        
         <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-behavior-red-deep)] animate-pulse" />
-          <span className="opacity-90">원론적/유보적 답변 (42%)</span>
-        </div>
-
-        <div className="flex items-center gap-2 hidden md:flex">
-          <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-behavior-blue-deep)]" />
-          <span className="opacity-70">공식 완결 (18%)</span>
-        </div>
-
-        <div className="flex items-center gap-2 hidden lg:flex">
-          <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-behavior-amber-deep)]" />
-          <span className="opacity-70">진행/이관 (40%)</span>
+          <div className={`h-1.5 w-1.5 ${release.status === 'ready' ? 'bg-[var(--color-behavior-blue-soft)]' : 'bg-[var(--color-behavior-amber-soft)]'}`} />
+          <span className="truncate opacity-90">ATLAS DATA: {releaseLabel}</span>
         </div>
       </div>
 
@@ -51,5 +42,4 @@ export const FooterRail: React.FC = () => {
       </div>
     </footer>
   );
-};
-
+}

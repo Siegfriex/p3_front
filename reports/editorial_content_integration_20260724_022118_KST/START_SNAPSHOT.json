@@ -1,0 +1,59 @@
+{
+  "run_id": "20260724_022118_KST",
+  "git_branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "git_head": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "dirty_tree_file_count": 55,
+  "canonical_story_route": "/",
+  "chapter_anchor_example": "/#answers",
+  "full_atlas_route": "/atlas",
+  "pdf_input_dir": "goal/",
+  "pdf_files_found": ["page1.pdf", "page2.pdf", "page3.pdf", "page4.pdf", "page6.pdf", "page7.pdf"],
+  "pdf_files_missing": ["page5.pdf"],
+  "page_component_contradiction": {
+    "page": 5,
+    "expected_chapter": "answers",
+    "expected_component": "ChapterAnswersAtlas",
+    "status": "PAGE_COMPONENT_CONTRADICTION",
+    "resolution": "User confirmed 2026-07-24: proceed without page5; ChapterAnswersAtlas/atlas route left untouched (PRESERVE_EXISTING), out of scope for this content integration pass."
+  },
+  "production_gate_finding": {
+    "description": "src/pages/story/StoryPage.tsx gates ChapterScale, ChapterRecord, ChapterGap, ChapterCases behind import.meta.env.DEV, rendering StoryChapterUnavailable in production builds with reasons APPROVED_STORY_METRICS_ABSENT / APPROVED_EVIDENCE_CHAIN_ABSENT / APPROVED_STATUS_FLOW_ABSENT / APPROVED_EDITORIAL_CASES_ABSENT.",
+    "resolution": "User confirmed 2026-07-24: remove the DEV-only gate for these 4 chapters as part of this integration, since mock data is being replaced with approved editorial content from the PDFs."
+  },
+  "content_data_module": "src/shared/mock/storyData.ts",
+  "content_types_module": "src/shared/types/story.ts",
+  "chapters_in_scope": ["prologue", "scale", "record", "gap", "cases", "remains"],
+  "chapters_out_of_scope": ["answers", "method"],
+  "chapter_component_map": {
+    "prologue": "src/widgets/prologue-scene/ChapterPrologue.tsx",
+    "scale": "src/widgets/scale-scene/ChapterScale.tsx",
+    "record": "src/widgets/evidence-chain-scene/ChapterRecord.tsx",
+    "gap": "src/widgets/gap-scene/ChapterGap.tsx",
+    "cases": "src/widgets/case-sequence/ChapterCases.tsx",
+    "remains": "src/widgets/remains-scene/ChapterRemains.tsx"
+  },
+  "typography_tokens": {
+    "css_file": "src/app/styles/tokens.css",
+    "class_file": "src/app/styles/typography.css",
+    "H1": "type-heading-1",
+    "H2": "type-heading-2",
+    "B1": "type-body-l",
+    "B2": "type-body-m",
+    "B3": "type-caption"
+  },
+  "image_handling": {
+    "component": "src/shared/ui/EditorialImageField.tsx",
+    "used_by": ["prologue"],
+    "existing_real_assets_in_public_or_src_assets": false,
+    "user_provided_image_asset_input": false
+  },
+  "pdf_render_toolchain": {
+    "cli_tools_available": false,
+    "python_fitz_pymupdf_available": true,
+    "pymupdf_version": "1.28.0"
+  },
+  "dev_server": {
+    "command": "npm run dev",
+    "port": 3000
+  }
+}

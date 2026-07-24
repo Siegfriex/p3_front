@@ -1,0 +1,7 @@
+{
+  "typecheck": { "status": "PASS", "command": "npm run typecheck" },
+  "lint": { "status": "PASS", "warnings": 0, "command": "npm run lint" },
+  "unit": { "status": "PASS", "files": 22, "tests": 61, "failures": 0, "command": "npm test -- --run" },
+  "build": { "status": "PASS", "modules_transformed": 2186, "command": "npm run build" },
+  "stable_build_boundary": { "status": "PASS", "files_changed_after_build_start": 0 }
+}

@@ -1,0 +1,8 @@
+scenario,viewport,state,assertions,axe,status
+public URL routes,Desktop Chrome,"/, /method, /data, /about, /does-not-exist","links, URLs, headings, 404, console/network",no,PASS
+chapter hash history,Desktop Chrome reduced motion,"/#prologue → /#scale → Back → /#prologue; /#remains","viewport placement and history restoration",no,PASS
+direct details,Desktop Chrome,"/evidence/ev-101; /case/case-01; invalid evidence","full pages, connected evidence link, explicit not found",no,PASS
+route modal,Desktop Chrome,"Story → /evidence/ev-101 → Back","dialog semantics, inert, scroll lock, focus trap/return",no,PASS
+mobile drawer,375x812,"Story → Evidence Drawer","viewport boundary, no document overflow, scrollable tab row",no,PASS
+multi-route accessibility,Desktop Chrome reduced motion,"Story, Method, Data, About, direct Evidence, 404, Drawer","Axe WCAG A/AA critical and serious",yes,PASS
+development gallery,Desktop Chrome,"Method; /dev/foundations","absent from Method; present on dev route",no,PASS

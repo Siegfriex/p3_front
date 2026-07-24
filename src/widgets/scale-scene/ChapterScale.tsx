@@ -1,13 +1,34 @@
 import React, { useState } from 'react';
+import { motion, type Variants } from 'motion/react';
 import { ChapterFrame } from '../../shared/ui/ChapterFrame';
 import { PageFrame } from '../../shared/ui/PageFrame';
 import { ContentGrid } from '../../shared/ui/ContentGrid';
 import { Badge } from '../../shared/ui/Badge';
 import { STORY_METRICS } from '../../shared/mock/storyData';
-import { Calendar, AlertCircle, FileSpreadsheet } from 'lucide-react';
+import { usePreferences } from '@/shared/hooks/usePreferences';
 
 export const ChapterScale: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<number | 'all'>('all');
+  const { isReducedMotion } = usePreferences();
+
+  // Same stagger/easing voice as the Prologue reveal, applied here so the
+  // motion language reads as one system rather than a one-off hero effect.
+  const containerVariants: Variants = {
+    hidden: { opacity: isReducedMotion ? 1 : 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: isReducedMotion ? 1 : 0, y: isReducedMotion ? 0 : 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: isReducedMotion ? 0 : 0.6, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
 
   const yearStats = [
     { year: 2018, count: 420, completed: 348, evasive: 182 },
@@ -33,10 +54,17 @@ export const ChapterScale: React.FC = () => {
         </div>
 
         {/* Big Metric Statements — Sentence-first representation */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
         <ContentGrid className="mb-12">
           {STORY_METRICS.map((metric) => (
-            <div
+            <motion.div
               key={metric.id}
+              variants={itemVariants}
               className="col-span-12 sm:col-span-6 lg:col-span-3 p-6 bg-[var(--color-surface)] border border-[var(--color-neutral-200)] flex flex-col justify-between"
             >
               <div>
@@ -63,12 +91,19 @@ export const ChapterScale: React.FC = () => {
               <div className="type-mono text-[11px] text-[var(--color-neutral-500)] border-t border-[var(--color-neutral-200)] pt-2 truncate">
                 {metric.sourceLabel}
               </div>
-            </div>
+            </motion.div>
           ))}
         </ContentGrid>
+        </motion.div>
 
         {/* Cumulative Timeline Visualizer (2018–2023) */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-neutral-200)] p-6 md:p-8">
+        <motion.div
+          className="bg-[var(--color-surface)] border border-[var(--color-neutral-200)] p-6 md:p-8"
+          initial={isReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: isReducedMotion ? 0 : 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-[var(--color-neutral-200)]">
             <div>
               <h3 className="type-heading-2 font-serif text-[var(--color-ink)]">
@@ -80,30 +115,39 @@ export const ChapterScale: React.FC = () => {
             </div>
 
             {/* Year Selector */}
-            <div className="flex items-center gap-1 font-mono text-xs">
-              <button
-                onClick={() => setSelectedYear('all')}
-                className={`px-2.5 py-1 border transition-colors ${
-                  selectedYear === 'all'
-                    ? 'bg-[var(--color-ink)] text-[var(--color-paper)] border-[var(--color-ink)]'
-                    : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
-                }`}
-              >
-                전체 (2018–2023)
-              </button>
-              {yearStats.map((item) => (
+            <div
+              className="w-full max-w-full overflow-x-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)] lg:w-auto"
+              role="region"
+              aria-label="연도별 시정요구 필터"
+              tabIndex={0}
+            >
+              <div className="flex w-max items-center gap-1 font-mono text-xs">
                 <button
-                  key={item.year}
-                  onClick={() => setSelectedYear(item.year)}
-                  className={`px-2.5 py-1 border transition-colors ${
-                    selectedYear === item.year
-                      ? 'bg-[var(--color-behavior-red-deep)] text-white border-[var(--color-behavior-red-deep)]'
-                      : 'border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-100)]'
+                  type="button"
+                  onClick={() => setSelectedYear('all')}
+                  className={`min-h-11 px-2.5 py-1 border transition-colors ${
+                    selectedYear === 'all'
+                      ? 'bg-[var(--color-ink)] text-[var(--color-paper)] border-[var(--color-ink)]'
+                      : 'border-[var(--line-strong)] hover:bg-[var(--color-neutral-100)]'
                   }`}
                 >
-                  {item.year}년
+                  전체 (2018–2023)
                 </button>
-              ))}
+                {yearStats.map((item) => (
+                  <button
+                    type="button"
+                    key={item.year}
+                    onClick={() => setSelectedYear(item.year)}
+                    className={`min-h-11 px-2.5 py-1 border transition-colors ${
+                      selectedYear === item.year
+                        ? 'bg-[var(--color-behavior-red-deep)] text-white border-[var(--color-behavior-red-deep)]'
+                        : 'border-[var(--line-strong)] hover:bg-[var(--color-neutral-100)]'
+                    }`}
+                  >
+                    {item.year}년
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -171,7 +215,7 @@ export const ChapterScale: React.FC = () => {
             </div>
             <span>[MOCK Data Reference]</span>
           </div>
-        </div>
+        </motion.div>
       </PageFrame>
     </ChapterFrame>
   );

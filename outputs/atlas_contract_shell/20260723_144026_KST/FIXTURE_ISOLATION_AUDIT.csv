@@ -1,0 +1,13 @@
+check,evidence,result,risk
+production source fixture payload,"no CONTRACT_FIXTURE node/evidence payload exists under src",PASS,low
+test location,"minimal payload exists only in unit/e2e test files",PASS,low
+fixture provenance,"dev env renders visible CONTRACT_FIXTURE / test-only / not real label",PASS,low
+fixture projection ID,"contract-projection-001; no legacy projection ID",PASS,low
+fixture evidence ID,"contract-evidence-001; no ev-101",PASS,low
+legacy bundle import,"Atlas shell has no storyData/ATLAS_NODES/legacy public import",PASS,critical
+production no release,"loadAtlasManifest returns unavailable before fetch",PASS,critical
+production no manifest screenshot,"atlas_data_unavailable_1440x1000.png",PASS,low
+production chunk scan,"Atlas lazy chunk contains no legacy projection/evidence or contract fixture IDs",PASS,critical
+fixture SHA,"E2E manifest hashes exact response JSON bytes",PASS,medium
+fixture build fallback,"no fixture module or automatic fallback branch",PASS,critical
+approved-data claim,"reports limited to contract shell; no real data pass",PASS,critical

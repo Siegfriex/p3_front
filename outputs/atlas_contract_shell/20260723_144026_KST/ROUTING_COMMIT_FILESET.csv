@@ -1,0 +1,78 @@
+category,path,include_in_routing_commit,staging_mode,reason,risk
+routing-foundation,.gitignore,YES,file,"QA ignore policy",low
+routing-foundation,.nvmrc,YES,file,"Node 20.20.1 pin",low
+routing-foundation,package.json,YES,file,"routing QA scripts and dependencies",medium
+routing-foundation,package-lock.json,YES,file,"synchronized official lockfile",medium
+routing-foundation,eslint.config.js,YES,file,"zero-warning lint contract",low
+routing-foundation,vitest.config.ts,YES,file,"unit test boundary",low
+routing-foundation,playwright.config.ts,YES,file,"routing E2E configuration",low
+routing-foundation,tsconfig.json,YES,file,"alias and test types",low
+routing-foundation,vite.config.ts,YES,file,"matching alias and dev configuration",low
+routing-foundation,index.html,YES,file,"overlay portal root and metadata",low
+routing-foundation,public/favicon.svg,YES,file,"prevent favicon request noise",low
+routing-foundation,src/main.tsx,YES,file,"BrowserRouter entry",high
+routing-foundation,src/App.tsx,YES,file,"provider and router composition",high
+routing-foundation,src/app/App.tsx,YES,file,"composition parity",low
+routing-foundation,src/app/providers/OverlayProvider.tsx,YES,file-delete,"remove monolithic overlay state",high
+routing-foundation,src/app/providers/AppProviders.tsx,YES,file,"preference provider composition",medium
+routing-foundation,src/app/router/AppRouter.tsx,YES,hunk,"include routing foundation; EXCLUDE lazy Atlas imports/constants/route hunk",critical
+routing-foundation,src/app/router/AppShell.tsx,YES,file,"header outlet footer shell",medium
+routing-foundation,src/app/router/AppScrollRestoration.tsx,YES,file,"non-hash scroll policy",medium
+routing-foundation,src/app/router/DetailPage.tsx,YES,file,"direct detail routes",high
+routing-foundation,src/app/router/EvidenceRouteOverlay.tsx,YES,file,"background-location route drawer",high
+routing-foundation,src/app/router/FoundationsPage.tsx,YES,file,"development-only gallery",low
+routing-foundation,src/app/router/NotFoundPage.tsx,YES,file,"wildcard 404",low
+routing-foundation,src/app/router/RouteErrorBoundary.tsx,YES,file,"route failure boundary",medium
+routing-foundation,src/app/router/routeConfig.ts,YES,file,"primary route metadata",low
+routing-foundation,src/shared/config/chapterNavigation.ts,YES,file,"seven chapter hash contract",medium
+routing-foundation,src/shared/providers/PreferencesProvider.tsx,YES,file,"presentation/reduced-motion ownership",medium
+routing-foundation,src/shared/providers/preferenceContext.ts,YES,file,"preference context",low
+routing-foundation,src/shared/hooks/usePreferences.ts,YES,file,"preference consumer",low
+routing-foundation,src/shared/hooks/useDetailNavigation.ts,YES,file,"background-location navigation",high
+routing-foundation,src/shared/hooks/useBodyScrollLock.ts,YES,file,"modal scroll isolation",high
+routing-foundation,src/shared/hooks/useFocusTrap.ts,YES,file,"modal focus containment",high
+routing-foundation,src/shared/hooks/useReturnFocus.ts,YES,file,"opener focus return",high
+routing-foundation,src/shared/types/routing.ts,YES,file,"route state contracts",low
+routing-foundation,src/shared/ui/navigation/ChapterHashController.tsx,YES,file,"hash restoration",high
+routing-foundation,src/shared/ui/overlay/OverlayPortal.tsx,YES,file,"single portal root",high
+routing-foundation,src/shared/ui/overlay/Dialog.tsx,YES,file,"modal accessibility",high
+routing-foundation,src/shared/ui/overlay/Drawer.tsx,YES,file,"desktop drawer",medium
+routing-foundation,src/shared/ui/overlay/BottomSheet.tsx,YES,file,"mobile sheet",medium
+routing-foundation,src/shared/ui/overlay/overlay.types.ts,YES,file,"overlay types",low
+routing-foundation,src/app/styles/layout.css,YES,file,"hash offset and modal layout",high
+routing-foundation,src/app/styles/tokens.css,YES,file,"missing/header/contrast tokens",medium
+routing-foundation,src/pages/story/StoryPage.tsx,YES,file,"observer and explicit hash navigation",high
+routing-foundation,src/pages/method/MethodPage.tsx,YES,file,"remove embedded gallery",medium
+routing-foundation,src/widgets/app-shell/HeaderNav.tsx,YES,file,"Link/NavLink routing",high
+routing-foundation,src/widgets/app-shell/FooterRail.tsx,YES,file,"chapter routed state",medium
+routing-foundation,src/widgets/app-shell/ProgressTracker.tsx,YES,file,"explicit hash navigation",medium
+routing-foundation,src/widgets/evidence-drawer/EvidenceDrawer.tsx,YES,file,"route props and modal ARIA",high
+routing-foundation,src/widgets/overlay-root/GlobalOverlayRoot.tsx,YES,file,"route-driven drawer mount",high
+routing-foundation,src/widgets/prologue-scene/ChapterPrologue.tsx,YES,file,"routing hooks only",medium
+routing-foundation,src/widgets/remains-scene/ChapterRemains.tsx,YES,file,"Method/Data links",low
+routing-foundation,src/widgets/evidence-chain-scene/ChapterRecord.tsx,YES,file,"evidence route hook",low
+routing-foundation,src/widgets/gap-scene/ChapterGap.tsx,YES,file,"evidence route hook and types",low
+routing-foundation,src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,YES,file,"evidence route hook and filter labels only; current shell did not edit",medium
+routing-foundation,src/widgets/case-sequence/ChapterCases.tsx,YES,file,"case/evidence route hooks",low
+routing-foundation,src/app/router/AppRouter.test.tsx,YES,file,"routing unit coverage",low
+routing-foundation,src/app/router/routeConfig.test.ts,YES,file,"route/hash contract",low
+routing-foundation,src/shared/ui/overlay/Dialog.test.tsx,YES,file,"modal unit coverage",low
+routing-foundation,src/test/setup.ts,YES,file,"jsdom setup",low
+routing-foundation,tests/e2e/technical-routing.spec.ts,YES,file,"routing/modal/Axe runtime gate",high
+atlas-contract-shell,src/app/router/AppRouter.tsx,NO,hunk,"lazy Atlas import/loading/route belongs to Atlas feature commit",critical
+atlas-contract-shell,src/pages/atlas/,NO,directory,"Atlas route composition and error state",high
+atlas-contract-shell,src/widgets/atlas-explorer/,NO,directory,"Atlas interaction and SVG shell",high
+atlas-contract-shell,src/shared/api/atlas/,NO,directory,"transport loader/schema/repository",high
+atlas-contract-shell,src/shared/lib/atlas/,NO,directory,"adapter/query/scale",high
+atlas-contract-shell,src/shared/config/atlas/,NO,directory,"encoding/warnings",medium
+atlas-contract-shell,src/shared/types/atlas.ts,NO,file,"ViewModel contracts",high
+atlas-contract-shell,tests/e2e/atlas-contract-shell.spec.ts,NO,file,"Atlas route/query/fixture/Axe tests",medium
+contract-reference,SSOT/P3_0723_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md,NO,file,"untracked conformed contract reference; not routing implementation",medium
+contract-reference,SSOT/P3_0723_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.json,NO,file,"hash lock reference; not routing implementation",medium
+historical-output,outputs/technical_routing_gate/,NO,directory,"evidence artifact; exclude from source commit",low
+historical-output,outputs/local_frontend_audit/,NO,directory,"historical audit",low
+historical-output,outputs/runtime_recovery/,NO,directory,"historical recovery artifacts",low
+historical-output,outputs/frontend_ux_ui_current_state_audit/,NO,directory,"concurrent unrelated audit",low
+historical-output,outputs/atlas_contract_shell/,NO,directory,"Agent 3 evidence artifact; not routing source",low
+unrelated,docs/prompt1.md,NO,file,"unrelated prompt",low
+unrelated,outputs/frontend_ux_UI_current_state_audit_placeholder.txt,NO,file,"unrelated placeholder",low

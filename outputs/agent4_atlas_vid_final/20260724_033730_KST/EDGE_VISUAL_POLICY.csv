@@ -1,0 +1,6 @@
+relation,style,activation,current_result
+default,none,always,EDGE_COUNT_0
+selected_to_evidence,red_editorial_trace,approved_evidence_relation,INSPECTOR_ACTION_ONLY
+selected_to_centroid,neutral_thin_line,approved_centroid_relation,NOT_AVAILABLE
+approved_relation_subset,neutral_relation_backed,explicit_relation_payload,NOT_AVAILABLE
+2d_proximity,prohibited,never,PASS_NO_EDGE_GENERATION

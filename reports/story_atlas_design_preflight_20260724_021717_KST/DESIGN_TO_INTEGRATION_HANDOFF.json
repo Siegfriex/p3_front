@@ -1,0 +1,143 @@
+{
+  "run_id": "20260724_021717_KST",
+  "story_preview": {
+    "role": "limited_editorial_scene",
+    "expected_default_node_count": 16,
+    "layout_contract_ready": true,
+    "controls": [
+      "status",
+      "answer_type",
+      "legend",
+      "reset"
+    ],
+    "cta_label": "전체 지도 보기",
+    "cta_target": "/atlas"
+  },
+  "explorer": {
+    "role": "aggregate_full_explorer",
+    "layout_contract_ready": true,
+    "inspector_contract_ready": true,
+    "dom_navigator_required": true
+  },
+  "parity": {
+    "release_must_match": true,
+    "projection_must_match": true,
+    "coordinates_must_match": true,
+    "radius_must_match": true,
+    "encoding_must_match": true,
+    "representative_evidence_must_match": true
+  },
+  "responsive": {
+    "viewports": [
+      375,
+      768,
+      1440,
+      1920
+    ],
+    "contract_ready": true
+  },
+  "interaction": {
+    "keyboard_ready": true,
+    "touch_ready": true,
+    "focus_return_required": true,
+    "back_forward_restore_required": true,
+    "reduced_motion_ready": true
+  },
+  "states": {
+    "loading": true,
+    "error": true,
+    "data_unavailable": true,
+    "empty_filter_result": true,
+    "invalid_node": true,
+    "evidence_unavailable": true
+  },
+  "files_requiring_visual_change": [
+    "src/widgets/atlas-scene/ChapterAnswersAtlas.tsx",
+    "src/widgets/atlas-explorer/AtlasExplorer.tsx",
+    "src/widgets/atlas-explorer/AtlasScene.tsx",
+    "src/widgets/atlas-explorer/AtlasNodeGlyph.tsx",
+    "src/widgets/atlas-explorer/AtlasControls.tsx",
+    "src/widgets/atlas-explorer/AtlasLegend.tsx",
+    "src/widgets/atlas-explorer/AtlasInspector.tsx",
+    "src/widgets/atlas-explorer/AtlasDomMirror.tsx",
+    "src/widgets/evidence-drawer/EvidenceDrawer.tsx",
+    "src/shared/ui/atlas/AtlasDataStates.tsx",
+    "src/app/styles/layout.css",
+    "src/app/styles/reset.css"
+  ],
+  "files_requiring_interaction_change": [
+    "src/widgets/atlas-scene/ChapterAnswersAtlas.tsx",
+    "src/widgets/atlas-explorer/AtlasDomMirror.tsx",
+    "src/shared/lib/atlas/atlasAccessibility.ts",
+    "src/shared/api/atlas/loadAtlasManifest.ts",
+    "src/shared/api/atlas/loadAtlasBundle.ts",
+    "src/shared/api/atlas/evidenceRepository.ts",
+    "src/app/router/DetailPage.tsx",
+    "src/app/router/EvidenceRouteOverlay.tsx",
+    "src/widgets/evidence-drawer/EvidenceDrawer.tsx"
+  ],
+  "locked_design_decisions": [
+    "Story remains a limited editorial scene and Explorer remains the full aggregate analysis surface",
+    "Story and Explorer share release projection domain ViewModels coordinates radius and encoding",
+    "canonical SVG viewBox is 720x520 and Story stage is capped at 72rem",
+    "light archival Story surface preserves Evidence Line and chapter rhythm",
+    "legend precedes the scene",
+    "focus halo and selection ring are distinct and simultaneous",
+    "mobile node inspector is in flow; mobile Evidence is a Bottom Sheet",
+    "filtered nodes do not move and are removed from hit testing and DOM mirror",
+    "evidence unavailable does not disable or dim a valid node",
+    "signal-red is not used for normal-size text on paper",
+    "reduced motion removes scale translate and smooth scroll"
+  ],
+  "optional_refinements": [
+    "up to three approved persistent Story node annotations",
+    "approved topic-bin labels when they do not obscure nodes",
+    "compact release metadata after integration",
+    "visually collapsed DOM navigator with skip-link access"
+  ],
+  "blockers": [
+    {
+      "scope": "INTEGRATION_NOT_DESIGN_CONTRACT",
+      "code": "APPROVED_STORY_NODE_IDS_ABSENT",
+      "detail": "The observed 16-node list is a candidate simulation and the release-build handoff contains no approved IDs."
+    },
+    {
+      "scope": "INTEGRATION_NOT_DESIGN_CONTRACT",
+      "code": "UPSTREAM_DISPLAY_COLLISION",
+      "detail": "Full Explorer has 532 visual and 1133 hit-overlap pairs; the candidate Story subset has 16 visual and 20 hit-overlap pairs. Frontend coordinate mutation is prohibited."
+    },
+    {
+      "scope": "INTEGRATION_NOT_DESIGN_CONTRACT",
+      "code": "DATA_RELEASE_BUILD_BLOCKED",
+      "detail": "The release build was not rerun after the frontend handoffs appeared; the member-grain SSOT contradiction and remaining data-side inputs still block canonical Story release promotion."
+    },
+    {
+      "scope": "IMPLEMENTATION",
+      "code": "STORY_AND_EVIDENCE_NOT_WIRED",
+      "detail": "Story has no shared ViewModel renderer and Evidence routes do not consume the Atlas EvidenceRepository."
+    },
+    {
+      "scope": "ACCESSIBILITY_IMPLEMENTATION",
+      "code": "DUPLICATE_NODE_ACCESSIBLE_NAMES",
+      "detail": "140 node controls expose only 20 unique accessible names."
+    }
+  ],
+  "decision_requests": [
+    "Approve and publish the exact 16-node Story contract with selection hash.",
+    "Resolve the SSOT member-grain contradiction before release promotion.",
+    "Provide upstream bounded display-coordinate acceptance for collision risk without frontend jitter.",
+    "Select and publish the canonical runtime release pointer and EvidenceRepository transport."
+  ],
+  "gates": {
+    "STORY_PREVIEW_DESIGN_CONTRACT_LOCKED": "PASS",
+    "FULL_EXPLORER_DESIGN_CONTRACT_LOCKED": "PASS",
+    "VISUAL_PARITY_CONTRACT_LOCKED": "PASS",
+    "INTERACTION_CONTRACT_LOCKED": "PASS",
+    "RESPONSIVE_CONTRACT_LOCKED": "PASS",
+    "EVIDENCE_UX_CONTRACT_LOCKED": "PASS",
+    "ACCESSIBILITY_VISUAL_CONTRACT_LOCKED": "PASS",
+    "VISUAL_QA_CONTRACT_READY": "PASS",
+    "VISUAL_QA_PASS": "NOT_EXECUTED"
+  },
+  "final_verdict": "STORY_ATLAS_DESIGN_PREFLIGHT_READY"
+}

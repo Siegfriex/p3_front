@@ -1,0 +1,84 @@
+{
+  "audit_id": "frontend-ux-ui-current-state-20260723-142302",
+  "captured_at_kst": "2026-07-23T14:40:00+09:00",
+  "repository": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "branch": "refactor/routing-technical-foundation",
+  "head": "6f4835292abe9bc0cbbed81469b21c25c4e95777",
+  "worktree": { "staged": 0, "tracked_modified": 29, "tracked_deleted": 1, "untracked_entries": 33, "porcelain_entries": 63 },
+  "state_drift": {
+    "observed": true,
+    "initial_atlas": "NOT_IMPLEMENTED_404 at 14:23-14:28",
+    "current_atlas": "lazy contract shell with DataUnavailable at 14:33+",
+    "final_basis": "current source and rebuild after 14:33"
+  },
+  "dependencies": {
+    "node": "20.20.1",
+    "npm": "10.8.2",
+    "react": "19.2.8",
+    "react_router": "7.18.1",
+    "typescript": "5.8.3",
+    "vite": "6.4.3",
+    "three": "not installed",
+    "pixi": "not installed",
+    "d3": "not installed",
+    "tensorflow_js": "not installed"
+  },
+  "approved_frontend_bundle": { "status": "ABSENT", "public_release_files": 0, "production_behavior": "DataUnavailable" },
+  "current_atlas": {
+    "route": "IMPLEMENTED_LAZY_CONTRACT_SHELL",
+    "production_renderer": "NOT_EXERCISED_NO_APPROVED_BUNDLE",
+    "story_preview": "8_NODE_MOCK_SVG",
+    "viewmodel_adapter": "IMPLEMENTED_UNCOMMITTED",
+    "hash_validation": "PARTIAL_MANIFEST_CROSSCHECK_ONLY",
+    "story_explorer_contract_shared": false,
+    "approved_evidence_route_connected": false
+  },
+  "verification": {
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "unit": "23_PASS",
+    "build": "PASS",
+    "e2e_default": "9_PASS_3_SKIP",
+    "fixture_e2e_isolated": "2_PASS_3_FAIL",
+    "axe_desktop": "ZERO_BLOCKING_ON_CAPTURED_KEY_ROUTES",
+    "axe_mobile": "SERIOUS_SCROLLABLE_REGION_VIOLATIONS",
+    "screenshots": 80,
+    "console_errors_production_capture": 0,
+    "page_errors_production_capture": 0,
+    "failed_requests_production_capture": 0
+  },
+  "maturity_scores": {
+    "information_architecture": 3,
+    "storytelling_clarity": 3,
+    "navigation_route_coherence": 3,
+    "visual_hierarchy": 2,
+    "interaction_feedback": 2,
+    "responsive_robustness": 2,
+    "accessibility": 1,
+    "data_state_integrity": 1,
+    "story_explorer_contract_readiness": 2,
+    "visual_system_consistency": 2
+  },
+  "priority_issues": [
+    { "id": "P0-DATA-001", "category": "DATA_CONTRACT", "summary": "MOCK Story Answers/Cases/Evidence are publicly exposed with insufficient scene-level provenance." },
+    { "id": "P0-DATA-002", "category": "DATA_CONTRACT", "summary": "Hard-coded mock coordinates are described as physical distance and named axes, contradicting the topic-space contract." },
+    { "id": "P0-A11Y-001", "category": "ACCESSIBILITY", "summary": "Story Answers SVG has zero keyboard-focusable nodes and no SVG name or DOM mirror." },
+    { "id": "P0-CONTENT-001", "category": "CONTENT", "summary": "Story total 2842 conflicts with Gap Sankey total 5000." },
+    { "id": "P1-PROVENANCE-001", "category": "PROVENANCE", "summary": "New Atlas inspector routes approved IDs into mock-only DetailPage and Drawer data." },
+    { "id": "P1-DATA-002", "category": "DATA_CONTRACT", "summary": "Bundle loader does not hash fetched file bodies or enforce manifest row_count/size." },
+    { "id": "P1-VISUAL-001", "category": "DESIGN_SYSTEM", "summary": "Global reset color inheritance overrides Tailwind link/button text utilities, hiding black CTA labels." },
+    { "id": "P1-ROUTING-001", "category": "ROUTING", "summary": "No Story or header CTA exposes the Full Explorer and Story filters are not URL-restorable." },
+    { "id": "P1-A11Y-002", "category": "ACCESSIBILITY", "summary": "Mobile Story and Data have serious scrollable-region-focusable Axe violations." }
+  ],
+  "renderer_decision": { "status": "RENDERER_DECISION_READY", "recommendation": "SVG", "canvas_pixi": "DEFER", "three_webgl": "DEFER", "reason": "0 approved nodes, no z-axis, no measured SVG budget failure" },
+  "design_reentry": { "status": "DESIGN_REENTRY_READY_CONDITIONALLY", "scope": "Story, routing shell, DataUnavailable, design-system and accessibility repair", "excluded": "approved-data Atlas visual validation" },
+  "gates": [
+    "FRONTEND_UX_BASELINE_CONFIRMED",
+    "DESIGN_REENTRY_READY",
+    "STORY_PREVIEW_UX_PARTIAL",
+    "ATLAS_UX_CONTRACT_BLOCKED",
+    "ACCESSIBILITY_UX_BLOCKED",
+    "VISUAL_SYSTEM_PARTIAL",
+    "RENDERER_DECISION_READY"
+  ]
+}

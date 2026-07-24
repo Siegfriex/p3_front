@@ -1,0 +1,5 @@
+mode,route,result,scope
+400_percent_equivalent,Atlas,PASS,captured no-data state
+text_spacing_override,Atlas,PASS,captured no-data state
+Korean_long_text,Story and Atlas,PASS,320 and 375 screenshots
+manual_200_percent_AT,all,NOT_DECLARED,independent QA required

@@ -1,0 +1,35 @@
+{
+  "status": "PARTIALLY_CONFIRMED",
+  "resolver_file": "src/shared/api/atlas/loadAtlasManifest.ts",
+  "precedence_current": [
+    "VITE_ATLAS_RELEASE_ID",
+    "DataUnavailable"
+  ],
+  "precedence_target": [
+    "VITE_ATLAS_RELEASE_ID",
+    "/data/current-release.json",
+    "DataUnavailable"
+  ],
+  "env_reference": [
+    "src/shared/api/atlas/loadAtlasManifest.ts:27"
+  ],
+  "env_absent": "NO_APPROVED_RELEASE_CONFIGURED",
+  "invalid_env": "silently normalized to null by configuredAtlasReleaseId; explicit invalid argument throws",
+  "hardcoded_release_id_in_source": false,
+  "latest_directory_discovery": false,
+  "current_release_pointer_supported": false,
+  "release_id_validation": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$",
+  "manifest_path": "/data/releases/<encodeURIComponent(releaseId)>/frontend-manifest.json",
+  "vite_base_considered": false,
+  "current_base_compatibility": "root deployment only; Vite default base is /",
+  "cache": "no application cache or request dedupe; browser/server HTTP cache only",
+  "abort": "AbortController from AtlasPage propagated to manifest and bundle fetches",
+  "manifest_404": "DataUnavailable APPROVED_MANIFEST_NOT_FOUND",
+  "manifest_non_404_failure": "AtlasLoadError -> AtlasRouteError",
+  "bundle_failure": "AtlasLoadError -> AtlasRouteError",
+  "schema_failure": "AtlasSchemaError -> AtlasRouteError",
+  "default_clean_build": "DataUnavailable because .env is ignored and no pointer exists",
+  "local_worktree_default": "DG761 because ignored .env currently sets release",
+  "runtime_copy_tracked": false,
+  "current_pointer_file_exists": false
+}

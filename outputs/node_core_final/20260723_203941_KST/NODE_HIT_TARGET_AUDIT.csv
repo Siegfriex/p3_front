@@ -1,0 +1,5 @@
+mode,node_id,source_radius,visual_radius,hit_diameter,result
+CONTRACT_FIXTURE,contract-node-001,18,18,44,PASS
+CONTRACT_FIXTURE,contract-node-002,22,22,44,PASS
+PRODUCTION,none,not_available,not_available,not_available,DATA_UNAVAILABLE
+APPROVED_REAL_DATA,unknown,unknown,unknown,unknown,NOT_VERIFIABLE

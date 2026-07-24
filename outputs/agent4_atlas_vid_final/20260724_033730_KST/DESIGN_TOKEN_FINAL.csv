@@ -1,0 +1,15 @@
+token,value_or_contract,role,status
+paper_canvas,#f3f2ee,document canvas,REUSED
+paper_surface,#fcfbf7,record surface,REUSED
+paper_muted,#e5e3dd,dossier surface,REUSED
+ink_primary,#111111,primary ink and focus contrast,REUSED
+signal_red,#f01b2d,selection and editorial trace,REUSED
+archive_ochre,#806426,procedural behavior,REUSED
+atlas_control_target,44px,effective interactive target,REUSED
+stage_min_desktop,34rem,Explorer and Method field,IMPLEMENTED
+inspector_wide,24rem_to_27.5rem,Explorer dossier,IMPLEMENTED
+story_workspace,8fr_4fr,Story field and dossier,IMPLEMENTED
+dom_mirror_story,24rem_max,keyboard navigator containment,IMPLEMENTED
+dom_mirror_explorer,30rem_max,keyboard navigator containment,IMPLEMENTED
+radius,upstream_radiusPx,node mass,LOCKED_UNCHANGED
+confidence_floor,0.45,provisional visibility floor,AGENT3_EXISTING_PROVISIONAL

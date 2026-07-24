@@ -1,0 +1,2 @@
+chapter_id,slot,description,reason
+prologue,prologue-mcst-emblem-logo,"문화체육관광부(Ministry of Culture, Sports and Tourism) 엠블럼 로고 - PDF page1 상단 좌측 배치, PDF 배치 크기 약 1171x332pt","PDF_EDITORIAL_BLOCKS_prologue.json block b3(IMAGE)에 해당 로고가 지시되어 있으나, 추출된 임베드 이미지(pdf_renders/page1_embedded_4.jpeg, 원본 960x272px)는 약 1.22배 업스케일 및 JPEG 압축 아티팩트가 있어 production_ready로 볼 수 없고 source_note에서도 공식 벡터/고해상도 로고 소싱을 권장함. 또한 ChapterPrologue.tsx에는 이 로고를 위한 EditorialImageField/이미지 슬롯이 현재 존재하지 않아(신규 UI 요소 필요), 텍스트/타이포그래피 교정 범위를 벗어나는 레이아웃 결정이 필요함. 공식 고해상도 벡터(SVG/EPS/AI) 또는 최소 2x 래스터 로고 원본 확보 요청.

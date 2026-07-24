@@ -1,0 +1,16 @@
+{
+  "chapterId": "scale",
+  "jsxTextReplacements": 0,
+  "typographyAdjustments": 0,
+  "imageAction": "skipped - no image slots in ChapterScale.tsx",
+  "unresolved": [
+    {
+      "note": "All PDF_EDITORIAL_BLOCKS_scale.json blocks map to STORY_CHAPTERS['scale'] fields in storyData.ts (title <- scale_p2_b02, thesis <- scale_p2_b09, summary <- scale_p2_b03), per COPY_REPLACEMENT_MAP.csv. That data binding was already handled by another agent and is out of scope here. None of the 13 PDF blocks correspond to the hardcoded Korean JSX strings in ChapterScale.tsx (overview heading/lead, cumulative timeline heading/caption, year-selector labels, legend text), which describe aggregate statistics rather than the specific doping-case narrative in the PDF blocks. No JSX text or typography changes were made; component left as-is.",
+      "block_ids_not_applicable_to_this_component": [
+        "scale_p2_b01","scale_p2_b02","scale_p2_b03","scale_p2_b04","scale_p2_b05",
+        "scale_p2_b06","scale_p2_b07","scale_p2_b08","scale_p2_b09","scale_p2_b10",
+        "scale_p2_b11","scale_p2_b12","scale_p2_b13"
+      ]
+    }
+  ]
+}

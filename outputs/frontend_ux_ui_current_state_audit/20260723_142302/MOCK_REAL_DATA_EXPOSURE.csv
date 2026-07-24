@@ -1,0 +1,13 @@
+surface,source,classification,public_exposure,labeling,risk,state
+Story Prologue,storyData copy,MOCK,yes,no prominent MOCK at claim entry,high,CONTRADICTED
+Story Scale,STORY_METRICS,MOCK,yes,MOCK badges and source labels,medium,CONFIRMED
+Story Record,MOCK_EVIDENCES,MOCK,yes,source includes MOCK below interaction,high,PARTIALLY_CONFIRMED
+Story Gap,MOCK_EVIDENCES plus hard-coded Sankey,MOCK,yes,no prominent scene-level MOCK and numbers contradict Story total,critical,CONTRADICTED
+Story Answers,ATLAS_NODES,MOCK,yes,Deterministic Atlas Fixture below plot only,critical,CONTRADICTED
+Story Cases,EDITORIAL_CASES,MOCK,yes,no prominent MOCK on cards,critical,CONTRADICTED
+Evidence direct and Drawer,MOCK_EVIDENCES,MOCK,yes,MOCK CITATION only on source tab/high depth,critical,CONTRADICTED
+Case direct and Drawer,EDITORIAL_CASES,MOCK,yes,no prominent MOCK in case surface,critical,CONTRADICTED
+Full Atlas production,no configured approved release,UNKNOWN/ABSENT,yes,DataUnavailable fail-closed,low,CONFIRMED
+Full Atlas contract tests,in-memory route fixtures,CONTRACT_FIXTURE,test only,explicit provenance when env applied,low,CONFIRMED
+Legacy 45-node bundle,not present under app public root,LEGACY,not served,n/a,low,CONFIRMED
+Approved frontend bundle,public/data/releases absent,FRONTEND_BUNDLE,not available,DataUnavailable,blocking,CONFIRMED

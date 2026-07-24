@@ -1,0 +1,7 @@
+artifact_or_path,usage,classification,production_rule
+src/shared/mock/storyData.ts,non-Atlas Story/Evidence DEV fixtures,MOCK,production forbidden
+ChapterAnswersAtlas fixtureMode banner,provenance banner only; still renders no nodes,CONTRACT_FIXTURE,development/test only
+tests/e2e/atlas-contract-shell.spec.ts inline route payloads,loader/renderer test data,CONTRACT_FIXTURE,test only
+public/data/releases/ATLAS_20260723_211051_KST_1A82C82A,untracked earlier release; no automatic selection but Vite copies it into dist and serves it by direct URL,PRODUCTION_FORBIDDEN,remove from deployable public scope before release
+public/data/releases/ATLAS_DG761_20260723_213011_KST_F7A35BC6,hash-identical approved export copy but untracked,CONFORMED_COPY_PENDING_COMMIT,must be intentionally staged with manifest evidence
+Story raw mock Atlas,no import in current ChapterAnswersAtlas,STALE/REMOVED_FROM_FLOW,keep production forbidden

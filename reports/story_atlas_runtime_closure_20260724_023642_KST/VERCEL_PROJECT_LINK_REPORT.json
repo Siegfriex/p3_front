@@ -1,0 +1,22 @@
+{
+  "connector_authenticated": true,
+  "team": {
+    "id": "team_COxt21NBfpM3VIbIkXA6a23l",
+    "slug": "siegfriexs-projects"
+  },
+  "project_created": true,
+  "project": {
+    "id": "prj_EwJ8B4Fz9jrJ2mtCTuzF7RFIptVi",
+    "name": "p3-culture-atlas",
+    "framework": null,
+    "node_version": "24.x"
+  },
+  "cloud_project_exists": true,
+  "local_project_json_exists": false,
+  "vercel_cli_installed": false,
+  "project_link_gate": "BLOCKED",
+  "blockers": [
+    ".vercel/project.json was not created by the connector",
+    "connector deployment target contradicted the explicit preview request"
+  ]
+}

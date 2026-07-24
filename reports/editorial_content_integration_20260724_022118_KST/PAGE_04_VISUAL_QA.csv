@@ -1,0 +1,8 @@
+chapter_id,check_name,pass,detail
+gap,screenshot_desktop_captured,true,"1440x900 뷰포트에서 section[data-chapter-id=gap] 캡처 성공 (screenshots/after/gap.png)"
+gap,screenshot_mobile_captured,true,"375x812 뷰포트에서 section[data-chapter-id=gap] 캡처 성공 (screenshots/after/gap_mobile.png)"
+gap,mock_marker_residual,true,"ChapterGap.tsx가 참조하는 MOCK_EVIDENCES(storyData.ts:262-321) 내 '[MOCK]' 문자열이나 mock:true 필드 없음(grep 결과 없음); sourceLabel에는 '[UNVERIFIED]' 출처 미확정 태그만 존재하며 이는 별도의 의도된 투명성 표기"
+gap,semantic_h1_duplication,true,"ChapterGap.tsx 및 ChapterFrame.tsx 모두 h1 요소 미사용(제목은 h2, 소제목은 h3, 증거카드 제목은 h4); section 내 h1 중복 없음"
+gap,image_alt_text,true,"ChapterGap.tsx 내 <img> 태그 없음(그레디언트/도형은 SVG); SankeyFlowDiagram.tsx의 svg 컨테이너에 aria-label='시정요구 처리 흐름 가로 도표' 지정됨"
+gap,sankey_data_consistency,false,"SankeyFlowDiagram.tsx에 하드코드된 수치(시정요구 5,000건/조치중 1,800건/조치완료 3,200건/미완료 600건 등, 라인 49-154)가 챕터 헤드카피 실제 수치(총 1,566건 중 830건(53.0%) 완료·736건(47.0%) 진행, storyData.ts:47)와 전혀 일치하지 않음 — 목업 데이터가 실제 편집 수치로 교체되지 않은 것으로 보임"
+gap,mobile_sankey_scroll_affordance,false,"SankeyFlowDiagram.tsx 라인 296의 overflow-x-auto 컨테이너가 min-w-[880px]로 고정되고 hide-scrollbar 클래스로 스크롤바를 숨겨, 375px 모바일 뷰포트에서 2·3단계 박스(조치중/조치완료/미완료/재발/정상종결)가 화면 밖에 있음을 알리는 시각적 단서가 없음(gap_mobile.png 확인, 텍스트 잘림은 아니고 콘텐츠 발견성 문제)"

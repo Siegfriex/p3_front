@@ -1,0 +1,26 @@
+{
+  "project": {
+    "id": "prj_EwJ8B4Fz9jrJ2mtCTuzF7RFIptVi",
+    "name": "p3-culture-atlas",
+    "team_id": "team_COxt21NBfpM3VIbIkXA6a23l"
+  },
+  "preview": {
+    "id": "dpl_FzBwJuAybTT3uekrzoBcRk8MerJ8",
+    "url": "https://p3-culture-atlas-hbxenqnoj-siegfriexs-projects.vercel.app",
+    "state": "READY",
+    "qa": "VERCEL_PREVIEW_PASS"
+  },
+  "production": {
+    "id": "dpl_BQ2KQ8Y1dHAxzpoeawmoKvNiddod",
+    "url": "https://p3-culture-atlas-fkqyidpi1-siegfriexs-projects.vercel.app",
+    "canonical_alias": "https://p3-culture-atlas.vercel.app",
+    "target": "production",
+    "state": "READY",
+    "qa": "VERCEL_PRODUCTION_PASS"
+  },
+  "post_deploy_runtime_errors": 0,
+  "functions_required": false,
+  "backend_required": false,
+  "deployment_payload_files": 183,
+  "deployment_payload_characters": 3071971
+}

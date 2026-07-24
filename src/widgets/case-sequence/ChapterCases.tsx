@@ -4,11 +4,11 @@ import { PageFrame } from '../../shared/ui/PageFrame';
 import { ContentGrid } from '../../shared/ui/ContentGrid';
 import { Badge } from '../../shared/ui/Badge';
 import { EDITORIAL_CASES } from '../../shared/mock/storyData';
-import { useOverlay } from '../../app/providers/OverlayProvider';
-import { FileText, ArrowRight, ShieldCheck, AlertCircle } from 'lucide-react';
+import { useDetailNavigation } from '@/shared/hooks/useDetailNavigation';
+import { FileText, ArrowRight } from 'lucide-react';
 
 export const ChapterCases: React.FC = () => {
-  const { openCase, openEvidence } = useOverlay();
+  const { openCase, openEvidence } = useDetailNavigation();
 
   return (
     <ChapterFrame id="cases" orderNumber="CHAPTER 05">
@@ -79,16 +79,18 @@ export const ChapterCases: React.FC = () => {
               {/* Actions */}
               <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-neutral-200)]">
                 <button
+                  type="button"
                   onClick={() => openCase(item.id)}
-                  className="px-4 py-2 bg-[var(--color-ink)] text-[var(--color-paper)] font-mono text-xs flex items-center gap-2 hover:bg-[var(--color-neutral-700)] transition-colors"
+                  className="flex min-h-11 items-center gap-2 bg-[var(--color-ink)] px-4 py-2 font-mono text-xs text-[var(--color-paper)] transition-colors hover:bg-[var(--color-neutral-700)]"
                 >
                   <FileText className="w-3.5 h-3.5" />
                   <span>사례 심층 분석 & 원문</span>
                 </button>
 
                 <button
+                  type="button"
                   onClick={() => openEvidence(item.evidenceId)}
-                  className="text-xs font-mono text-[var(--color-neutral-700)] hover:text-[var(--color-ink)] flex items-center gap-1"
+                  className="flex min-h-11 items-center gap-1 px-2 font-mono text-xs text-[var(--color-neutral-700)] hover:text-[var(--color-ink)]"
                 >
                   <span>관련 증거 ({item.evidenceId.toUpperCase()})</span>
                   <ArrowRight className="w-3.5 h-3.5" />

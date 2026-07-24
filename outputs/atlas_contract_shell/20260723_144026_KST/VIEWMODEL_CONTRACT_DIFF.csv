@@ -1,0 +1,8 @@
+contract,current_story_mock,new_viewmodel,transform_owner,component_raw_access,status
+AtlasNodeViewModel,"id/topic/status/type/family/x/y/radius/count/editorial copy/mock evidence","id/projectionId/topicBinId/topicLabel/status/answerType/semantic behaviorFamily/anchor/display/screen/radiusPx/mass/counts/confidence/public evidence/encoding",toAtlasViewModel + atlasEncoding,NO,IMPLEMENTED
+TopicBinViewModel,none,"id/label/center/memberCount/representativeTargetIssueId",toAtlasViewModel,NO,IMPLEMENTED
+CentroidViewModel,none,"id/type/status/answerType/position/memberCount/medoidEntityId",toAtlasViewModel,NO,IMPLEMENTED_NOT_RENDERED
+EvidenceSummaryViewModel,"mock EvidenceViewModel","approved public summary with meeting/page/PDF provenance",evidenceRepository + toAtlasViewModel,NO,IMPLEMENTED_SHELL
+FrontendManifest,legacy manifest unused,"strict transport-only publication-ready release/hash/file registry",atlasTransportSchema,N/A,IMPLEMENTED
+Behavior family,"red|amber|blue domain-like mock","information_non_direct|deferral_procedural|action_evidence",atlasEncoding maps to visual shape/fill,N/A,IMPLEMENTED
+Coordinates,"normalized x/y 0-100","raw anchor/display retained; screen generated from immutable bounds",scaleProjection,N/A,IMPLEMENTED

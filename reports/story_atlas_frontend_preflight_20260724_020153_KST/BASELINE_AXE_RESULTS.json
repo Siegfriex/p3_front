@@ -1,0 +1,22 @@
+{
+  "manual_production_preview": {
+    "release": "ATLAS_DG761_20260723_213011_KST_F7A35BC6",
+    "routes": [
+      {
+        "route": "/#answers",
+        "violations": []
+      },
+      {
+        "route": "/atlas",
+        "violations": []
+      }
+    ],
+    "console_errors": 0,
+    "request_failures": 0
+  },
+  "standard_suite": {
+    "status": "INCOMPLETE",
+    "note": "One Axe-named E2E test timed out before analysis because its fixture opener selector was absent; no Axe violation was reported."
+  },
+  "classification": "PARTIALLY_CONFIRMED"
+}

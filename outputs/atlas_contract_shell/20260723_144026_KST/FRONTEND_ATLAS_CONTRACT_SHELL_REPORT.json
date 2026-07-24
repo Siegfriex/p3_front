@@ -1,0 +1,114 @@
+{
+  "audit_id": "20260723_144026_KST",
+  "canonical_app_root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "branch": "refactor/routing-technical-foundation",
+  "head": "6f4835292abe9bc0cbbed81469b21c25c4e95777",
+  "verdicts": [
+    "ROUTING_FOUNDATION_COMMIT_READY",
+    "ATLAS_CONTRACT_SHELL_PASS"
+  ],
+  "commit": {
+    "authorization_variable": "AUTH_COMMIT_ROUTING_FOUNDATION",
+    "authorization_present": false,
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "package_lock_in_plan": true,
+    "app_router_requires_hunk_staging": true
+  },
+  "ssot": {
+    "path": "SSOT/P3_0723_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md",
+    "sha256": "99ee7cb16039afbebbd1373aa58e22aa89fd4ba257d26da3648e9422cf2bfb2d",
+    "hash_lock_match": true
+  },
+  "package_lock": {
+    "lockfile_version": 3,
+    "name_version_match": true,
+    "dependency_map_diff_count": 0
+  },
+  "route": {
+    "path": "/atlas",
+    "lazy_loaded": true,
+    "states": ["loading", "route_error", "data_unavailable", "empty", "invalid_node"],
+    "production_without_release": "DataUnavailable",
+    "fallback_to_story_mock": false,
+    "fallback_to_legacy_bundle": false
+  },
+  "contract": {
+    "transport_viewmodel_separated": true,
+    "rejects_string_na": true,
+    "numeric_coercion": false,
+    "semantic_behavior_family": true,
+    "visual_mapping_owner": "shared/config/atlas/atlasEncoding.ts",
+    "file_sha256_verified": true,
+    "projection_consistency_verified": true,
+    "public_evidence_only": true,
+    "raw_fields_in_components": 0
+  },
+  "query": {
+    "parameters": ["status", "types", "node", "view"],
+    "answer_type_order": "A1-A8",
+    "invalid_values_explicit": true,
+    "reset_removes_parameters": true,
+    "reload_back_forward_tested": true,
+    "passive_observer_writes": false,
+    "story_handoff_builder": true,
+    "story_ui_modified": false
+  },
+  "renderer": {
+    "kind": "SVG",
+    "aggregate_only": true,
+    "view_box": "0 0 720 520",
+    "shared_plot_rectangle": true,
+    "renders_display_coordinates": true,
+    "retains_anchor_coordinates": true,
+    "browser_umap": false,
+    "centroid_computation": false,
+    "node_aggregation": false,
+    "force_or_random_jitter": false
+  },
+  "accessibility": {
+    "scope": "CONTRACT_FIXTURE_ONLY",
+    "svg_name_summary": true,
+    "keyboard_nodes": true,
+    "enter_space_contract": true,
+    "escape_clear": true,
+    "dom_mirror": true,
+    "live_region": true,
+    "effective_target_policy_px": 44,
+    "drawer_focus_compatible": true,
+    "axe_critical": 0,
+    "axe_serious": 0,
+    "real_data_pass_claimed": false
+  },
+  "qa": {
+    "typecheck": "PASS",
+    "eslint": "PASS_ZERO_WARNINGS",
+    "vitest": { "files": 9, "tests": 23, "status": "PASS" },
+    "build": { "modules": 2150, "status": "PASS" },
+    "routing_playwright": { "passed": 7, "failed": 0 },
+    "atlas_fixture_playwright": { "passed": 3, "failed": 0 },
+    "production_no_manifest_playwright": { "passed": 2, "failed": 0 },
+    "unexpected_console_errors": 0,
+    "unexpected_request_failures": 0,
+    "fsd_reverse_imports": 0,
+    "undefined_css_variables": 0,
+    "production_fixture_legacy_scan": "PASS"
+  },
+  "production_assets": {
+    "main_js_raw_bytes": 477421,
+    "main_js_gzip_bytes": 146265,
+    "atlas_lazy_raw_bytes": 31015,
+    "atlas_lazy_gzip_bytes": 9663,
+    "css_raw_bytes": 63143,
+    "css_gzip_bytes": 11882
+  },
+  "approved_data": {
+    "manifest_exists": false,
+    "bundle_connected": false,
+    "real_data_render_pass": false,
+    "evidence_traceability_pass": false,
+    "cutover_pass": false
+  },
+  "output_root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/outputs/atlas_contract_shell/20260723_144026_KST"
+}

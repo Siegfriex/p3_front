@@ -1,0 +1,42 @@
+{
+  "run_id": "20260724_023642_KST",
+  "generated_at": "2026-07-23T18:31:45.300Z",
+  "repository": {
+    "root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+    "branch": "agent/frontend-routing-atlas-foundation-20260723",
+    "head": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+    "dirty": true,
+    "upstream": "origin/agent/frontend-routing-atlas-foundation-20260723",
+    "ahead": 0,
+    "behind": 0,
+    "concurrent_edits_observed": true
+  },
+  "active_release": {
+    "release_id": "ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264",
+    "manifest_sha256": "fb91d21a4171f1600835744a89138f762cad448c9dad4d9ef0eec91c45bd0fdc",
+    "projection_id": "PROJ_DG761_20260723_213011_KST_4665FDF3E5CF",
+    "projection_hash": "4665fdf3e5cf8e5fc69d214d5e0a744e8a8d489b87fb4766b320f6f28887784f"
+  },
+  "gates": {
+    "CANONICAL_RELEASE_SELECTION_PASS": true,
+    "STORY_PREVIEW_CONTRACT_PASS": true,
+    "CURRENT_RELEASE_POINTER_PASS": true,
+    "SHARED_ATLAS_RESOURCE_PASS": true,
+    "STORY_ANSWERS_REAL_DATA_PASS": true,
+    "REAL_DATA_ATLAS_RENDER_PASS": true,
+    "STORY_EXPLORER_PARITY_PASS": true,
+    "APPROVED_EVIDENCE_DETAIL_PASS": true,
+    "STORY_ATLAS_INTEGRATION_QA_PASS": true,
+    "LOCAL_PRODUCTION_RUNTIME_PASS": true,
+    "VERCEL_PROJECT_LINK_PASS": false,
+    "VERCEL_PREVIEW_PASS": false
+  },
+  "blockers": [
+    "VERCEL_TARGET_CONTRADICTED: explicit preview request became authoritative production target and production aliases",
+    "VERCEL_LOCAL_LINK_ABSENT: cloud project exists but .vercel/project.json is absent and CLI is not installed",
+    "DEPLOYED_FINAL_SOURCE_PARITY_BLOCKED: concurrent edits changed final local build after the deployment snapshot",
+    "COMMIT_BOUNDARY_BLOCKED_SHARED_DIRTY_TREE: no safe isolated commit was created"
+  ],
+  "final_verdict": "P3_STORY_ATLAS_PREVIEW_BLOCKED",
+  "production_action": "NO_FURTHER_ACTION_TAKEN_AFTER_CONTRADICTION"
+}

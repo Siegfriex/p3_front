@@ -1,0 +1,42 @@
+{
+  "verdict": "STORY_ATLAS_INTEGRATION_QA_PASS",
+  "production_build": {
+    "startTime": "2026-07-23T18:23:54.847Z",
+    "duration": 44561.662,
+    "expected": 19,
+    "skipped": 6,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "technical_routing_dev": {
+    "startTime": "2026-07-23T18:24:47.678Z",
+    "duration": 15480.306,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "explicit_contract_fixture": {
+    "startTime": "2026-07-23T18:25:12.145Z",
+    "duration": 24652.699999999997,
+    "expected": 5,
+    "skipped": 2,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "development_drawer": {
+    "startTime": "2026-07-23T18:27:25.011Z",
+    "duration": 3338.968,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "effective_passed": 32,
+  "effective_failed": 0,
+  "uncovered_skips": 0,
+  "paired_environment_skips": {
+    "production_skips_covered_by_fixture_or_dev_runs": 6,
+    "fixture_skips_covered_by_production_run": 2
+  }
+}

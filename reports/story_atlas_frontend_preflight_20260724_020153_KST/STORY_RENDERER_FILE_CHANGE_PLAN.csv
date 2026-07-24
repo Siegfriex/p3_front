@@ -1,0 +1,8 @@
+file,change,reuse_or_new,dependency
+src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,replace unconditional DataUnavailable with shared release states and Story composition,MODIFY,shared hook + approved IDs
+src/widgets/atlas-explorer/AtlasScene.tsx,prefer no semantic change; optionally extract neutral prop types/public API,REUSE,finalized ViewModels
+src/widgets/atlas-explorer/AtlasDomMirror.tsx,reuse with selected subset; ensure Story heading levels/IDs do not collide,REUSE_OR_SMALL_MODIFY,selected nodes
+src/widgets/atlas-explorer/AtlasControls.tsx,reuse status/type/reset; consider shared primitive only if composition requires,REUSE,query state
+src/widgets/atlas-explorer/AtlasLegend.tsx,reuse,REUSE,none
+src/shared/lib/atlas/atlasNodeParity.ts,call existing selector without changing selection rules,REUSE,Data Agent IDs
+src/shared/types/atlas.ts,carry approved selection metadata outside raw component fields,MODIFY,Data contract decision

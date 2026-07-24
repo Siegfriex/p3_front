@@ -1,0 +1,311 @@
+{
+  "manifest_version": "1.0",
+  "run_id": "20260724_020153_KST",
+  "created_at": "2026-07-24T02:20:05+09:00",
+  "repository_root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front",
+  "report_root": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_0722/frontend/p3_front/reports/story_atlas_frontend_preflight_20260724_020153_KST",
+  "ssot": {
+    "path": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL/contracts/P3_CULTURE_UMAP_ATLAS_INTEGRATION_SSOT_v1.0.md",
+    "sha256": "99ee7cb16039afbebbd1373aa58e22aa89fd4ba257d26da3648e9422cf2bfb2d"
+  },
+  "dg761": {
+    "release_id": "ATLAS_DG761_20260723_213011_KST_F7A35BC6",
+    "manifest_sha256": "38b4d37e2ff60e310b18cdd3b16848bde212313d0137264f286ec4beb4bcd0d4",
+    "canonical_runtime_hash_diff_count": 0
+  },
+  "constraints": {
+    "tracked_source_modified": false,
+    "tests_modified": false,
+    "config_modified": false,
+    "public_data_modified": false,
+    "current_release_created": false,
+    "deployed": false,
+    "committed": false,
+    "pushed": false
+  },
+  "file_count": 57,
+  "hash_scope": "all files except this manifest",
+  "files": [
+    {
+      "path": "BASELINE_AXE_RESULTS.json",
+      "sha256": "c492676b4af094f2a560e934d89bc479c238341ebb7fb4f588f3da8180ef3939",
+      "size_bytes": 554
+    },
+    {
+      "path": "BASELINE_BUILD_RESULTS.txt",
+      "sha256": "f224fc45f3eeddac692e67b00c7c09c909024551742b77b7d2f96ebc0bb832ab",
+      "size_bytes": 828
+    },
+    {
+      "path": "BASELINE_LINT_RESULTS.txt",
+      "sha256": "3808e6cc89ab4577608dd5e98d1dfe08ccb9e6bf2bd6f7fd848083ca31c96794",
+      "size_bytes": 125
+    },
+    {
+      "path": "BASELINE_PLAYWRIGHT_RESULTS.json",
+      "sha256": "640aac137562c870c3c63f842be85570124015717a98757df1a004e157c99727",
+      "size_bytes": 2145
+    },
+    {
+      "path": "BASELINE_QA_INTERPRETATION.md",
+      "sha256": "0d9dc2308eb47bfc63826eb5fbc0398b874c90f3e31453f0c365ab3b152b6b5d",
+      "size_bytes": 1488
+    },
+    {
+      "path": "BASELINE_TYPECHECK_RESULTS.txt",
+      "sha256": "7ca7c424ce31188c573ec7f60d11e10b3cb3a00a1c1a747b9573aeec0ff086c7",
+      "size_bytes": 122
+    },
+    {
+      "path": "BASELINE_UNIT_TEST_RESULTS.txt",
+      "sha256": "f38df6f274ae2dc30124839a61d4cb627f274e491ee0dd435a5eea59711b1766",
+      "size_bytes": 14499
+    },
+    {
+      "path": "COMMAND_LOG.txt",
+      "sha256": "46c0566066ad587996f096ba2958a80057108342da7181cbc34c334247b2e9bf",
+      "size_bytes": 2086
+    },
+    {
+      "path": "CURRENT_ATLAS_DATAFLOW.md",
+      "sha256": "a84983a4bca0d62008633094e96852c5138d669e8ec61c72cad2d3d990ff71af",
+      "size_bytes": 1491
+    },
+    {
+      "path": "CURRENT_ROUTE_MAP.csv",
+      "sha256": "fcde75e00ab627885f4015b929e26199ba96fb2af44124807cc8a10fa8cad4a2",
+      "size_bytes": 1957
+    },
+    {
+      "path": "CURRENT_STORY_ATLAS_STATE.json",
+      "sha256": "15c24544b611891f160a2cd6614b3b0cdcc3701feb290f2d7a7113fccec26961",
+      "size_bytes": 958
+    },
+    {
+      "path": "DG761_CONSOLE_AUDIT.txt",
+      "sha256": "98a8641bd85dc95b4aa72961ac532a6b8158dbdbaf81133d9c33dd3e449694e3",
+      "size_bytes": 475
+    },
+    {
+      "path": "DG761_EXPLORER_RUNTIME_QA.csv",
+      "sha256": "9eacbba877d31008c28565d5af9e66ec063e7a0f774b9edf75fe8816e6d59d1e",
+      "size_bytes": 999
+    },
+    {
+      "path": "DG761_NETWORK_REQUESTS.csv",
+      "sha256": "59f75c8389b7f46b52ddd59e6ddc6dd41cf728cf51a05eeead47b38789838387",
+      "size_bytes": 930
+    },
+    {
+      "path": "DG761_SCREENSHOT_INDEX.md",
+      "sha256": "f4fa6c8696573390a0e59b8226e618e979b42854ca7c9f46d1fa0bc9dac9383e",
+      "size_bytes": 553
+    },
+    {
+      "path": "EVIDENCE_FILE_CHANGE_PLAN.csv",
+      "sha256": "3996924ab54a33983034f488a2ffd53d7dc7cdfb80e5d6c7ae41e38caba87c7d",
+      "size_bytes": 1414
+    },
+    {
+      "path": "EVIDENCE_RUNTIME_AUDIT.md",
+      "sha256": "812113e308c5743f6805df31ca614f4d9baab2fb15d4ccc0f0816c94461001b7",
+      "size_bytes": 1302
+    },
+    {
+      "path": "FRONTEND_BRANCH_UPSTREAM.txt",
+      "sha256": "a5717a314af7bd05ff2b2bdfe5476c12e4722ff9c0385cd81f8c34e428af299e",
+      "size_bytes": 2537
+    },
+    {
+      "path": "FRONTEND_CHANGESET_BLUEPRINT.csv",
+      "sha256": "56e03bb0624fb8b2b6a4a09150747e888fde8965c12e3046e8a2bcad80053dc7",
+      "size_bytes": 1126
+    },
+    {
+      "path": "FRONTEND_GIT_STATUS.txt",
+      "sha256": "b2f088f0329e7457f8b7b792370e9e4febf6ad2f1b42d966b4bc05148966d2fb",
+      "size_bytes": 32036
+    },
+    {
+      "path": "FRONTEND_PREFLIGHT_END_SNAPSHOT.json",
+      "sha256": "d7b38a743a3b21d9a7ccaa2a5f8579ed151b32ded8b03b8f52811708e5907893",
+      "size_bytes": 937
+    },
+    {
+      "path": "FRONTEND_PREFLIGHT_EXECUTIVE_BRIEF.md",
+      "sha256": "408ccabc3d241d2d539ba0bdaccee1d2c254a9bd10966e00ae7a59e0a14a4d4a",
+      "size_bytes": 4318
+    },
+    {
+      "path": "FRONTEND_PREFLIGHT_GATE_DECISION.json",
+      "sha256": "3f85edc36a6486e249b51a4e4aea32ef0993be7da574310cb8b6087abc7a5798",
+      "size_bytes": 1724
+    },
+    {
+      "path": "FRONTEND_PREFLIGHT_START_SNAPSHOT.json",
+      "sha256": "df2ddd0509aed53de41fb3ed85c59a14bd8650a44e865f79150b35318ce8e5e5",
+      "size_bytes": 18999
+    },
+    {
+      "path": "FRONTEND_PUBLIC_DATA_INVENTORY.csv",
+      "sha256": "ec0ab40640858ada21d2c148bcb876a8fd7711e782a17f9e9d7cd20bdb92444e",
+      "size_bytes": 20764
+    },
+    {
+      "path": "FRONTEND_SOURCE_INVENTORY.csv",
+      "sha256": "bdd8ae155d77c00827b58d6bac6436038d95e5917ca6a913dcb56b6802981df2",
+      "size_bytes": 8813
+    },
+    {
+      "path": "FRONTEND_TEST_CHANGE_MATRIX.csv",
+      "sha256": "eca1adfc67a7e9bf553966adeec08d3d2a3082cd9adb8a69f37618760b93d80f",
+      "size_bytes": 1745
+    },
+    {
+      "path": "FRONTEND_TO_INTEGRATION_HANDOFF.json",
+      "sha256": "fc6674cd7075666a6e8838d404b06f4b96c6030e1223badadaf4ff69968fd4ca",
+      "size_bytes": 6229
+    },
+    {
+      "path": "FSD_IMPORT_BOUNDARY_AUDIT.csv",
+      "sha256": "975c5a10643bdaa7aaa6c0fee4b69a1ee42a51002b2eb3253dc424e16eeeb519",
+      "size_bytes": 1367
+    },
+    {
+      "path": "MANIFEST_HASH_VALIDATION_AUDIT.md",
+      "sha256": "08c51fdb2ef6840da6d392209f72555dcfe7930ecd3d01cb80d8cd08e5de3d8d",
+      "size_bytes": 1579
+    },
+    {
+      "path": "MISSING_TEST_CASES.csv",
+      "sha256": "21bb0df71e97688a33bee6e03a407cdf126420517d0f4f86278acd93aa9090ae",
+      "size_bytes": 1172
+    },
+    {
+      "path": "MODULE_CALL_GRAPH.json",
+      "sha256": "ca290f731e37fdc302e7a14216b61ca9c8c4fc4198a473812baea1320b77ee00",
+      "size_bytes": 3174
+    },
+    {
+      "path": "PACKAGE_ENVIRONMENT.txt",
+      "sha256": "f26c10ea7c89f851d0c2bec43c813497eb0f5216cb739848b24320cb39904aac",
+      "size_bytes": 587
+    },
+    {
+      "path": "QUERY_CTA_AUDIT.md",
+      "sha256": "f5a4a4826eecf2ef70f56e624957398d2530726dc97495ec1dac567d9a1046ed",
+      "size_bytes": 875
+    },
+    {
+      "path": "QUERY_CTA_CHANGE_PLAN.csv",
+      "sha256": "afb66e5b6646563e18dceddc19aa865a8a7b83329f0016fdc00f4d2835331028",
+      "size_bytes": 604
+    },
+    {
+      "path": "RELEASE_RESOLUTION_AUDIT.json",
+      "sha256": "effbd23854ae91483bc7ed335bc707a9acbbea587582f85a06a4397b5f6a2fed",
+      "size_bytes": 1597
+    },
+    {
+      "path": "RELEASE_RESOLVER_CHANGE_PLAN.csv",
+      "sha256": "e8b7251c42292c0b2f269ceb2cf3a6a6b02c29cd28d5a278fdaba00105343f84",
+      "size_bytes": 1040
+    },
+    {
+      "path": "SHARED_LOADER_ARCHITECTURE_RECOMMENDATION.md",
+      "sha256": "d8931e3c0fbc9a05a524bded27ad245e195803c974968a0ee42fde8d8c71875d",
+      "size_bytes": 1682
+    },
+    {
+      "path": "SHARED_LOADER_FILE_CHANGE_PLAN.csv",
+      "sha256": "43fd18083d7a21fd9989dfecb8a550627646a7d55442b4310d5a18ed2188fcfa",
+      "size_bytes": 1540
+    },
+    {
+      "path": "SHARED_LOADER_RISK_REGISTER.csv",
+      "sha256": "a7e36a4f5ab4167cf3bc45c7686ae8f2874e769f818bfebd564920d566a99bf0",
+      "size_bytes": 1121
+    },
+    {
+      "path": "STANDARD_ARTIFACT_INVENTORY.csv",
+      "sha256": "b2150babeccbfacf74b281fc91f215dfdaf5f095f7ab90cbeb3a8e2dbf40ef0e",
+      "size_bytes": 638
+    },
+    {
+      "path": "STORY_COMPONENT_AUDIT.csv",
+      "sha256": "cc10d82d75cbc54ab13ecdc265602cf67b6133c9d415ed559664ee921916bb38",
+      "size_bytes": 971
+    },
+    {
+      "path": "STORY_MOCK_LEGACY_AUDIT.csv",
+      "sha256": "79f40cf4746b6b19366b64efcd376a4a79caf97a638681f68bd2f253086c1b78",
+      "size_bytes": 927
+    },
+    {
+      "path": "STORY_RENDERER_FILE_CHANGE_PLAN.csv",
+      "sha256": "d3d71281b9a47ec3a71e044dee7d671d09b222a993b6819c3f191c94f659ccb9",
+      "size_bytes": 947
+    },
+    {
+      "path": "STORY_RENDERER_REUSE_AUDIT.md",
+      "sha256": "aa6ca94d88b41873e65c7890e599a9fbb3fb0f4a29525f108eb4d83e98d16f45",
+      "size_bytes": 1288
+    },
+    {
+      "path": "STORY_TEST_EXPECTATION_MAP.csv",
+      "sha256": "a87e2ea09447a2e26123b43759a1c7bacdec7154e759614a50a32a488c59af42",
+      "size_bytes": 1065
+    },
+    {
+      "path": "UPDATED_E2E_EXPECTATION_PROPOSAL.csv",
+      "sha256": "2c529d1ad6fefa7a2ab25b9762a677f97ef4dc2fe5d4e969dccfe5a729e21f72",
+      "size_bytes": 1066
+    },
+    {
+      "path": "VERCEL_CACHE_POLICY_RECOMMENDATION.md",
+      "sha256": "4a6fd5dcf14e8b32b54956d05e9d6c3735ab3f120b1bc6d6eaf9f7e37f4a2217",
+      "size_bytes": 993
+    },
+    {
+      "path": "VERCEL_CONFIGURATION_AUDIT.md",
+      "sha256": "a396910726b7ec63a81de0f34e5754df9779fa9c7c4670be36a57147085404f6",
+      "size_bytes": 1707
+    },
+    {
+      "path": "VERCEL_ENVIRONMENT.txt",
+      "sha256": "843feeee866c7d1c5be9bb0c894cb1bf781ce184a40063188cc6d9a62751349e",
+      "size_bytes": 511
+    },
+    {
+      "path": "VERCEL_PREFLIGHT_BLOCKERS.md",
+      "sha256": "af8c6a9b517aafbf092555fc4a1f1caf2a6817d22c7ec5a2f275dbabfda56c1b",
+      "size_bytes": 1267
+    },
+    {
+      "path": "VERCEL_PROJECT_LINK_AUDIT.json",
+      "sha256": "9a0797bc669dd6c4bfc5da1675ce93064d35893d04f9fdcb0f484fb490af6e4b",
+      "size_bytes": 742
+    },
+    {
+      "path": "VERCEL_ROUTE_REWRITE_MATRIX.csv",
+      "sha256": "cd21f96af24521b91875b6cce8e705af2785574583f6de6da3d28da30b2fe7c3",
+      "size_bytes": 952
+    },
+    {
+      "path": "screenshots/dg761_atlas_default_1440x1000.png",
+      "sha256": "bbfd54c5a6a5ab0a0aa663637cb62b682f8507446877bdce253019df734b75df",
+      "size_bytes": 1107582
+    },
+    {
+      "path": "screenshots/dg761_evidence_drawer_unavailable_1440x1000.png",
+      "sha256": "9a59ea6715a3f5cf9d601ca3fecac1dd48d55f513a8e930d6cc03c3ace864409",
+      "size_bytes": 947226
+    },
+    {
+      "path": "screenshots/story_answers_unavailable_1440x1000.png",
+      "sha256": "05195eebe936d58c90df02d1d9487f385422afa1b112bfb5b85d507fbc3771f5",
+      "size_bytes": 1494341
+    }
+  ],
+  "final_verdict": "FRONTEND_RELEASE_PREFLIGHT_READY"
+}

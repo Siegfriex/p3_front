@@ -1,0 +1,65 @@
+{
+  "contract_state": "LOCKED_PENDING_APPROVED_NODE_IDS",
+  "expected_default_node_count": 16,
+  "approved_node_ids_available": false,
+  "approved_node_ids_source": "future DATA release story preview contract",
+  "observed_candidate_only": {
+    "source": "/home/sieg/projects-wsl/SBS_dataScience/DSJA/P3_CULTURE/P3_FINAL/reports/story_atlas_data_preflight_20260724_020342_KST/STORY_PREVIEW_SELECTION_CANDIDATE.csv",
+    "approved": false,
+    "node_ids": [
+      "ANODE_A0ED3C29A19856E591EE1054",
+      "ANODE_040F8E9D865B2678B1EA8480",
+      "ANODE_35545549419BBA5C7CAC163E",
+      "ANODE_B1E760C8ED64BFB514430598",
+      "ANODE_1E243058E6185B27816CADF2",
+      "ANODE_D48C20F6FC0CF862455DE93F",
+      "ANODE_491D5DCB87021D835E62BE77",
+      "ANODE_F6FDA076C8D867386DC8F08A",
+      "ANODE_E488BDA6398875DB653D7A71",
+      "ANODE_7F4D62F0A56331262C5D5748",
+      "ANODE_7043CA899EEFE3AFF2A42967",
+      "ANODE_04B045B567F1636F7DA030D4",
+      "ANODE_C38ECD979BA360965DD47CA7",
+      "ANODE_E4D3347772CAED46EC96CEF9",
+      "ANODE_A3F2095FB0FDD68ED4AF8085",
+      "ANODE_94427A590D387E143DDD4B93"
+    ]
+  },
+  "must_equal_explorer": [
+    "atlas_node_id",
+    "release_id",
+    "projection_id",
+    "anchor coordinates",
+    "display coordinates",
+    "projection domain",
+    "radius",
+    "answer type",
+    "behavior family",
+    "encoding token",
+    "opacity",
+    "representative evidence ID"
+  ],
+  "allowed_story_differences": [
+    "viewport size",
+    "surrounding chrome",
+    "label density",
+    "annotation density",
+    "control density",
+    "inspector depth",
+    "touch presentation"
+  ],
+  "prohibited": [
+    "coordinate mutation",
+    "radius adjustment",
+    "arbitrary node replacement",
+    "behavior or status remap",
+    "story-only projection domain",
+    "mass recomputation",
+    "automatic cluster naming",
+    "force layout",
+    "random jitter"
+  ],
+  "collision_policy": "UPSTREAM_DISPLAY_COORDINATE_ISSUE; preserve coordinates and provide deterministic hit resolution plus synchronized accessible alternative",
+  "confidence_policy": "use approved semantic opacity without Story-specific floor or remap",
+  "gate": "STORY_PREVIEW_DESIGN_CONTRACT_LOCKED"
+}

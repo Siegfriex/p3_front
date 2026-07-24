@@ -1,0 +1,7 @@
+file,test_name,expectation,classification,change_needed
+tests/e2e/atlas-experience-design.spec.ts:13,"Story Answers fails closed, carries URL filters to Explorer, and restores with Back",Story DataUnavailable visible,DEFECT_EXPECTATION_LOCK,replace in DG release scenario
+tests/e2e/atlas-experience-design.spec.ts:13,same,Chapter [data-node-id] count = 0,DEFECT_EXPECTATION_LOCK,expect declared story_preview_node_ids count
+tests/e2e/atlas-experience-design.spec.ts:13,same,CTA destination Atlas DataUnavailable visible,DEFECT_EXPECTATION_LOCK,expect ready DG Atlas and matching filters
+tests/e2e/atlas-experience-design.spec.ts:13,same,Story DataUnavailable visible again after Back,DEFECT_EXPECTATION_LOCK,expect Story renderer/query restoration
+tests/e2e/atlas-experience-design.spec.ts,none,Story DOM navigator count = 0,MISSING_EXPLICIT_EXPECTATION,add parity count assertion
+src/pages/atlas/AtlasPage.test.tsx:8,shows DataUnavailable when no approved release manifest is configured,ambient env must be absent,ENV_COUPLED,mock resolver or clear env explicitly

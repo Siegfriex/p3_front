@@ -1,0 +1,11 @@
+state,glyph_transform,semantic_opacity,focus_halo,selection_ring,status_stroke,hit_test,announcement,decision
+default,scale_1.00,unchanged,none,none,unchanged,enabled,none,LOCK_REQUIRED
+hover,scale_1.06_minimal,"max semantic or 0.82",none,none,unchanged,enabled,"preview only; no selection announcement",LOCK_REQUIRED
+keyboard_focus,scale_1.00,"max semantic or 0.88","2px neutral/CanvasText at radius+13",none,unchanged,enabled,"unique node name plus 포커스",LOCK_REQUIRED
+selected,scale_1.00,"max semantic or 0.88",none,"3px signal-red at radius+7",unchanged,enabled,"unique node name plus 선택됨",LOCK_REQUIRED
+selected_focus,scale_1.00,"max semantic or 0.88","outer focus halo","inner selection ring",unchanged,enabled,"focus and selected both exposed",LOCK_REQUIRED
+filtered_out,none,0,none,none,none,disabled,"updated result count",LOCK_REQUIRED
+evidence_unavailable,scale_1.00,unchanged,as_focus_state,as_selection_state,unchanged,enabled,"대표 증거 없음",LOCK_REQUIRED
+loading,none,none,none,none,none,disabled,"승인 데이터 확인 중",LOCK_REQUIRED
+disabled,scale_1.00,"0.45 maximum only for non-data control state",none,none,unchanged,disabled,"사용할 수 없음 and reason",LOCK_REQUIRED
+error,none,none,none,none,none,disabled,"alert with error class; no fake node",LOCK_REQUIRED

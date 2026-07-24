@@ -1,0 +1,13 @@
+action,file,responsibility
+MODIFY,src/shared/api/atlas/evidenceRepository.ts,resolve detail manifest entry; SHA-256 verify bytes; parse typed approved detail
+MODIFY,src/shared/api/atlas/atlasTransportSchema.ts,add EvidenceDetailTransport parser for actual DG761 fields and public eligibility
+ADD,src/shared/lib/atlas/toEvidenceDetailViewModel.ts,map transport detail to presentation-safe ViewModel
+MODIFY,src/shared/types/atlas.ts,add transport-independent EvidenceDetailViewModel or separate shared/types/evidence.ts
+MODIFY,src/shared/api/atlas/atlasReleaseResource.ts,expose repository for route consumers
+MODIFY,src/app/router/DetailPage.tsx,load approved detail by route ID; keep loading/error/unavailable states; remove production unconditional unavailable
+MODIFY,src/app/router/EvidenceRouteOverlay.tsx,validate through repository rather than mock array for approved mode
+MODIFY,src/widgets/overlay-root/GlobalOverlayRoot.tsx,pass approved evidence resource/detail state
+MODIFY,src/widgets/evidence-drawer/EvidenceDrawer.tsx,render approved detail ViewModel; keep explicit DEV mock path isolated
+MODIFY,src/shared/ui/evidence/EvidencePresentation.tsx,consume typed approved fields without mock labels
+ADD,src/shared/api/atlas/evidenceRepository.test.ts,approved/missing/hash/schema/abort cases
+MODIFY,tests/e2e/technical-routing.spec.ts,approved node -> drawer -> close/focus/history and direct approved URL

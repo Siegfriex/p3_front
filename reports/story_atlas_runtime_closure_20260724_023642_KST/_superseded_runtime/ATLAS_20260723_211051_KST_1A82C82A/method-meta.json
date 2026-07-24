@@ -1,0 +1,24 @@
+{
+  "approved_analysis_sha256": "e11c34dd3c5019228c4a08f31c71277783a9b1c89aab630aef9e956a7619605d",
+  "centroid_method": "cosine centroid and high-dimensional medoid",
+  "collision_method": "deterministic bounded golden-angle displacement",
+  "feature_exclusions": [
+    "status",
+    "answer behavior",
+    "completion target",
+    "reviewer identity",
+    "reviewer rationale"
+  ],
+  "feature_model": "TFIDF_KO_CHAR_2_5_MAX4096",
+  "fit_scope": "all_statuses",
+  "pca_components": 32,
+  "pca_method": "TruncatedSVD",
+  "projection_hash": "1a82c82a11dd22c305eed251aaf9d5b454dc60184cc9f8832ac967e00b92ce53",
+  "projection_id": "PROJ_GOLD_20260723_211051_KST_1A82C82A11DD",
+  "random_state": 42,
+  "topic_bin_method": "KMeans(k=8) in normalized high-dimensional SVD space",
+  "umap_metric": "cosine",
+  "umap_min_dist": 0.12,
+  "umap_neighbors": 10,
+  "umap_version": "0.5.9.post2"
+}

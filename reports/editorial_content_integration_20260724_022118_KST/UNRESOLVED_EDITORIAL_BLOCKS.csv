@@ -1,0 +1,2 @@
+editorial_block_id,page_no,chapter_id,mapping_confidence,implementation_action,unresolved_reason
+page5-entire,5,answers,LOW,UNRESOLVED,"PAGE_COMPONENT_CONTRADICTION: goal/page5.pdf is absent from the provided PDF set (only page1,2,3,4,6,7.pdf exist). Per user decision (2026-07-24), ChapterAnswersAtlas / Atlas route is left untouched (PRESERVE_EXISTING) and is out of scope for this integration run."

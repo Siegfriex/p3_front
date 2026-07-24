@@ -1,0 +1,8 @@
+DG761 dev and production-preview browser audit
+console.error: 0
+console.warning: 0
+pageerror: 0
+stable-load request failures: 0
+navigation-time aborted manifest requests: observed during deliberate rapid page.goto/reload; explained by AtlasPage AbortController cleanup; not counted as application failure
+Vite dev informational output: connection/debug and React DevTools notice only
+Final classification: CONFIRMED for Explorer; CONTRADICTED for approved Evidence rendering

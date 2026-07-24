@@ -1,0 +1,17 @@
+foreground,foreground_hex,background,background_hex,contrast_ratio,normal_text,large_text,usage_decision,status
+ink-primary,#111111,paper-canvas,#f3f2ee,16.86,PASS,PASS,"primary text and glyph",CONFIRMED
+ink-secondary,#494945,paper-canvas,#f3f2ee,8.07,PASS,PASS,"body secondary text",CONFIRMED
+ink-tertiary,#6f6e69,paper-canvas,#f3f2ee,4.56,PASS,PASS,"minimum acceptable small metadata; do not reduce opacity",CONFIRMED
+neutral-500,#676660,paper-canvas,#f3f2ee,5.14,PASS,PASS,"metadata",CONFIRMED
+signal-red,#f01b2d,paper-canvas,#f3f2ee,3.83,FAIL,PASS,"large display digits rings and non-text only",CONTRADICTED
+signal-red-dark,#a40f1f,paper-canvas,#f3f2ee,7.03,PASS,PASS,"small red labels warnings and focus",CONFIRMED
+archive-ochre,#806426,paper-canvas,#f3f2ee,4.97,PASS,PASS,"procedural family and contract accents",CONFIRMED
+archive-ochre,#806426,paper-surface,#fcfbf7,5.38,PASS,PASS,"legend and glyph on surface",CONFIRMED
+inverse-text,#f5f3ed,inverse,#0b0b0b,17.74,PASS,PASS,"error and verification",CONFIRMED
+inverse-muted,#bdbab2,inverse,#0b0b0b,10.15,PASS,PASS,"inverse secondary text",CONFIRMED
+amber-deep,#6f571f,amber-bg,#f5f0e4,6.04,PASS,PASS,"warning copy",CONFIRMED
+ready,#365f75,blue-bg,#eaf1f3,6.02,PASS,PASS,"ready status text when used",CONFIRMED
+encoding_family,shape_plus_fill,all_surfaces,n/a,n/a,n/a,n/a,"circle diamond square plus text label",LOCK_REQUIRED
+encoding_answer_type,inner_mark_plus_text,all_surfaces,n/a,n/a,n/a,n/a,"A1-A8 inner marks are supplemental; text remains canonical",LOCK_REQUIRED
+encoding_status,dash_plus_text,all_surfaces,n/a,n/a,n/a,n/a,"solid long-dash short-dash plus status label",LOCK_REQUIRED
+encoding_confidence,opacity_plus_numeric,all_surfaces,n/a,n/a,n/a,n/a,"never rely on opacity alone; inspector numeric or 미제공",LOCK_REQUIRED

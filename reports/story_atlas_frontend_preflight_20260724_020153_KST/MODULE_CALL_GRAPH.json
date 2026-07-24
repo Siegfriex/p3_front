@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-07-24T02:13:00+09:00",
+  "nodes": [
+    "src/app/router/AppRouter.tsx",
+    "src/pages/story/StoryPage.tsx",
+    "src/widgets/atlas-scene/ChapterAnswersAtlas.tsx",
+    "src/pages/atlas/AtlasPage.tsx",
+    "src/shared/api/atlas/loadAtlasManifest.ts",
+    "src/shared/api/atlas/loadAtlasBundle.ts",
+    "src/shared/api/atlas/atlasTransportSchema.ts",
+    "src/shared/lib/atlas/scaleProjection.ts",
+    "src/shared/lib/atlas/toAtlasViewModel.ts",
+    "src/shared/api/atlas/evidenceRepository.ts",
+    "src/shared/lib/atlas/atlasQueryState.ts",
+    "src/shared/lib/atlas/atlasNodeParity.ts",
+    "src/widgets/atlas-explorer/AtlasExplorer.tsx",
+    "src/widgets/atlas-explorer/AtlasScene.tsx",
+    "src/widgets/atlas-explorer/AtlasControls.tsx",
+    "src/widgets/atlas-explorer/AtlasInspector.tsx",
+    "src/widgets/atlas-explorer/AtlasDomMirror.tsx",
+    "src/shared/hooks/useDetailNavigation.ts",
+    "src/app/router/EvidenceRouteOverlay.tsx",
+    "src/app/router/DetailPage.tsx",
+    "src/widgets/evidence-drawer/EvidenceDrawer.tsx"
+  ],
+  "edges": [
+    [
+      "AppRouter",
+      "StoryPage",
+      "route /"
+    ],
+    [
+      "StoryPage",
+      "ChapterAnswersAtlas",
+      "chapter #answers"
+    ],
+    [
+      "ChapterAnswersAtlas",
+      "atlasQueryState",
+      "parse and CTA only"
+    ],
+    [
+      "AppRouter",
+      "AtlasPage",
+      "lazy route /atlas"
+    ],
+    [
+      "AtlasPage",
+      "loadAtlasManifest",
+      "effect"
+    ],
+    [
+      "loadAtlasManifest",
+      "atlasTransportSchema",
+      "manifest parse"
+    ],
+    [
+      "AtlasPage",
+      "loadAtlasBundle",
+      "ready manifest"
+    ],
+    [
+      "loadAtlasBundle",
+      "atlasTransportSchema",
+      "payload parse"
+    ],
+    [
+      "loadAtlasBundle",
+      "WebCrypto SHA-256",
+      "five fetched payloads"
+    ],
+    [
+      "AtlasPage",
+      "scaleProjection",
+      "raw projection bounds/radii"
+    ],
+    [
+      "AtlasPage",
+      "toAtlasViewModel",
+      "transport + scale"
+    ],
+    [
+      "toAtlasViewModel",
+      "evidenceRepository",
+      "created then not exposed"
+    ],
+    [
+      "AtlasPage",
+      "AtlasExplorer",
+      "ViewModel bundle"
+    ],
+    [
+      "AtlasExplorer",
+      "AtlasControls",
+      "query filters"
+    ],
+    [
+      "AtlasExplorer",
+      "AtlasScene",
+      "ViewModel nodes"
+    ],
+    [
+      "AtlasExplorer",
+      "AtlasDomMirror",
+      "filtered ViewModel nodes"
+    ],
+    [
+      "AtlasExplorer",
+      "AtlasInspector",
+      "selected node"
+    ],
+    [
+      "AtlasInspector",
+      "useDetailNavigation",
+      "representative evidence route"
+    ],
+    [
+      "useDetailNavigation",
+      "EvidenceRouteOverlay",
+      "background location"
+    ],
+    [
+      "EvidenceRouteOverlay",
+      "EvidenceDrawer",
+      "via GlobalOverlayRoot"
+    ],
+    [
+      "EvidenceDrawer",
+      "shared/mock/storyData",
+      "DEV only"
+    ],
+    [
+      "AppRouter",
+      "DetailPage",
+      "direct evidence/case"
+    ],
+    [
+      "DetailPage",
+      "shared/mock/storyData",
+      "DEV only"
+    ],
+    [
+      "atlasNodeParity",
+      "ChapterAnswersAtlas",
+      "EXISTS_BUT_NOT_CALLED"
+    ]
+  ]
+}

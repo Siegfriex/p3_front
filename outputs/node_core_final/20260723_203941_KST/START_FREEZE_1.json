@@ -1,0 +1,29 @@
+{
+  "label": "START_FREEZE_1",
+  "captured_at": "2026-07-23T11:36:45.312Z",
+  "branch": "agent/frontend-routing-atlas-foundation-20260723",
+  "HEAD": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "upstream": "20835ecadcce0a57067231806c4cfde9dd5b8f41",
+  "git_status_porcelain_v1_uall": [],
+  "git_diff_name_status": [],
+  "git_diff_numstat": [],
+  "owner_sha256": [
+    "d60003bca62918abdc4d1bbf41e0034321cc0bafc12eabfadae4457ba901d576  src/shared/config/atlas/atlasEncoding.ts",
+    "ddeec269843bf6fdca5a47538c63075da23748a1db259dfdddf153a46bfa9864  src/shared/config/atlas/atlasEncoding.test.ts",
+    "fe339f420c31fb7f59e52d90f308ed95fc8ddda530feb9e85e2f404024c151ef  src/shared/lib/atlas/scaleProjection.ts",
+    "1bd51be9be0f47203f8ab6f1094b1a7d501f6252727ba0e2b73f890349821015  src/shared/lib/atlas/scaleProjection.test.ts",
+    "ee02d930df530e90773ccf4ab5bd0654fabb9ea0a98d7f7a3d348af071f5fca3  src/shared/lib/atlas/atlasNodeNavigation.ts",
+    "626675829161183596fb39923aa1fec82299a3cf5ab6437d9cf900af3d749adc  src/shared/lib/atlas/atlasNodeNavigation.test.ts",
+    "ddc95d7ded77c8ee6c8b2243b657d72c8097ed9088fdac11c89c2756acb24674  src/shared/lib/atlas/atlasNodeHitTesting.ts",
+    "c8398b82d1e9925733bd087109327b3b412bb2eaa2bbdc988944d34b0ba61523  src/shared/lib/atlas/atlasNodeHitTesting.test.ts",
+    "040177a997e7c0e820ab6d851d7d9afc084b1e6ac418bcd645bd837b9bbf7a3e  src/shared/lib/atlas/atlasNodeParity.ts",
+    "b2f8f152db24e78c7895d177759fa1bcddbd77e089172ca857c615f869079870  src/shared/lib/atlas/atlasNodeParity.test.ts",
+    "59b4c424ec2103a11e1cb85d3a3d7baeea9e73bc824c8f2499911f14f9c8084e  src/widgets/atlas-explorer/AtlasNodeGlyph.tsx",
+    "56276f0217b98d68444f91ced87bf45422a1cde5df6405e3f3d9c4e01a25bd88  src/widgets/atlas-explorer/AtlasScene.tsx",
+    "b670122dd5cd24a83a34febdf4ccc124e7c61f86f671f41f821c75ee75b8602e  src/widgets/atlas-explorer/AtlasDomMirror.tsx",
+    "bde00b6c408f8df9b511c8e4e25be12212d6decdab0f09bee657f6f4cb55bffe  src/widgets/atlas-explorer/AtlasExplorer.tsx",
+    "253dabbd5a5e38f307db054cd94e2b52cbbdb71c13f6704361c82bcb201e25be  src/widgets/atlas-explorer/AtlasExplorer.test.tsx",
+    "62b84fec4234d88d284ebb101e8938f556c85140c18d54ece87c92fbcc001387  tests/e2e/atlas-contract-shell.spec.ts"
+  ],
+  "package_lock_sha256": "fb7789623b1fd97398a9c21db57176fa9d7d741c860cac659f3f6dc3d57c8252  package-lock.json"
+}

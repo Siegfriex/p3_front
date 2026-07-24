@@ -1,0 +1,16 @@
+case,layer,expected
+env overrides pointer,unit,env release selected and pointer not requested
+pointer success/404/malformed,unit,ready/unavailable/error classification
+manifest self-hash from pointer,unit,mismatch fails closed if contract adopted
+declared-only bootstrap file hash,unit/integration,summary/method/assets verified or intentionally lazy
+evidence detail SHA/schema,unit,corruption and unapproved fields rejected
+two simultaneous consumers,unit,one network pipeline; independent unmount does not abort survivor
+resource retry after failure,unit,failed cache entry evicted
+Story selector missing IDs,unit/e2e,DataUnavailable; no frontend selection
+Story parity,unit/e2e,semantic fields equal Explorer for each selected ID
+Story 375/768/1440/1920,e2e,no overflow; mark and DOM counts; Axe zero blocking
+DG no-match filters,e2e,empty state without coordinate mutation
+DG keyboard all-node traversal,e2e,roving DOM mirror; Enter/Space/Escape
+approved evidence drawer/direct,e2e,same detail data; Back/close focus restoration
+Vercel cache headers,deployed preview,release immutable; pointer/HTML revalidated
+custom Vite base,unit/build,data URLs resolve below base

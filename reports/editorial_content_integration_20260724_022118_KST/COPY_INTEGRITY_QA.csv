@@ -1,0 +1,26 @@
+﻿chapter_id,check_name,pass,detail
+prologue,numbers_unchanged_unless_pdf_sourced,true,"title/thesis/summary는 page1 HEADLINE/SUBHEAD/LEAD 원문 그대로 치환(문단 결합 없이 단일 문단). timeframe은 page1 SOURCE(b6) 원문으로 교체(2020~2025/2020~2024 범위, 기존 2018-2023과 다르나 PDF 출처가 명시되어 있어 REPLACE로 처리). 신규로 도입된 수치(2,842 / 82.4% / 1,566건 / 830건 / 736건 / 1,408건 등)는 모두 해당 PDF 블록 원문에서 직접 발췌한 값이며 임의로 계산/변경하지 않음."
+prologue,dates_unchanged_unless_pdf_sourced,true,"timeframe 변경은 PDF SOURCE/LABEL 블록에 명시된 연도 표기가 있는 경우에만 REPLACE, 없으면 NOT_IN_PDF로 보존."
+prologue,names_unchanged_unless_pdf_sourced,true,"인명/기관명(이병훈 의원, 유인촌 장관, SPC 등)은 PDF 블록에 명시된 경우에만 그대로 인용하였고, MOCK_EVIDENCES/EDITORIAL_CASES의 기존 고유명사(도종환, 유정주, 배현진 등 의원명 및 사업명)는 PDF에 대응 근거가 없어 변경하지 않음."
+prologue,no_arbitrary_summarization,true,summary/thesis 필드는 PDF LEAD/SUBHEAD/HEADLINE 원문을 그대로 사용했고(문단 구분 공백 병합 제외) 별도로 재요약/의역하지 않음.
+scale,numbers_unchanged_unless_pdf_sourced,true,"title/thesis는 page2 두 HEADLINE(도핑 사례 기사) 원문, summary는 page2 LEAD(scale_p2_b03) 원문 그대로(문단 구분 줄바꿈만 공백으로 병합, 문장 내용 변경 없음). timeframe은 대응 블록 없어 보존(NOT_IN_PDF). 신규로 도입된 수치(2,842 / 82.4% / 1,566건 / 830건 / 736건 / 1,408건 등)는 모두 해당 PDF 블록 원문에서 직접 발췌한 값이며 임의로 계산/변경하지 않음."
+scale,dates_unchanged_unless_pdf_sourced,true,"timeframe 변경은 PDF SOURCE/LABEL 블록에 명시된 연도 표기가 있는 경우에만 REPLACE, 없으면 NOT_IN_PDF로 보존."
+scale,names_unchanged_unless_pdf_sourced,true,"인명/기관명(이병훈 의원, 유인촌 장관, SPC 등)은 PDF 블록에 명시된 경우에만 그대로 인용하였고, MOCK_EVIDENCES/EDITORIAL_CASES의 기존 고유명사(도종환, 유정주, 배현진 등 의원명 및 사업명)는 PDF에 대응 근거가 없어 변경하지 않음."
+scale,no_arbitrary_summarization,true,summary/thesis 필드는 PDF LEAD/SUBHEAD/HEADLINE 원문을 그대로 사용했고(문단 구분 공백 병합 제외) 별도로 재요약/의역하지 않음.
+record,numbers_unchanged_unless_pdf_sourced,true,"title/thesis/summary는 page3 HEADLINE/SUBHEAD/LEAD(SPC 사례) 원문 그대로. timeframe은 page3 LABEL(증거 사슬) 원문으로 교체. 홑따옴표는 코드 문자열 유효성을 위해 스마트따옴표(‘ ’)로 표기만 정규화, 문구 변경 없음. 신규로 도입된 수치(2,842 / 82.4% / 1,566건 / 830건 / 736건 / 1,408건 등)는 모두 해당 PDF 블록 원문에서 직접 발췌한 값이며 임의로 계산/변경하지 않음."
+record,dates_unchanged_unless_pdf_sourced,true,"timeframe 변경은 PDF SOURCE/LABEL 블록에 명시된 연도 표기가 있는 경우에만 REPLACE, 없으면 NOT_IN_PDF로 보존."
+record,names_unchanged_unless_pdf_sourced,true,"인명/기관명(이병훈 의원, 유인촌 장관, SPC 등)은 PDF 블록에 명시된 경우에만 그대로 인용하였고, MOCK_EVIDENCES/EDITORIAL_CASES의 기존 고유명사(도종환, 유정주, 배현진 등 의원명 및 사업명)는 PDF에 대응 근거가 없어 변경하지 않음."
+record,no_arbitrary_summarization,true,summary/thesis 필드는 PDF LEAD/SUBHEAD/HEADLINE 원문을 그대로 사용했고(문단 구분 공백 병합 제외) 별도로 재요약/의역하지 않음.
+gap,numbers_unchanged_unless_pdf_sourced,true,"title/summary는 page4 HEADLINE/LEAD 원문 그대로. thesis/timeframe은 page4에 대응 SUBHEAD/CAPTION/SOURCE 없어 보존(NOT_IN_PDF). 신규로 도입된 수치(2,842 / 82.4% / 1,566건 / 830건 / 736건 / 1,408건 등)는 모두 해당 PDF 블록 원문에서 직접 발췌한 값이며 임의로 계산/변경하지 않음."
+gap,dates_unchanged_unless_pdf_sourced,true,"timeframe 변경은 PDF SOURCE/LABEL 블록에 명시된 연도 표기가 있는 경우에만 REPLACE, 없으면 NOT_IN_PDF로 보존."
+gap,names_unchanged_unless_pdf_sourced,true,"인명/기관명(이병훈 의원, 유인촌 장관, SPC 등)은 PDF 블록에 명시된 경우에만 그대로 인용하였고, MOCK_EVIDENCES/EDITORIAL_CASES의 기존 고유명사(도종환, 유정주, 배현진 등 의원명 및 사업명)는 PDF에 대응 근거가 없어 변경하지 않음."
+gap,no_arbitrary_summarization,true,summary/thesis 필드는 PDF LEAD/SUBHEAD/HEADLINE 원문을 그대로 사용했고(문단 구분 공백 병합 제외) 별도로 재요약/의역하지 않음.
+cases,numbers_unchanged_unless_pdf_sourced,true,"STORY_CHAPTERS[cases] title/thesis/summary/timeframe은 page6(회피성 답변/잼버리) HEADLINE/SUBHEAD/LEAD/LABEL 원문 그대로 치환. 단, EDITORIAL_CASES 배열 5건(블랙리스트/고용보험/게임물/미술관/스포츠윤리센터)은 page6 내용과 주제가 전혀 달라 임의 대입하지 않고 원본 보존. 신규로 도입된 수치(2,842 / 82.4% / 1,566건 / 830건 / 736건 / 1,408건 등)는 모두 해당 PDF 블록 원문에서 직접 발췌한 값이며 임의로 계산/변경하지 않음."
+cases,dates_unchanged_unless_pdf_sourced,true,"timeframe 변경은 PDF SOURCE/LABEL 블록에 명시된 연도 표기가 있는 경우에만 REPLACE, 없으면 NOT_IN_PDF로 보존."
+cases,names_unchanged_unless_pdf_sourced,true,"인명/기관명(이병훈 의원, 유인촌 장관, SPC 등)은 PDF 블록에 명시된 경우에만 그대로 인용하였고, MOCK_EVIDENCES/EDITORIAL_CASES의 기존 고유명사(도종환, 유정주, 배현진 등 의원명 및 사업명)는 PDF에 대응 근거가 없어 변경하지 않음."
+cases,no_arbitrary_summarization,true,summary/thesis 필드는 PDF LEAD/SUBHEAD/HEADLINE 원문을 그대로 사용했고(문단 구분 공백 병합 제외) 별도로 재요약/의역하지 않음.
+remains,numbers_unchanged_unless_pdf_sourced,true,"title은 page7 HEADLINE과 완전히 동일하여 보존(PRESERVE). thesis/summary/timeframe은 page7 SUBHEAD/LEAD/LABEL 원문으로 교체. 신규로 도입된 수치(2,842 / 82.4% / 1,566건 / 830건 / 736건 / 1,408건 등)는 모두 해당 PDF 블록 원문에서 직접 발췌한 값이며 임의로 계산/변경하지 않음."
+remains,dates_unchanged_unless_pdf_sourced,true,"timeframe 변경은 PDF SOURCE/LABEL 블록에 명시된 연도 표기가 있는 경우에만 REPLACE, 없으면 NOT_IN_PDF로 보존."
+remains,names_unchanged_unless_pdf_sourced,true,"인명/기관명(이병훈 의원, 유인촌 장관, SPC 등)은 PDF 블록에 명시된 경우에만 그대로 인용하였고, MOCK_EVIDENCES/EDITORIAL_CASES의 기존 고유명사(도종환, 유정주, 배현진 등 의원명 및 사업명)는 PDF에 대응 근거가 없어 변경하지 않음."
+remains,no_arbitrary_summarization,true,summary/thesis 필드는 PDF LEAD/SUBHEAD/HEADLINE 원문을 그대로 사용했고(문단 구분 공백 병합 제외) 별도로 재요약/의역하지 않음.
+record/gap,no_arbitrary_summarization,true,"MOCK_EVIDENCES 5건(ev-101~105)은 page3/page4 콘텐츠(SPC 사망사고, 조치중 통계)와 주제가 일치하지 않아 questionExcerpt/answerExcerpt/verificationLabel/verificationDetail을 임의로 대입하지 않고 원본 보존. sourceLabel의 [MOCK] 마커만 [UNVERIFIED]로 치환."

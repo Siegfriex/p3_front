@@ -1,0 +1,16 @@
+screen_id,route,viewport,state,data_classification,primary_observation,judgment
+story_answers_375,/#answers,375x812,DataUnavailable,NO_APPROVED_STORY_VIEWMODEL,"Headline context scrolls above the captured state; fail-closed panel dominates and footer can enter the viewport",PARTIALLY_CONFIRMED
+story_answers_768,/#answers,768x1024,DataUnavailable,NO_APPROVED_STORY_VIEWMODEL,"Header warning metadata and unavailable state retain readable hierarchy",CONFIRMED
+story_answers_1440,/#answers,1440x1000,DataUnavailable,NO_APPROVED_STORY_VIEWMODEL,"Editorial header and warning are coherent; fixed footer overlaps the chapter edge in viewport capture",PARTIALLY_CONFIRMED
+story_answers_1920,/#answers,1920x1080,DataUnavailable,NO_APPROVED_STORY_VIEWMODEL,"Wide editorial header uses available space; no Story renderer exists",PARTIALLY_CONFIRMED
+atlas_default_375,/atlas,375x812,ready,LOCAL_ENV_DG761,"No page overflow; chart is below fold and later uses a 720px horizontal scroll surface",PARTIALLY_CONFIRMED
+atlas_default_768,/atlas,768x1024,ready,LOCAL_ENV_DG761,"Controls stack and map/inspector stack; 720px chart nearly fills viewport",CONFIRMED
+atlas_default_1440,/atlas,1440x1000,ready,LOCAL_ENV_DG761,"Explorer uses map-first 2:1 composition with sticky inspector",CONFIRMED
+atlas_default_1920,/atlas,1920x1080,ready,LOCAL_ENV_DG761,"Map remains primary but header and metadata consume substantial first viewport height",PARTIALLY_CONFIRMED
+atlas_selected_1440,/atlas?node=<valid>,1440x1000,selected,LOCAL_ENV_DG761,"Selection ring and inspector update; evidence action exists below initial crop",CONFIRMED
+atlas_empty_1440,/atlas?status=active&types=A1&view=nodes,1440x1000,empty_filter,LOCAL_ENV_DG761,"Map remains empty but explicit no-result panel occurs after scene and can be below fold",PARTIALLY_CONFIRMED
+atlas_invalid_1440,/atlas?node=ANODE_DOES_NOT_EXIST&view=nodes,1440x1000,invalid_node,LOCAL_ENV_DG761,"Black error panel is visually distinct from empty and DataUnavailable",CONFIRMED
+evidence_direct_1440,/evidence/EVID_238914C385B630FBAA183AC0,1440x1000,detail_not_found,VALID_RELEASE_ID_NOT_CONSUMED,"A release-valid evidence ID is treated as not found in DEV because route uses mock lookup",CONTRADICTED
+atlas_evidence_drawer_1440,/evidence/EVID_238914C385B630FBAA183AC0,1440x1000,invalid_overlay,VALID_RELEASE_ID_NOT_CONSUMED,"Atlas evidence action opens route-driven drawer but shows generic invalid-ID copy",CONTRADICTED
+atlas_evidence_drawer_375,/evidence/EVID_238914C385B630FBAA183AC0,375x812,invalid_bottom_sheet,VALID_RELEASE_ID_NOT_CONSUMED,"Bottom sheet is touch-sized and focus-trapped; content semantics are wrong until repository wiring",PARTIALLY_CONFIRMED
+story_evidence_drawer_375,/evidence/ev-101,375x812,mock_drawer,MOCK_PREVIEW,"Existing Story drawer supplies a useful responsive shell and visibly labels mock provenance",PARTIALLY_CONFIRMED

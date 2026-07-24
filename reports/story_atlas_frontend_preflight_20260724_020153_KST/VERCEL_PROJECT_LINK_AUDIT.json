@@ -1,0 +1,30 @@
+{
+  "cli": {
+    "installed": false,
+    "version": null,
+    "authenticated": "NOT_VERIFIABLE"
+  },
+  "local_link": {
+    "project_json_exists": false,
+    "linked": false,
+    "project_id": null,
+    "org_id": null
+  },
+  "connector": {
+    "authenticated": true,
+    "team_id": "team_COxt21NBfpM3VIbIkXA6a23l",
+    "team_slug": "siegfriexs-projects",
+    "project_count": 6,
+    "matching_project": null
+  },
+  "repository_remote": "https://github.com/Siegfriex/p3_front.git",
+  "vercel_json": {
+    "exists": true,
+    "tracked": false
+  },
+  "preview_environment": "NOT_VERIFIABLE",
+  "production_environment": "NOT_VERIFIABLE",
+  "deployment_inspection_performed": false,
+  "deployment_action_performed": false,
+  "status": "BLOCKED"
+}

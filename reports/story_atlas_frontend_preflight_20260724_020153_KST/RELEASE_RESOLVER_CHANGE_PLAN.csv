@@ -1,0 +1,7 @@
+order,file,change_boundary,responsibility,implementation_status
+1,src/shared/api/atlas/atlasTransportSchema.ts,add current-release pointer parser,validate release_id and optional manifest_sha256 without inventing selection,PLANNED
+2,src/shared/api/atlas/loadAtlasManifest.ts,replace env-only resolution,env -> base-aware /data/current-release.json -> DataUnavailable; validate ID; no latest scan,PLANNED
+3,src/shared/api/atlas/loadAtlasManifest.ts,base URL construction,use import.meta.env.BASE_URL or document base rather than root-only literal,PLANNED
+4,src/shared/api/atlas/atlasReleaseResource.ts,new framework-independent resource,dedupe/cache one release promise; compose manifest/bundle/scale/ViewModel; abort subscribers safely,PLANNED
+5,src/shared/api/atlas/useAtlasRelease.ts,new React wrapper,expose loading/ready/unavailable/error and release metadata to both consumers,PLANNED
+6,src/shared/api/atlas/loadAtlasManifest.test.ts,resolver matrix,env precedence; pointer success/404/malformed/mismatch; no-config; base path,PLANNED

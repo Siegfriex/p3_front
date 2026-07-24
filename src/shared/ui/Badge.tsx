@@ -45,6 +45,7 @@ export const Badge: React.FC<BadgeProps> = ({
   return (
     <span
       id={id}
+      data-behavior-type={behaviorType}
       className={`inline-flex items-center gap-1.5 px-2 py-0.5 text-xs font-mono border rounded-sm ${styleClasses} ${className}`}
     >
       {label}

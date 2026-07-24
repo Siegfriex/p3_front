@@ -1,258 +1,269 @@
-import React, { useState } from 'react';
-import { ChapterFrame } from '../../shared/ui/ChapterFrame';
-import { PageFrame } from '../../shared/ui/PageFrame';
-import { Badge } from '../../shared/ui/Badge';
-import { ATLAS_NODES } from '../../shared/mock/storyData';
-import { useOverlay } from '../../app/providers/OverlayProvider';
-import { ReportedStatus, BehaviorType, AtlasNodeViewModel } from '../../shared/types/story';
-import { RotateCcw, Info, Crosshair } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router';
 
-export const ChapterAnswersAtlas: React.FC = () => {
-  const { openEvidence } = useOverlay();
+import { useAtlasRelease } from '@/shared/api/atlas/useAtlasRelease';
+import type { NodeFilterState } from '@/shared/config/atlas/atlasEncoding';
+import { useDetailNavigation } from '@/shared/hooks/useDetailNavigation';
+import { selectStoryAtlasNodes } from '@/shared/lib/atlas/atlasNodeParity';
+import { selectStoryPersistentLabelNodeIds } from '@/shared/lib/atlas/storyAtlasLabelPolicy';
+import {
+  buildAtlasHrefFromPreview,
+  parseAtlasQueryState,
+  serializeAtlasQueryState,
+} from '@/shared/lib/atlas/atlasQueryState';
+import { ANSWER_TYPES, type AtlasQueryState } from '@/shared/types/atlas';
+import { ChapterFrame } from '@/shared/ui/ChapterFrame';
+import { PageFrame } from '@/shared/ui/PageFrame';
+import { AtlasDataUnavailable, AtlasEmptyState, AtlasLoadingState, AtlasProjectionNote } from '@/shared/ui/atlas';
+import { AtlasControls } from '@/widgets/atlas-explorer/AtlasControls';
+import { AtlasDomMirror } from '@/widgets/atlas-explorer/AtlasDomMirror';
+import { AtlasLegend } from '@/widgets/atlas-explorer/AtlasLegend';
+import { AtlasMetadataRail } from '@/widgets/atlas-explorer/AtlasMetadataRail';
+import { AtlasScene } from '@/widgets/atlas-explorer/AtlasScene';
+import { AtlasSectionHeader } from '@/widgets/atlas-explorer/AtlasSectionHeader';
+import { StoryAtlasDossier } from './StoryAtlasDossier';
+import { StoryAtlasClusterNavigator } from './StoryAtlasClusterNavigator';
+import { StoryAtlasTypePrimer } from './StoryAtlasTypePrimer';
+import './story-atlas-vid.css';
 
-  // Max 4 Controls
-  const [selectedStatus, setSelectedStatus] = useState<ReportedStatus | 'all'>('all');
-  const [selectedType, setSelectedType] = useState<BehaviorType | 'all'>('all');
-  const [hoveredNode, setHoveredNode] = useState<AtlasNodeViewModel | null>(null);
-  const [showNodeLabels, setShowNodeLabels] = useState<boolean>(true);
+export function ChapterAnswersAtlas() {
+  const location = useLocation();
+  const [, setSearchParams] = useSearchParams();
+  const release = useAtlasRelease();
+  const releaseBundle = release.status === 'ready' ? release.bundle : null;
+  const { openEvidence } = useDetailNavigation();
+  const [previewNodeId, setPreviewNodeId] = useState<string | null>(null);
+  const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
+  const queryResult = useMemo(() => parseAtlasQueryState(location.search), [location.search]);
+  const query = queryResult.state;
+  const explorerHref = buildAtlasHrefFromPreview(query.status, query.types);
+  const fixtureMode = import.meta.env.DEV
+    && import.meta.env.VITE_ATLAS_FIXTURE_PROVENANCE === 'CONTRACT_FIXTURE';
 
-  const handleReset = () => {
-    setSelectedStatus('all');
-    setSelectedType('all');
-    setHoveredNode(null);
-  };
+  const storySelection = useMemo(() => {
+    if (!releaseBundle) return null;
+    try {
+      return {
+        nodes: selectStoryAtlasNodes(
+          releaseBundle.nodes,
+          releaseBundle.storyPreviewNodeIds,
+          {
+            explorerReleaseId: releaseBundle.releaseId,
+            storyReleaseId: releaseBundle.releaseId,
+            explorerProjectionId: releaseBundle.projectionId,
+            storyProjectionId: releaseBundle.projectionId,
+          },
+        ),
+        error: null,
+      };
+    } catch (error) {
+      return { nodes: [], error: error instanceof Error ? error : new Error('Unknown Story selection error') };
+    }
+  }, [releaseBundle]);
 
-  const filteredNodes = ATLAS_NODES.filter((node) => {
-    if (selectedStatus !== 'all' && node.status !== selectedStatus) return false;
-    if (selectedType !== 'all' && node.type !== selectedType) return false;
-    return true;
+  const storyNodes = useMemo(() => storySelection?.nodes ?? [], [storySelection]);
+  const allNodes = useMemo(() => releaseBundle?.nodes ?? [], [releaseBundle]);
+  const filteredNodes = useMemo(
+    () => allNodes.filter((node) => (query.status === 'all' || node.status === query.status) && query.types.includes(node.answerType)),
+    [allNodes, query.status, query.types],
+  );
+  const matchedIds = useMemo(() => new Set(filteredNodes.map((node) => node.id)), [filteredNodes]);
+  const editorialAnchorNodeIds = useMemo(() => new Set(storyNodes.map((node) => node.id)), [storyNodes]);
+  const filterStates = useMemo(
+    () => new Map(allNodes.map((node): [string, NodeFilterState] => [node.id, matchedIds.has(node.id) ? 'matched' : 'context'])),
+    [allNodes, matchedIds],
+  );
+  const requestedNode = query.nodeId ? allNodes.find((node) => node.id === query.nodeId) ?? null : null;
+  const defaultNode = filteredNodes.find((node) => editorialAnchorNodeIds.has(node.id) && node.isPublicEvidenceAvailable)
+    ?? filteredNodes.find((node) => editorialAnchorNodeIds.has(node.id))
+    ?? filteredNodes.find((node) => node.isPublicEvidenceAvailable)
+    ?? filteredNodes[0]
+    ?? null;
+  const selectedNode = query.nodeId ? requestedNode : defaultNode;
+  const visualSelectedNode = query.nodeId ? selectedNode : null;
+  const isSelectedEditorialAnchor = selectedNode ? editorialAnchorNodeIds.has(selectedNode.id) : false;
+  const persistentLabelNodeIds = useMemo(
+    () => selectStoryPersistentLabelNodeIds(
+      storyNodes.filter((node) => node.id !== visualSelectedNode?.id),
+      {
+        maximumLabels: visualSelectedNode ? 2 : 3,
+        minimumScreenDistance: 148,
+        reservedNodes: visualSelectedNode ? [visualSelectedNode] : [],
+      },
+    ),
+    [storyNodes, visualSelectedNode],
+  );
+
+  const updateQuery = (next: AtlasQueryState) => setSearchParams(serializeAtlasQueryState(next));
+  const reset = () => updateQuery({
+    status: 'all',
+    types: [...ANSWER_TYPES],
+    nodeId: null,
+    view: 'map',
+    relationType: null,
+    depth: 1,
   });
-
-  const behaviorTypesList: { type: BehaviorType; label: string; family: 'red' | 'amber' | 'blue' }[] = [
-    { type: 'A1', label: '원론적 검토 표명', family: 'red' },
-    { type: 'A2', label: '법령/예산 한계', family: 'amber' },
-    { type: 'A3', label: '타 기관 이관', family: 'amber' },
-    { type: 'A4', label: '현황 설명 대치', family: 'amber' },
-    { type: 'A5', label: '실질 이행 완료', family: 'blue' },
-    { type: 'A6', label: '수용 불가', family: 'red' },
-    { type: 'A7', label: '수치 중심 답변', family: 'blue' },
-    { type: 'A8', label: '자체 감사 진행', family: 'red' },
-  ];
 
   return (
     <ChapterFrame id="answers" orderNumber="CHAPTER 04">
-      <PageFrame>
-        <div className="mb-10">
-          <div className="flex items-start gap-4 mb-4">
-            <span className="font-serif text-6xl sm:text-8xl leading-none font-black italic text-[var(--color-ink)] select-none">
-              04
-            </span>
-            <div className="pt-1">
-              <Badge label="답변 지형도" variant="neutral" className="mb-2" />
-              <h2 className="text-3xl sm:text-4xl font-serif font-light leading-tight tracking-tight text-[var(--color-ink)] mb-2">
-                답변의 기하학:<br />어떻게 답했나
-              </h2>
-            </div>
-          </div>
-          <p className="type-body-l text-[var(--color-neutral-700)] max-w-2xl leading-relaxed">
-            시정 요구와 답변 사이의 물리적 거리를 추적합니다. <br className="hidden sm:inline" />
-            단순한 ‘완료’ 너머에 숨겨진 8가지 답변 패턴(A1~A8)의 질량과 좌표입니다.
+      <PageFrame className="story-atlas-vid">
+        <AtlasSectionHeader
+          index="04"
+          eyebrow="어떻게 답했나 / STORY PREVIEW"
+          title="답변은 어디에 모였는가"
+          thesis="같은 주제 공간 안에서 답변이 어떤 유형과 처리 상태를 보이는지 탐색합니다. 위치는 topic projection, A1의 red부터 A8의 blue까지 색은 답변행태를 뜻합니다."
+          aside={<AtlasProjectionNote compact />}
+          headingLevel="h2"
+        />
+
+        <div className="mt-6">
+          <AtlasMetadataRail
+            label="Story Preview 계약 상태"
+            items={[
+              { label: 'Story role', value: 'EDITORIAL PREVIEW' },
+              { label: 'Explorer role', value: 'URL-BACKED FIELD' },
+              { label: 'Data status', value: release.status === 'ready' ? 'APPROVED RELEASE' : 'UNAVAILABLE', tone: release.status === 'ready' ? 'default' : 'warning' },
+              { label: 'Fallback', value: 'PROHIBITED', tone: 'signal' },
+            ]}
+          />
+        </div>
+
+        {fixtureMode ? (
+          <p className="mt-8 border border-[var(--atlas-state-warning)] bg-[var(--color-behavior-amber-bg)] px-4 py-3 font-mono text-xs font-bold" data-testid="story-fixture-provenance">
+            CONTRACT_FIXTURE / 개발·테스트 전용
           </p>
-        </div>
+        ) : null}
 
-        {/* Control Panel — Max 4 Controls */}
-        <div className="bg-[var(--color-surface)] border border-[var(--color-neutral-200)] p-4 md:p-6 mb-6">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            {/* Control 1: Status Filter */}
-            <div className="flex items-center gap-2 font-mono text-xs">
-              <span className="text-[var(--color-neutral-500)]">1. 처리상태:</span>
-              <select
-                value={selectedStatus}
-                onChange={(e) => setSelectedStatus(e.target.value as any)}
-                className="bg-[var(--color-paper)] border border-[var(--color-neutral-200)] px-2.5 py-1 text-xs font-mono rounded-none"
-              >
-                <option value="all">전체 상태 보기</option>
-                <option value="complete">추진완료 (Blue)</option>
-                <option value="active">추진중 (Amber)</option>
-                <option value="unresolved">미완료/단절 (Red)</option>
-              </select>
-            </div>
-
-            {/* Control 2: Behavior Type Filter */}
-            <div className="flex items-center gap-2 font-mono text-xs">
-              <span className="text-[var(--color-neutral-500)]">2. 답변유형 (A1~A8):</span>
-              <select
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value as any)}
-                className="bg-[var(--color-paper)] border border-[var(--color-neutral-200)] px-2.5 py-1 text-xs font-mono rounded-none"
-              >
-                <option value="all">전체 8개 유형</option>
-                {behaviorTypesList.map((b) => (
-                  <option key={b.type} value={b.type}>
-                    {b.type}: {b.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Control 3: Label Display Toggle */}
-            <button
-              onClick={() => setShowNodeLabels((prev) => !prev)}
-              className="px-3 py-1 border border-[var(--color-neutral-200)] bg-[var(--color-paper)] font-mono text-xs text-[var(--color-neutral-700)] hover:bg-[var(--color-neutral-100)] transition-colors"
+        <div className="mt-8">
+          {release.status === 'loading' ? <AtlasLoadingState testId="story-atlas-loading" /> : null}
+          {release.status === 'unavailable' ? (
+            <AtlasDataUnavailable
+              title="Story Preview의 승인 데이터를 불러올 수 없습니다"
+              description="current release pointer 또는 승인 manifest가 없으며 개발용 node를 대신 표시하지 않습니다."
+              reason={release.reason}
+              testId="story-atlas-data-unavailable"
+              actions={(
+                <>
+                  <Link className="atlas-action-primary" to={explorerHref}>전체 답변행태 지도 보기</Link>
+                  <Link className="atlas-action-secondary" to="/data">데이터 승인 상태 확인</Link>
+                </>
+              )}
+            />
+          ) : null}
+          {release.status === 'error' || storySelection?.error ? (
+            <AtlasDataUnavailable
+              title="Story Preview 계약 검증에 실패했습니다"
+              description={(release.status === 'error' ? release.error : storySelection?.error)?.message ?? '알 수 없는 오류'}
+              reason="STORY_APPROVED_VIEWMODEL_INVALID"
+              testId="story-atlas-data-unavailable"
+              actions={<button className="atlas-action-primary" type="button" onClick={release.retry}>다시 시도</button>}
+            />
+          ) : null}
+          {release.status === 'ready' && storySelection && !storySelection.error ? (
+            <section
+              className="story-atlas-ready flex flex-col"
+              data-testid="story-atlas-ready"
+              data-release-id={release.bundle.releaseId}
+              data-projection-id={release.bundle.projectionId}
+              data-projection-hash={release.bundle.projectionHash}
+              onKeyDown={(event) => {
+                if (event.key === 'Escape' && query.nodeId) updateQuery({ ...query, nodeId: null });
+              }}
             >
-              3. 라벨 노출: {showNodeLabels ? 'ON' : 'OFF'}
-            </button>
-
-            {/* Control 4: Reset Button */}
-            <button
-              onClick={handleReset}
-              className="px-3 py-1 bg-[var(--color-ink)] text-[var(--color-paper)] font-mono text-xs flex items-center gap-1.5 hover:bg-[var(--color-neutral-700)] transition-colors"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>4. 초기화</span>
-            </button>
-          </div>
-        </div>
-
-        {/* SVG Topic Atlas Renderer */}
-        <div className="relative bg-[var(--color-surface)] border border-[var(--color-neutral-200)] p-4 md:p-8 overflow-hidden min-h-[500px]">
-          {/* Grid Background Lines */}
-          <div className="absolute inset-0 pointer-events-none opacity-20">
-            <svg width="100%" height="100%">
-              <line x1="25%" y1="0" x2="25%" y2="100%" stroke="var(--color-neutral-700)" strokeDasharray="4 4" />
-              <line x1="50%" y1="0" x2="50%" y2="100%" stroke="var(--color-neutral-700)" />
-              <line x1="75%" y1="0" x2="75%" y2="100%" stroke="var(--color-neutral-700)" strokeDasharray="4 4" />
-              <line x1="0" y1="33%" x2="100%" y2="33%" stroke="var(--color-neutral-700)" strokeDasharray="4 4" />
-              <line x1="0" y1="66%" x2="100%" y2="66%" stroke="var(--color-neutral-700)" strokeDasharray="4 4" />
-            </svg>
-          </div>
-
-          {/* Interactive SVG Stage */}
-          <svg viewBox="0 0 100 100" className="w-full h-[450px] overflow-visible">
-            {/* Axis Labels */}
-            <text x="2" y="5" fill="var(--color-neutral-500)" fontSize="3" fontFamily="monospace">
-              질문 세분성 (Detail Level) ▲
-            </text>
-            <text x="75" y="98" fill="var(--color-neutral-500)" fontSize="3" fontFamily="monospace">
-              답변 수용성 (Receptiveness) ►
-            </text>
-
-            {/* Tether Lines to Selected Node */}
-            {hoveredNode && (
-              <g stroke="var(--color-behavior-red-deep)" strokeWidth="0.5" strokeDasharray="1 1">
-                <line x1={hoveredNode.x} y1="0" x2={hoveredNode.x} y2="100" />
-                <line x1="0" y1={hoveredNode.y} x2="100" y2={hoveredNode.y} />
-              </g>
-            )}
-
-            {/* Atlas Nodes */}
-            {ATLAS_NODES.map((node) => {
-              const isFilteredIn = filteredNodes.some((n) => n.id === node.id);
-              const isHovered = hoveredNode?.id === node.id;
-
-              let fillColor = 'var(--color-behavior-amber-deep)';
-              if (node.family === 'red') fillColor = 'var(--color-behavior-red-deep)';
-              if (node.family === 'blue') fillColor = 'var(--color-behavior-blue-deep)';
-
-              return (
-                <g
-                  key={node.id}
-                  onClick={() => openEvidence(node.representativeEvidenceIds[0] || 'ev-101')}
-                  onMouseEnter={() => setHoveredNode(node)}
-                  onMouseLeave={() => setHoveredNode(null)}
-                  className="cursor-pointer transition-opacity duration-300"
-                  style={{ opacity: isFilteredIn ? (isHovered ? 1 : 0.85) : 0.15 }}
-                >
-                  {/* Outer Ring on Hover */}
-                  {isHovered && (
-                    <circle
-                      cx={node.x}
-                      cy={node.y}
-                      r={node.radius / 5 + 3}
-                      fill="none"
-                      stroke={fillColor}
-                      strokeWidth="0.6"
-                      className="animate-ping"
-                    />
-                  )}
-
-                  {/* Main Circle */}
-                  <circle
-                    cx={node.x}
-                    cy={node.y}
-                    r={node.radius / 5}
-                    fill={fillColor}
-                    stroke="var(--color-paper)"
-                    strokeWidth="0.8"
-                  />
-
-                  {/* Center Dot */}
-                  <circle cx={node.x} cy={node.y} r="0.8" fill="var(--color-paper)" />
-
-                  {/* Label */}
-                  {showNodeLabels && isFilteredIn && (
-                    <text
-                      x={node.x}
-                      y={node.y + node.radius / 5 + 3.5}
-                      textAnchor="middle"
-                      fill="var(--color-ink)"
-                      fontSize="2.4"
-                      fontFamily="sans-serif"
-                      fontWeight="bold"
-                    >
-                      {node.type}: {node.label} ({node.count}건)
-                    </text>
-                  )}
-                </g>
-              );
-            })}
-          </svg>
-
-          {/* Hover / Selected Node Detail Card */}
-          {hoveredNode && (
-            <div className="absolute bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 p-4 bg-[var(--color-paper)] border border-[var(--color-ink)] shadow-lg animate-fade-in z-20">
-              <div className="flex items-center justify-between mb-2">
-                <Badge label={hoveredNode.type} variant="behavior" family={hoveredNode.family} />
-                <span className="type-mono text-xs text-[var(--color-neutral-500)]">
-                  누적 {hoveredNode.count}건 (신뢰도 {hoveredNode.confidence}%)
-                </span>
+              <div className="flex flex-col gap-3 border-y border-[var(--line-medium)] py-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="redline-meta text-[var(--ink-tertiary)]">APPROVED RELEASE / SHARED VIEWMODEL</p>
+                  <p className="mt-1 break-all font-mono text-xs font-bold">{release.bundle.releaseId}</p>
+                </div>
+                <p className="inline-flex min-h-11 items-center border border-[var(--atlas-state-ready)] bg-[var(--color-behavior-blue-bg)] px-4 font-mono text-xs font-bold">
+                  전체 {allNodes.length} nodes · 편집 anchor {storyNodes.length}
+                </p>
               </div>
-              <h4 className="type-body-l font-serif font-bold text-[var(--color-ink)] mb-1">
-                {hoveredNode.behaviorTitle}
-              </h4>
-              <p className="type-caption text-[var(--color-neutral-700)] mb-3">
-                {hoveredNode.behaviorExcerpt}
-              </p>
-              <button
-                onClick={() => openEvidence(hoveredNode.representativeEvidenceIds[0] || 'ev-101')}
-                className="w-full py-1.5 bg-[var(--color-ink)] text-[var(--color-paper)] font-mono text-xs flex items-center justify-center gap-1 hover:bg-[var(--color-neutral-700)] transition-colors"
-              >
-                <Crosshair className="w-3.5 h-3.5" />
-                <span>대표 증거 및 원문 보기</span>
-              </button>
-            </div>
-          )}
+              {queryResult.issues.length > 0 ? (
+                <p className="border border-[var(--atlas-state-warning)] px-4 py-3 text-sm" role="status">URL parameter {queryResult.issues.length}개를 안전한 기본값으로 해석했습니다.</p>
+              ) : null}
+              <StoryAtlasTypePrimer
+                distribution={release.bundle.storySummary.primaryBehaviorDistribution}
+                selectedTypes={query.types}
+                onSelectType={(answerType) => updateQuery({
+                  ...query,
+                  types: query.types.length === 1 && query.types[0] === answerType ? [...ANSWER_TYPES] : [answerType],
+                  nodeId: null,
+                })}
+                onShowAll={() => updateQuery({ ...query, types: [...ANSWER_TYPES], nodeId: null })}
+              />
+              <AtlasControls
+                status={query.status}
+                types={query.types}
+                onStatusChange={(status) => updateQuery({ ...query, status, nodeId: null })}
+                onTypesChange={(types) => updateQuery({ ...query, types, nodeId: null })}
+                onReset={reset}
+              />
+              <AtlasLegend defaultOpen />
+              <div className="story-atlas-workspace">
+                <AtlasScene
+                  nodes={allNodes}
+                  nodeFilterStates={filterStates}
+                  selectedNodeId={visualSelectedNode?.id ?? null}
+                  previewNodeId={previewNodeId}
+                  focusNodeId={focusNodeId}
+                  onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
+                  onPreviewNode={setPreviewNodeId}
+                  editorialAnchorNodeIds={editorialAnchorNodeIds}
+                  persistentLabelNodeIds={persistentLabelNodeIds}
+                />
+              </div>
+              <StoryAtlasClusterNavigator
+                nodes={filteredNodes}
+                topicBins={release.bundle.topicBins}
+                selectedTopicBinId={visualSelectedNode?.topicBinId ?? null}
+                onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
+              />
+              <StoryAtlasDossier
+                node={selectedNode}
+                onOpenEvidence={openEvidence}
+                isEditorialAnchor={isSelectedEditorialAnchor}
+                isExplicitSelection={Boolean(query.nodeId)}
+                atlasNodeCount={allNodes.length}
+                anchorCount={storyNodes.length}
+              />
+              {filteredNodes.length === 0 ? (
+                <AtlasEmptyState
+                  title="조건에 맞는 Story node가 없습니다"
+                  description="승인된 140-node projection은 유지되며 선택한 상태와 유형의 교집합만 비어 있습니다."
+                  onReset={reset}
+                  testId="story-atlas-filter-empty-state"
+                />
+              ) : (
+                <div
+                  aria-label="필터와 동기화된 접근 가능한 node 목록"
+                  className="story-atlas-dom-mirror"
+                  role="region"
+                  tabIndex={0}
+                >
+                  <AtlasDomMirror
+                    nodes={filteredNodes}
+                    selectedNodeId={visualSelectedNode?.id ?? null}
+                    onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
+                    onClearSelection={() => updateQuery({ ...query, nodeId: null })}
+                    onPreviewNode={setPreviewNodeId}
+                    onFocusNode={setFocusNodeId}
+                  />
+                </div>
+              )}
+              <div className="flex flex-wrap gap-3 border-t border-[var(--line-medium)] pt-5">
+                <Link className="atlas-action-primary" to={explorerHref}>현재 필터로 전체 답변행태 지도 보기</Link>
+                <Link className="atlas-action-secondary" to="/method">투영 방법 확인</Link>
+              </div>
+              <AtlasProjectionNote />
+            </section>
+          ) : null}
         </div>
 
-        {/* Legend Footnote */}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[var(--color-neutral-500)] border-t border-[var(--color-neutral-200)] pt-3">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-[var(--color-behavior-red-deep)]" />
-              Red Family (원론적 검토 / 수용불가 / 자체감사)
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-[var(--color-behavior-amber-deep)]" />
-              Amber Family (법령예산 한계 / 타기관 이관 / 현황 대치)
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-[var(--color-behavior-blue-deep)]" />
-              Blue Family (실질 완료 / 정량 수치 답변)
-            </span>
-          </div>
-          <span>[Deterministic Atlas Fixture]</span>
-        </div>
+        <p className="redline-annotation-rule mt-8 max-w-3xl text-sm leading-relaxed text-[var(--ink-secondary)]">
+          이 장면은 승인된 140개 node 전체 지형과 편집 계약으로 고정된 16개 anchor를 함께 보여줍니다. 더 깊은 비교·URL 공유·근거 추적은 Full Explorer에서 이어집니다.
+        </p>
       </PageFrame>
     </ChapterFrame>
   );
-};
+}

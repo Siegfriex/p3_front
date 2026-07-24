@@ -1,0 +1,46 @@
+{
+  "contract_version": "1.0",
+  "states": [
+    "loading",
+    "data_unavailable",
+    "error",
+    "ready_unselected",
+    "ready_previewed",
+    "ready_focused",
+    "ready_selected",
+    "ready_focused_selected",
+    "empty_filter_result",
+    "invalid_node",
+    "evidence_unavailable",
+    "evidence_overlay_open"
+  ],
+  "transitions": [
+    {"from": "loading", "event": "approved_bundle_loaded", "to": "ready_unselected"},
+    {"from": "loading", "event": "manifest_absent", "to": "data_unavailable"},
+    {"from": "loading", "event": "contract_or_network_failure", "to": "error"},
+    {"from": "ready_unselected", "event": "pointer_enter_node", "to": "ready_previewed", "url_mutation": false},
+    {"from": "ready_unselected", "event": "dom_focus_node", "to": "ready_focused", "url_mutation": false},
+    {"from": "ready_unselected", "event": "activate_node", "to": "ready_selected", "url_mutation": "node"},
+    {"from": "ready_focused", "event": "activate_node", "to": "ready_focused_selected", "url_mutation": "node"},
+    {"from": "ready_selected", "event": "focus_selected_node", "to": "ready_focused_selected", "url_mutation": false},
+    {"from": "ready_selected", "event": "escape", "to": "ready_unselected", "url_mutation": "remove node"},
+    {"from": "ready_focused_selected", "event": "escape", "to": "ready_focused", "url_mutation": "remove node"},
+    {"from": "ready_selected", "event": "filter_excludes_selection", "to": "ready_unselected", "url_mutation": "remove node"},
+    {"from": "ready_unselected", "event": "filter_returns_zero", "to": "empty_filter_result", "url_mutation": "status/types"},
+    {"from": "empty_filter_result", "event": "reset", "to": "ready_unselected", "url_mutation": "clear atlas params"},
+    {"from": "ready_unselected", "event": "invalid_node_query", "to": "invalid_node"},
+    {"from": "invalid_node", "event": "clear_invalid_node", "to": "ready_unselected", "url_mutation": "remove node only"},
+    {"from": "ready_selected", "event": "evidence_absent", "to": "evidence_unavailable", "url_mutation": false},
+    {"from": "ready_selected", "event": "open_public_evidence", "to": "evidence_overlay_open", "url_mutation": "/evidence/:id with background"},
+    {"from": "evidence_overlay_open", "event": "escape_or_close", "to": "ready_focused_selected", "focus": "invoker"},
+    {"from": "any_ready_state", "event": "browser_back_forward", "to": "state_derived_from_url", "focus": "logical restored target"}
+  ],
+  "invariants": [
+    "filter never changes coordinates or radius",
+    "hover never mutates URL",
+    "focus is not selection",
+    "DataUnavailable is not empty result",
+    "evidence unavailable does not invalidate node",
+    "Story and Explorer share state semantics"
+  ]
+}

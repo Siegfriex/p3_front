@@ -1,0 +1,17 @@
+path,ownership,agent3_changed,role
+src/shared/config/atlas/atlasEncoding.ts,AGENT_3,yes,semantic encoding radius opacity and state
+src/shared/config/atlas/atlasEncoding.test.ts,AGENT_3,yes,encoding contract tests
+src/shared/lib/atlas/scaleProjection.ts,AGENT_3,no,padded isotropic scaler
+src/shared/lib/atlas/scaleProjection.test.ts,AGENT_3,yes,projection and padding tests
+src/shared/lib/atlas/atlasNodeNavigation.ts,AGENT_3,yes,spatial navigation
+src/shared/lib/atlas/atlasNodeNavigation.test.ts,AGENT_3,yes,navigation contract tests
+src/shared/lib/atlas/atlasNodeHitTesting.ts,AGENT_3,yes,pointer resolution and overlap audit
+src/shared/lib/atlas/atlasNodeHitTesting.test.ts,AGENT_3,no,hit testing tests
+src/shared/lib/atlas/atlasNodeParity.ts,AGENT_3,no,Story subset and parity
+src/shared/lib/atlas/atlasNodeParity.test.ts,AGENT_3,no,parity tests
+src/widgets/atlas-explorer/AtlasNodeGlyph.tsx,AGENT_3,yes,glyph renderer
+src/widgets/atlas-explorer/AtlasScene.tsx,AGENT_3,yes,SVG scene and hit layer
+src/widgets/atlas-explorer/AtlasDomMirror.tsx,AGENT_3,no,single keyboard owner
+src/widgets/atlas-explorer/AtlasExplorer.tsx,AGENT_3,yes,filter selection orchestration
+src/widgets/atlas-explorer/AtlasExplorer.test.tsx,AGENT_3,yes,component contract tests
+tests/e2e/atlas-contract-shell.spec.ts,AGENT_3_NODE_CORE_E2E,yes,runtime contract tests

@@ -1,0 +1,9 @@
+chapter_id,check_name,pass,detail
+scale,desktop_screenshot_captured,true,"1440x900 viewport, http://127.0.0.1:3000/#scale, section[data-chapter-id='scale'] captured to screenshots/after/scale.png"
+scale,mobile_screenshot_captured,true,"375x812 viewport, http://127.0.0.1:3000/#scale, section[data-chapter-id='scale'] captured to screenshots/after/scale_mobile.png"
+scale,storydata_mock_field_clean,true,"grep of src/shared/mock/storyData.ts STORY_METRICS block (id m1-m4) shows mock:false on all 4 entries and no literal [MOCK] string in label/value/comparison/sourceLabel fields"
+scale,semantic_h1_count_in_section,true,"grep '<h1' in src/widgets/scale-scene/ChapterScale.tsx returns 0 matches; top heading is a single h2 ('요구는 얼마나 쌓였는가'), no duplicate/competing h1"
+scale,image_alt_text_jsx_check,true,"grep '<img|<Image' in ChapterScale.tsx returns 0 matches; component renders no images, so no alt-text gap"
+scale,mobile_text_clipping,true,"scale_mobile.png (375x812): metric-card labels, values, and body copy wrap within card bounds with no overflow-cut text; sourceLabel uses an intentional 'truncate' class for single-line ellipsis by design"
+scale,jsx_hardcoded_mock_label_residual,false,"ChapterScale.tsx line 216 renders an unconditional <span>[MOCK Data Reference]</span> in the timeline legend, independent of metric.mock (which is false for all 4 metrics); visibly present bottom-right in scale.png screenshot even though storyData.ts itself is clean -- should be removed or replaced with a real sourcing caption"
+scale,fixed_footer_overlay_obscures_content,false,"Global FooterRail (position:fixed 'PROJECT: P3_CULTURE | ATLAS DATA: APPROVAL PENDING ... CHAPTER: SCALE | V1.0 EDITORIAL SCROLLYTELLING') visually overlaps chapter content in both scale.png (over the timeline chart area) and scale_mobile.png (over the second metric card's 82.4% value); app-shell-wide issue, not scale-content-specific"
