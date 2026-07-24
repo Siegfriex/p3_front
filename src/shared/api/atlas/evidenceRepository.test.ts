@@ -6,7 +6,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { parseEvidenceSummaries, parseFrontendManifest } from './atlasTransportSchema';
 import { createEvidenceRepository } from './evidenceRepository';
 
-const releaseId = 'ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264';
+const releaseId = 'ATLAS_DG761_STORY_20260724_022353_KST_BF673FD1';
 const releaseDir = path.join(process.cwd(), 'public/data/releases', releaseId);
 
 describe('EvidenceRepository approved detail transport', () => {

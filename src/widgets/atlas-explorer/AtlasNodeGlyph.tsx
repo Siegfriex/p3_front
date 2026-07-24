@@ -51,6 +51,7 @@ export function AtlasNodeGlyph({
   const selected = state === 'selected' || state === 'focused-selected';
   const focused = state === 'focused' || state === 'focused-selected';
   const markProps = {
+    className: 'atlas-node-glyph__source-shape atlas-node-glyph__source-shape--mark',
     fill,
     fillOpacity: Math.max(0.38, opacity * 0.72),
     stroke,
@@ -62,6 +63,7 @@ export function AtlasNodeGlyph({
   const squareRadius = radius * 0.9;
   const diamondRadius = radius * 1.08;
   const separatorProps = {
+    className: 'atlas-node-glyph__source-shape atlas-node-glyph__source-shape--separator',
     fill: 'none',
     stroke: 'var(--paper-surface)',
     strokeWidth: 5,
@@ -87,6 +89,29 @@ export function AtlasNodeGlyph({
       {shape === 'diamond' ? <path d={`M 0 ${-diamondRadius} L ${diamondRadius} 0 L 0 ${diamondRadius} L ${-diamondRadius} 0 Z`} {...markProps} /> : null}
       {shape === 'square' ? <rect x={-squareRadius} y={-squareRadius} width={squareRadius * 2} height={squareRadius * 2} rx={Math.max(2.5, radius * 0.22)} {...markProps} /> : null}
       {shape === 'circle' ? <circle r={radius} {...markProps} /> : null}
+      <circle
+        className="story-atlas-circle-shape story-atlas-circle-shape--separator"
+        data-story-circle-node="separator"
+        display="none"
+        r={radius}
+        fill="none"
+        stroke="var(--paper-surface)"
+        strokeWidth="5"
+        vectorEffect="non-scaling-stroke"
+      />
+      <circle
+        className="story-atlas-circle-shape story-atlas-circle-shape--mark"
+        data-story-circle-node="mark"
+        display="none"
+        r={radius}
+        fill={fill}
+        fillOpacity={Math.max(0.38, opacity * 0.72)}
+        stroke={stroke}
+        strokeOpacity={Math.max(0.72, opacity)}
+        strokeWidth="1.75"
+        strokeDasharray={STATUS_STROKE_DASH[status]}
+        vectorEffect="non-scaling-stroke"
+      />
       {showAnswerMark ? <InnerMark answerType={answerType} radius={radius} /> : null}
       {!evidenceAvailable ? (
         <g data-evidence-indicator="unavailable" transform={`translate(${radius * 0.58} ${radius * 0.58})`}>

@@ -1,21 +1,45 @@
 import { ANSWER_TYPE_SEMANTICS } from '@/shared/config/atlas/atlasSemantics';
 import type { AtlasNodeViewModel } from '@/shared/types/atlas';
+import { resolveAtlasSelectedAnnotationLayout } from './atlasSelectedAnnotationLayout';
 
 interface AtlasSelectedAnnotationProps {
   node: AtlasNodeViewModel;
 }
 
 export function AtlasSelectedAnnotation({ node }: AtlasSelectedAnnotationProps) {
-  const annotationX = Math.min(548, Math.max(172, node.screen.x));
-  const annotationY = 10;
-  const lineEndX = annotationX + (node.screen.x < annotationX ? -92 : 92);
+  const layout = resolveAtlasSelectedAnnotationLayout(node);
   return (
-    <g className="atlas-selected-annotation" aria-hidden="true" data-selected-annotation={node.id}>
-      <path d={`M ${node.screen.x} ${node.screen.y} L ${lineEndX} 40 L ${lineEndX} 31`} />
-      <rect x={annotationX - 102} y={annotationY} width="204" height="34" rx="3" />
-      <text x={annotationX} y={annotationY + 14} textAnchor="middle">
-        <tspan x={annotationX}>{node.answerType} · {ANSWER_TYPE_SEMANTICS[node.answerType].name}</tspan>
-        <tspan x={annotationX} dy="13">{node.answerCount} answers · {node.linkCount} links</tspan>
+    <g
+      className="atlas-selected-annotation"
+      aria-hidden="true"
+      data-annotation-side={layout.side}
+      data-annotation-vertical={layout.vertical}
+      data-selected-annotation={node.id}
+    >
+      <path
+        className="atlas-selected-annotation__connector"
+        d={`M ${layout.nodeEdgeX} ${node.screen.y} L ${layout.elbowX} ${node.screen.y} L ${layout.elbowX} ${layout.boxCenterY} L ${layout.boxEdgeX} ${layout.boxCenterY}`}
+      />
+      <circle className="atlas-selected-annotation__origin" cx={layout.nodeEdgeX} cy={node.screen.y} r="3.5" />
+      <rect
+        className="atlas-selected-annotation__panel"
+        x={layout.boxX}
+        y={layout.boxY}
+        width={layout.width}
+        height={layout.height}
+        rx="2"
+      />
+      <rect
+        className="atlas-selected-annotation__accent"
+        x={layout.boxX}
+        y={layout.boxY}
+        width="5"
+        height={layout.height}
+        rx="2"
+      />
+      <text x={layout.boxX + 16} y={layout.boxY + 20} textAnchor="start">
+        <tspan className="atlas-selected-annotation__label" x={layout.boxX + 16}>{node.answerType} · {ANSWER_TYPE_SEMANTICS[node.answerType].name}</tspan>
+        <tspan className="atlas-selected-annotation__metrics" x={layout.boxX + 16} dy="16">{node.answerCount} answers · {node.linkCount} links</tspan>
       </text>
     </g>
   );

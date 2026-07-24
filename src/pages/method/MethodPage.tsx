@@ -1014,7 +1014,7 @@ function VersionAndCorrectionPolicy() {
     ['Approved evidence input', 'AAIR_20260723_205505_KST_84DD4F79', '64 link entities'],
     ['Atlas derived input', 'STATIC_ATLAS_20260723_213011_KST', '761 decision groups · 769 child labels'],
     ['Projection', 'PROJ_DG761_20260723_213011_KST_4665FDF3E5CF', 'TF-IDF–SVD96–UMAP · 761 points'],
-    ['Canonical frontend release', 'ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264', '140 nodes · 64 evidence · 16 story preview nodes'],
+    ['Canonical frontend release', 'ATLAS_DG761_STORY_20260724_022353_KST_BF673FD1', '140 nodes · 64 evidence · 16 story preview nodes'],
     ['Lifecycle', 'CANONICAL_RELEASE_PACKAGE_PASS', 'single active authority pointer'],
   ];
   return (

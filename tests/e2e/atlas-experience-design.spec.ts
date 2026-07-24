@@ -100,6 +100,25 @@ test('CTA contrast, fixed rail hit area, footer scope, and scroll regions are ex
   await expect(page.getByTestId('story-gap-data-unavailable')).toHaveCount(0);
 });
 
+test('wide Story rail contains the DSJA EDGE mark above chapter controls', async ({ page }) => {
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  await page.goto('/');
+  const rail = page.getByRole('complementary', { name: '에세이 챕터 내비게이션' });
+  const mark = rail.getByRole('img', { name: 'DSJA 5 EDGE QR 코드' });
+  const firstControl = rail.getByRole('button').first();
+  await expect(rail).toBeVisible();
+  await expect(mark).toBeVisible();
+  await expect(rail.getByText('DSJA_5_EDGE')).toBeVisible();
+  const geometry = await Promise.all([rail.boundingBox(), mark.boundingBox(), firstControl.boundingBox()]);
+  const [railBox, markBox, controlBox] = geometry;
+  expect(Boolean(
+    railBox && markBox && controlBox
+    && markBox.x >= railBox.x
+    && markBox.x + markBox.width <= railBox.x + railBox.width
+    && markBox.y + markBox.height < controlBox.y
+  )).toBe(true);
+});
+
 test('desktop editorial cleanup and final appeal layout match the approved composition', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');

@@ -34,7 +34,7 @@ describe('AtlasReleaseResource', () => {
     expect(first.source).toBe('pointer');
     expect(first.bundle.nodes).toHaveLength(140);
     expect(first.bundle.storyPreviewNodeIds).toHaveLength(16);
-    expect(first.bundle.releaseId).toBe('ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264');
+    expect(first.bundle.releaseId).toBe('ATLAS_DG761_STORY_20260724_022353_KST_BF673FD1');
     expect(resource.peek()).toBe(first);
 
     const pointerCalls = () => fetchMock.mock.calls.filter(([input]) => String(input).includes('current-release.json')).length;
