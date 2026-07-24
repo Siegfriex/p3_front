@@ -23,7 +23,7 @@ test.describe('approved Evidence detail runtime', () => {
   });
 
   test('opens the same approved detail in the route-driven Drawer and restores Atlas history', async ({ page }) => {
-    await page.goto(`/atlas?node=${representativeNodeId}&view=nodes`);
+    await page.goto(`/atlas?node=${representativeNodeId}`);
     await expect(page.getByTestId('atlas-explorer-ready')).toBeVisible();
     await page.getByRole('button', { name: '승인된 대표 증거 보기' }).click();
     await expect(page).toHaveURL(`/evidence/${evidenceId}`);

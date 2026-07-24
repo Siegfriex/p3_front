@@ -29,7 +29,7 @@ const nodes: AtlasNodeViewModel[] = Array.from({ length: 140 }, (_, index) => ({
   representativeEvidenceId: index === 0 ? 'EVID_APPROVED_001' : null,
   isPublicEvidenceAvailable: index === 0,
   encoding: {
-    shapeToken: (['circle', 'diamond', 'square'] as const)[index % 3],
+    shapeToken: 'circle',
     fillToken: 'var(--ink-primary)',
     strokeToken: 'var(--line-strong)',
     opacity: 0.8,
@@ -38,6 +38,7 @@ const nodes: AtlasNodeViewModel[] = Array.from({ length: 140 }, (_, index) => ({
 
 const bundle: AtlasViewModelBundle = {
   releaseId: 'ATLAS_DG761_STORY_TEST',
+  dataVersion: 'STORY_TEST_DATA',
   projectionId: 'projection-story-001',
   projectionHash: 'a'.repeat(64),
   bounds: { xMin: 0, xMax: 1, yMin: 0, yMax: 1 },
@@ -61,6 +62,7 @@ const bundle: AtlasViewModelBundle = {
     getSummary: () => null,
     getDetail: async () => { throw new Error('not used'); },
   },
+  relations: null,
 };
 
 vi.mock('@/shared/api/atlas/useAtlasRelease', () => ({
@@ -68,7 +70,7 @@ vi.mock('@/shared/api/atlas/useAtlasRelease', () => ({
 }));
 
 describe('ChapterAnswersAtlas approved Story Preview', () => {
-  it('renders the 16 approved Story nodes and carries filters to the Explorer', async () => {
+  it('renders all 140 approved nodes with 16 editorial anchors and carries filters to the Explorer', async () => {
     mocks.releaseState = { status: 'ready', source: 'pointer', bundle, retry: vi.fn() };
     const user = userEvent.setup();
     const { container } = render(
@@ -78,18 +80,20 @@ describe('ChapterAnswersAtlas approved Story Preview', () => {
     );
     expect(screen.getByTestId('story-atlas-ready')).toHaveAttribute('data-release-id', bundle.releaseId);
     expect(screen.getByTestId('story-atlas-type-primer').querySelectorAll('[data-answer-type]')).toHaveLength(8);
-    expect(container.querySelectorAll('[data-testid="atlas-chart"] [data-node-id]')).toHaveLength(16);
+    expect(container.querySelectorAll('[data-testid="atlas-chart"] [data-node-id]')).toHaveLength(140);
     expect(container.querySelectorAll('[data-testid="atlas-chart"] [data-editorial-anchor="true"]')).toHaveLength(16);
-    expect(container.querySelectorAll('.atlas-node-navigator')).toHaveLength(16);
+    expect(container.querySelectorAll('.atlas-node-navigator')).toHaveLength(140);
     expect(screen.getByTestId('story-selected-dossier')).toHaveTextContent('기억 부재 진술');
+    expect(screen.getByText(/FEATURED CONTEXT/)).toBeInTheDocument();
+    expect(container.querySelectorAll('[data-selection-ring="true"]')).toHaveLength(0);
     expect(screen.queryByTestId('story-atlas-data-unavailable')).not.toBeInTheDocument();
     expect(screen.getByRole('link', { name: '현재 필터로 전체 답변행태 지도 보기' })).toHaveAttribute('href', '/atlas');
 
     await user.selectOptions(screen.getByLabelText('처리 상태'), 'active');
-    expect(container.querySelectorAll('[data-testid="atlas-chart"] [data-node-id]')).toHaveLength(16);
-    expect(container.querySelectorAll('[data-node-filter-state="matched"]')).toHaveLength(5);
-    expect(container.querySelectorAll('[data-node-filter-state="context"]')).toHaveLength(11);
-    expect(container.querySelectorAll('.atlas-node-navigator')).toHaveLength(5);
-    expect(screen.getByRole('link', { name: '현재 필터로 전체 답변행태 지도 보기' })).toHaveAttribute('href', '/atlas?status=active&view=nodes');
+    expect(container.querySelectorAll('[data-testid="atlas-chart"] [data-node-id]')).toHaveLength(140);
+    expect(container.querySelectorAll('[data-node-filter-state="matched"]')).toHaveLength(47);
+    expect(container.querySelectorAll('[data-node-filter-state="context"]')).toHaveLength(93);
+    expect(container.querySelectorAll('.atlas-node-navigator')).toHaveLength(47);
+    expect(screen.getByRole('link', { name: '현재 필터로 전체 답변행태 지도 보기' })).toHaveAttribute('href', '/atlas?status=active');
   });
 });

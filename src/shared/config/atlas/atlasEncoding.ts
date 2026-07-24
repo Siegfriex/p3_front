@@ -52,8 +52,8 @@ export const ATLAS_CONFIDENCE_PRESENTATION_POLICY = Object.freeze({
 
 export const NODE_GLYPH_TOKENS: Readonly<Record<BehaviorFamily, NodeGlyphToken>> = Object.freeze({
   information_non_direct: Object.freeze({ family: 'information_non_direct', shape: 'circle' }),
-  deferral_procedural: Object.freeze({ family: 'deferral_procedural', shape: 'circle' }),
-  action_evidence: Object.freeze({ family: 'action_evidence', shape: 'circle' }),
+  deferral_procedural: Object.freeze({ family: 'deferral_procedural', shape: 'square' }),
+  action_evidence: Object.freeze({ family: 'action_evidence', shape: 'diamond' }),
 });
 
 export const BEHAVIOR_FAMILY_SHORT_LABEL: Readonly<Record<BehaviorFamily, string>> = Object.freeze({
@@ -71,6 +71,17 @@ export const ANSWER_TYPE_MARKS: Readonly<Record<AnswerType, AnswerTypeMark>> = O
   A6: 'diagonal-slash',
   A7: 'plus',
   A8: 'double-dot',
+});
+
+const ANSWER_TYPE_FAMILY: Readonly<Record<AnswerType, BehaviorFamily>> = Object.freeze({
+  A1: 'information_non_direct',
+  A2: 'information_non_direct',
+  A3: 'information_non_direct',
+  A4: 'information_non_direct',
+  A5: 'deferral_procedural',
+  A6: 'deferral_procedural',
+  A7: 'action_evidence',
+  A8: 'action_evidence',
 });
 
 export const STATUS_STROKE_DASH: Readonly<Record<AtlasNodeStatus, string | undefined>> = Object.freeze({
@@ -100,12 +111,13 @@ export function createAtlasEncoding(
   answerType: AnswerType,
   status: AtlasNodeStatus,
   confidence: number | null,
+  behaviorFamily: BehaviorFamily = ANSWER_TYPE_FAMILY[answerType],
 ): AtlasEncodingViewModel {
   const opacity = confidence === null
     ? ATLAS_CONFIDENCE_PRESENTATION_POLICY.nullOpacity
     : Math.min(1, Math.max(ATLAS_CONFIDENCE_PRESENTATION_POLICY.fixtureFloor, confidence));
   return {
-    shapeToken: 'circle',
+    shapeToken: NODE_GLYPH_TOKENS[behaviorFamily].shape,
     fillToken: ANSWER_TYPE_COLOR_TOKENS[answerType],
     strokeToken: STATUS_STROKE[status],
     opacity,

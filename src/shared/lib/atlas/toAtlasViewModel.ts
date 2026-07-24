@@ -42,7 +42,7 @@ export function toAtlasViewModel(
       meanSimilarity: node.mean_similarity,
       representativeEvidenceId: evidence?.id ?? null,
       isPublicEvidenceAvailable: evidence !== null,
-      encoding: createAtlasEncoding(node.answer_type_code, node.status_canvas, confidence),
+      encoding: createAtlasEncoding(node.answer_type_code, node.status_canvas, confidence, node.behavior_family),
     };
   });
 
@@ -50,6 +50,7 @@ export function toAtlasViewModel(
     id: bin.topic_bin_id,
     label: bin.dominant_topic_label,
     center: { x: bin.center_x, y: bin.center_y },
+    screen: scale.project({ x: bin.center_x, y: bin.center_y }),
     memberCount: bin.member_count,
     representativeTargetIssueId: bin.representative_target_issue_id,
   }));
@@ -60,6 +61,7 @@ export function toAtlasViewModel(
     status: centroid.status_canvas,
     answerType: centroid.answer_type_code,
     position: { x: centroid.position_x, y: centroid.position_y },
+    screen: scale.project({ x: centroid.position_x, y: centroid.position_y }),
     memberCount: centroid.member_count,
     medoidEntityId: centroid.medoid_entity_id,
   }));
@@ -78,6 +80,7 @@ export function toAtlasViewModel(
 
   return {
     releaseId: bundle.manifest.release_id,
+    dataVersion: bundle.manifest.data_version,
     projectionId: bundle.manifest.projection_id,
     projectionHash: bundle.manifest.projection_hash,
     bounds: {
@@ -103,5 +106,6 @@ export function toAtlasViewModel(
     },
     storyPreviewNodeIds: [...bundle.summary.story_preview_node_ids],
     evidenceRepository,
+    relations: null,
   };
 }

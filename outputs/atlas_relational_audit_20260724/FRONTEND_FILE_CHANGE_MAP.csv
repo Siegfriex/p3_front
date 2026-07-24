@@ -1,0 +1,18 @@
+area,file,change,semantic_boundary
+route,src/pages/atlas/AtlasPage.tsx,canonical URL normalization and page framing,no data derivation
+query,src/shared/lib/atlas/atlasQueryState.ts,map-relations-evidence plus relation/depth normalization,no topology computation
+types,src/shared/types/atlas.ts,view/relation/topic screen contracts,transport separated from ViewModel
+adapter,src/shared/lib/atlas/toAtlasViewModel.ts,immutable projection mapping and data version,uses approved display coordinates
+encoding,src/shared/config/atlas/atlasEncoding.ts,family shape plus A1-A8 internal mark,color secondary
+composition,src/widgets/atlas-explorer/AtlasExplorer.tsx,summary to view to comparison to provenance,shared ViewModel
+header,src/widgets/atlas-explorer/AtlasHeaderSummary.tsx,release and filtered counts,deterministic approved-field templates
+tabs,src/widgets/atlas-explorer/AtlasViewTabs.tsx,three URL-backed views,preserves node and filter state
+controls,src/widgets/atlas-explorer/AtlasControls.tsx,family and A1-A8 controls,relation filter only when applicable
+map,src/widgets/atlas-explorer/AtlasScene.tsx,topic index and selected leader annotation,no node relocation
+topics,src/widgets/atlas-explorer/AtlasTopicIndex.tsx,external approved topic index,keyboard-focusable scroll region
+glyphs,src/widgets/atlas-explorer/AtlasNodeGlyph.tsx,multivariate accessible SVG glyph,no color-only encoding
+relations,src/widgets/atlas-explorer/AtlasRelationsView.tsx,explicit RELATION_DATA_BLOCKED,no mock fallback
+evidence,src/widgets/atlas-explorer/AtlasEvidenceDossier.tsx,source text comparison and provenance,approved repository only
+comparison,src/widgets/atlas-explorer/AtlasDistributionStrip.tsx,A1-A8 selected-versus-population strip,no semantic computation
+styles,src/pages/atlas/atlas-page.css,desktop tablet mobile visual hierarchy,no coordinate mutation
+tests,tests/e2e/atlas-relational-infographic.spec.ts,URL fail-closed Axe containment touch targets,runtime evidence

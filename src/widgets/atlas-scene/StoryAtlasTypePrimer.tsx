@@ -16,10 +16,10 @@ export function StoryAtlasTypePrimer({ distribution, selectedTypes, onSelectType
       <header className="story-atlas-primer__header">
         <div>
           <p className="redline-meta">ANSWER BEHAVIOR / A1–A8</p>
-          <h3 id="story-atlas-primer-title">먼저, 점의 모양이 뜻하는 답변을 읽습니다</h3>
+          <h3 id="story-atlas-primer-title">먼저, 점의 색이 뜻하는 답변을 읽습니다</h3>
         </div>
         <p>
-          761개 decision group에 부여된 주행태 분포입니다. 색과 형태는 세 행동 계열을, 내부 표식은 A1–A8을 구분합니다.
+          761개 decision group에 부여된 주행태 분포입니다. 모든 점은 같은 원형이며 A1의 deep red에서 A8의 saturated blue까지 색으로 구분합니다.
         </p>
       </header>
 

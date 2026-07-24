@@ -5,6 +5,7 @@ import { useAtlasRelease } from '@/shared/api/atlas/useAtlasRelease';
 import type { NodeFilterState } from '@/shared/config/atlas/atlasEncoding';
 import { useDetailNavigation } from '@/shared/hooks/useDetailNavigation';
 import { selectStoryAtlasNodes } from '@/shared/lib/atlas/atlasNodeParity';
+import { selectStoryPersistentLabelNodeIds } from '@/shared/lib/atlas/storyAtlasLabelPolicy';
 import {
   buildAtlasHrefFromPreview,
   parseAtlasQueryState,
@@ -21,6 +22,7 @@ import { AtlasMetadataRail } from '@/widgets/atlas-explorer/AtlasMetadataRail';
 import { AtlasScene } from '@/widgets/atlas-explorer/AtlasScene';
 import { AtlasSectionHeader } from '@/widgets/atlas-explorer/AtlasSectionHeader';
 import { StoryAtlasDossier } from './StoryAtlasDossier';
+import { StoryAtlasClusterNavigator } from './StoryAtlasClusterNavigator';
 import { StoryAtlasTypePrimer } from './StoryAtlasTypePrimer';
 import './story-atlas-vid.css';
 
@@ -62,23 +64,45 @@ export function ChapterAnswersAtlas() {
   const storyNodes = useMemo(() => storySelection?.nodes ?? [], [storySelection]);
   const allNodes = useMemo(() => releaseBundle?.nodes ?? [], [releaseBundle]);
   const filteredNodes = useMemo(
-    () => storyNodes.filter((node) => (query.status === 'all' || node.status === query.status) && query.types.includes(node.answerType)),
-    [storyNodes, query.status, query.types],
+    () => allNodes.filter((node) => (query.status === 'all' || node.status === query.status) && query.types.includes(node.answerType)),
+    [allNodes, query.status, query.types],
   );
   const matchedIds = useMemo(() => new Set(filteredNodes.map((node) => node.id)), [filteredNodes]);
   const editorialAnchorNodeIds = useMemo(() => new Set(storyNodes.map((node) => node.id)), [storyNodes]);
-  const persistentLabelNodeIds = useMemo(() => new Set(storyNodes.slice(0, 3).map((node) => node.id)), [storyNodes]);
   const filterStates = useMemo(
-    () => new Map(storyNodes.map((node): [string, NodeFilterState] => [node.id, matchedIds.has(node.id) ? 'matched' : 'context'])),
-    [storyNodes, matchedIds],
+    () => new Map(allNodes.map((node): [string, NodeFilterState] => [node.id, matchedIds.has(node.id) ? 'matched' : 'context'])),
+    [allNodes, matchedIds],
   );
-  const requestedNode = query.nodeId ? storyNodes.find((node) => node.id === query.nodeId) ?? null : null;
-  const defaultNode = filteredNodes.find((node) => editorialAnchorNodeIds.has(node.id)) ?? filteredNodes[0] ?? null;
+  const requestedNode = query.nodeId ? allNodes.find((node) => node.id === query.nodeId) ?? null : null;
+  const defaultNode = filteredNodes.find((node) => editorialAnchorNodeIds.has(node.id) && node.isPublicEvidenceAvailable)
+    ?? filteredNodes.find((node) => editorialAnchorNodeIds.has(node.id))
+    ?? filteredNodes.find((node) => node.isPublicEvidenceAvailable)
+    ?? filteredNodes[0]
+    ?? null;
   const selectedNode = query.nodeId ? requestedNode : defaultNode;
+  const visualSelectedNode = query.nodeId ? selectedNode : null;
   const isSelectedEditorialAnchor = selectedNode ? editorialAnchorNodeIds.has(selectedNode.id) : false;
+  const persistentLabelNodeIds = useMemo(
+    () => selectStoryPersistentLabelNodeIds(
+      storyNodes.filter((node) => node.id !== visualSelectedNode?.id),
+      {
+        maximumLabels: visualSelectedNode ? 2 : 3,
+        minimumScreenDistance: 148,
+        reservedNodes: visualSelectedNode ? [visualSelectedNode] : [],
+      },
+    ),
+    [storyNodes, visualSelectedNode],
+  );
 
   const updateQuery = (next: AtlasQueryState) => setSearchParams(serializeAtlasQueryState(next));
-  const reset = () => updateQuery({ status: 'all', types: [...ANSWER_TYPES], nodeId: null, view: 'nodes' });
+  const reset = () => updateQuery({
+    status: 'all',
+    types: [...ANSWER_TYPES],
+    nodeId: null,
+    view: 'map',
+    relationType: null,
+    depth: 1,
+  });
 
   return (
     <ChapterFrame id="answers" orderNumber="CHAPTER 04">
@@ -87,7 +111,7 @@ export function ChapterAnswersAtlas() {
           index="04"
           eyebrow="어떻게 답했나 / STORY PREVIEW"
           title="답변은 어디에 모였는가"
-          thesis="같은 주제 공간 안에서 답변이 어떤 행동 유형과 처리 상태를 보이는지 탐색합니다. 위치는 topic space, 모양과 내부 표식은 답변행태를 뜻합니다."
+          thesis="같은 주제 공간 안에서 답변이 어떤 유형과 처리 상태를 보이는지 탐색합니다. 위치는 topic projection, A1의 red부터 A8의 blue까지 색은 답변행태를 뜻합니다."
           aside={<AtlasProjectionNote compact />}
           headingLevel="h2"
         />
@@ -178,9 +202,9 @@ export function ChapterAnswersAtlas() {
               <AtlasLegend defaultOpen />
               <div className="story-atlas-workspace">
                 <AtlasScene
-                  nodes={storyNodes}
+                  nodes={allNodes}
                   nodeFilterStates={filterStates}
-                  selectedNodeId={selectedNode?.id ?? null}
+                  selectedNodeId={visualSelectedNode?.id ?? null}
                   previewNodeId={previewNodeId}
                   focusNodeId={focusNodeId}
                   onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
@@ -189,10 +213,17 @@ export function ChapterAnswersAtlas() {
                   persistentLabelNodeIds={persistentLabelNodeIds}
                 />
               </div>
+              <StoryAtlasClusterNavigator
+                nodes={filteredNodes}
+                topicBins={release.bundle.topicBins}
+                selectedTopicBinId={visualSelectedNode?.topicBinId ?? null}
+                onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
+              />
               <StoryAtlasDossier
                 node={selectedNode}
                 onOpenEvidence={openEvidence}
                 isEditorialAnchor={isSelectedEditorialAnchor}
+                isExplicitSelection={Boolean(query.nodeId)}
                 atlasNodeCount={allNodes.length}
                 anchorCount={storyNodes.length}
               />
@@ -204,10 +235,15 @@ export function ChapterAnswersAtlas() {
                   testId="story-atlas-filter-empty-state"
                 />
               ) : (
-                <div className="story-atlas-dom-mirror">
+                <div
+                  aria-label="필터와 동기화된 접근 가능한 node 목록"
+                  className="story-atlas-dom-mirror"
+                  role="region"
+                  tabIndex={0}
+                >
                   <AtlasDomMirror
                     nodes={filteredNodes}
-                    selectedNodeId={selectedNode?.id ?? null}
+                    selectedNodeId={visualSelectedNode?.id ?? null}
                     onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
                     onClearSelection={() => updateQuery({ ...query, nodeId: null })}
                     onPreviewNode={setPreviewNodeId}
@@ -225,7 +261,7 @@ export function ChapterAnswersAtlas() {
         </div>
 
         <p className="redline-annotation-rule mt-8 max-w-3xl text-sm leading-relaxed text-[var(--ink-secondary)]">
-          이 장면은 승인된 140개 node 전체 지형과 16개 편집 anchor를 함께 보여줍니다. 더 깊은 비교·URL 공유·근거 추적은 Full Explorer에서 이어집니다.
+          이 장면은 승인된 140개 node 전체 지형과 편집 계약으로 고정된 16개 anchor를 함께 보여줍니다. 더 깊은 비교·URL 공유·근거 추적은 Full Explorer에서 이어집니다.
         </p>
       </PageFrame>
     </ChapterFrame>

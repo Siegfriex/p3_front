@@ -18,3 +18,21 @@
 2026-07-24 04:12 KST | CONCURRENT: branch changed to P3_FRONT_DEPLOY and deployment snapshot dd8f03b appeared; no Agent 4 Git mutation
 2026-07-24 04:14-04:16 KST | CONCURRENT: Agent 3-owned semantic/core files changed after baseline; preserved without overwrite
 2026-07-24 04:18-04:20 KST | CONCURRENT: Story changed from approved 16-node subset to 140-node field plus 16 anchors and extra type primer | CONTRACT CONTRADICTION
+2026-07-24 04:22-04:25 KST | CONCURRENT: Story rendering restored to 16 nodes; copy still claims 140; encoding changed to all-circle plus A1-A8 fill | CONTRACT CONTRADICTION
+2026-07-24 04:38 KST | DIRECTION CORRECTION: accepted latest all-circle + A1-red-to-A8-blue + type-primer baseline
+2026-07-24 04:38 KST | CURRENT STORY CONTRACT: 140 approved nodes + 16 editorial anchors; Explorer 140 approved nodes
+2026-07-24 04:39 KST | agent-browser current runtime | PASS 140 nodes / 16 anchors / 0 page overflow / 0 overlay / 0 console errors
+2026-07-24 04:40 KST | agent-browser selection state | PASS URL + ring + DOM state; Drawer did not auto-open
+2026-07-24 04:41 KST | npm run typecheck | PASS
+2026-07-24 04:41 KST | npm run lint | PASS
+2026-07-24 04:41 KST | npm run test | PASS 22 files / 62 tests
+2026-07-24 04:41 KST | npm run build | PASS 2186 modules
+2026-07-24 04:42-04:44 KST | relevant E2E | 17 PASS / 4 conditional SKIP / 1 stale 16-node assertion detected
+2026-07-24 04:45 KST | stale Story E2E updated to 140 field + 16 anchor contract
+2026-07-24 04:45 KST | agent4-atlas-vid + updated Story contract E2E | PASS 10
+2026-07-24 04:46 KST | corrected prior BLOCKED report to latest accepted presentation direction | READY
+2026-07-24 04:49 KST | latest dossier question-answer-detail hierarchy E2E | PASS 9
+2026-07-24 04:50 KST | final npm run typecheck | PASS
+2026-07-24 04:50 KST | final npm run lint | PASS
+2026-07-24 04:50 KST | final npm run test | PASS 22 files / 62 tests
+2026-07-24 04:50 KST | final npm run build | PASS 2186 modules

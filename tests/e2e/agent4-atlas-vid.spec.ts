@@ -8,20 +8,80 @@ async function blockingAxeViolations(page: Page) {
   return result.violations.filter((violation) => violation.impact === 'critical' || violation.impact === 'serious');
 }
 
-test('Story VID opens with the approved 16-node preview and an in-flow context dossier', async ({ page }) => {
+test('Story VID opens with all 140 approved nodes, 16 editorial anchors, and an in-flow context dossier', async ({ page }) => {
   await page.goto('/#answers');
   await expect(page.getByTestId('story-atlas-ready')).toBeVisible();
-  await expect(page.locator('#answers [data-node-id]')).toHaveCount(16);
+  await expect(page.locator('#answers [data-node-id]')).toHaveCount(140);
   await expect(page.locator('#answers [data-editorial-anchor="true"]')).toHaveCount(16);
-  await expect(page.locator('#answers #atlas-node-list button')).toHaveCount(16);
+  await expect(page.locator('#answers #atlas-node-list button')).toHaveCount(140);
   await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
   await expect(page.getByTestId('story-atlas-type-primer').locator('[data-answer-type]')).toHaveCount(8);
-  await expect(page.locator('#answers [data-selection-ring="true"]')).toHaveCount(1);
+  await expect(page.locator('#answers [data-selection-ring="true"]')).toHaveCount(0);
+  await expect(page.getByText(/FEATURED CONTEXT/)).toBeVisible();
 
-  await page.locator('#answers #atlas-node-list button').nth(1).click();
+  const evidenceNodeId = 'ANODE_62B6852738502414C4FA08E3';
+  const chart = page.getByTestId('atlas-chart').locator('svg');
+  await chart.scrollIntoViewIfNeeded();
+  const nodePoint = await page.locator(`#answers [data-node-id="${evidenceNodeId}"]`).evaluate((element) => {
+    const svg = (element as SVGElement).ownerSVGElement!;
+    const point = svg.createSVGPoint();
+    point.x = Number((element as SVGElement).dataset.screenX);
+    point.y = Number((element as SVGElement).dataset.screenY);
+    const client = point.matrixTransform(svg.getScreenCTM()!);
+    return { x: client.x, y: client.y };
+  });
+  await page.mouse.click(nodePoint.x, nodePoint.y);
+  await expect(page).toHaveURL(new RegExp(`node=${evidenceNodeId}`));
   await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await expect(page.locator('#answers [data-selection-ring="true"]')).toHaveCount(1);
+  const questionContext = page.getByTestId('story-atlas-question-context');
+  await expect(questionContext).toBeVisible();
+  await expect(questionContext.locator('details')).not.toHaveAttribute('open');
+  await questionContext.getByText('질문 전체 읽기').click();
+  await expect(questionContext.locator('details')).toHaveAttribute('open', '');
+  await expect(questionContext.getByText('질문 접기')).toBeVisible();
+  await expect(page.getByTestId('story-atlas-answer-focus').locator('blockquote')).not.toHaveText('');
+});
+
+test('A1 color filter keeps the full field as context and KMeans opens the closest approved evidence', async ({ page }) => {
+  await page.goto('/#answers');
+  await expect(page.getByTestId('story-atlas-ready')).toBeVisible();
+
+  const primer = page.getByTestId('story-atlas-type-primer');
+  await primer.locator('button[data-answer-type="A1"]').click();
+  await expect(page).toHaveURL(/\?types=A1$/);
+  await expect(page.locator('#answers [data-node-id]')).toHaveCount(140);
+  await expect(page.locator('#answers [data-node-filter-state="matched"]')).toHaveCount(12);
+  await expect(page.locator('#answers [data-node-filter-state="context"]')).toHaveCount(128);
+  await expect(page.locator('#answers #atlas-node-list button')).toHaveCount(12);
+  await expect(page.locator('.story-atlas-cluster-card')).toHaveCount(12);
+  await expect(primer.locator('button[data-answer-type="A1"]')).toHaveAttribute('aria-pressed', 'true');
+  await expect(primer.locator('button[data-answer-type="A8"]')).toHaveAttribute('aria-pressed', 'false');
+
+  await primer.getByRole('button', { name: 'A1–A8 전체 보기' }).click();
+  await expect(page.locator('.story-atlas-cluster-card')).toHaveCount(24);
+  await page.locator('.story-atlas-cluster-card').first().click();
+  await expect(page).toHaveURL(/\?node=ANODE_[A-F0-9]+$/);
+  await expect(page.locator('#answers [data-selection-ring="true"]')).toHaveCount(1);
+
+  const evidence = page.getByTestId('story-atlas-evidence-context');
+  await expect(evidence).toBeVisible();
+  const question = page.getByTestId('story-atlas-question-context');
+  const answer = page.getByTestId('story-atlas-answer-focus');
+  const details = page.getByTestId('story-atlas-node-details');
+  await expect(question).toContainText('이 답변을 끌어낸 질문');
+  await expect(answer).toContainText('대표 승인 답변');
+  await expect(answer.locator('blockquote')).not.toHaveText('');
+  await expect(details).toContainText('처리상태');
+  const verticalOrder = await page.evaluate(() => ({
+    question: document.querySelector('[data-testid="story-atlas-question-context"]')!.getBoundingClientRect().top,
+    answer: document.querySelector('[data-testid="story-atlas-answer-focus"]')!.getBoundingClientRect().top,
+    details: document.querySelector('[data-testid="story-atlas-node-details"]')!.getBoundingClientRect().top,
+  }));
+  expect(verticalOrder.question).toBeLessThan(verticalOrder.answer);
+  expect(verticalOrder.answer).toBeLessThan(verticalOrder.details);
+  expect(await blockingAxeViolations(page)).toEqual([]);
 });
 
 test('Projection Method Lab exposes canonical UMAP and explicit unavailable method states', async ({ page }) => {

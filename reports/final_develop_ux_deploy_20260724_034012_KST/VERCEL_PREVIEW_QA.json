@@ -1,15 +1,17 @@
 {
   "verdict": "VERCEL_PREVIEW_PASS",
-  "origin": "https://p3-culture-atlas-juxhugslf-siegfriexs-projects.vercel.app",
+  "origin": "https://p3-culture-atlas-hbxenqnoj-siegfriexs-projects.vercel.app",
   "releaseId": "ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264",
   "counts": {
     "storyPreviewSvgCount": 16,
     "storyPreviewDomCount": 16,
     "atlasSvgCount": 140,
     "atlasDomCount": 140,
-    "filteredSvgCount": 1,
-    "filteredDomCount": 1
+    "filteredSvgCount": 2,
+    "filteredDomCount": 2,
+    "editorialImageCount": 7
   },
+  "brokenImages": [],
   "routeStatus": {
     "/": 200,
     "/atlas": 200,

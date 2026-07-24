@@ -1,0 +1,15 @@
+viewport,view,state,path,classification
+1440,map,baseline-default,screenshots/baseline/atlas-map-default-1440.png,BASELINE
+1440,map,implemented-default,screenshots/after/atlas-map-default-1440.png,VERIFIED
+1440,map,implemented-selected,screenshots/after/atlas-map-selected-1440.png,VERIFIED
+1920,map,implemented-selected,screenshots/after/atlas-map-selected-1920.png,VERIFIED
+768,map,implemented-selected,screenshots/after/atlas-map-selected-768.png,VERIFIED
+375,map,implemented-selected,screenshots/after/atlas-map-selected-375.png,VERIFIED
+1440,relations,data-unavailable,screenshots/after/atlas-relations-blocked-1440.png,VERIFIED
+768,relations,data-unavailable,screenshots/after/atlas-relations-blocked-768.png,VERIFIED
+375,relations,data-unavailable,screenshots/after/atlas-relation-blocked-375.png,VERIFIED
+1440,evidence,selected,screenshots/after/atlas-evidence-selected-1440.png,VERIFIED
+375,evidence,details,screenshots/after/atlas-evidence-details-375.png,VERIFIED
+375,map,filter-open,screenshots/after/atlas-filter-open-375.png,VERIFIED
+1440,map,empty,screenshots/after/atlas-empty-1440.png,VERIFIED
+1440,story,current,screenshots/after/story-answers-default-1440.png,PARTIALLY_CONFIRMED

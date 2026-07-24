@@ -72,6 +72,7 @@ axe.story = await blockingAxe(page);
 
 await page.goto(`${origin}/?status=active&types=A2&view=nodes#answers`, { waitUntil: 'networkidle' });
 await page.getByRole('link', { name: '현재 필터로 전체 답변행태 지도 보기' }).click();
+await page.getByTestId('atlas-explorer-ready').waitFor();
 await page.waitForLoadState('networkidle');
 assert(page.url() === `${origin}/atlas?status=active&types=A2&view=nodes`, `CTA filter carry failed: ${page.url()}`);
 const filteredSvgCount = await page.locator('[data-testid="atlas-chart"] [data-node-id]').count();

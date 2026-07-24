@@ -1,17 +1,18 @@
 semantic,visual_token,text_support,status
-information_non_direct,circle,정보 부재·비직접 계열,LOCKED
-deferral_procedural,diamond,유보·절차 계열,LOCKED
-action_evidence,square,조치·근거 계열,LOCKED
-A1,empty,A1,LOCKED
-A2,horizontal_bar,A2,LOCKED
-A3,vertical_bar,A3,LOCKED
-A4,center_dot,A4,LOCKED
-A5,empty,A5,LOCKED
-A6,diagonal_slash,A6,LOCKED
-A7,plus,A7,LOCKED
-A8,double_dot,A8,LOCKED
+all_answer_types,circle,shared node silhouette,LOCKED
+A1,#9f1239,A1 and 기억 부재 진술,LOCKED
+A2,#c43f4f,A2 and 정보 미보유·확인 필요,LOCKED
+A3,#d96758,A3 and 질문 불일치·우회,LOCKED
+A4,#c98a4a,A4 and 일반론·원칙 반복,LOCKED
+A5,#6c91a8,A5 and 검토·협의 유보,LOCKED
+A6,#3f7fa6,A6 and 절차·권한 이관,LOCKED
+A7,#2167a8,A7 and 구체 조치·약속,LOCKED
+A8,#064f9e,A8 and 근거·결과 제시,LOCKED
+radius,upstream_radiusPx,normalized mass fact,LOCKED
+confidence,opacity_with_floor,confidence fact,LOCKED
 complete,solid_stroke,추진완료,LOCKED
 active,long_dash,추진중,LOCKED
 unresolved,dotted_broken,미완료·단절,LOCKED
 selected,red_ring,선택됨,LOCKED
 focus,dark_contrast_halo,키보드 초점,LOCKED
+editorial_anchor,subtle_dashed_outer_ring,Story anchor label,LOCKED

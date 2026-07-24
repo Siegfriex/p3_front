@@ -9,6 +9,7 @@ import { AtlasExplorer } from './AtlasExplorer';
 function bundleFixture(nodes = 1): AtlasViewModelBundle {
   return {
     releaseId: 'contract-release-001',
+    dataVersion: 'contract-data-001',
     projectionId: 'contract-projection-001',
     projectionHash: 'a'.repeat(64),
     bounds: { xMin: 0, xMax: 1, yMin: 0, yMax: 1 },
@@ -57,11 +58,12 @@ function bundleFixture(nodes = 1): AtlasViewModelBundle {
       getSummary: () => null,
       getDetail: async () => { throw new Error('not available in component fixture'); },
     },
+    relations: null,
   };
 }
 
 function queryFixture(nodeId: string | null = null): AtlasQueryState {
-  return { status: 'all', types: [...ANSWER_TYPES], nodeId, view: 'nodes' };
+  return { status: 'all', types: [...ANSWER_TYPES], nodeId, view: 'map', relationType: null, depth: 1 };
 }
 
 function renderExplorer(

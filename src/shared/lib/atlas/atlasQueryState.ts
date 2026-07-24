@@ -1,12 +1,15 @@
 import {
   ANSWER_TYPES,
+  ATLAS_RELATION_TYPES,
   ATLAS_STATUSES,
   type AnswerType,
   type AtlasQueryState,
+  type AtlasRelationType,
   type AtlasStatus,
+  type AtlasViewMode,
 } from '@/shared/types/atlas';
 
-export const ATLAS_QUERY_KEYS = ['status', 'types', 'node', 'view'] as const;
+export const ATLAS_QUERY_KEYS = ['status', 'types', 'node', 'view', 'relation', 'depth'] as const;
 
 export interface AtlasQueryParseResult {
   state: AtlasQueryState;
@@ -19,7 +22,9 @@ const DEFAULT_STATE: AtlasQueryState = {
   status: 'all',
   types: [...ANSWER_TYPES],
   nodeId: null,
-  view: 'nodes',
+  view: 'map',
+  relationType: null,
+  depth: 1,
 };
 
 function isAtlasStatus(value: string): value is AtlasStatus {
@@ -28,6 +33,14 @@ function isAtlasStatus(value: string): value is AtlasStatus {
 
 function isAnswerType(value: string): value is AnswerType {
   return (ANSWER_TYPES as readonly string[]).includes(value);
+}
+
+function isAtlasViewMode(value: string): value is AtlasViewMode {
+  return value === 'map' || value === 'relations' || value === 'evidence';
+}
+
+function isAtlasRelationType(value: string): value is AtlasRelationType {
+  return (ATLAS_RELATION_TYPES as readonly string[]).includes(value);
 }
 
 function isNodeId(value: string): boolean {
@@ -49,13 +62,15 @@ export function serializeAtlasQueryState(state: AtlasQueryState): string {
   const isDefault = state.status === 'all'
     && sameTypes(canonicalTypes, ANSWER_TYPES)
     && state.nodeId === null
-    && state.view === 'nodes';
+    && state.view === 'map'
+    && state.relationType === null;
   if (isDefault) return '';
 
   if (state.status !== 'all') params.set('status', state.status);
   if (!sameTypes(canonicalTypes, ANSWER_TYPES)) params.set('types', canonicalTypes.join(','));
   if (state.nodeId) params.set('node', state.nodeId);
-  params.set('view', 'nodes');
+  if (state.view !== 'map') params.set('view', state.view);
+  if (state.view === 'relations' && state.relationType) params.set('relation', state.relationType);
   return params.toString();
 }
 
@@ -87,9 +102,26 @@ export function parseAtlasQueryState(input: URLSearchParams | string): AtlasQuer
     : (rawNode ? (issues.push(`invalid node: ${rawNode}`), null) : null);
 
   const rawView = source.get('view');
-  if (rawView !== null && rawView !== 'nodes') issues.push(`invalid view: ${rawView}`);
+  let view: AtlasViewMode = DEFAULT_STATE.view;
+  if (rawView === 'nodes') {
+    issues.push('legacy view normalized: nodes');
+  } else if (rawView !== null && rawView !== '') {
+    if (isAtlasViewMode(rawView)) view = rawView;
+    else issues.push(`invalid view: ${rawView}`);
+  }
 
-  const state: AtlasQueryState = { status, types, nodeId, view: 'nodes' };
+  const rawRelation = source.get('relation');
+  let relationType: AtlasRelationType | null = null;
+  if (rawRelation) {
+    if (view !== 'relations') issues.push('relation removed outside Relations View');
+    else if (isAtlasRelationType(rawRelation)) relationType = rawRelation;
+    else issues.push(`invalid relation: ${rawRelation}`);
+  }
+
+  const rawDepth = source.get('depth');
+  if (rawDepth !== null && rawDepth !== '1') issues.push(`invalid depth: ${rawDepth}`);
+
+  const state: AtlasQueryState = { status, types, nodeId, view, relationType, depth: 1 };
   const canonicalSearch = serializeAtlasQueryState(state);
   const atlasSource = new URLSearchParams();
   ATLAS_QUERY_KEYS.forEach((key) => {
@@ -115,6 +147,13 @@ export function buildAtlasHrefFromPreview(
   status: AtlasStatus,
   types: readonly AnswerType[],
 ): string {
-  const search = serializeAtlasQueryState({ status, types: [...types], nodeId: null, view: 'nodes' });
+  const search = serializeAtlasQueryState({
+    status,
+    types: [...types],
+    nodeId: null,
+    view: 'map',
+    relationType: null,
+    depth: 1,
+  });
   return search ? `/atlas?${search}` : '/atlas';
 }

@@ -11,6 +11,13 @@
 - Story, Explorer, and Method Lab at 320, 375, 768, 1440, and 1920 widths under `screenshots/final/`.
 - `story-default-1440.png`, `story-selected-1440.png`.
 - `explorer-default-1440.png`, `explorer-focused-selected-1440.png`.
+- `story-field-current-140-1440.png`: current 140-node field with 16 editorial anchors.
+- `story-field-current-140-375.png`: bounded mobile field at 375px.
+- `story-primer-current-1440.png`: accepted all-circle A1 red-to-A8 blue primer.
+- `story-clusters-current-1440.png`: governed topic-bin navigation after the field.
+- `story-dossier-featured-current-1440.png`: initial featured context without false selection.
+- `story-selected-current-140-1440.png`: explicit Story selection state.
+- `explorer-field-current-1440.png`, `explorer-selected-current-1440.png`: latest Story–Explorer visual parity evidence.
 
 ## Data and method states
 

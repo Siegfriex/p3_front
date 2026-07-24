@@ -1,0 +1,5 @@
+viewport,map,relations,evidence,page_overflow,axe_critical_serious,inspector_behavior,result
+375,verified,blocked-state verified,verified,no,0,in-flow details and bounded chart scroller,PASS
+768,verified,blocked-state verified,verified,no,0,below visualization,PASS
+1440,verified,blocked-state verified,verified,no,0,persistent right dossier,PASS
+1920,verified,blocked-state verified,verified,no,0,persistent right dossier,PASS

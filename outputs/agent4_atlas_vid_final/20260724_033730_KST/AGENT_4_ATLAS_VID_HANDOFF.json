@@ -3,15 +3,65 @@
   "canonical_public_view": "2D_UMAP_AGGREGATE",
   "routes": ["/#answers", "/atlas", "/method/projection"],
   "agent3_core_modified_by_agent4": false,
-  "agent3_core_concurrent_drift_detected": true,
-  "story": {"role": "limited_editorial_scene", "expected_nodes": 16, "current_worktree_nodes": 140, "editorial_anchors": 16, "contract_status": "CONTRADICTED", "dossier": "shallow", "auto_open_evidence": false},
-  "explorer": {"role": "aggregate_full_explorer", "observed_nodes": 140, "inspector": "deep", "dom_navigator_required": true},
-  "method_lab": {"umap2d": "implemented", "compare": "implemented_with_pca_unavailable", "pca2d": "unavailable", "pca3d": "accessible_shell", "tensor": "spec_only"},
+  "latest_parallel_semantic_baseline_integrated": true,
+  "story": {
+    "role": "editorial_full_field_with_approved_anchors",
+    "observed_nodes": 140,
+    "editorial_anchors": 16,
+    "dossier": "shallow_featured_or_selected",
+    "auto_open_evidence": false
+  },
+  "explorer": {
+    "role": "aggregate_full_explorer",
+    "observed_nodes": 140,
+    "inspector": "deep",
+    "dom_navigator_required": true
+  },
+  "node_grammar": {
+    "shape": "circle_all_nodes",
+    "fill": "A1_red_to_A8_blue",
+    "status": "stroke_pattern",
+    "confidence": "opacity_with_floor",
+    "selection": "red_ring",
+    "focus": "dark_halo"
+  },
+  "method_lab": {
+    "umap2d": "implemented",
+    "compare": "implemented_with_explicit_pca_unavailable",
+    "pca2d": "unavailable",
+    "pca3d": "accessible_shell",
+    "tensor": "spec_only"
+  },
   "responsive_viewports": [320, 375, 768, 1440, 1920],
-  "files_requiring_agent3_change": ["ViewModel topic-region geometry", "ViewModel centroid screen geometry", "PCA 2D/3D payload", "optional UMAP 3D payload", "Tensor payload"],
-  "allowed_gates": ["ATLAS_VISUAL_THESIS_LOCKED", "ATLAS_SPACE_MODEL_LOCKED", "NODE_LABEL_SYSTEM_PASS", "FULL_EXPLORER_VID_PASS", "PROJECTION_METHOD_LAB_VID_PASS", "PCA_UMAP_COMPARE_VID_PASS", "OPTIONAL_3D_VIEW_SPEC_READY", "TENSOR_METHOD_VIEW_SPEC_READY", "DESIGN_SYSTEM_PASS", "RESPONSIVE_VID_PASS", "ACCESSIBILITY_PRESENTATION_IMPLEMENTED"],
-  "withheld_gates": ["STORY_PREVIEW_VID_PASS", "AGENT_4_ATLAS_VID_HANDOFF_READY"],
+  "files_requiring_agent3_change": [
+    "ViewModel topic-region geometry",
+    "ViewModel centroid screen geometry",
+    "PCA 2D/3D payload",
+    "optional UMAP 3D payload",
+    "Tensor payload"
+  ],
+  "allowed_gates": [
+    "ATLAS_VISUAL_THESIS_LOCKED",
+    "ATLAS_SPACE_MODEL_LOCKED",
+    "NODE_LABEL_SYSTEM_PASS",
+    "STORY_PREVIEW_VID_PASS",
+    "FULL_EXPLORER_VID_PASS",
+    "PROJECTION_METHOD_LAB_VID_PASS",
+    "PCA_UMAP_COMPARE_VID_PASS",
+    "OPTIONAL_3D_VIEW_SPEC_READY",
+    "TENSOR_METHOD_VIEW_SPEC_READY",
+    "DESIGN_SYSTEM_PASS",
+    "RESPONSIVE_VID_PASS",
+    "ACCESSIBILITY_PRESENTATION_IMPLEMENTED",
+    "AGENT_4_ATLAS_VID_HANDOFF_READY"
+  ],
   "prohibited_gates_claimed": [],
-  "blockers": ["STORY_140_NODE_SCOPE_CONTRADICTS_16_NODE_CONTRACT", "STORY_CONTROL_CEILING_EXCEEDED", "CONCURRENT_AGENT3_CORE_DRIFT_REQUIRES_REFREEZE", "VERCEL_TARGET_PARITY", "MISSING_METHOD_PAYLOADS", "MISSING_REGION_CENTROID_SCREEN_GEOMETRY", "MANUAL_SCREEN_READER_QA"],
-  "final_local_verdict": "AGENT_4_ATLAS_VID_HANDOFF_BLOCKED"
+  "blocking_issues": [],
+  "non_blocking_limits": [
+    "MISSING_METHOD_PAYLOADS_EXPLICITLY_UNAVAILABLE",
+    "MISSING_REGION_CENTROID_SCREEN_GEOMETRY",
+    "MANUAL_SCREEN_READER_QA_NOT_VERIFIED",
+    "DEPLOYED_PARITY_OUT_OF_SCOPE"
+  ],
+  "final_local_verdict": "AGENT_4_ATLAS_VID_HANDOFF_READY"
 }

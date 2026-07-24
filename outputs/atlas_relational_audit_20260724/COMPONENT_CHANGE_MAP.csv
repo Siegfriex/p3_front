@@ -1,0 +1,11 @@
+area,current,target,authority_boundary
+query,atlasQueryState.ts,map relations evidence plus relation and depth,serialization only
+header,AtlasPage and AtlasExplorer,summary metrics and deterministic filter sentence,approved aggregate fields only
+controls,AtlasControls,behavior-family groups plus A1-A8,filter state only
+map,AtlasScene,topic layer external annotation multivariate glyphs,no coordinate mutation
+relations,new AtlasRelationsView,explicit DataUnavailable until approved edges,no inferred edge
+evidence,new AtlasEvidenceView and dossier,approved detail fetch and provenance,no private or synthetic Evidence
+inspector,AtlasInspector,Evidence dossier with contextual metric definitions,no percentile/rank inference
+comparison,new AtlasDistributionStrip,approved A1-A8 count comparison,no semantic computation
+accessibility,AtlasDomMirror,view-aware node and relation mirror,relation mirror blocked until edges
+responsive,atlas-page.css,9/3 desktop stacked tablet segmented mobile,no page overflow

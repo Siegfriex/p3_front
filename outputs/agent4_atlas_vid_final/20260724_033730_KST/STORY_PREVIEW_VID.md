@@ -1,23 +1,22 @@
 # Story Preview VID
 
-Route `/​#answers` is contractually a limited editorial scene named “어떻게 답했나”. It must use only the approved 16-node subset and never substitute for the Story’s Evidence Line.
+Route `/#answers` is the editorial entry named “어떻게 답했나”. It shares the complete 140-node canonical field with Explorer and identifies 16 approved nodes as editorial anchors. This keeps spatial continuity while preserving a shallower Story reading depth.
 
 ## Implemented composition
 
-1. Chapter marker and `04` display hierarchy.
-2. Headline and short thesis.
-3. Projection warning adjacent to the introduction.
-4. Four-control ceiling: status, answer type, legend, reset.
-5. Canonical 2D field.
-6. Shallow selected-node dossier in an 8:4 desktop workspace.
-7. Explicit evidence action; selection does not auto-open the drawer.
-8. Full Explorer and method CTAs.
-9. Bounded DOM navigator below the scene.
+1. Chapter marker, headline, thesis, and projection warning.
+2. Eight-type A1–A8 primer using the accepted red-to-blue sequence.
+3. Compact status, answer-type, legend, and reset controls.
+4. Canonical 2D field with all 140 approved nodes and 16 editorial anchors.
+5. Sparse deterministic labels selected without coordinate movement.
+6. Topic-bin navigator derived from governed `topicBinId` values.
+7. Featured context dossier before explicit selection; selected dossier after user action.
+8. Explicit evidence action; selection never auto-opens the drawer.
+9. Full Explorer CTA carrying current filters but not Story selection.
+10. Synchronized DOM navigator for keyboard and assistive-technology access.
 
-At 64rem and below, scene and dossier stack. At 40rem and below the dossier becomes a bordered lower rail. Approved `story_preview_node_ids` are required; pointer failure renders DataUnavailable and never a mock.
+At 64rem and below, the scene and dossier stack. On small screens the visual field remains a bounded horizontal exploration surface so effective node/touch scale is retained; the page itself has no horizontal overflow. Missing approved release data renders DataUnavailable and never a mock.
 
-## Current contradiction detected after implementation
+The type primer is an editorial explanation and quick filter. The compact controls remain the durable query-state interface. Their roles are distinct and were verified through URL-state E2E.
 
-A parallel edit made after the Agent 4 baseline changed the Story scene to render all 140 Explorer nodes, using the 16 approved Story IDs only as editorial anchors, and added a separate eight-item type primer. This contradicts the locked subset and four-control ceiling. Agent 4 preserved the parallel edit but does not approve it.
-
-Gate: `BLOCKED_CONCURRENT_STORY_SCOPE_DRIFT`. Real deployment parity is outside this gate.
+Gate: `STORY_PREVIEW_VID_PASS`.

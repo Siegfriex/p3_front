@@ -147,7 +147,7 @@ test('production-style no-approved-manifest route fails closed without legacy re
   const assertClean = collectRuntimeFailures(page, { ignoreDeliberateHttp404: true });
   const requested: string[] = [];
   page.on('request', (request) => requested.push(request.url()));
-  await page.goto('/atlas?status=active&types=A7,A1&view=nodes');
+  await page.goto('/atlas?status=active&types=A7,A1');
   await expect(page.getByTestId('atlas-data-unavailable')).toBeVisible();
   await expect(page.getByText(/승인된 Atlas 데이터가 아직 없습니다/)).toBeVisible();
   await page.setViewportSize({ width: 1440, height: 1000 });
@@ -161,17 +161,17 @@ test('production-style no-approved-manifest route fails closed without legacy re
   expect(axeResult.violations.filter((violation) => violation.impact === 'critical' || violation.impact === 'serious')).toEqual([]);
   expect(requested.some((url) => url.includes('atlas-nodes-all') || url.includes('PROJ_'))).toBe(false);
   await page.reload();
-  await expect(page).toHaveURL(/status=active&types=A7,A1&view=nodes/);
+  await expect(page).toHaveURL(/status=active&types=A1%2CA7/);
   assertClean();
 });
 
-test('invalid Atlas query is explicit and never rewritten by a passive observer', async ({ page }) => {
+test('invalid Atlas query is rewritten to the canonical safe state', async ({ page }) => {
   test.skip(FIXTURE_ENABLED, 'no-manifest behavior runs against the production preview without fixture env');
   await page.route('**/data/current-release.json', (route) => route.fulfill({ status: 404, body: '' }));
   await page.goto('/atlas?status=pending&types=A9&node=%3CNA%3E&view=raw');
   await expect(page.getByTestId('atlas-data-unavailable')).toBeVisible();
-  await expect(page.getByText(/URL parameter 5개는 안전한 기본값/)).toBeVisible();
-  await expect(page).toHaveURL(/status=pending&types=A9/);
+  await expect(page).toHaveURL('/atlas');
+  await expect(page.locator('body')).not.toContainText('<NA>');
 });
 
 test.describe('CONTRACT_FIXTURE route and query shell', () => {
@@ -183,7 +183,7 @@ test.describe('CONTRACT_FIXTURE route and query shell', () => {
 
   test('restores filters and node selection through URL, reload, Back, and Forward', async ({ page }) => {
     const assertClean = collectRuntimeFailures(page);
-    await page.goto('/atlas?status=complete&types=A1&view=nodes');
+    await page.goto('/atlas?status=complete&types=A1');
     await expect(page.getByTestId('fixture-provenance')).toBeVisible();
     await expect(page.getByRole('img', { name: /^답변행태 지도/ })).toBeVisible();
     await page.setViewportSize({ width: 1440, height: 1000 });
@@ -240,16 +240,16 @@ test.describe('CONTRACT_FIXTURE route and query shell', () => {
       }
     }
 
-    await page.goto('/atlas?node=contract-node-missing&view=nodes');
+    await page.goto('/atlas?node=contract-node-missing');
     await expect(page.getByTestId('atlas-invalid-node-state')).toBeVisible();
     await page.getByRole('button', { name: 'node 선택 지우기' }).click();
     await expect(page).toHaveURL('/atlas');
 
-    await page.goto('/atlas?status=active&types=A7&view=nodes');
+    await page.goto('/atlas?status=active&types=A7');
     await page.getByRole('button', { name: '필터 초기화' }).first().click();
     await expect(page).toHaveURL('/atlas');
 
-    await page.goto('/atlas?status=active&types=A7&node=contract-node-001&view=nodes');
+    await page.goto('/atlas?status=active&types=A7&node=contract-node-001');
     await expect(page).not.toHaveURL(/node=/);
     await expect(page.locator('#atlas-selection-inspector')).toContainText('선택된 기록이 없습니다');
   });

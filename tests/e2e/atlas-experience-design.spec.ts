@@ -8,15 +8,15 @@ async function blockingAxeViolations(page: Page) {
   return result.violations.filter((violation) => violation.impact === 'critical' || violation.impact === 'serious');
 }
 
-test('Story Answers renders approved nodes, carries URL filters to Explorer, and restores with Back', async ({ page }) => {
+test('Story Answers renders the approved field and editorial anchors, carries URL filters to Explorer, and restores with Back', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/#answers');
   const chapter = page.locator('#answers');
   await expect(chapter).toBeInViewport();
   await expect(page.getByTestId('story-atlas-ready')).toBeVisible();
-  await expect(chapter.locator('[data-testid="atlas-chart"] [data-node-id]')).toHaveCount(16);
+  await expect(chapter.locator('[data-testid="atlas-chart"] [data-node-id]')).toHaveCount(140);
   await expect(chapter.locator('[data-editorial-anchor="true"]')).toHaveCount(16);
-  await expect(chapter.locator('.atlas-node-navigator')).toHaveCount(16);
+  await expect(chapter.locator('.atlas-node-navigator')).toHaveCount(140);
   await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
   await expect(page.getByTestId('story-atlas-data-unavailable')).toHaveCount(0);
   await expect(chapter.getByText(/물리적 거리|질문 세분성|답변 수용성/)).toHaveCount(0);
@@ -26,11 +26,11 @@ test('Story Answers renders approved nodes, carries URL filters to Explorer, and
   const dossierBox = await page.getByTestId('story-selected-dossier').boundingBox();
   expect(Boolean(stageBox && dossierBox && dossierBox.y >= stageBox.y + stageBox.height)).toBe(true);
 
-  await page.goto('/?status=active&types=A2&view=nodes#answers');
+  await page.goto('/?status=active&types=A2#answers');
   const explorerLink = page.getByRole('link', { name: '현재 필터로 전체 답변행태 지도 보기' });
-  await expect(explorerLink).toHaveAttribute('href', /\/atlas\?status=active&types=A2&view=nodes/);
+  await expect(explorerLink).toHaveAttribute('href', /\/atlas\?status=active&types=A2/);
   await explorerLink.click();
-  await expect(page).toHaveURL(/\/atlas\?status=active&types=A2&view=nodes/);
+  await expect(page).toHaveURL(/\/atlas\?status=active&types=A2/);
   await expect(page.getByTestId('atlas-chart')).toBeVisible();
   await expect(page.getByTestId('atlas-data-unavailable')).toHaveCount(0);
   await expect(page.locator('body > #root > div > footer')).toHaveCount(0);

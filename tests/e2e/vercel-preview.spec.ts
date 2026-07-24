@@ -48,7 +48,7 @@ test.describe('Vercel production preview', () => {
     await expect(page.getByText(/2,842|82\.4%|ev-101/)).toHaveCount(0);
     await expect(page.locator('[data-testid$="data-unavailable"]')).toHaveCount(0);
     await expect(page.getByTestId('story-atlas-ready')).toHaveAttribute('data-release-id', pointer.release_id);
-    await expect(page.locator('#answers [data-testid="atlas-chart"] [data-node-id]')).toHaveCount(16);
+    await expect(page.locator('#answers [data-testid="atlas-chart"] [data-node-id]')).toHaveCount(140);
     await expect(page.locator('#answers [data-editorial-anchor="true"]')).toHaveCount(16);
 
     await page.goto('/atlas');

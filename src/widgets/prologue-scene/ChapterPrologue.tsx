@@ -57,57 +57,90 @@ export const ChapterPrologue: React.FC<ChapterPrologueProps> = ({ bundle }) => {
   return (
     <ChapterFrame id="prologue" orderNumber="CHAPTER 00" className="story-chapter story-chapter--prologue">
       <PageFrame>
-        <div className="relative min-h-[var(--layout-hero-min-height)] flex flex-col justify-between py-[var(--chapter-prologue-padding-block)] overflow-hidden">
+        <div className="relative min-h-[var(--layout-hero-min-height)] flex flex-col justify-between py-[var(--chapter-prologue-padding-block)]">
           
           {/* Background SVG Evidence Line Geometry with Scale Handoff Elbow */}
-          <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute inset-y-0 left-1/2 z-0 w-screen -translate-x-1/2 pointer-events-none" aria-hidden="true">
             <svg
               className="w-full h-full"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
-              {/* Evidence Line Entry — straight drop from the masthead */}
-              <motion.path
-                d="M 12 0 L 12 80"
-                fill="none"
-                stroke="var(--color-behavior-red-deep)"
-                strokeWidth="2.5"
-                vectorEffect="non-scaling-stroke"
-                initial={isReducedMotion ? { pathLength: 1 } : { pathLength: 0 }}
-                animate={{ pathLength: 1 }}
+              {/* Evidence Line Entry — enters from the viewport edge, then drops through the chapter */}
+              <motion.g
+                initial={isReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: isReducedMotion ? 0 : EVIDENCE_LINE_ENTRY_DURATION, ease: [0.16, 1, 0.3, 1] }}
-              />
+              >
+                <path
+                  className="hidden md:block"
+                  d="M 0 8 L 12 8 L 12 80"
+                  fill="none"
+                  stroke="var(--color-behavior-red-deep)"
+                  strokeWidth="2.5"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <path
+                  className="md:hidden"
+                  d="M 0 8 L 4 8 L 4 80"
+                  fill="none"
+                  stroke="var(--color-behavior-red-deep)"
+                  strokeWidth="2.5"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </motion.g>
 
-              {/* Handoff Curve — hands the thread to Chapter 01 (Scale) */}
-              <motion.path
-                d="M 12 80 C 12 92, 50 92, 50 100"
-                fill="none"
-                stroke="var(--color-behavior-red-deep)"
-                strokeWidth="2.5"
-                vectorEffect="non-scaling-stroke"
-                initial={isReducedMotion ? { pathLength: 1 } : { pathLength: 0 }}
-                animate={{ pathLength: 1 }}
+              {/* Handoff Curve — exits at the opposite viewport edge */}
+              <motion.g
+                initial={isReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{
                   duration: isReducedMotion ? 0 : EVIDENCE_LINE_HANDOFF_DURATION,
                   delay: isReducedMotion ? 0 : EVIDENCE_LINE_ENTRY_DURATION,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-              />
+              >
+                <path
+                  className="hidden md:block"
+                  d="M 12 80 C 12 92, 24 92, 36 92 L 100 92"
+                  fill="none"
+                  stroke="var(--color-behavior-red-deep)"
+                  strokeWidth="2.5"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <path
+                  className="md:hidden"
+                  d="M 4 80 C 4 92, 16 92, 28 92 L 100 92"
+                  fill="none"
+                  stroke="var(--color-behavior-red-deep)"
+                  strokeWidth="2.5"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </motion.g>
 
-              {/* Entry Band Visual Impact Anchor */}
+              {/* Compact anchors keep the rule legible without becoming a decorative mass. */}
               <circle
+                className="hidden md:block"
                 cx="12"
-                cy="0"
-                r="4"
+                cy="8"
+                r="0.65"
+                fill="var(--color-behavior-red-deep)"
+                vectorEffect="non-scaling-stroke"
+              />
+              <circle
+                className="md:hidden"
+                cx="4"
+                cy="8"
+                r="0.65"
                 fill="var(--color-behavior-red-deep)"
                 vectorEffect="non-scaling-stroke"
               />
 
-              {/* Terminal Anchor for Chapter 2 (Scale) Handoff */}
+              {/* The half-clipped terminal makes the rule visibly continue beyond the scene. */}
               <circle
-                cx="50"
-                cy="100"
-                r="5"
+                cx="100"
+                cy="92"
+                r="0.65"
                 fill="var(--color-ink)"
                 vectorEffect="non-scaling-stroke"
               />
@@ -142,7 +175,7 @@ export const ChapterPrologue: React.FC<ChapterPrologueProps> = ({ bundle }) => {
           >
             {/* Headline Block (Cols 2–10) */}
             <motion.div
-              className="md:col-start-2 md:col-end-9 space-y-5"
+              className="md:col-start-2 md:col-end-9 space-y-5 md:pl-6"
               variants={itemVariants}
             >
               <div className="inline-flex items-center gap-2 px-2.5 py-1 text-xs font-mono bg-[var(--color-behavior-red-bg)] text-[var(--color-behavior-red-deep)] border border-[var(--color-behavior-red-soft)]">
@@ -181,7 +214,7 @@ export const ChapterPrologue: React.FC<ChapterPrologueProps> = ({ bundle }) => {
 
             {/* Supporting Paragraph & Primary Action (Cols 2–8) */}
             <motion.div
-              className="md:col-start-2 md:col-end-8 space-y-6 md:mt-2"
+              className="md:col-start-2 md:col-end-8 space-y-6 md:mt-2 md:pl-6"
               variants={itemVariants}
             >
               <p className="type-body-l text-[var(--color-neutral-700)] leading-relaxed max-w-2xl font-normal">

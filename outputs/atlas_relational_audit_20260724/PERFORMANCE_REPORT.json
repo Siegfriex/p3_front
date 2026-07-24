@@ -1,0 +1,29 @@
+{
+  "classification": "PARTIALLY_CONFIRMED",
+  "environment": "local Vite development server and local production build",
+  "runtime_lab": {
+    "lcp_ms": 520,
+    "ttfb_ms": 7.3,
+    "dom_content_loaded_ms": 145.9,
+    "load_ms": 148.7,
+    "map_to_relations_commit_ms": 54.4,
+    "status_filter_commit_ms": 47.0,
+    "dom_elements": 2517,
+    "chart_svg_elements": 1319,
+    "atlas_nodes": 140
+  },
+  "production_build": {
+    "atlas_js_kb": 22.93,
+    "atlas_js_gzip_kb": 7.33,
+    "atlas_css_kb": 13.16,
+    "atlas_css_gzip_kb": 2.92,
+    "story_js_kb": 522.33,
+    "story_js_gzip_kb": 315.91,
+    "warning": "Story chunk exceeds 500 kB"
+  },
+  "limits": [
+    "Local lab timing is not field Core Web Vitals or p75 INP.",
+    "Vite development cache transfer sizes were not accepted as production byte evidence.",
+    "Real edge rendering performance is not verifiable without approved relationship data."
+  ]
+}

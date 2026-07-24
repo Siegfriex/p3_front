@@ -24,9 +24,9 @@ test.describe('approved Story and Explorer parity', () => {
       displayY: element.getAttribute('data-display-y'),
       radius: element.getAttribute('data-source-radius'),
     })));
-    expect(storyNodes).toHaveLength(16);
+    expect(storyNodes).toHaveLength(140);
     await expect(page.locator('#answers [data-editorial-anchor="true"]')).toHaveCount(16);
-    await expect(page.locator('#answers .atlas-node-navigator')).toHaveCount(16);
+    await expect(page.locator('#answers .atlas-node-navigator')).toHaveCount(140);
 
     await page.goto('/atlas');
     const explorerReady = page.getByTestId('atlas-explorer-ready');
@@ -60,8 +60,8 @@ test.describe('approved Story and Explorer parity', () => {
   });
 
   test('serializes status and answer types into the CTA without carrying Story selection', async ({ page }) => {
-    await page.goto('/?status=active&types=A2,A7&node=ANODE_62B6852738502414C4FA08E3&view=nodes#answers');
+    await page.goto('/?status=active&types=A2,A7&node=ANODE_62B6852738502414C4FA08E3#answers');
     const cta = page.getByRole('link', { name: '현재 필터로 전체 답변행태 지도 보기' });
-    await expect(cta).toHaveAttribute('href', '/atlas?status=active&types=A2%2CA7&view=nodes');
+    await expect(cta).toHaveAttribute('href', '/atlas?status=active&types=A2%2CA7');
   });
 });

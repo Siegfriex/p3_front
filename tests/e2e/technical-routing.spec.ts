@@ -104,7 +104,7 @@ test('approved evidence resolves while unavailable case and evidence IDs fail cl
 
 test('route-driven evidence drawer is modal, history-aware, and restores focus', async ({ page }) => {
   const assertCleanRuntime = collectRuntimeFailures(page);
-  await page.goto(`/atlas?node=${representativeNodeId}&view=nodes`);
+  await page.goto(`/atlas?node=${representativeNodeId}`);
 
   const opener = page.getByRole('button', { name: '승인된 대표 증거 보기' });
   await opener.click();
@@ -137,7 +137,7 @@ test('route-driven evidence drawer is modal, history-aware, and restores focus',
 test('mobile approved Evidence drawer remains usable and contained', async ({ page }) => {
   const assertCleanRuntime = collectRuntimeFailures(page);
   await page.setViewportSize({ width: 375, height: 812 });
-  await page.goto(`/atlas?node=${representativeNodeId}&view=nodes`);
+  await page.goto(`/atlas?node=${representativeNodeId}`);
   await page.getByRole('button', { name: '승인된 대표 증거 보기' }).click();
 
   const dialog = page.getByRole('dialog');
@@ -164,13 +164,14 @@ test('Axe reports zero critical or serious violations on key route states', asyn
     await expectNoCriticalOrSeriousAxeViolations(page);
   }
 
-  await page.goto(`/atlas?node=${representativeNodeId}&view=nodes`);
+  await page.goto(`/atlas?node=${representativeNodeId}`);
   await page.getByRole('button', { name: '승인된 대표 증거 보기' }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await expectNoCriticalOrSeriousAxeViolations(page);
 });
 
 test('foundation gallery exists only at the development route', async ({ page }) => {
+  test.skip(process.env.AGENT4_PRODUCTION_E2E === 'true', 'development-only route is intentionally excluded from production');
   await page.goto('/method');
   await expect(page.getByTestId('foundations-page')).toHaveCount(0);
   await expect(page.getByText('Foundation Gallery', { exact: true })).toHaveCount(0);

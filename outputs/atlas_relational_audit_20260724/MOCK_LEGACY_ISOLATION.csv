@@ -1,0 +1,9 @@
+asset_or_path,classification,production_consumed,decision
+atlas_relationship_edges,UNKNOWN,no,absent; relations fail closed
+legacy graph data,LEGACY,no,never copied into approved path
+development relation fixture,MOCK,no,not created because blocked state can be tested without invented edges
+current release bundle,FRONTEND_BUNDLE,yes,only approved runtime source
+Story aggregate release,FRONTEND_BUNDLE,yes,shares node identities and projection
+browser-generated similarity,FORBIDDEN,no,not implemented
+browser-generated percentile,FORBIDDEN,no,not implemented
+browser force or jitter,FORBIDDEN,no,not implemented

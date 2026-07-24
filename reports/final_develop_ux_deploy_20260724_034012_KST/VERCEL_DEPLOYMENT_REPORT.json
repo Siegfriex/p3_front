@@ -4,22 +4,15 @@
     "name": "p3-culture-atlas",
     "team_id": "team_COxt21NBfpM3VIbIkXA6a23l"
   },
-  "failed_preview": {
-    "id": "dpl_ASyQsE8L3kRBRg1vnydXjBDBwHCn",
-    "state": "ERROR",
-    "error_code": "missing_lock_file",
-    "cause": "source-build installCommand was applied to a prebuilt-only upload",
-    "production_alias_affected": false
-  },
   "preview": {
-    "id": "dpl_AL8SFbZ1nsMdfTLV2yQJYfZ1hyV9",
-    "url": "https://p3-culture-atlas-juxhugslf-siegfriexs-projects.vercel.app",
+    "id": "dpl_FzBwJuAybTT3uekrzoBcRk8MerJ8",
+    "url": "https://p3-culture-atlas-hbxenqnoj-siegfriexs-projects.vercel.app",
     "state": "READY",
     "qa": "VERCEL_PREVIEW_PASS"
   },
   "production": {
-    "id": "dpl_5CKmLNV4ojieeo1xfLezorYcwig9",
-    "url": "https://p3-culture-atlas-k1r3zjgds-siegfriexs-projects.vercel.app",
+    "id": "dpl_BQ2KQ8Y1dHAxzpoeawmoKvNiddod",
+    "url": "https://p3-culture-atlas-fkqyidpi1-siegfriexs-projects.vercel.app",
     "canonical_alias": "https://p3-culture-atlas.vercel.app",
     "target": "production",
     "state": "READY",
@@ -27,5 +20,7 @@
   },
   "post_deploy_runtime_errors": 0,
   "functions_required": false,
-  "backend_required": false
+  "backend_required": false,
+  "deployment_payload_files": 183,
+  "deployment_payload_characters": 3071971
 }

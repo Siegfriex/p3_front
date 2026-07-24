@@ -10,3 +10,6 @@ test-results/
 *.log
 .env*
 !.env.example
+
+# Oversized local design-source export; the tracked PNG is the runtime/reference asset.
+design/Untitled.pdf

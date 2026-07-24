@@ -7,9 +7,11 @@
     "storyPreviewDomCount": 16,
     "atlasSvgCount": 140,
     "atlasDomCount": 140,
-    "filteredSvgCount": 1,
-    "filteredDomCount": 1
+    "filteredSvgCount": 2,
+    "filteredDomCount": 2,
+    "editorialImageCount": 7
   },
+  "brokenImages": [],
   "routeStatus": {
     "/": 200,
     "/atlas": 200,

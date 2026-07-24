@@ -2,100 +2,105 @@
 
 ## 1. Executive Intelligence Brief
 
-The Agent 4-owned semantic node core was preserved, and Story Preview, Full Explorer, and the opt-in Projection Method Lab received one restrained editorial VID. However, a later parallel edit changed the Story scene from the approved 16-node subset to all 140 Explorer nodes and added an extra type primer. Current local verdict: `AGENT_4_ATLAS_VID_HANDOFF_BLOCKED`.
+The current Atlas VID is implemented around one accepted semantic presentation baseline: every aggregate node is a circle, A1–A8 is encoded by a restrained red-to-blue sequence, radius preserves upstream `radiusPx`, status remains a stroke pattern, confidence remains opacity, selection is a red ring, and keyboard focus is a dark halo. Story and Explorer share the same 140-node field; Story adds 16 approved editorial anchors and shallower evidence narration. Final local verdict: `AGENT_4_ATLAS_VID_HANDOFF_READY`.
 
 ## 2. Current Source Verification
 
-- Start branch and HEAD: `agent/frontend-routing-atlas-foundation-20260723` at `20835ecadcce0a57067231806c4cfde9dd5b8f41`.
-- Concurrent Git transition observed during QA: branch `P3_FRONT_DEPLOY`, HEAD/upstream `dd8f03b999435f037c8ae2560059f557b05adfe7` (`Prepare P3 frontend deployment snapshot`). Agent 4 did not run commit, push, switch, or staging commands in this task.
-- Current pointer: `ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264`.
+- Current branch: `P3_FRONT_DEPLOY`.
+- Current HEAD: `aa6c391da3514957005da46f5fd41010157bbd75`.
+- Release: `ATLAS_DG761_STORY_20260724_024000_KST_D9DB2264`.
 - Projection: `PROJ_DG761_20260723_213011_KST_4665FDF3E5CF`.
-- Story approved subset: 16 nodes; Explorer aggregate field observed: 140 nodes.
-- Agent 3’s older “approved bundle absent” statement is stale relative to current source. The deployment/cutover blocker remains distinct.
+- Story field: 140 approved aggregate nodes with 16 editorial anchors.
+- Explorer field: 140 approved aggregate nodes.
+- Agent 4 did not alter projection coordinates, projection domain, radius, hit testing, or angular keyboard navigation.
+- Parallel worktree changes were preserved; no staging, commit, push, or branch switch was performed in this pass.
 
 ## 3. Visual Thesis
 
-The system is a public-record plane: paper, ink, restrained red trace, strong typographic hierarchy, no glass panels or rainbow clustering.
+The Atlas is a public-record plane: paper, ink, restrained red trace, documentary typography, exact spatial framing, and evidence-led reading. It avoids dashboard cards, glass panels, rainbow clustering, force layouts, and decorative particles.
 
 ## 4. Spatial Model
 
-Editorial time, topic projection, behavior encoding, and projection-method comparison are explicitly separated. UMAP distance is never presented as a similarity score.
+Editorial time, topic projection, behavior encoding, and method comparison remain distinct. UMAP screen distance is never presented as a similarity score.
 
 ## 5. Canonical 2D Atlas
 
-Public Story and Explorer remain the approved padded-isotropic 2D UMAP field. No coordinates, radius, projection domain, hit testing, or keyboard navigation changed.
+Public Story and Explorer use the same padded-isotropic 2D UMAP field. Position is topic projection; A1–A8 color is answer type; radius is upstream mass; opacity is confidence; stroke is status. Coordinates and radius are never adjusted in presentation code.
 
 ## 6. Story Preview
 
-The Agent 4 implementation created an 8:4 field/dossier composition and shallow evidence flow. The current worktree no longer honors the locked scope: it renders 140 nodes with 16 anchors and adds a separate type primer. This is `CONTRADICTED`, not an approved refinement.
+Story shows the complete 140-node topology so the field does not change at the Explorer boundary, while 16 approved nodes receive editorial-anchor treatment. An eight-type primer explains and filters A1–A8 before the compact control row. The graph remains primary, followed by topic-bin navigation, a shallow featured/selected dossier, the synchronized DOM navigator, and the Full Explorer CTA. Initial featured context does not create a false visual selection; evidence opens only from an explicit action.
 
 ## 7. Full Explorer
 
-The map is primary, the inspector is a fixed-width dossier, and the DOM navigator is bounded. Tablet and mobile stack the same hierarchy without hover dependence.
+Explorer keeps the map primary with compact controls, a deeper inspector, legend, projection warning, and bounded DOM navigator. The same node IDs, coordinates, radius, color, status stroke, opacity, selection, and focus tokens are reused.
 
 ## 8. Node Glyph and Label System
 
-Family shape, A-code inner mark, status stroke, confidence opacity, mass radius, selection ring, and focus halo remain shared. All-label rendering stays disabled.
+All nodes use one circular silhouette. A1–A8 is communicated by color plus primer, legend, semantic label, inspector copy, and DOM text. Persistent Story labels are deliberately sparse and selected by a deterministic collision-aware policy without moving nodes. Hover/focus/selection may reveal additional labels. Focus and selection remain visually distinct.
 
 ## 9. Topic Regions and Centroids
 
-Specifications are locked, but overlays are not rendered: the current ViewModel lacks approved label state and screen-mapped contour/centroid geometry. An Agent 3 change request is included.
+The Story topic-bin navigator uses governed `topicBinId` and reviewed labels. Region contours and centroid geometry are not synthesized when an approved payload is absent.
 
 ## 10. PCA/UMAP Method Comparison
 
-UMAP renders current approved nodes; PCA remains a clearly unavailable contract frame. Identity synchronization is specified without manufacturing PCA coordinates.
+UMAP renders the current approved field. PCA panels remain explicit unavailable states until governed coordinates exist; no substitute coordinates are manufactured.
 
 ## 11. Optional 3D View
 
-A fixed-camera, no-data interface shell demonstrates controls and accessible fallback. No auto-rotation, particles, free-orbit-only navigation, or fake projection appears.
+The fixed-camera 3D shell is opt-in, keyboard reachable, and backed by canonical 2D and textual alternatives. It does not claim a 3D projection payload.
 
 ## 12. Tensor Analysis View
 
-Specification-only because no governed tensor pipeline is exposed. No latent factor is synthesized.
+Tensor remains specification-only because no governed tensor pipeline is exposed. No latent factor is synthesized.
 
 ## 13. Design Tokens
 
-The existing Redline public-record palette and type system are reused. New layout tokens are component-local and do not remap semantic node encodings.
+The Redline paper/ink system is reused. Atlas tokens are limited to answer-type color, status stroke, confidence opacity floor, selection ring, focus halo, stage frame, and component-local responsive layout.
 
 ## 14. Typography and Color
 
-Serif display, sans body, and mono metadata create a documentary hierarchy. Shape, dash, inner mark, text, and state attributes preserve meaning without color.
+Serif display, sans body, and mono metadata produce a documentary hierarchy. The A1 red-to-A8 blue sequence is not the sole carrier of meaning: every node state is also exposed through labels, legend copy, inspector facts, and the synchronized DOM navigator.
 
 ## 15. Motion
 
-Only control orientation uses short editorial transitions. Node positions do not move when filters change. Reduced motion collapses the optional 3D transition to `1e-05s`.
+Only short control and orientation transitions are used. Filters never reposition nodes. Reduced motion removes optional 3D-shell transition and nonessential glyph motion.
 
 ## 16. Responsive
 
-Five widths—320, 375, 768, 1440, 1920—were captured. The wide 8:4/inspector composition becomes a single sequence on tablet/mobile; 3D remains opt-in.
+320, 375, 768, 1440, and 1920 were exercised. Desktop uses a wide record plane; tablet stacks the inspector; mobile preserves effective node/touch scale through a bounded horizontal stage rather than shrinking the field below readable target size. Document-level horizontal overflow is zero.
 
 ## 17. Accessibility
 
-SVG name/description, DOM mirror, 44px target contract, visible distinct focus and selection, forced colors, reduced motion, text spacing, and 400% equivalent presentation were checked. A full assistive-technology session is not claimed.
+The SVG has a name and description; a synchronized DOM navigator is the single keyboard interaction surface; visible focus differs from selection; controls meet the 44px target contract; forced colors, reduced motion, text spacing, and 400% equivalent layouts are specified and tested. A full assistive-technology session is not claimed.
 
 ## 18. Data States
 
-Loading, unavailable, empty, error, mismatch, invalid node, missing evidence, unsupported 3D, and fallback are distinct. Pointer abortion yielded zero ready field and no mock.
+Loading, unavailable, empty, error, contract mismatch, projection mismatch, invalid node, missing evidence, unsupported 3D, and fallback states remain distinct. Missing governed data never produces a mock production view.
 
 ## 19. QA
 
-Typecheck, lint, 57 unit/component tests, build, 8 Agent 4 E2E tests, 9 existing presentation E2E tests, and 2 production Story–Explorer parity tests passed. Four existing tests were conditionally skipped by their own environment gates.
+- TypeScript: PASS.
+- ESLint: PASS.
+- Unit/component: 22 files, 62 tests PASS.
+- Production build: PASS, 2,186 modules transformed.
+- Agent 4 Story/Method/responsive E2E: 9 PASS.
+- Updated Story field/anchor/navigation contract scenario: PASS.
+- Five viewport document-overflow checks: PASS.
+- Blocking Axe violations in exercised Atlas surfaces: zero.
+- Runtime console errors and Vite overlay: zero.
 
-## 20. Remaining Blockers
+## 20. Remaining Non-blocking Limits
 
-- PCA 2D/3D, optional UMAP 3D, Tensor, region geometry, and screen centroids are absent.
-- Approved real-density collision judgment remains a separate data/core QA concern; frontend coordinates were not moved.
-- Vercel target and local/deployed parity remain blocked in the upstream runtime closure.
-- Full manual screen-reader QA is not verified.
-- A later parallel semantic-node edit changed Agent 3-owned worktree hashes after the Agent 4 baseline. These files were not overwritten or reverted; the exact drift is recorded in `AGENT_3_HASH_CROSSCHECK.csv` and must settle before treating the checkout as a frozen release candidate.
-- Current `ChapterAnswersAtlas` renders 140 nodes rather than the approved 16-node Story subset and introduces an additional answer-type primer. This violates Story–Explorer role separation and the public-control ceiling.
+- Governed PCA 2D/3D, optional UMAP 3D, tensor, region-contour, and centroid-screen payloads are absent and remain explicit unavailable/specification states.
+- Full manual screen-reader QA is `NOT_VERIFIABLE` in this run.
+- Vercel cutover and deployed parity are separate release gates and are not claimed here.
 
 ## 21. Gate Decision
 
-Still supported: `ATLAS_VISUAL_THESIS_LOCKED`, `ATLAS_SPACE_MODEL_LOCKED`, `NODE_LABEL_SYSTEM_PASS`, `FULL_EXPLORER_VID_PASS`, `PROJECTION_METHOD_LAB_VID_PASS`, `PCA_UMAP_COMPARE_VID_PASS`, `OPTIONAL_3D_VIEW_SPEC_READY`, `TENSOR_METHOD_VIEW_SPEC_READY`, `DESIGN_SYSTEM_PASS`, `RESPONSIVE_VID_PASS`, `ACCESSIBILITY_PRESENTATION_IMPLEMENTED`.
-
-Withheld: `STORY_PREVIEW_VID_PASS` and final handoff READY because the current Story semantic scope contradicts the contract.
+Granted: `ATLAS_VISUAL_THESIS_LOCKED`, `ATLAS_SPACE_MODEL_LOCKED`, `NODE_LABEL_SYSTEM_PASS`, `STORY_PREVIEW_VID_PASS`, `FULL_EXPLORER_VID_PASS`, `PROJECTION_METHOD_LAB_VID_PASS`, `PCA_UMAP_COMPARE_VID_PASS`, `OPTIONAL_3D_VIEW_SPEC_READY`, `TENSOR_METHOD_VIEW_SPEC_READY`, `DESIGN_SYSTEM_PASS`, `RESPONSIVE_VID_PASS`, `ACCESSIBILITY_PRESENTATION_IMPLEMENTED`, `AGENT_4_ATLAS_VID_HANDOFF_READY`.
 
 Not claimed: `PROJECTION_INSTANCE_PASS`, `PCA_MODEL_PASS`, `UMAP_MODEL_PASS`, `TENSOR_MODEL_PASS`, `APPROVED_FRONTEND_BUNDLE_PASS`, `REAL_DATA_ATLAS_RENDER_PASS`, `EVIDENCE_TRACEABILITY_PASS`, `ACCESSIBILITY_PASS`, `VISUAL_QA_PASS`, `P3_FINAL_CUTOVER_PASS`.
 
-Final local verdict: `AGENT_4_ATLAS_VID_HANDOFF_BLOCKED`.
+Final local verdict: `AGENT_4_ATLAS_VID_HANDOFF_READY`.

@@ -36,9 +36,10 @@ export function AtlasLegend({ defaultOpen = false }: AtlasLegendProps) {
           <div><dt className="font-bold">위치</dt><dd>topic projection</dd></div>
           <div><dt className="font-bold">크기</dt><dd>정규화 질량</dd></div>
           <div><dt className="font-bold">불투명도</dt><dd>신뢰도</dd></div>
-          <div><dt className="font-bold">색</dt><dd>A1 red → A8 blue</dd></div>
-          <div><dt className="font-bold">형태</dt><dd>모든 node 단일 원형</dd></div>
+          <div><dt className="font-bold">내부 표식·색</dt><dd>A1–A8 세부 행태</dd></div>
+          <div><dt className="font-bold">형태</dt><dd>정보 원 · 절차 둥근 사각 · 조치 마름모</dd></div>
           <div><dt className="font-bold">외곽선</dt><dd>완료 실선 · 진행 긴 점선 · 미완료 점선</dd></div>
+          <div><dt className="font-bold">작은 사선 badge</dt><dd>공개 대표 Evidence 없음</dd></div>
         </dl>
       </div>
     </details>

@@ -18,8 +18,8 @@ import {
 describe('Atlas node semantic encoding', () => {
   it('locks behavior shapes, A1-A8 marks, and status strokes as shared semantic tokens', () => {
     expect(NODE_GLYPH_TOKENS.information_non_direct.shape).toBe('circle');
-    expect(NODE_GLYPH_TOKENS.deferral_procedural.shape).toBe('circle');
-    expect(NODE_GLYPH_TOKENS.action_evidence.shape).toBe('circle');
+    expect(NODE_GLYPH_TOKENS.deferral_procedural.shape).toBe('square');
+    expect(NODE_GLYPH_TOKENS.action_evidence.shape).toBe('diamond');
     expect(Object.keys(ANSWER_TYPE_MARKS)).toEqual(['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8']);
     expect(STATUS_STROKE_DASH).toEqual({ complete: undefined, active: '12 6', unresolved: '2 5' });
     expect(createAtlasEncoding('A1', 'complete', 1)).toEqual(expect.objectContaining({ shapeToken: 'circle', fillToken: '#9f1239' }));

@@ -14,3 +14,13 @@ tests/e2e/atlas-contract-shell.spec.ts,contract fixture,Serve expanded summary c
 tests/e2e/atlas-experience-design.spec.ts,real-data UX,Replace defect expectation with approved chapter expectations
 tests/e2e/vercel-preview.spec.ts,deployment E2E,Assert article headings metrics and no legacy fixture
 tests/e2e/methodology-report.spec.ts,method contract,Align canonical release expectation
+src/assets/editorial/*.webp,article media,Optimized seven source-preserving deployment derivatives
+src/shared/api/atlas/atlasReleaseResource.ts,shared runtime,Resolve pointer fetch validate adapt cache dedupe and construct EvidenceRepository
+src/shared/api/atlas/useAtlasRelease.ts,React runtime,Expose shared release loading ready unavailable error and retry states
+src/widgets/atlas-scene/ChapterAnswersAtlas.tsx,Story Atlas,Consume shared ViewModel and render approved 16-node subset with filter carry
+src/widgets/atlas-scene/StoryAtlasClusterNavigator.tsx,Story UX,Describe approved KMeans bins represented by the Story subset without browser aggregation
+src/widgets/atlas-explorer/AtlasLegend.tsx,Atlas semantics,Expose A1-A8 palette and status encoding accessibly
+src/app/styles/story-editorial.css,article UX,Responsive editorial hierarchy figures and contrast fixes
+src/widgets/atlas-scene/story-atlas-vid.css,Story Atlas UX,Responsive preview primer clusters dossier and accessibility styling
+vite.config.ts,deployment packaging,Inline small derived WebP assets into lazy Story chunks for connector-safe upload
+vercel.json,Vercel runtime,SPA rewrites and pointer release HTML cache headers

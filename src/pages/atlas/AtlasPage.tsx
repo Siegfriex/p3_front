@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router';
 
 import { useAtlasRelease } from '@/shared/api/atlas/useAtlasRelease';
@@ -19,6 +19,12 @@ export function AtlasPage() {
   const release = useAtlasRelease();
   const queryResult = useMemo(() => parseAtlasQueryState(location.search), [location.search]);
 
+  useEffect(() => {
+    if (queryResult.wasNormalized) {
+      setSearchParams(queryResult.canonicalSearch, { replace: true });
+    }
+  }, [queryResult.canonicalSearch, queryResult.wasNormalized, setSearchParams]);
+
   const fixtureProvenance = import.meta.env.DEV && import.meta.env.VITE_ATLAS_FIXTURE_PROVENANCE === 'CONTRACT_FIXTURE'
     ? 'CONTRACT_FIXTURE'
     : undefined;
@@ -35,7 +41,7 @@ export function AtlasPage() {
           index="A"
           eyebrow="FULL EXPLORER / PUBLIC RECORD"
           title="답변행태 지도"
-          thesis="승인된 aggregate node만 표시하는 URL 기반 증거 탐색면입니다. 브라우저는 투영·집계·상태를 새로 계산하지 않습니다."
+          thesis="Topic Space의 답변행태 분포, 승인된 관계의 이유, 원문 근거 계보를 하나의 release와 projection에서 검증합니다. 브라우저는 투영·집계·상태를 새로 계산하지 않습니다."
           aside={<p className={`inline-flex min-h-11 w-full items-center justify-center border px-4 font-mono text-xs font-bold ${release.status === 'ready' ? 'border-[var(--atlas-state-ready)] bg-[var(--color-behavior-blue-bg)]' : 'border-[var(--atlas-state-warning)] bg-[var(--color-behavior-amber-bg)]'}`} role="status">{releaseState}</p>}
         />
         <div className="mt-6">

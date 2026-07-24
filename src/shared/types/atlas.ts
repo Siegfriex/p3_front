@@ -5,7 +5,17 @@ export const ANSWER_TYPES = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8'] as 
 export type AtlasStatus = (typeof ATLAS_STATUSES)[number];
 export type AtlasNodeStatus = (typeof ATLAS_NODE_STATUSES)[number];
 export type AnswerType = (typeof ANSWER_TYPES)[number];
-export type AtlasViewMode = 'nodes';
+export type AtlasViewMode = 'map' | 'relations' | 'evidence';
+
+export const ATLAS_RELATION_TYPES = [
+  'semantic_neighbor',
+  'shared_target',
+  'same_topic_cross_behavior',
+  'shared_evidence_context',
+  'temporal_continuity',
+] as const;
+
+export type AtlasRelationType = (typeof ATLAS_RELATION_TYPES)[number];
 
 export type BehaviorFamily =
   | 'information_non_direct'
@@ -52,6 +62,7 @@ export interface TopicBinViewModel {
   id: string;
   label: string | null;
   center: Point2D;
+  screen: Point2D;
   memberCount: number;
   representativeTargetIssueId: string | null;
 }
@@ -62,6 +73,7 @@ export interface CentroidViewModel {
   status: AtlasNodeStatus | null;
   answerType: AnswerType | null;
   position: Point2D;
+  screen: Point2D;
   memberCount: number;
   medoidEntityId: string | null;
 }
@@ -120,6 +132,41 @@ export interface AtlasQueryState {
   types: AnswerType[];
   nodeId: string | null;
   view: AtlasViewMode;
+  relationType: AtlasRelationType | null;
+  depth: 1;
+}
+
+export interface AtlasRelationViewModel {
+  id: string;
+  sourceNodeId: string;
+  targetNodeId: string;
+  type: AtlasRelationType;
+  directed: boolean;
+  weight: number;
+  confidence: number | null;
+  rankWithinSource: number;
+  evidenceCount: number;
+  label: string;
+  explanation: string | null;
+  source: Point2D;
+  target: Point2D;
+  encoding: {
+    lineToken: string;
+    widthToken: string;
+    dashToken: string;
+    opacity: number;
+    markerToken: string | null;
+  };
+}
+
+export interface AtlasRelationSummaryViewModel {
+  selectedNodeId: string;
+  directRelationCount: number;
+  semanticNeighborCount: number;
+  sharedTargetCount: number;
+  crossBehaviorCount: number;
+  sharedEvidenceCount: number;
+  temporalContinuityCount: number;
 }
 
 export interface AtlasStorySummaryViewModel {
@@ -136,6 +183,7 @@ export interface AtlasStorySummaryViewModel {
 
 export interface AtlasViewModelBundle {
   releaseId: string;
+  dataVersion: string;
   projectionId: string;
   projectionHash: string;
   bounds: ProjectionBounds;
@@ -146,4 +194,5 @@ export interface AtlasViewModelBundle {
   storySummary: AtlasStorySummaryViewModel;
   storyPreviewNodeIds: string[];
   evidenceRepository: EvidenceRepository;
+  relations: AtlasRelationViewModel[] | null;
 }
