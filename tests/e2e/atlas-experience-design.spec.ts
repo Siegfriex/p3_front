@@ -96,6 +96,79 @@ test('CTA contrast, fixed rail hit area, footer scope, and scroll regions are ex
   await expect(page.getByTestId('story-record-data-unavailable')).toHaveCount(0);
   await page.goto('/#gap');
   await expect(page.getByRole('heading', { name: /완료와 진행.*그 사이를 묻다/ })).toBeVisible();
-  await expect(page.getByTestId('approved-status-distribution').locator('article')).toHaveCount(3);
+  await expect(page.getByTestId('approved-status-distribution')).toHaveCount(0);
   await expect(page.getByTestId('story-gap-data-unavailable')).toHaveCount(0);
+});
+
+test('desktop editorial cleanup and final appeal layout match the approved composition', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/');
+  await expect(page.getByTestId('story-atlas-ready')).toBeVisible();
+
+  await expect(page.locator('#scale .story-approved-band')).toHaveCount(0);
+  await expect(page.locator('#record .story-approved-evidence-bridge')).toHaveCount(0);
+  await expect(page.locator('#gap .story-gap-meaning .story-contract-note')).toHaveCount(0);
+  await expect(page.locator('#gap .story-release-distribution')).toHaveCount(0);
+  await expect(page.locator('#answers .story-atlas-clusters__header > p')).toHaveCount(0);
+  await expect(page.getByRole('complementary', { name: '전체 아틀라스 투영 해석 주의' })).toHaveCount(0);
+  await expect(page.locator('#cases .story-evidence-index')).toHaveCount(0);
+  await expect(page.locator('#remains .story-remains-summary .story-contract-note')).toHaveCount(0);
+  await expect(page.locator('#remains .story-line-legend')).toHaveCount(0);
+
+  const storyPlot = page.locator('#answers .atlas-plot-surface');
+  const plotFill = await storyPlot.evaluate((element) => getComputedStyle(element).fill);
+  expect(plotFill).not.toMatch(/rgb\(0,?\s*0,?\s*0\)|#000(?:000)?/i);
+  await expect(page.locator('#answers [data-node-filter-state="matched"]')).toHaveCount(16);
+  await expect(page.locator('#answers [data-node-filter-state="context"]')).toHaveCount(124);
+  await expect(page.getByTestId('story-atlas-cluster-disclosure')).not.toHaveAttribute('open');
+  await expect(page.getByTestId('story-atlas-node-directory')).not.toHaveAttribute('open');
+
+  const identity = page.locator('#prologue-hero-identity');
+  await identity.scrollIntoViewIfNeeded();
+  const identityRatio = await identity.evaluate((element) => {
+    const box = element.getBoundingClientRect();
+    return box.width / box.height;
+  });
+  expect(identityRatio).toBeGreaterThan(3.45);
+  expect(identityRatio).toBeLessThan(3.6);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  const mobileIdentityRatio = await page.locator('#prologue-hero-identity').evaluate((element) => {
+    const box = element.getBoundingClientRect();
+    return box.width / box.height;
+  });
+  expect(mobileIdentityRatio).toBeGreaterThan(3.45);
+  expect(mobileIdentityRatio).toBeLessThan(3.6);
+
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/');
+  const finalAppeal = page.locator('#remains .story-final-appeal');
+  await finalAppeal.scrollIntoViewIfNeeded();
+  const finalLayout = await finalAppeal.evaluate((element) => {
+    const appeal = element.getBoundingClientRect();
+    const parent = element.parentElement;
+    const frame = parent?.getBoundingClientRect();
+    const style = parent ? getComputedStyle(parent) : null;
+    const contentWidth = (frame?.width ?? 0)
+      - Number.parseFloat(style?.paddingLeft ?? '0')
+      - Number.parseFloat(style?.paddingRight ?? '0');
+    return { appealWidth: appeal.width, contentWidth };
+  });
+  expect(finalLayout.appealWidth).toBeGreaterThan(finalLayout.contentWidth * 0.98);
+
+  const recordQuote = page.locator('#record .story-fullwidth-quote');
+  const recordQuoteWidth = await recordQuote.evaluate((element) => element.getBoundingClientRect().width);
+  expect(recordQuoteWidth).toBeGreaterThan(1400);
+
+  for (const selector of ['#scale .story-media-pair', '#gap .story-gap-meaning', '#remains .story-remains-summary']) {
+    const contained = await page.locator(selector).evaluate((element) => {
+      const parent = element.getBoundingClientRect();
+      return [...element.children].every((child) => {
+        const box = child.getBoundingClientRect();
+        return box.top >= parent.top - 1 && box.bottom <= parent.bottom + 1;
+      });
+    });
+    expect(contained, `${selector} children should remain inside their composition`).toBe(true);
+  }
 });

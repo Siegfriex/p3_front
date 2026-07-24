@@ -3,7 +3,6 @@ import { Check, Database, FileText, Share2 } from 'lucide-react';
 import { Link } from 'react-router';
 
 import { ChapterFrame } from '../../shared/ui/ChapterFrame';
-import { LineSymbol } from '../../shared/ui/LineSymbol';
 import { PageFrame } from '../../shared/ui/PageFrame';
 
 const EVASIVE_BY_YEAR = [
@@ -42,6 +41,7 @@ export const ChapterRemains: React.FC = () => {
         </header>
 
         <section className="story-remains-summary" aria-label="기사 결론 요약">
+          <p className="story-remains-summary__eyebrow story-hierarchy-1">FINAL FINDING / EDITORIAL VERDICT</p>
           <div className="story-reading-column">
             <p className="story-hierarchy-2 story-dropcap">
               기사 원고의 집계에서는 시정요구 사항의 47%가 아직 완전히 이행되지 않았습니다. ‘조치 완료’로 종결된 SPC 사례에서도
@@ -50,9 +50,6 @@ export const ChapterRemains: React.FC = () => {
             <p className="story-hierarchy-2">
               여기에 2020년부터 2025년까지 회의록에서 분류된 회피성 답변 1,408건을 함께 놓으면,
               국정감사가 실제 기관 행태와 정책 집행을 바꾸는 장치로 작동했는지를 다시 묻게 됩니다.
-            </p>
-            <p className="story-contract-note">
-              이 결론의 47%·1,408건은 사용자 제공 PDF 기사 원고의 편집 집계입니다. 승인 Atlas release의 decision group 및 behavior 분포와 합산하지 않습니다.
             </p>
           </div>
 
@@ -72,15 +69,15 @@ export const ChapterRemains: React.FC = () => {
           </div>
         </section>
 
-        <div className="story-line-legend" role="group" aria-label="결론 상태 선 범례">
-          <div><LineSymbol style="solid" length={110} color="var(--color-behavior-blue-deep)" /><span>닫힌 선 · 완결</span></div>
-          <div><LineSymbol style="dashed" length={110} color="var(--color-behavior-amber-deep)" /><span>이어지는 선 · 진행</span></div>
-          <div><LineSymbol style="break" length={110} color="var(--color-behavior-red-deep)" /><span>끊어진 선 · 단절</span></div>
-        </div>
-
-        <blockquote className="story-fullwidth-quote story-hierarchy-4">
-          공식 보고서의 단정한 수치 뒤에 가려진 행태를 계속 추적하고 기록하는 일. 그것이 시민 저널리즘이 의회 민주주의와
-          행정부 사이에 그어야 할 끊어지지 않는 선입니다.
+        <blockquote className="story-final-appeal">
+          <p>
+            공식 보고서의 단정한 수치 뒤에 가려진 행태를 계속 추적하고 기록하는 일. 그것이 시민 저널리즘이 의회 민주주의와
+            행정부 사이에 그어야 할 끊어지지 않는 선입니다.
+          </p>
+          <footer>
+            <span>LAST APPEAL / PUBLIC RECORD</span>
+            <strong>기록은 ‘완료’ 상태에서 멈추지 않습니다.</strong>
+          </footer>
         </blockquote>
 
         <div className="story-remains-actions">

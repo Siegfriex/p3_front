@@ -13,6 +13,8 @@ test('Story VID opens with all 140 approved nodes, 16 editorial anchors, and an 
   await expect(page.getByTestId('story-atlas-ready')).toBeVisible();
   await expect(page.locator('#answers [data-node-id]')).toHaveCount(140);
   await expect(page.locator('#answers [data-editorial-anchor="true"]')).toHaveCount(16);
+  await expect(page.locator('#answers [data-node-filter-state="matched"]')).toHaveCount(16);
+  await expect(page.locator('#answers [data-node-filter-state="context"]')).toHaveCount(124);
   await expect(page.locator('#answers #atlas-node-list button')).toHaveCount(140);
   await expect(page.getByTestId('story-selected-dossier')).toBeVisible();
   await expect(page.getByTestId('story-atlas-type-primer').locator('[data-answer-type]')).toHaveCount(8);
@@ -52,8 +54,10 @@ test('A1 color filter keeps the full field as context and KMeans opens the close
   await primer.locator('button[data-answer-type="A1"]').click();
   await expect(page).toHaveURL(/\?types=A1$/);
   await expect(page.locator('#answers [data-node-id]')).toHaveCount(140);
-  await expect(page.locator('#answers [data-node-filter-state="matched"]')).toHaveCount(12);
-  await expect(page.locator('#answers [data-node-filter-state="context"]')).toHaveCount(128);
+  await expect(page.locator('#answers [data-node-filter-state="matched"]')).toHaveCount(1);
+  await expect(page.locator('#answers [data-node-filter-state="matched"][data-editorial-anchor="true"]')).toHaveCount(1);
+  const a1MatchedCount = 1;
+  await expect(page.locator('#answers [data-node-filter-state="context"]')).toHaveCount(140 - a1MatchedCount);
   await expect(page.locator('#answers #atlas-node-list button')).toHaveCount(12);
   await expect(page.locator('.story-atlas-cluster-card')).toHaveCount(12);
   await expect(primer.locator('button[data-answer-type="A1"]')).toHaveAttribute('aria-pressed', 'true');
@@ -61,6 +65,8 @@ test('A1 color filter keeps the full field as context and KMeans opens the close
 
   await primer.getByRole('button', { name: 'A1–A8 전체 보기' }).click();
   await expect(page.locator('.story-atlas-cluster-card')).toHaveCount(24);
+  await page.getByTestId('story-atlas-cluster-disclosure').locator('summary').click();
+  await expect(page.getByTestId('story-atlas-cluster-disclosure')).toHaveAttribute('open', '');
   await page.locator('.story-atlas-cluster-card').first().click();
   await expect(page).toHaveURL(/\?node=ANODE_[A-F0-9]+$/);
   await expect(page.locator('#answers [data-selection-ring="true"]')).toHaveCount(1);

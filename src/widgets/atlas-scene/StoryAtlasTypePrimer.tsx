@@ -45,7 +45,7 @@ export function StoryAtlasTypePrimer({ distribution, selectedTypes, onSelectType
                       answerType={answerType}
                       status="complete"
                       fill={encoding.fillToken}
-                      stroke="var(--inverse-text)"
+                      stroke="var(--ink-primary)"
                       radius={12}
                       showAnswerMark={false}
                     />

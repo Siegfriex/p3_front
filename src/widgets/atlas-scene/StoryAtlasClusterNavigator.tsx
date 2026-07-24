@@ -19,9 +19,6 @@ export function StoryAtlasClusterNavigator({ nodes, topicBins, selectedTopicBinI
           <p className="redline-meta">APPROVED KMEANS / 24 TOPIC BINS</p>
           <h3 id="story-atlas-clusters-title">필터 결과가 모이는 질문 군집</h3>
         </div>
-        <p>
-          군집 배정은 upstream 96D vector KMeans 결과를 그대로 사용합니다. 각 카드는 해당 군집의 승인 중심과 가장 가까운 공개 node를 선택합니다.
-        </p>
       </header>
       <div className="story-atlas-clusters__summary" role="status">
         <strong>{nodes.length}</strong> filtered nodes · <strong>{clusters.length}</strong> visible clusters

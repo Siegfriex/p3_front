@@ -1,5 +1,3 @@
-import { ArrowRight, FileText, ShieldCheck } from 'lucide-react';
-
 import auditPhoto from '@/assets/editorial/audit-photo.webp';
 import dopingReportExcerpt from '@/assets/editorial/doping-report-excerpt.webp';
 import lawmakerPhoto from '@/assets/editorial/lawmaker-photo.webp';
@@ -7,14 +5,8 @@ import memorialPhoto from '@/assets/editorial/memorial-photo.webp';
 import ministerPhoto from '@/assets/editorial/minister-photo.webp';
 import spcLogo from '@/assets/editorial/spc-logo.webp';
 
-import { useDetailNavigation } from '@/shared/hooks/useDetailNavigation';
-import type { AtlasViewModelBundle, EvidenceSummaryViewModel } from '@/shared/types/atlas';
 import { ChapterFrame } from '@/shared/ui/ChapterFrame';
 import { PageFrame } from '@/shared/ui/PageFrame';
-
-interface ApprovedStoryChapterProps {
-  bundle: AtlasViewModelBundle;
-}
 
 interface EditorialFigureProps {
   src: string;
@@ -24,12 +16,6 @@ interface EditorialFigureProps {
   className?: string;
   contain?: boolean;
 }
-
-const STATUS_COPY = [
-  { key: 'complete', label: '추진완료', description: '공개 원문에 완료로 보고된 decision group' },
-  { key: 'active', label: '추진중', description: '공개 원문에 진행 중으로 보고된 decision group' },
-  { key: 'unresolved', label: '미완료·단절', description: '완료·진행으로 닫히지 않은 decision group' },
-] as const;
 
 const RECORD_TRACE = [
   { year: '2022', label: '사고', detail: 'SPL 평택공장 노동자 사망사고' },
@@ -90,15 +76,6 @@ function EditorialFigure({ src, alt, caption, source, className = '', contain = 
   );
 }
 
-function ReleaseStamp({ bundle }: ApprovedStoryChapterProps) {
-  return (
-    <div className="story-release-stamp">
-      <p className="story-hierarchy-1">APPROVED RELEASE / SHARED VIEWMODEL</p>
-      <p className="story-release-stamp__id">{bundle.releaseId}</p>
-    </div>
-  );
-}
-
 function NativeFlow({ title, steps, caption }: { title: string; steps: typeof DOPING_POLICY_STEPS; caption: string }) {
   return (
     <figure className="story-native-figure">
@@ -144,40 +121,7 @@ function ExecutionOverview() {
   );
 }
 
-function EvidenceCard({ record, index }: { record: EvidenceSummaryViewModel; index: number }) {
-  const { openEvidence } = useDetailNavigation();
-  return (
-    <article className="story-evidence-card">
-      <div>
-        <p className="story-hierarchy-1 story-accent-red">PUBLIC EVIDENCE / {String(index + 1).padStart(2, '0')}</p>
-        <h3 className="story-evidence-card__title">{record.title}</h3>
-        <dl className="story-evidence-card__meta">
-          <div>
-            <dt>REPORTED</dt>
-            <dd>{record.reportedStatus ?? '미기재'}</dd>
-          </div>
-          <div>
-            <dt>MEETING</dt>
-            <dd>{record.meetingId}</dd>
-          </div>
-        </dl>
-      </div>
-      <button
-        type="button"
-        onClick={() => openEvidence(record.id)}
-        className="story-evidence-card__action"
-        aria-label={`${record.title} 승인 증거 열기`}
-      >
-        승인 원문 추적
-        <ArrowRight className="h-4 w-4" aria-hidden="true" />
-      </button>
-    </article>
-  );
-}
-
-export function ChapterApprovedScale({ bundle }: ApprovedStoryChapterProps) {
-  const { storySummary } = bundle;
-
+export function ChapterApprovedScale() {
   return (
     <ChapterFrame id="scale" orderNumber="CHAPTER 01" className="story-chapter story-chapter--scale">
       <PageFrame>
@@ -276,26 +220,12 @@ export function ChapterApprovedScale({ bundle }: ApprovedStoryChapterProps) {
           <figcaption>국정감사결과 시정조치 및 결과보고서 · 요구사항 139번</figcaption>
         </figure>
 
-        <section className="story-approved-band" aria-label="승인 release 규모 지표">
-          <div>
-            <p className="story-hierarchy-1">APPROVED DATA LAYER</p>
-            <h3 className="story-hierarchy-3">기사의 문제의식과 승인 데이터 탐색층을 분리해 읽습니다</h3>
-          </div>
-          <dl className="story-approved-metrics">
-            <div><dt>DECISION GROUP</dt><dd>{storySummary.analysisEntityCount.toLocaleString('ko-KR')}</dd></div>
-            <div><dt>ATLAS NODE</dt><dd>{storySummary.atlasNodeCount.toLocaleString('ko-KR')}</dd></div>
-            <div><dt>PUBLIC EVIDENCE</dt><dd>{storySummary.publicEvidenceCount.toLocaleString('ko-KR')}</dd></div>
-          </dl>
-          <ReleaseStamp bundle={bundle} />
-        </section>
       </PageFrame>
     </ChapterFrame>
   );
 }
 
-export function ChapterApprovedRecord({ bundle }: ApprovedStoryChapterProps) {
-  const firstEvidence = bundle.evidence[0];
-
+export function ChapterApprovedRecord() {
   return (
     <ChapterFrame id="record" orderNumber="CHAPTER 02" className="story-chapter story-chapter--record">
       <PageFrame>
@@ -331,7 +261,7 @@ export function ChapterApprovedRecord({ bundle }: ApprovedStoryChapterProps) {
         </ol>
 
         <blockquote className="story-fullwidth-quote story-hierarchy-4">
-          시정조치 건수와 완료율만으로는 충분하지 않습니다. 이후 같은 사고가 재발했는지, 작업 현장이 실제로 바뀌었는지를 확인해야 합니다.
+          <p>시정조치 건수와 완료율만으로는 충분하지 않습니다. 이후 같은 사고가 재발했는지, 작업 현장이 실제로 바뀌었는지를 확인해야 합니다.</p>
         </blockquote>
 
         <div className="story-record-evidence">
@@ -350,22 +280,12 @@ export function ChapterApprovedRecord({ bundle }: ApprovedStoryChapterProps) {
           />
         </div>
 
-        {firstEvidence ? (
-          <section className="story-approved-evidence-bridge">
-            <div>
-              <ShieldCheck className="h-5 w-5" aria-hidden="true" />
-              <p className="story-hierarchy-1">APPROVED EVIDENCE BRIDGE</p>
-              <p className="story-hierarchy-2">PDF의 기사 사례와 별도로, 승인 release의 공개 Evidence는 원문 위치와 해시를 유지합니다.</p>
-            </div>
-            <EvidenceCard record={firstEvidence} index={0} />
-          </section>
-        ) : null}
       </PageFrame>
     </ChapterFrame>
   );
 }
 
-export function ChapterApprovedGap({ bundle }: ApprovedStoryChapterProps) {
+export function ChapterApprovedGap() {
   return (
     <ChapterFrame id="gap" orderNumber="CHAPTER 03" className="story-chapter story-chapter--gap">
       <PageFrame>
@@ -400,34 +320,14 @@ export function ChapterApprovedGap({ bundle }: ApprovedStoryChapterProps) {
           <div className="story-reading-column">
             <p className="story-hierarchy-2">완료에는 재발 여부와 사후 점검이 뒤따라야 하고, 진행에는 일정·협의 주체·다음 공개 시점이 따라야 합니다.</p>
             <blockquote className="story-callout story-hierarchy-3">상태를 세는 감사에서, 변화를 검증하는 감사로.</blockquote>
-            <p className="story-contract-note"><strong>분모 주의.</strong> 기사 원고의 1,566건과 아래 승인 release의 {bundle.storySummary.analysisEntityCount.toLocaleString('ko-KR')}개 decision group은 분석 단위가 달라 합산하지 않습니다.</p>
           </div>
         </div>
-
-        <section className="story-release-distribution" aria-label="승인 release reported status 분포" data-testid="approved-status-distribution">
-          <header>
-            <p className="story-hierarchy-1">APPROVED RELEASE / REPORTED STATUS</p>
-            <h3 className="story-hierarchy-3">브라우저 재집계 없이 승인 summary를 그대로 표시</h3>
-          </header>
-          <div>
-            {STATUS_COPY.map(({ key, label, description }, index) => (
-              <article key={key}>
-                <span aria-hidden="true">0{index + 1}</span>
-                <p className="story-hierarchy-1">{label}</p>
-                <strong>{bundle.storySummary.statusDistribution[key].toLocaleString('ko-KR')}</strong>
-                <p>{description}</p>
-              </article>
-            ))}
-          </div>
-          <ReleaseStamp bundle={bundle} />
-        </section>
       </PageFrame>
     </ChapterFrame>
   );
 }
 
-export function ChapterApprovedCases({ bundle }: ApprovedStoryChapterProps) {
-  const records = bundle.evidence.slice(0, 3);
+export function ChapterApprovedCases() {
   const maxEvasive = Math.max(...EVASIVE_BY_YEAR.map((item) => item.value));
 
   return (
@@ -491,19 +391,6 @@ export function ChapterApprovedCases({ bundle }: ApprovedStoryChapterProps) {
           <p className="story-contract-note">기사 원고가 정의한 회피성 답변 기준에 따른 회의록 분류값입니다. 승인 Atlas의 behavior label 분포와 같은 집계로 간주하지 않습니다.</p>
         </section>
 
-        <section className="story-evidence-index">
-          <header>
-            <FileText className="h-5 w-5" aria-hidden="true" />
-            <div>
-              <p className="story-hierarchy-1">APPROVED EVIDENCE INDEX</p>
-              <h3 className="story-hierarchy-3">상태보다 먼저, 승인 원문을 읽습니다</h3>
-            </div>
-          </header>
-          <div className="story-evidence-index__grid">
-            {records.map((record, index) => <EvidenceCard key={record.id} record={record} index={index} />)}
-          </div>
-          <ReleaseStamp bundle={bundle} />
-        </section>
       </PageFrame>
     </ChapterFrame>
   );

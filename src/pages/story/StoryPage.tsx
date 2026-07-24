@@ -94,7 +94,7 @@ export function StoryPage() {
         onChapterNavigate={handleChapterNavigate}
       />
       <ChapterPrologue bundle={bundle} />
-      {bundle ? <ChapterApprovedScale bundle={bundle} /> : (
+      {bundle ? <ChapterApprovedScale /> : (
         <StoryChapterUnavailable
           id="scale"
           orderNumber="CHAPTER 01"
@@ -103,7 +103,7 @@ export function StoryPage() {
           reason={unavailableReason}
         />
       )}
-      {bundle ? <ChapterApprovedRecord bundle={bundle} /> : (
+      {bundle ? <ChapterApprovedRecord /> : (
         <StoryChapterUnavailable
           id="record"
           orderNumber="CHAPTER 02"
@@ -112,7 +112,7 @@ export function StoryPage() {
           reason={unavailableReason}
         />
       )}
-      {bundle ? <ChapterApprovedGap bundle={bundle} /> : (
+      {bundle ? <ChapterApprovedGap /> : (
         <StoryChapterUnavailable
           id="gap"
           orderNumber="CHAPTER 03"
@@ -122,7 +122,7 @@ export function StoryPage() {
         />
       )}
       <ChapterAnswersAtlas />
-      {bundle ? <ChapterApprovedCases bundle={bundle} /> : (
+      {bundle ? <ChapterApprovedCases /> : (
         <StoryChapterUnavailable
           id="cases"
           orderNumber="CHAPTER 05"

@@ -67,13 +67,19 @@ export function ChapterAnswersAtlas() {
     () => allNodes.filter((node) => (query.status === 'all' || node.status === query.status) && query.types.includes(node.answerType)),
     [allNodes, query.status, query.types],
   );
-  const matchedIds = useMemo(() => new Set(filteredNodes.map((node) => node.id)), [filteredNodes]);
   const editorialAnchorNodeIds = useMemo(() => new Set(storyNodes.map((node) => node.id)), [storyNodes]);
-  const filterStates = useMemo(
-    () => new Map(allNodes.map((node): [string, NodeFilterState] => [node.id, matchedIds.has(node.id) ? 'matched' : 'context'])),
-    [allNodes, matchedIds],
+  const matchedAnchorIds = useMemo(
+    () => new Set(filteredNodes.filter((node) => editorialAnchorNodeIds.has(node.id)).map((node) => node.id)),
+    [editorialAnchorNodeIds, filteredNodes],
   );
   const requestedNode = query.nodeId ? allNodes.find((node) => node.id === query.nodeId) ?? null : null;
+  const filterStates = useMemo(
+    () => new Map(allNodes.map((node): [string, NodeFilterState] => [
+      node.id,
+      matchedAnchorIds.has(node.id) || requestedNode?.id === node.id ? 'matched' : 'context',
+    ])),
+    [allNodes, matchedAnchorIds, requestedNode?.id],
+  );
   const defaultNode = filteredNodes.find((node) => editorialAnchorNodeIds.has(node.id) && node.isPublicEvidenceAvailable)
     ?? filteredNodes.find((node) => editorialAnchorNodeIds.has(node.id))
     ?? filteredNodes.find((node) => node.isPublicEvidenceAvailable)
@@ -199,8 +205,22 @@ export function ChapterAnswersAtlas() {
                 onTypesChange={(types) => updateQuery({ ...query, types, nodeId: null })}
                 onReset={reset}
               />
-              <AtlasLegend defaultOpen />
+              <div className="story-atlas-map-intro">
+                <div>
+                  <p className="redline-meta">EDITORIAL FIELD / 16 ANCHORS FIRST</p>
+                  <h3>전체 지형 안에서 핵심 답변부터 읽습니다</h3>
+                </div>
+                <p>
+                  옅은 표식은 승인된 140개 전체 맥락, 선명한 표식은 기사 흐름으로 고정한 16개 앵커입니다.
+                  필터·호버·선택은 앵커에 우선 적용되고 전체 비교는 Explorer로 이어집니다.
+                </p>
+              </div>
+              <AtlasLegend />
               <div className="story-atlas-workspace">
+                <p className="story-atlas-scroll-cue">
+                  <span>SCROLL / DRAG</span>
+                  작은 화면에서는 지도를 좌우로 움직여 전체 좌표를 탐색할 수 있습니다.
+                </p>
                 <AtlasScene
                   nodes={allNodes}
                   nodeFilterStates={filterStates}
@@ -211,14 +231,22 @@ export function ChapterAnswersAtlas() {
                   onPreviewNode={setPreviewNodeId}
                   editorialAnchorNodeIds={editorialAnchorNodeIds}
                   persistentLabelNodeIds={persistentLabelNodeIds}
+                  topicBins={release.bundle.topicBins}
                 />
               </div>
-              <StoryAtlasClusterNavigator
-                nodes={filteredNodes}
-                topicBins={release.bundle.topicBins}
-                selectedTopicBinId={visualSelectedNode?.topicBinId ?? null}
-                onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
-              />
+              <details className="story-atlas-technical-disclosure" data-testid="story-atlas-cluster-disclosure">
+                <summary>
+                  <span className="redline-meta">DEEP DIVE / KMEANS</span>
+                  <strong>질문 군집별로 더 깊게 보기</strong>
+                  <small>{filteredNodes.length}개 필터 결과의 기술 탐색 열기</small>
+                </summary>
+                <StoryAtlasClusterNavigator
+                  nodes={filteredNodes}
+                  topicBins={release.bundle.topicBins}
+                  selectedTopicBinId={visualSelectedNode?.topicBinId ?? null}
+                  onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
+                />
+              </details>
               <StoryAtlasDossier
                 node={selectedNode}
                 onOpenEvidence={openEvidence}
@@ -235,27 +263,33 @@ export function ChapterAnswersAtlas() {
                   testId="story-atlas-filter-empty-state"
                 />
               ) : (
-                <div
-                  aria-label="필터와 동기화된 접근 가능한 node 목록"
-                  className="story-atlas-dom-mirror"
-                  role="region"
-                  tabIndex={0}
-                >
-                  <AtlasDomMirror
-                    nodes={filteredNodes}
-                    selectedNodeId={visualSelectedNode?.id ?? null}
-                    onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
-                    onClearSelection={() => updateQuery({ ...query, nodeId: null })}
-                    onPreviewNode={setPreviewNodeId}
-                    onFocusNode={setFocusNodeId}
-                  />
-                </div>
+                <details className="story-atlas-technical-disclosure" data-testid="story-atlas-node-directory">
+                  <summary>
+                    <span className="redline-meta">ACCESSIBLE DIRECTORY / KEYBOARD</span>
+                    <strong>전체 node 키보드 목록</strong>
+                    <small>{filteredNodes.length}개 필터 결과의 접근 가능한 목록 열기</small>
+                  </summary>
+                  <div
+                    aria-label="필터와 동기화된 접근 가능한 node 목록"
+                    className="story-atlas-dom-mirror"
+                    role="region"
+                    tabIndex={0}
+                  >
+                    <AtlasDomMirror
+                      nodes={filteredNodes}
+                      selectedNodeId={visualSelectedNode?.id ?? null}
+                      onSelectNode={(nodeId) => updateQuery({ ...query, nodeId })}
+                      onClearSelection={() => updateQuery({ ...query, nodeId: null })}
+                      onPreviewNode={setPreviewNodeId}
+                      onFocusNode={setFocusNodeId}
+                    />
+                  </div>
+                </details>
               )}
               <div className="flex flex-wrap gap-3 border-t border-[var(--line-medium)] pt-5">
                 <Link className="atlas-action-primary" to={explorerHref}>현재 필터로 전체 답변행태 지도 보기</Link>
                 <Link className="atlas-action-secondary" to="/method">투영 방법 확인</Link>
               </div>
-              <AtlasProjectionNote />
             </section>
           ) : null}
         </div>

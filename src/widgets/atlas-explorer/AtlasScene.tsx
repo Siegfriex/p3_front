@@ -1,3 +1,5 @@
+import { useLayoutEffect, useRef } from 'react';
+
 import {
   ATLAS_PLOT_RECT,
   ATLAS_VIEWBOX,
@@ -59,6 +61,8 @@ export function AtlasScene({
   persistentLabelNodeIds = EMPTY_NODE_IDS,
   topicBins = [],
 }: AtlasSceneProps) {
+  const visualScrollRef = useRef<HTMLDivElement>(null);
+  const hasCenteredVisualScroll = useRef(false);
   const renderedNodes = nodes.filter((node) => nodeFilterStates.get(node.id) !== 'excluded');
   const interactiveNodes = renderedNodes.filter((node) => (nodeFilterStates.get(node.id) ?? 'matched') === 'matched');
   const contextCount = renderedNodes.length - interactiveNodes.length;
@@ -69,6 +73,26 @@ export function AtlasScene({
   const visibleTopicBinIds = new Set(interactiveNodes.map((node) => node.topicBinId));
   const selectedNode = renderedNodes.find((node) => node.id === selectedNodeId) ?? null;
 
+  useLayoutEffect(() => {
+    const scroller = visualScrollRef.current;
+    if (!scroller || hasCenteredVisualScroll.current || interactiveNodes.length === 0) return;
+
+    if (scroller.scrollWidth <= scroller.clientWidth + 1) {
+      hasCenteredVisualScroll.current = true;
+      return;
+    }
+
+    const nodeXs = interactiveNodes.map((node) => node.screen.x);
+    const fieldCenterX = (Math.min(...nodeXs) + Math.max(...nodeXs)) / 2;
+    const renderedScale = scroller.scrollWidth / ATLAS_VIEWBOX.width;
+    const desiredScrollLeft = fieldCenterX * renderedScale - scroller.clientWidth / 2;
+    scroller.scrollLeft = Math.min(
+      scroller.scrollWidth - scroller.clientWidth,
+      Math.max(0, desiredScrollLeft),
+    );
+    hasCenteredVisualScroll.current = true;
+  }, [interactiveNodes]);
+
   return (
     <AtlasStageFrame
       label="QUESTION / ANSWER FIELD"
@@ -78,6 +102,7 @@ export function AtlasScene({
     >
       <AtlasTopicIndex topicBins={topicBins} visibleTopicBinIds={visibleTopicBinIds} />
       <div
+        ref={visualScrollRef}
         className="atlas-visual-scroll"
         role="region"
         aria-label="답변행태 시각 지도 스크롤 영역"

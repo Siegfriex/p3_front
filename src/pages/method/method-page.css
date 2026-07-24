@@ -1,7 +1,7 @@
 .method-page {
   --method-ink: #15212d;
   --method-ink-soft: #43505c;
-  --method-muted: #6a736f;
+  --method-muted: #565f5b;
   --method-paper: #f3f1eb;
   --method-surface: #fbfaf6;
   --method-rule: #d6d2c8;
@@ -278,20 +278,22 @@
 }
 
 .method-report-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 760px) 280px;
-  gap: clamp(3rem, 5.7vw, 5rem);
-  align-items: start;
-  justify-content: space-between;
+  position: relative;
+  display: block;
+  width: min(100%, 920px);
 }
 
 .method-report {
   min-width: 0;
+  width: 100%;
 }
 
 .method-rail {
-  order: 2;
-  min-width: 0;
+  position: absolute;
+  top: 0;
+  left: calc(100% + clamp(2rem, 3.5vw, 3.25rem));
+  width: 15rem;
+  height: 100%;
 }
 
 .method-rail__inner {
@@ -2021,14 +2023,19 @@
   color: var(--method-green);
 }
 
-@media (max-width: 68rem) {
+@media (max-width: 82rem) {
   .method-report-layout {
-    grid-template-columns: minmax(0, 760px);
-    justify-content: center;
+    margin-inline: auto;
   }
 
   .method-rail {
     display: none;
+  }
+}
+
+@media (max-width: 68rem) {
+  .method-report-layout {
+    width: min(100%, 760px);
   }
 
   .method-lifecycle {
